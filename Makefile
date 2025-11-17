@@ -1,4 +1,4 @@
-NAME			:= lem_in
+NAME			:= lem-in
 
 SRC_DIR			:= srcs
 OBJ_DIR			:= obj

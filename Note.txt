@@ -1,37 +1,86 @@
-
-Rooms position:
-
-Rooms, which are defined by: name coord_x coord_y
-
-##start
-1 23 3
-2 16 7
-#comment
-3 16 3
-4 16 5
-5 9 3
-6 1 5
-7 4 8
-##end
-0 9 5
+TO-DO:
 
 
-Links between rooms:
+Struct general data
+
+Data:
+
+- General infos
+
+Time
+Number of turns
+Number of ants
+(Number of rooms)
+(Number of links)
+
+- Errors
+
+- map
+
+start room (position)
+end room (position)
+Number of the room
+
+Rooms:
+
+Position (x, y)
+links with others rooms
+bool if empty 
+
+Links:
+Number representing for pheromones
+Rooms linked
 
 
-Links, which are defined by: name1-name2
+- ant 
 
-0-4
-0-6
-1-3
-4-3
-5-2
-3-5
-#another comment
-4-2
-2-1
-7-6
-7-2
-7-4
-6-5
-#another comment
+position
+
+I) Parsing
+
+Si le parsing est OK, print les datas
+
+Print: 
+
+Number of ants
+Start
+End 
+Others rooms (sorted) 
+Links 
+
+
+II) Exec
+
+Struct ant
+Struct map, rooms
+
+Main algo (ACO):
+
+
+Trouver un paier de recherche sur l'algo
+2 criters:
+I) Pheromone Level 
+Deposer pheromones sur le chemin retour si chemin le plus court
+
+II) Heuristic Information (Path Length)
+
+
+Algo to reinforcement and evaporation pheomones in times 
+
+
+III) Vizualizer
+
+
+
+
+
+
+
+
+
+
+links:
+
+https://dilipkumar.medium.com/ant-colony-optimization-aco-algorithm-6a954b0b083e
+https://members.loria.fr/VThomas/enseignement/M2rar/slides/04_algorithme%20fourmis_v2.pdf
+https://github.com/jraleman
