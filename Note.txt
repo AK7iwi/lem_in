@@ -1,6 +1,13 @@
 TO-DO:
 
 
+Parsing
+
+
+-----------------------------------------
+ROADMAP:
+
+
 Struct general data
 
 Data:
@@ -38,6 +45,16 @@ position
 
 I) Parsing
 
+Improve gnl:
+Rename
+Norme
+Check the define Buffer(.h)
+
+Parsing
+
+check for argc
+
+
 Si le parsing est OK, print les datas
 
 Print: 
@@ -69,12 +86,6 @@ Algo to reinforcement and evaporation pheomones in times
 
 
 III) Vizualizer
-
-
-
-
-
-
 
 
 

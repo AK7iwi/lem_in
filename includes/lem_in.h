@@ -7,6 +7,37 @@
 
 #include "errors.h"
 #include <stdlib.h>
+#include <stdio.h>
+#include <unistd.h>
 
+//**********************************************//
+//					STRUCTURES					//
+//**********************************************//
+
+typedef struct s_data
+{
+	t_err 		err;
+} 	t_data;
+
+//**********************************************//
+//												//
+//					  TOOLS		  				//
+//												//
+//**********************************************// 
+
+/* tools/print/print.c*/
+void	ft_putstr(char *str);
+
+//**********************************************//
+//												//
+//					INITIALIZER  				//
+//												//
+//**********************************************// 
+
+/* init/init_errors.c */
+void 	init_errors(t_data *data);
+
+/* init/init.c */
+void    init(t_data *data, char **argv);
 
 #endif /* LEM_IN_H */
