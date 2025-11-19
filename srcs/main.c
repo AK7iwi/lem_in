@@ -7,7 +7,8 @@ int main(int argc, char **argv)
     printf("argc: %i\n", argc);
 
     init(&data, argv);
-    //data.map = get_next_line(stdin);   
+    if (parse_map(&data, stdin))
+        return (EXIT_FAILURE); //error_displayer
 
     return (EXIT_SUCCESS);
 }
