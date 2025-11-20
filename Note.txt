@@ -70,13 +70,12 @@ Struct map, rooms
 Main algo (ACO):
 
 
-Trouver un paier de recherche sur l'algo
+Trouver un papier de recherche sur l'algo
 2 criters:
 I) Pheromone Level 
 Deposer pheromones sur le chemin retour si chemin le plus court
 
 II) Heuristic Information (Path Length)
-
 
 Algo to reinforcement and evaporation pheomones in times 
 
