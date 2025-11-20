@@ -1,14 +1,11 @@
-# include "lem_in.h"
+#include "lem_in.h"
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-    t_data  data;
+	t_data	data;
 
-    printf("argc: %i\n", argc);
-
-    init(&data, argv);
-    if (parse_map(&data, stdin))
-        return (EXIT_FAILURE); //error_displayer
-
-    return (EXIT_SUCCESS);
+	init(&data, argv);
+	if (parser(&data, STDIN_FILENO, argc))
+		return (errors_displayer(data.err), EXIT_FAILURE);
+	return (EXIT_SUCCESS);
 }

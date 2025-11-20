@@ -5,7 +5,7 @@
 //					INCLUDES					//
 //**********************************************//
 
-#include <stdint.h>
+# include <stdint.h>
 
 //**********************************************//
 //					DEFINES						//
@@ -16,11 +16,9 @@
 # define COLOR_RED     "\x1b[31m"
 
 /* Parsing errors */
-# define ERR_1			0x1
+# define E_ARGC			0x1
 
-
-# define E_QUOTE		"E1\n"
-
+# define ERR_ARGC		"Error: argc\n"
 
 //**********************************************//
 //					STRUCTURES					//
@@ -38,8 +36,7 @@ typedef struct s_err
 //												//
 //**********************************************//
 
-/* */
-
-
+/* errors/display_errors.c */
+void	errors_displayer(t_err error);
 
 #endif /* ERRORS_H */

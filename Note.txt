@@ -6,6 +6,7 @@ Parsing
 -----------------------------------------
 ROADMAP:
 
+General:
 
 Struct general data
 
@@ -45,11 +46,8 @@ position
 ------------------------------------------------------------------------
 I) Parsing
 
-Import gnl
-
 Parsing
 
-check for argc
 
 Si le parsing est OK, print les datas
 
@@ -61,6 +59,8 @@ End
 Others rooms (sorted) 
 Links 
 
+
+Check for strerror and perror;
 
 II) Exec
 

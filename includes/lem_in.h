@@ -1,15 +1,15 @@
-#ifndef MINISHELL_H
+#ifndef LEM_IN_H
 # define LEM_IN_H
 
 //**********************************************//
 //					INCLUDES					//
 //**********************************************//
 
-#include "errors.h"
-#include "get_next_line.h"
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
+# include "errors.h"
+# include "get_next_line.h"
+# include <stdlib.h>
+# include <stdio.h>
+# include <unistd.h>
 
 //**********************************************//
 //					STRUCTURES					//
@@ -17,8 +17,8 @@
 
 typedef struct s_data
 {
-	t_err 		err;
-} 	t_data;
+	t_err	err;
+}	t_data;
 
 //**********************************************//
 //												//
@@ -26,8 +26,17 @@ typedef struct s_data
 //												//
 //**********************************************// 
 
-/* tools/print/print.c*/
+/* tools/print/print.c */
 void	ft_putstr(char *str);
+
+//**********************************************//
+//												//
+//					  PARSER		  			//
+//												//
+//**********************************************//
+
+/* parser/parser.c */
+bool	parser(t_data *data, int fd, int argc);
 
 //**********************************************//
 //												//
@@ -35,10 +44,7 @@ void	ft_putstr(char *str);
 //												//
 //**********************************************// 
 
-/* init/init_errors.c */
-void 	init_errors(t_data *data);
-
 /* init/init.c */
-void    init(t_data *data, char **argv);
+void	init(t_data *data, char **argv);
 
 #endif /* LEM_IN_H */

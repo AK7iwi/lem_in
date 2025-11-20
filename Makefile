@@ -4,10 +4,13 @@ SRC_DIR			:= srcs
 OBJ_DIR			:= obj
 
 SRCS			:=	main.c \
-					init/init.c init/init_errors.c \
-					tools/get_next_line/srcs/get_next_line.c tools/get_next_line/srcs/utils/utils.c
-SRCS        := $(SRCS:%=$(SRC_DIR)/%)
-OBJS        := $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
+					init/init.c \
+					errors/display_errors.c \
+					parser/parser.c \
+					tools/get_next_line/srcs/get_next_line.c tools/get_next_line/srcs/utils/utils.c \
+					tools/print/print.c
+SRCS        	:= $(SRCS:%=$(SRC_DIR)/%)
+OBJS        	:= $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 CC				:= cc
 CFLAGS			:= -Wall -Wextra -Werror
