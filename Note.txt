@@ -38,8 +38,7 @@ Links:
 Number representing for pheromones
 Rooms linked
 
-
-- ant 
+- ant
 
 position
 
@@ -48,8 +47,14 @@ I) Parsing
 
 Continue parsing
 
+Fill struct
+
 Empty line at the end:
 Think how to handle: error or not 
+
+
+
+nb room; i - 1 (ant nb) - links - 2 (start + end) - other comment
 
 
 
