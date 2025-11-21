@@ -6,7 +6,7 @@ OBJ_DIR			:= obj
 SRCS			:=	main.c \
 					init/init.c \
 					errors/display_errors.c \
-					parser/parser.c \
+					parser/parser.c parser/parse_data/parse_data.c \
 					tools/get_next_line/srcs/get_next_line.c tools/get_next_line/srcs/utils/utils.c \
 					tools/print/print.c
 SRCS        	:= $(SRCS:%=$(SRC_DIR)/%)

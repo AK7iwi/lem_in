@@ -12,13 +12,20 @@
 //**********************************************//
 
 /* Colors */
-# define COLOR_RESET   "\x1b[0m"
-# define COLOR_RED     "\x1b[31m"
+# define COLOR_RESET   		"\x1b[0m"
+# define COLOR_RED     		"\x1b[31m"
 
 /* Parsing errors */
-# define E_ARGC			0x1
+# define E_ARGC				0x1
 
-# define ERR_ARGC		"Error: argc\n"
+# define E_EMPTY_LINE		0x2
+# define E_NUMBER			0x4
+
+# define ERR_ARGC			"ERROR: argc\n"
+
+# define ERR_EMPTY_LINE		"ERROR: empty line\n"
+# define ERR_NUMBER			"ERROR: First line must contain only one number\n"
+
 
 //**********************************************//
 //					STRUCTURES					//

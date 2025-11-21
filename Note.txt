@@ -46,7 +46,11 @@ position
 ------------------------------------------------------------------------
 I) Parsing
 
-Parsing
+Continue parsing
+
+Empty line at the end:
+Think how to handle: error or not 
+
 
 
 Si le parsing est OK, print les datas
@@ -81,6 +85,16 @@ Algo to reinforcement and evaporation pheomones in times
 
 
 III) Vizualizer
+
+
+IV) Test
+
+
+Empty map
+map with empt lines
+Valid map but empty line at the end
+
+
 
 
 

@@ -55,7 +55,7 @@ typedef struct s_ant
 
 typedef struct s_data
 {
-	uint16_t	turn;
+	uint16_t	moves;
 	uint16_t	time;
 	uint16_t	nb_ants;
 
@@ -69,6 +69,9 @@ typedef struct s_data
 //					  TOOLS		  				//
 //												//
 //**********************************************// 
+
+/* parser/parse_data/parse_data.c */
+bool	parse_data(t_data *data, int fd);
 
 /* tools/print/print.c */
 void	ft_putstr(char *str);
