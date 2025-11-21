@@ -1,37 +1,20 @@
 #include "lem_in.h"
 
-static	bool	parse_line(t_data *data, int	fd, char	*line, size_t i)
+static	bool	parse_line(t_data *data, int	fd, char	*line, size_t	i)
 {
 	(void)fd;
-	if (line[0] == '\0' || line[0] == '\n')
+	if (is_last_char(line[0]))
 		return(data->err.parsing_errors |= E_EMPTY_LINE, EXIT_FAILURE);
-	else if (i == 0 && parse_nb_ants_line(data, line))
+	if (i == 0 && parse_nb_ants_line(data, line))
 		return (EXIT_FAILURE);
-	else if (parse_room(line))
+	// if (parse_comment(line))
+	// 	return (EXIT_FAILURE);
+	if (parse_room(line))
 		return (EXIT_FAILURE);
-	else if (parse_link(line))
+	if (parse_link(line))
 		return (EXIT_FAILURE);
 	else
-		printf("pppp\n");
-
-	// else 
-	// {
-	// 	//parse_rooms_fct
-	// 	if (line == "##start")
-	// 		//free(line);
-	// 		//get_next_line(fd)
-	// 		//store line
-	// 	else if (line == "##end")
-	// 		//free line
-	// 		//get_next_line(fd)
-	// 		//store line
-	// 	else if (line[0] == "#" && line[1] == "#")
-	// 		//free line
-	// 		//get_next_line(fd)
-	// 	else
-	// 		//store_room info
-	// }
-	//parse_links
+		printf("pppp\n"); //maybe handle empty lines at the end here
 	return (EXIT_SUCCESS);
 }
 

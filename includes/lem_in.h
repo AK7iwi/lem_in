@@ -70,7 +70,8 @@ typedef struct s_data
 //												//
 //**********************************************//
 
-/* tools/check_type/is_digit.c */
+/* tools/check_type/check_type.c */
+bool	is_alnum(int c);
 bool	is_digit(int c);
 
 /* tools/print/print.c */
@@ -83,13 +84,15 @@ void	ft_putstr(char *str);
 //**********************************************//
 
 /* parser/parse_data/tools/parse_data_tools.c */
-bool	is_last_char(char c);
+bool	is_valid_name(char	*line,	size_t	*i);
 bool	is_valid_number(char	*line, size_t	*i);
 void	skip_space(char	*line, size_t	*i);
+bool	is_last_char(char c);
 
 /* parser/parse_data/parse_line_type.c */
 bool	parse_link(char *line);
 bool	parse_room(char *line);
+bool	parse_comment(char *line);
 bool	parse_nb_ants_line(t_data *data, char	*line);
 
 /* parser/parse_data/parse_data.c */

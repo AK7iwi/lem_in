@@ -6,14 +6,14 @@ bool	parse_link(char *line)
 
 	i = 0;
 	skip_space(line, &i);
-	if (!is_valid_number(line, &i))
+	if (!is_valid_name(line, &i)) //is_existing room
 		return (EXIT_FAILURE);
 	skip_space(line, &i);
 	if (line[i] != '-')
 		return (EXIT_FAILURE);
 	i++;
 	skip_space(line, &i);
-	if (!is_valid_number(line, &i))
+	if (!is_valid_name(line, &i)) //is_existing room
 		return (EXIT_FAILURE);
 	skip_space(line, &i);
 	if (!is_last_char(line[i]))
@@ -28,14 +28,35 @@ bool	parse_room(char *line)
 
 	i = 0;
 	skip_space(line, &i);
-	while (line[i] != ' ' && !(line[i] >= 9 && line[i] <= 13)) /* Room's name */
-		i++;
+	if (!is_valid_name(line, &i)) /* Room's name */
+		return (EXIT_FAILURE);
 	skip_space(line, &i);
 	if (!is_valid_number(line, &i)) /* coord_x */
 		return (EXIT_FAILURE);
 	skip_space(line, &i);
 	if (!is_valid_number(line, &i)) /* coord_y */
 		return (EXIT_FAILURE);
+	skip_space(line, &i);
+	if (!is_last_char(line[i]))
+		return (EXIT_FAILURE);
+
+	return (EXIT_SUCCESS);
+}
+
+bool	parse_comment(char *line)
+{
+	size_t	i;
+
+	i = 0;
+	skip_space(line, &i);
+	if (line[i] == '#') 
+	{
+		if (line[i + 1] == '#')
+			//if is_start()
+			//if is_end()
+		else
+			return (EXIT_SUCCESS);
+	} 
 	skip_space(line, &i);
 	if (!is_last_char(line[i]))
 		return (EXIT_FAILURE);

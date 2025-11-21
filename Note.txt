@@ -45,18 +45,24 @@ position
 ------------------------------------------------------------------------
 I) Parsing
 
-Continue parsing
+Change logic of parse_line
+
+parse_room:
+Check if room name starts with 'L' or '#
+
+parse_link:
+Check if the room already exist instead of valid_name
+
+Write errors in error.h and display_errors
+
+Empty line at the end:
+Think how to handle, if error or not: for now error
 
 Fill struct
 
-Empty line at the end:
-Think how to handle: error or not 
+nb room: i - 1 (ant nb) - links - 2 (start + end) - other comment
 
-
-
-nb room; i - 1 (ant nb) - links - 2 (start + end) - other comment
-
-
+Check for strerror and perror;
 
 Si le parsing est OK, print les datas
 
@@ -68,8 +74,6 @@ End
 Others rooms (sorted) 
 Links 
 
-
-Check for strerror and perror;
 
 II) Exec
 
