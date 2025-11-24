@@ -3,52 +3,12 @@ TO-DO:
 
 Parsing
 
------------------------------------------
-ROADMAP:
-
-General:
-
-Struct general data
-
-Data:
-
-- General infos
-
-Time
-Number of turns
-Number of ants
-(Number of rooms)
-(Number of links)
-
-- Errors
-
-- map
-
-start room (position)
-end room (position)
-Number of the room
-
-Rooms:
-
-Position (x, y)
-links with others rooms
-bool if empty 
-
-Links:
-Number representing for pheromones
-Rooms linked
-
-- ant
-
-position
-
 ------------------------------------------------------------------------
 I) Parsing
 
-Change logic of parse_line
+Room and link cant be mixed
 
-parse_room:
-Check if room name starts with 'L' or '#
+Fill struct
 
 parse_link:
 Check if the room already exist instead of valid_name
@@ -56,11 +16,8 @@ Check if the room already exist instead of valid_name
 Write errors in error.h and display_errors
 
 Empty line at the end:
-Think how to handle, if error or not: for now error
+Think how to handle, if error or not: for now not an error
 
-Fill struct
-
-nb room: i - 1 (ant nb) - links - 2 (start + end) - other comment
 
 Check for strerror and perror;
 
@@ -98,14 +55,24 @@ III) Vizualizer
 
 IV) Test
 
+Start/end:
 
-Empty map
-map with empt lines
-Valid map but empty line at the end
+Char after start/end: startt, ...
+Map with two starts/ends
+Map with one valid start/end, one invalid start/end
 
+No links
+No rooms
 
+Number:
 
+Not a Number
+Invalid number (mix with letters)
 
+Room:
+
+Room with string name
+Room starting with L/#
 
 
 links:

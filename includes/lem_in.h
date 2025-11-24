@@ -70,7 +70,16 @@ typedef struct s_data
 //												//
 //**********************************************//
 
+/* tools/fill_struct/fill_room.c */
+void	fill_room(t_data *data, char *line, bool is_start, bool is_end);
+/* tools/fill_struct/fill_nb_ants.c */
+void	fill_nb_ants(t_data *data, char *line);
+
+/* tools/convert_type/ft_atoi.c */
+int		ft_atoi(const char *nptr);
+
 /* tools/check_type/check_type.c */
+bool	is_last_char(char c);
 bool	is_alnum(int c);
 bool	is_digit(int c);
 
@@ -79,20 +88,30 @@ void	ft_putstr(char *str);
 
 //**********************************************//
 //												//
+//					  DISPLAYER		  			//
+//												//
+//**********************************************//
+
+/* displayer/print_general_infos.c */
+void    print_general_infos(t_data  *data);
+
+//**********************************************//
+//												//
 //					  PARSER		  			//
 //												//
 //**********************************************//
 
 /* parser/parse_data/tools/parse_data_tools.c */
+bool	is_end_room(char	*line, size_t	*i);
+bool	is_start_room(char	*line, size_t	*i);
 bool	is_valid_name(char	*line,	size_t	*i);
 bool	is_valid_number(char	*line, size_t	*i);
 void	skip_space(char	*line, size_t	*i);
-bool	is_last_char(char c);
 
 /* parser/parse_data/parse_line_type.c */
-bool	parse_link(char *line);
-bool	parse_room(char *line);
-bool	parse_comment(char *line);
+bool	parse_link(char	*line);
+bool	parse_room(t_data *data, char	*line, bool	is_start, bool	is_end);
+bool	parse_comment(t_data *data, int	fd, char	*line);
 bool	parse_nb_ants_line(t_data *data, char	*line);
 
 /* parser/parse_data/parse_data.c */
