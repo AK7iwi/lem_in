@@ -6,31 +6,48 @@ Parsing
 ------------------------------------------------------------------------
 I) Parsing
 
-Room and link cant be mixed
 
-Fill struct
+- Init struct:
+Fill_room:
+Check Minishell to understand
+In Minishell, alloc for t_ast, t_tok, t_redir, others struct are malloc in previous struct
+t_tok are direct chained list, rooms are chained with links so array
 
-parse_link:
+Need to allocate map but in the init fct. Rename init_room --> fill_room
+
+
+- free data
+
+- parse_link:
 Check if the room already exist instead of valid_name
 
-Write errors in error.h and display_errors
+- Init links
 
-Empty line at the end:
-Think how to handle, if error or not: for now not an error
-
-
-Check for strerror and perror;
-
-Si le parsing est OK, print les datas
+- print_infos
 
 Print: 
 
 Number of ants
 Start
 End 
-Others rooms (sorted) 
-Links 
+Rooms
+Links
 
+- To check/parse
+Room and link cant be mixed
+Map must have a solution, find link between start and end 
+
+- Error:
+Check wich errors can be return 
+Write errors in error.h and display_errors
+
+Empty line at the end:
+Think how to handle, if error or not: for now not an error
+
+Check for strerror and perror;
+
+Refacto:
+parse_comment
 
 II) Exec
 
@@ -73,6 +90,10 @@ Room:
 
 Room with string name
 Room starting with L/#
+Room without name, coordonate, ...
+
+Links:
+
 
 
 links:

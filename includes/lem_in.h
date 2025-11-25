@@ -70,11 +70,6 @@ typedef struct s_data
 //												//
 //**********************************************//
 
-/* tools/fill_struct/fill_room.c */
-void	fill_room(t_data *data, char *line, bool is_start, bool is_end);
-/* tools/fill_struct/fill_nb_ants.c */
-void	fill_nb_ants(t_data *data, char *line);
-
 /* tools/convert_type/ft_atoi.c */
 int		ft_atoi(const char *nptr);
 
@@ -84,7 +79,8 @@ bool	is_alnum(int c);
 bool	is_digit(int c);
 
 /* tools/print/print.c */
-void	ft_putstr(char *str);
+void	ft_putnbr(int	n, int	fd);
+void	ft_putstr(char *str, int	fd);
 
 //**********************************************//
 //												//
@@ -102,8 +98,8 @@ void    print_general_infos(t_data  *data);
 //**********************************************//
 
 /* parser/parse_data/tools/parse_data_tools.c */
-bool	is_end_room(char	*line, size_t	*i);
-bool	is_start_room(char	*line, size_t	*i);
+bool	is_end_room(char	*line, size_t	i);
+bool	is_start_room(char	*line, size_t	i);
 bool	is_valid_name(char	*line,	size_t	*i);
 bool	is_valid_number(char	*line, size_t	*i);
 void	skip_space(char	*line, size_t	*i);
@@ -125,6 +121,12 @@ bool	parser(t_data *data, int fd, int argc);
 //					INITIALIZER  				//
 //												//
 //**********************************************// 
+
+/* init/init_struct/init_link.c */
+/* init/init_struct/init_room.c */
+void	init_room(t_data *data, char *line, size_t name_start, size_t name_end, size_t x_start, size_t x_end, size_t y_start, size_t y_end, bool is_start, bool is_end);
+/* init/init_struct/init_nb_ants.c */
+void	init_nb_ants(t_data *data, char *line);
 
 /* init/init.c */
 void	init(t_data *data, char **argv);

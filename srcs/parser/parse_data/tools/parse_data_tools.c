@@ -5,28 +5,32 @@
 
 // }
 
-inline	bool	is_end_room(char	*line, size_t	*i)
+inline	bool	is_end_room(char	*line, size_t	i)
 {
-	return (line[*i] == 'e' && line[*i + 1] == 'n' && line[*i + 2] == 'd');
+	return (line[i] == 'e' && line[i + 1] == 'n' && line[i + 2] == 'd');
 }
 
-inline	bool	is_start_room(char	*line, size_t	*i)
+inline	bool	is_start_room(char	*line, size_t	i)
 {
-	return (line[*i] == 's' && line[*i + 1] == 't' && line[*i + 2] == 'a'
-			&& line[*i + 3] == 'r' && line[*i + 4] == 't');
+	return (line[i] == 's' && line[i + 1] == 't' && line[i + 2] == 'a'
+			&& line[i + 3] == 'r' && line[i + 4] == 't');
 }
 
 bool	is_valid_name(char	*line, size_t	*i)
 {
+	bool	found_name;
+
+	found_name = false;
 	if (line[*i] == 'L' || line[*i] == '#')
 		return (false);
 	while (line[*i] && line[*i] != ' ')
 	{
 		if (!is_alnum(line[*i]))
 			return (false);
+		found_name = true;
 		(*i)++;
 	}
-	return (true);
+	return (found_name);
 }
 
 bool	is_valid_number(char	*line, size_t	*i)

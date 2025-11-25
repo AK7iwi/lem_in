@@ -7,8 +7,8 @@ static	bool	parse_line(t_data *data, int	fd, char	*line, size_t	i)
 	if (i == 0 && !parse_nb_ants_line(data, line))
 		return (EXIT_SUCCESS);
 	if (!parse_comment(data, fd, line) 
-		|| !parse_room(data, line, false, false) 
-		|| !parse_link(line))
+		|| !parse_room(data, line, false, false))
+		// || !parse_link(line))
 		return (EXIT_SUCCESS);
 
 	printf("ERROR\n");

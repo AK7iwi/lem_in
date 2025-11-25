@@ -3,11 +3,11 @@
 static	void	display_parsing_errors(uint16_t parsing_errors)
 {
 	if (parsing_errors & E_ARGC)
-		ft_putstr(ERR_ARGC);
+		ft_putstr(ERR_ARGC, STDERR_FILENO);
 	if (parsing_errors & E_EMPTY_LINE)
-		ft_putstr(ERR_EMPTY_LINE);
+		ft_putstr(ERR_EMPTY_LINE, STDERR_FILENO);
 	if (parsing_errors & E_NUMBER)
-		ft_putstr(ERR_NUMBER);
+		ft_putstr(ERR_NUMBER, STDERR_FILENO);
 }
 
 static	void	display_gen_errors(uint8_t gen_errors)

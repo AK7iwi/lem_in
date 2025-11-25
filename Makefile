@@ -5,6 +5,7 @@ OBJ_DIR			:= obj
 
 SRCS			:=	main.c \
 					init/init.c \
+					init/init_struct/init_nb_ants.c init/init_struct/init_room.c \
 					errors/display_errors.c \
 					parser/parser.c parser/parse_data/parse_data.c parser/parse_data/parse_line_type.c \
 					parser/parse_data/tools/parse_data_tools.c \
@@ -12,8 +13,7 @@ SRCS			:=	main.c \
 					tools/get_next_line/srcs/get_next_line.c tools/get_next_line/srcs/utils/utils.c \
 					tools/print/print.c \
 					tools/check_type/check_type.c \
-					tools/convert_type/ft_atoi.c \
-					tools/fill_struct/fill_nb_ants.c tools/fill_struct/fill_room.c \
+					tools/convert_type/ft_atoi.c
 SRCS        	:= $(SRCS:%=$(SRC_DIR)/%)
 OBJS        	:= $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 

@@ -2,5 +2,5 @@
 
 void    print_general_infos(t_data  *data)
 {
-    print(data->nb_ants);
+    ft_putnbr(data->nb_ants, STDOUT_FILENO);
 }

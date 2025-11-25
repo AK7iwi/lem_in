@@ -25,21 +25,33 @@ bool	parse_link(char *line)
 bool	parse_room(t_data *data, char	*line, bool	is_start, bool	is_end)
 {
 	size_t	i;
+	size_t	name_start;
+	size_t	name_end;
+	size_t	x_start;
+	size_t	x_end;
+	size_t	y_start;
+	size_t	y_end;
 
 	i = 0;
 	skip_space(line, &i);
+	name_start = i;
 	if (!is_valid_name(line, &i)) /* Room's name */
 		return (EXIT_FAILURE);
+	name_end = i;
 	skip_space(line, &i);
+	x_start = i;
 	if (!is_valid_number(line, &i)) /* coord_x */
 		return (EXIT_FAILURE);
+	x_end = i;
 	skip_space(line, &i);
+	y_start = i;
 	if (!is_valid_number(line, &i)) /* coord_y */
 		return (EXIT_FAILURE);
+	y_end = i;
 	skip_space(line, &i);
 	if (!is_last_char(line[i]))
 		return (EXIT_FAILURE);
-	fill_room(data, line, is_start, is_end);
+	init_room(data, line, name_start, name_end, x_start, x_end, y_start, y_end, is_start, is_end);
 	return (EXIT_SUCCESS);
 }
 
@@ -48,6 +60,8 @@ bool	parse_comment(t_data *data, int	fd, char	*line)
 	size_t			i;
 	static	bool	start_flag = false;
 	static	bool	end_flag = false;
+	bool 			is_start;
+	bool			is_end;
 	char			*next_line;
 
 	i = 0;
@@ -58,17 +72,21 @@ bool	parse_comment(t_data *data, int	fd, char	*line)
 		{
 			i += 2;
 			skip_space(line, &i);
-			if (is_start_room(line, &i))
+			is_start = is_start_room(line, i);
+			is_end = is_end_room(line, i);
+			if (is_start)
 			{
 				if (start_flag)
 					return (EXIT_FAILURE);
 				start_flag = true;
+				i += 5;
 			}
-			else if (is_end_room(line, &i))
+			else if (is_end)
 			{
 				if (end_flag)
 					return (EXIT_FAILURE);
 				end_flag = true;
+				i += 3;
 			}
 			else
 				return (EXIT_SUCCESS);
@@ -80,11 +98,14 @@ bool	parse_comment(t_data *data, int	fd, char	*line)
 	if (!is_last_char(line[i]))
 		return (EXIT_FAILURE);
 
-	free(line);
 	next_line = get_next_line(fd);
-	if (!next_line || parse_room(data, next_line, nb_start, nb_end))
+	if (!next_line || parse_room(data, next_line, is_start, is_end))
+	{
+		if (next_line)
+			free(next_line);
 		return (EXIT_FAILURE);
-
+	}
+	free(next_line);
 	return (EXIT_SUCCESS);
 }
 
@@ -99,6 +120,6 @@ bool	parse_nb_ants_line(t_data *data, char	*line)
 	skip_space(line, &i);
 	if (!is_last_char(line[i]))
 		return (data->err.parsing_errors |= E_NUMBER , EXIT_FAILURE);
-	fill_nb_ants(data, line);
+	init_nb_ants(data, line);
 	return (EXIT_SUCCESS);
 }
