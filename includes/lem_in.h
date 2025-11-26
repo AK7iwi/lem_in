@@ -92,6 +92,10 @@ void	free_data(t_data *data);
 //												//
 //**********************************************//
 
+/* displayer/tools/find_room.c */
+t_room	*find_end_room(t_map *map);
+t_room	*find_start_room(t_map *map);
+
 /* displayer/print_general_infos.c */
 void    print_general_infos(t_data  *data);
 
@@ -102,7 +106,7 @@ void    print_general_infos(t_data  *data);
 //**********************************************//
 
 /* parser/parse_data/tools/parse_data_tools.c */
-bool	is_existing_room(t_data *data, char *line, size_t *i);
+t_room	*is_existing_room(t_data *data, char *line, size_t *i);
 bool	is_end_room(char	*line, size_t	i);
 bool	is_start_room(char	*line, size_t	i);
 bool	is_valid_name(t_data	*data, char	*line, size_t	*i);
@@ -128,6 +132,7 @@ bool	parser(t_data *data, int fd, int argc);
 //**********************************************// 
 
 /* init/init_struct/init_link.c */
+bool	init_link(t_room *room1, t_room *room2);
 /* init/init_struct/init_room.c */
 bool	init_room(t_data *data, char *line, size_t name_start, size_t name_end, size_t x_start, size_t x_end, size_t y_start, size_t y_end, bool is_start, bool is_end);
 /* init/init_struct/init_nb_ants.c */

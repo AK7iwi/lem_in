@@ -3,21 +3,26 @@
 bool	parse_link(t_data *data, char *line)
 {
 	size_t		i;
+	t_room		*room1;
+	t_room		*room2;
 
 	i = 0;
 	skip_space(line, &i);
-	if (!is_existing_room(data, line, &i))
+	room1 = is_existing_room(data, line, &i);
+	if (!room1)
 		return (EXIT_FAILURE);
 	skip_space(line, &i);
 	if (line[i] != '-')
 		return (EXIT_FAILURE);
 	i++;
-	if (!is_existing_room(data, line, &i))
+	room2 = is_existing_room(data, line, &i);
+	if (!room2)
 		return (EXIT_FAILURE);
 	skip_space(line, &i);
 	if (!is_last_char(line[i]))
 		return (EXIT_FAILURE);
-
+	if (init_link(room1, room2))
+		return (EXIT_FAILURE);
 	return(EXIT_SUCCESS);
 }
 

@@ -5,21 +5,8 @@ Parsing
 ------------------------------------------------------------------------
 I) Parsing
 
-- parse_link:
-
-- parse_room:
-
-
-- Init struct:
-Init links
-check if links already exist
-
 - parse_data_tools
 Refacto/ Review limits of loops
-
-- print_infos
-
-Review print links
 
 - To check/parse
 Room and link cant be mixed
@@ -34,15 +21,12 @@ Write errors in error.h and display_errors
 Empty line at the end:
 Think how to handle, if error or not: for now not an error
 
-Check for strerror and perror;
+Check for perror;
 
 Refacto:
 parse_comment
 
 II) Exec
-
-Struct ant
-Struct map, rooms
 
 Main algo (ACO):
 
@@ -60,6 +44,8 @@ III) Vizualizer
 
 
 IV) Test map
+
+Test all errors that can exist (malloc or map)
 
 Start/end:
 

@@ -15,7 +15,7 @@ static bool	compare_room_name(char *line, size_t name_start, size_t name_end, ch
 	return (name_start == name_end && room_name[i] == '\0');
 }
 
-bool	is_existing_room(t_data	*data, char	*line, size_t	*i)
+t_room	*is_existing_room(t_data	*data, char	*line, size_t	*i)
 {
 	size_t	name_start;
 	size_t	name_end;
@@ -31,10 +31,10 @@ bool	is_existing_room(t_data	*data, char	*line, size_t	*i)
 	while (j < data->map->nb_rooms)
 	{
 		if (compare_room_name(line, name_start, name_end, data->map->rooms[j].name))
-			return (true);
+			return (&data->map->rooms[j]);
 		j++;
 	}
-	return (false);
+	return (NULL);
 }
 
 inline	bool	is_end_room(char	*line, size_t	i)
