@@ -32,6 +32,8 @@ typedef struct s_room
 	uint16_t	x;
 	uint16_t	y;
 	bool		is_empty;
+	bool		is_start;
+	bool		is_end;
 
 	t_room_link	*link;
 }	t_room;
@@ -40,8 +42,6 @@ typedef struct s_map
 {
 	uint16_t	nb_rooms;
 	t_room		*rooms;
-	t_room		*start_room;
-	t_room		*end_room;
 }	t_map;
 
 typedef struct s_ant
@@ -79,6 +79,7 @@ bool	is_alnum(int c);
 bool	is_digit(int c);
 
 /* tools/print/print.c */
+void	ft_putchar(char c, int fd);
 void	ft_putnbr(int	n, int	fd);
 void	ft_putstr(char *str, int	fd);
 
@@ -101,14 +102,15 @@ void    print_general_infos(t_data  *data);
 //**********************************************//
 
 /* parser/parse_data/tools/parse_data_tools.c */
+bool	is_existing_room(t_data *data, char *line, size_t *i);
 bool	is_end_room(char	*line, size_t	i);
 bool	is_start_room(char	*line, size_t	i);
-bool	is_valid_name(char	*line,	size_t	*i);
+bool	is_valid_name(t_data	*data, char	*line, size_t	*i);
 bool	is_valid_number(char	*line, size_t	*i);
 void	skip_space(char	*line, size_t	*i);
 
 /* parser/parse_data/parse_line_type.c */
-bool	parse_link(char	*line);
+bool	parse_link(t_data *data, char	*line);
 bool	parse_room(t_data *data, char	*line, bool	is_start, bool	is_end);
 bool	parse_comment(t_data *data, int	fd, char	*line);
 bool	parse_nb_ants_line(t_data *data, char	*line);

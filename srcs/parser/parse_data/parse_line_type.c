@@ -1,19 +1,18 @@
 #include "lem_in.h"
 
-bool	parse_link(char *line)
+bool	parse_link(t_data *data, char *line)
 {
 	size_t		i;
 
 	i = 0;
 	skip_space(line, &i);
-	if (!is_valid_name(line, &i)) //existing room
+	if (!is_existing_room(data, line, &i))
 		return (EXIT_FAILURE);
 	skip_space(line, &i);
 	if (line[i] != '-')
 		return (EXIT_FAILURE);
 	i++;
-	skip_space(line, &i);
-	if (!is_valid_name(line, &i)) //existing room
+	if (!is_existing_room(data, line, &i))
 		return (EXIT_FAILURE);
 	skip_space(line, &i);
 	if (!is_last_char(line[i]))
@@ -35,7 +34,7 @@ bool	parse_room(t_data *data, char	*line, bool	is_start, bool	is_end)
 	i = 0;
 	skip_space(line, &i);
 	name_start = i;
-	if (!is_valid_name(line, &i)) /* Room's name */
+	if (!is_valid_name(data, line, &i)) /* Room's name */
 		return (EXIT_FAILURE);
 	name_end = i;
 	skip_space(line, &i);

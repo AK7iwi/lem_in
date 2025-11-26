@@ -1,37 +1,30 @@
 TO-DO:
 
-
 Parsing
 
 ------------------------------------------------------------------------
 I) Parsing
 
+- parse_link:
+
+- parse_room:
+
 
 - Init struct:
-Fill_room:
+Init links
+check if links already exist
 
-- free data
-
-- parse_link:
-Check if the room already exist instead of valid_name
-
-- Init links
-
-- free links
+- parse_data_tools
+Refacto/ Review limits of loops
 
 - print_infos
 
-Print: 
-
-Number of ants
-Start
-End 
-Rooms
-Links
+Review print links
 
 - To check/parse
 Room and link cant be mixed
-Map must have a solution, find link between start and end 
+Need a start and a end --> check is map->start_room/map->end_room exist
+Map must have a solution, find link between start and end
 
 - Error:
 Check wich errors can be return/ Write message error
@@ -63,34 +56,38 @@ II) Heuristic Information (Path Length)
 
 Algo to reinforcement and evaporation pheomones in times 
 
-
 III) Vizualizer
 
 
-IV) Test
+IV) Test map
 
 Start/end:
 
-Char after start/end: startt, ...
-Map with two starts/ends
-Map with one valid start/end, one invalid start/end
-
 No links
 No rooms
+Room and links mixed
+Map without solution
+
+Char after start/end: startt, ...
+Map with two starts/ends
+Map with one valid start/end, one invalid start/end (OK)
+Map wihtout end and start
 
 Number:
-
 Not a Number
 Invalid number (mix with letters)
 
 Room:
 
-Room with string name
+Room with string name/mixed name
 Room starting with L/#
 Room without name, coordonate, ...
+Room already exist
 
 Links:
 
+Links with non-existing rooms
+Links start with '-'
 
 
 links:

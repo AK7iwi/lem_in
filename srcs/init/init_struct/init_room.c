@@ -68,15 +68,12 @@ bool	init_room(t_data *data, char *line,
 	new_room.y = extract_coordinate(line, y_start, y_end);
 	
 	new_room.is_empty = true;
+	new_room.is_start = is_start;
+	new_room.is_end = is_end;
 	new_room.link = NULL;
 	
 	if (add_room_to_map(data, &new_room))
 		return (free(new_room.name), EXIT_FAILURE);
-	
-	if (is_start)
-		data->map->start_room = &data->map->rooms[data->map->nb_rooms - 1];
-	if (is_end)
-		data->map->end_room = &data->map->rooms[data->map->nb_rooms - 1];
 
 	return (EXIT_SUCCESS);
 }

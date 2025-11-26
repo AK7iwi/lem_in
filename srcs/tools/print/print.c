@@ -1,6 +1,6 @@
 #include "lem_in.h"
 
-static	void	ft_putchar(char	c, int	fd)
+void	ft_putchar(char	c, int	fd)
 {
 	write(fd, &c, 1);
 }

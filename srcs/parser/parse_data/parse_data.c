@@ -7,11 +7,10 @@ static	bool	parse_line(t_data *data, int	fd, char	*line, size_t	i)
 	if (i == 0 && !parse_nb_ants_line(data, line))
 		return (EXIT_SUCCESS);
 	if (!parse_comment(data, fd, line) 
-		|| !parse_room(data, line, false, false))
-		// || !parse_link(line))
+		|| !parse_room(data, line, false, false)
+		|| !parse_link(data, line))
 		return (EXIT_SUCCESS);
 
-	printf("ERROR\n");
 	return (EXIT_FAILURE);
 }
 
@@ -24,7 +23,6 @@ bool	parse_data(t_data *data, int fd)
 	i = 0;
 	while (line)
 	{
-		printf("%s", line);
 		if (parse_line(data, fd, line, i))
 			return (free(line), EXIT_FAILURE);
 		i++;
