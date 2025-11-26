@@ -5,10 +5,12 @@ Parsing
 ------------------------------------------------------------------------
 I) Parsing
 
+Add map to test
+
 - parse_data_tools
 Refacto/ Review limits of loops
 
-- To check/parse
+- To add
 Room and link cant be mixed
 Need a start and a end --> check is map->start_room/map->end_room exist
 Map must have a solution, find link between start and end
@@ -18,18 +20,18 @@ Check wich errors can be return/ Write message error
 Like Minishell, global and specific error. Ex: Init error: memory error
 Write errors in error.h and display_errors
 
-Empty line at the end:
-Think how to handle, if error or not: for now not an error
 
-Check for perror;
+Check for perror
 
 Refacto:
 parse_comment
 
+print_map
+
+
 II) Exec
 
 Main algo (ACO):
-
 
 Trouver un papier de recherche sur l'algo
 2 criters:
@@ -75,6 +77,7 @@ Links:
 Links with non-existing rooms
 Links start with '-'
 
+Empty line at the end (OK)
 
 links:
 

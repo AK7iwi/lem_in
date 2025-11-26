@@ -8,10 +8,8 @@ int	main(int	argc, char	**argv)
 	if (parser(&data, STDIN_FILENO, argc))
 	{
 		errors_displayer(data.err);
-		free_data(&data);
-		return (EXIT_FAILURE);
+		return (free_data(&data), EXIT_FAILURE);
 	}
 	print_general_infos(&data);
-	free_data(&data);
-	return (EXIT_SUCCESS);
+	return (free_data(&data), EXIT_SUCCESS);
 }

@@ -2,7 +2,7 @@
 
 static	bool	parse_line(t_data *data, int	fd, char	*line, size_t	i)
 {	
-	if (is_last_char(line[0]))
+	if (!line || is_last_char(line[0]))
 		return(data->err.parsing_errors |= E_EMPTY_LINE, EXIT_FAILURE);
 	if (i == 0 && !parse_nb_ants_line(data, line))
 		return (EXIT_SUCCESS);
@@ -20,6 +20,8 @@ bool	parse_data(t_data *data, int fd)
 	size_t  i;
 
 	line = get_next_line(fd);
+	if (!line)
+		return (EXIT_FAILURE); //empty file message error
 	i = 0;
 	while (line)
 	{

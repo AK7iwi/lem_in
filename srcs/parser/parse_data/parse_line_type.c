@@ -3,8 +3,7 @@
 bool	parse_link(t_data *data, char *line)
 {
 	size_t		i;
-	t_room		*room1;
-	t_room		*room2;
+	t_room		*room1, *room2;
 
 	i = 0;
 	skip_space(line, &i);
@@ -29,12 +28,9 @@ bool	parse_link(t_data *data, char *line)
 bool	parse_room(t_data *data, char	*line, bool	is_start, bool	is_end)
 {
 	size_t	i;
-	size_t	name_start;
-	size_t	name_end;
-	size_t	x_start;
-	size_t	x_end;
-	size_t	y_start;
-	size_t	y_end;
+	size_t	name_start, name_end;
+	size_t	x_start, x_end;
+	size_t	y_start, y_end;
 
 	i = 0;
 	skip_space(line, &i);
@@ -63,10 +59,8 @@ bool	parse_room(t_data *data, char	*line, bool	is_start, bool	is_end)
 bool	parse_comment(t_data *data, int	fd, char	*line)
 {
 	size_t			i;
-	static	bool	start_flag = false;
-	static	bool	end_flag = false;
-	bool 			is_start;
-	bool			is_end;
+	static	bool	start_flag = false, end_flag = false;
+	bool 			is_start, is_end;
 	char			*next_line;
 
 	i = 0;
