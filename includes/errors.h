@@ -21,10 +21,10 @@
 # define E_EMPTY_LINE		0x2
 # define E_NUMBER			0x4
 
-# define ERR_ARGC			"ERROR: argc\n"
+# define ERR_ARGC			"argc\n"
 
-# define ERR_EMPTY_LINE		"ERROR: empty line\n"
-# define ERR_NUMBER			"ERROR: First line must contain only one number\n"
+# define ERR_EMPTY_LINE		"empty line\n"
+# define ERR_NUMBER			"First line must contain only one number\n"
 
 
 //**********************************************//

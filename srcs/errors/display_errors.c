@@ -18,7 +18,7 @@ static	void	display_gen_errors(uint8_t gen_errors)
 
 void	errors_displayer(t_err error)
 {
-	printf("ERROR\n");
+	ft_putstr("ERROR:\n", STDERR_FILENO);
 	if (error.gen_errors)
 		display_gen_errors(error.gen_errors);
 	if (error.parsing_errors)

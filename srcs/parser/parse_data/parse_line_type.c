@@ -2,10 +2,9 @@
 
 bool	parse_link(t_data *data, char *line)
 {
-	size_t		i;
+	size_t		i = 0;
 	t_room		*room1, *room2;
 
-	i = 0;
 	skip_space(line, &i);
 	room1 = is_existing_room(data, line, &i);
 	if (!room1)
@@ -27,12 +26,11 @@ bool	parse_link(t_data *data, char *line)
 
 bool	parse_room(t_data *data, char	*line, bool	is_start, bool	is_end)
 {
-	size_t	i;
+	size_t	i = 0;
 	size_t	name_start, name_end;
 	size_t	x_start, x_end;
 	size_t	y_start, y_end;
 
-	i = 0;
 	skip_space(line, &i);
 	name_start = i;
 	if (!is_valid_name(data, line, &i)) /* Room's name */
@@ -58,12 +56,11 @@ bool	parse_room(t_data *data, char	*line, bool	is_start, bool	is_end)
 
 bool	parse_comment(t_data *data, int	fd, char	*line)
 {
-	size_t			i;
+	size_t			i = 0;
 	static	bool	start_flag = false, end_flag = false;
 	bool 			is_start, is_end;
 	char			*next_line;
 
-	i = 0;
 	skip_space(line, &i);
 	if (line[i] == '#') 
 	{
@@ -110,9 +107,8 @@ bool	parse_comment(t_data *data, int	fd, char	*line)
 
 bool	parse_nb_ants_line(t_data *data, char	*line)
 {
-	size_t	i;
+	size_t	i = 0;
 
-	i = 0;
 	skip_space(line, &i);
 	if (!is_valid_number(line, &i))
 		return (data->err.parsing_errors |= E_NUMBER , EXIT_FAILURE);

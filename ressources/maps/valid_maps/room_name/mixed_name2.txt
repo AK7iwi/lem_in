@@ -1,0 +1,10 @@
+3
+##start
+st0art 1 0
+##end
+1end 5 0
+2 9 0
+3 13 0
+st0art-2
+2-3
+3-1end

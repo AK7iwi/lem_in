@@ -1,0 +1,10 @@
+3
+##start
+start0 1 0
+##end
+end1 5 0
+2 9 0
+3 13 0
+start0-2
+2-3
+3-end1
