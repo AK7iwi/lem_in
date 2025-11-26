@@ -5,15 +5,16 @@ Parsing
 ------------------------------------------------------------------------
 I) Parsing
 
-Add map to test
+Add maps to be tested
 
 check if there is a start and a end
+## start dwfw , should be ok 
 
 - To add
 Room and link cant be mixed
 Need a start and a end --> check is map->start_room/map->end_room exist
 Map must have a solution, find path between start and end
-Find a relation between room an link
+Find a relation between room an link. Link >= room -1 
 
 - parse_data_tools
 Refacto/ Review limits of loops
@@ -23,12 +24,13 @@ Check wich errors can be return/ Write message error
 Like Minishell, global and specific error. Ex: Init error: memory error
 Write errors in error.h and display_errors
 
-Check for perror
 
 Refacto:
 parse_comment
 
 print_map
+
+Check for perror
 
 II) Exec
 
@@ -45,7 +47,6 @@ Algo to reinforcement and evaporation pheomones in times
 
 III) Vizualizer
 
-
 IV) Test map
 
 Test all errors that can exist (malloc or map)
@@ -55,7 +56,8 @@ Room and links mixed
 Map without solution
 
 Start/end:
-Map with one valid start/end, one invalid start/end (OK), in both order. !! error here 
+No room after start and end
+
 
 Number:
 Invalid number for coordinates
@@ -70,7 +72,6 @@ Links:
 
 
 Space/tab test:
-
 
 
 links:

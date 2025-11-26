@@ -35,8 +35,8 @@ while IFS= read -r -d '' map; do
     exit_code=$?
         if [ $exit_code -eq 0 ]; then
             echo -e "${GREEN}✓ PASSED${NC}"
-            echo -e "Output (first 10 lines):"
-            echo "$output" | head -10
+            echo -e "Output (first 20 lines):"
+            echo "$output" | head -20
             echo ""
             ((VALID_PASSED++))
         else
