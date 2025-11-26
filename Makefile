@@ -13,7 +13,8 @@ SRCS			:=	main.c \
 					tools/get_next_line/srcs/get_next_line.c tools/get_next_line/srcs/utils/utils.c \
 					tools/print/print.c \
 					tools/check_type/check_type.c \
-					tools/convert_type/ft_atoi.c
+					tools/convert_type/ft_atoi.c \
+					tools/free/free_data.c
 SRCS        	:= $(SRCS:%=$(SRC_DIR)/%)
 OBJS        	:= $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 

@@ -6,7 +6,12 @@ int	main(int	argc, char	**argv)
 
 	init(&data, argv);
 	if (parser(&data, STDIN_FILENO, argc))
-		return (errors_displayer(data.err), EXIT_FAILURE);
+	{
+		errors_displayer(data.err);
+		free_data(&data);
+		return (EXIT_FAILURE);
+	}
 	print_general_infos(&data);
+	free_data(&data);
 	return (EXIT_SUCCESS);
 }

@@ -13,7 +13,7 @@ bool	parse_link(char *line)
 		return (EXIT_FAILURE);
 	i++;
 	skip_space(line, &i);
-	if (!is_valid_name(line, &i))
+	if (!is_valid_name(line, &i)) //existing room
 		return (EXIT_FAILURE);
 	skip_space(line, &i);
 	if (!is_last_char(line[i]))
@@ -51,7 +51,8 @@ bool	parse_room(t_data *data, char	*line, bool	is_start, bool	is_end)
 	skip_space(line, &i);
 	if (!is_last_char(line[i]))
 		return (EXIT_FAILURE);
-	init_room(data, line, name_start, name_end, x_start, x_end, y_start, y_end, is_start, is_end);
+	if (init_room(data, line, name_start, name_end, x_start, x_end, y_start, y_end, is_start, is_end))
+		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }
 

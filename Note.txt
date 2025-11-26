@@ -9,12 +9,6 @@ I) Parsing
 
 - Init struct:
 Fill_room:
-Check Minishell to understand
-In Minishell, alloc for t_ast, t_tok, t_redir, others struct are malloc in previous struct
-t_tok are direct chained list, rooms are chained with links so array
-
-Need to allocate map but in the init fct. Rename init_room --> fill_room
-
 
 - free data
 
@@ -22,6 +16,8 @@ Need to allocate map but in the init fct. Rename init_room --> fill_room
 Check if the room already exist instead of valid_name
 
 - Init links
+
+- free links
 
 - print_infos
 
@@ -38,7 +34,8 @@ Room and link cant be mixed
 Map must have a solution, find link between start and end 
 
 - Error:
-Check wich errors can be return 
+Check wich errors can be return/ Write message error
+Like Minishell, global and specific error. Ex: Init error: memory error
 Write errors in error.h and display_errors
 
 Empty line at the end:

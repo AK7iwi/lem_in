@@ -82,6 +82,9 @@ bool	is_digit(int c);
 void	ft_putnbr(int	n, int	fd);
 void	ft_putstr(char *str, int	fd);
 
+/* tools/free/free_data.c */
+void	free_data(t_data *data);
+
 //**********************************************//
 //												//
 //					  DISPLAYER		  			//
@@ -124,11 +127,11 @@ bool	parser(t_data *data, int fd, int argc);
 
 /* init/init_struct/init_link.c */
 /* init/init_struct/init_room.c */
-void	init_room(t_data *data, char *line, size_t name_start, size_t name_end, size_t x_start, size_t x_end, size_t y_start, size_t y_end, bool is_start, bool is_end);
+bool	init_room(t_data *data, char *line, size_t name_start, size_t name_end, size_t x_start, size_t x_end, size_t y_start, size_t y_end, bool is_start, bool is_end);
 /* init/init_struct/init_nb_ants.c */
 void	init_nb_ants(t_data *data, char *line);
 
 /* init/init.c */
-void	init(t_data *data, char **argv);
+bool	init(t_data *data, char **argv);
 
 #endif /* LEM_IN_H */
