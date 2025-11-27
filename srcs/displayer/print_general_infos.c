@@ -47,7 +47,7 @@ static void	print_rooms(t_map *map)
 	i = 0;
 	while (i < map->nb_rooms)
 	{
-		if (map->rooms[i].is_start || map->rooms[i].is_end)
+		if (&map->rooms[i] == map->start_room || &map->rooms[i] == map->end_room)
 		{
 			i++;
 			continue;
@@ -65,11 +65,11 @@ void	print_general_infos(t_data *data)
 	ft_putnbr(data->nb_ants, STDOUT_FILENO);
 	ft_putchar('\n', STDOUT_FILENO);
 	
-	start_room = find_start_room(data->map);
+	start_room = data->map->start_room;
 	ft_putstr("##start\n", STDOUT_FILENO);
 	print_room(start_room);
 	
-	end_room = find_end_room(data->map);
+	end_room = data->map->end_room;
 	ft_putstr("##end\n", STDOUT_FILENO);
 	print_room(end_room);
 

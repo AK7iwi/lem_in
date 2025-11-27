@@ -205,33 +205,10 @@ static void	print_canvas(t_canvas *canvas)
 	}
 }
 
-static bool	is_map_valid(t_data *data)
-{
-	t_room	*start_room;
-	t_room	*end_room;
-
-	if (!data || !data->map)
-		return (false);
-	if (data->nb_ants == 0)
-		return (false);
-	if (!data->map->has_start || !data->map->has_end)
-		return (false);
-	if (data->map->nb_rooms == 0)
-		return (false);
-	start_room = find_start_room(data->map);
-	end_room = find_end_room(data->map);
-	if (!start_room || !end_room)
-		return (false);
-	return (true);
-}
-
 bool	print_map(t_data *data)
 {
 	t_canvas	canvas;
 
-	if (!is_map_valid(data))
-		return (false);
-	
 	init_canvas(&canvas, data->map);
 	draw_connections(&canvas, data->map);
 	draw_rooms(&canvas, data->map);

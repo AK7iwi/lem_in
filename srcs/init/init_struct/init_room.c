@@ -3,21 +3,47 @@
 static	bool	add_room_to_map(t_data *data, t_room *new_room)
 {
 	t_room	*new_rooms;
-	size_t	new_size;
+	size_t	new_capacity;
+	size_t	start_index = 0;
+	size_t	end_index = 0;
+	bool	has_start;  // dont need this var
+	bool	has_end; // dont need this var
 
-	new_size = data->map->nb_rooms + 1;
-	new_rooms = malloc(sizeof(t_room) * new_size);
-	if (!new_rooms)
-		return (EXIT_FAILURE); //memory error
+	if (data->map->nb_rooms >= data->map->capacity)
+	{
+		has_start = (data->map->start_room != NULL); //dont need
+		has_end = (data->map->end_room != NULL);  //dont need 
+		if (has_start)
+			start_index = data->map->start_room - data->map->rooms;
+		if (has_end)
+			end_index = data->map->end_room - data->map->rooms;
+
+		if (data->map->capacity == 0)
+			new_capacity = 1;
+		else
+			new_capacity = data->map->capacity * 2;
+		
+		new_rooms = malloc(sizeof(t_room) * new_capacity);
+		if (!new_rooms)
+			return (EXIT_FAILURE);
+		
+		for (size_t i = 0; i < data->map->nb_rooms; i++)
+			new_rooms[i] = data->map->rooms[i];
+		
+		if (data->map->rooms) // usefull protection?
+			free(data->map->rooms);
+		
+		data->map->rooms = new_rooms;
+		data->map->capacity = new_capacity;
+		
+		if (has_start)
+			data->map->start_room = &data->map->rooms[start_index]; 
+		if (has_end)
+			data->map->end_room = &data->map->rooms[end_index];
+	}
 	
-	for (size_t i = 0; i < data->map->nb_rooms; i++)
-		new_rooms[i] = data->map->rooms[i];
-	
-	new_rooms[data->map->nb_rooms] = *new_room;
-	
-	free(data->map->rooms);
-	data->map->rooms = new_rooms;
-	data->map->nb_rooms = new_size;
+	data->map->rooms[data->map->nb_rooms] = *new_room;
+	data->map->nb_rooms++;
 	
 	return (EXIT_SUCCESS);
 }
@@ -68,12 +94,15 @@ bool	init_room(t_data *data, char *line,
 	new_room.y = extract_coordinate(line, y_start, y_end);
 	
 	new_room.is_empty = true;
-	new_room.is_start = is_start;
-	new_room.is_end = is_end;
 	new_room.link = NULL;
 	
 	if (add_room_to_map(data, &new_room))
 		return (free(new_room.name), EXIT_FAILURE);
+
+	if (is_start)
+		data->map->start_room = &data->map->rooms[data->map->nb_rooms - 1];
+	if (is_end)
+		data->map->end_room = &data->map->rooms[data->map->nb_rooms - 1];
 
 	return (EXIT_SUCCESS);
 }

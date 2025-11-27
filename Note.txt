@@ -5,9 +5,9 @@ Parsing
 ------------------------------------------------------------------------
 I) Parsing
 
+Init_room:
+Refacto/delete useless var, fct,.. if possible
 
-Link error:
-Check if better to have an array now 
 
 - To add
 Room and link cant be mixed
@@ -25,12 +25,6 @@ Write errors in error.h and display_errors
 
 print_map:
 Reimplement
-
-Check for perror
-
-Link:
-
-Check if a link already exist is an error : ERROR
 
 II) Exec
 
@@ -69,7 +63,7 @@ Invalid coordinates
 
 Links:
 
-two same link (same and revert)
+two same links (same and revert)
 
 Space/tab test:
 

@@ -58,9 +58,9 @@ bool	parse_data(t_data *data, int fd)
 		line = get_next_line(fd);
 	}
 	//fct to check that map is valid
-	if (!data->map->has_start)
+	if (!data->map->start_room)
 		return (EXIT_FAILURE); // start error
-	if (!data->map->has_end)
+	if (!data->map->end_room)
 		return (EXIT_FAILURE); //end error
 	if (data->map->nb_links < data->map->nb_rooms - 1)
 		return (EXIT_FAILURE); // Not enough links error 

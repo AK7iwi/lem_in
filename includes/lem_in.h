@@ -32,8 +32,6 @@ typedef struct s_room
 	uint16_t	x;
 	uint16_t	y;
 	bool		is_empty;
-	bool		is_start;
-	bool		is_end;
 
 	t_room_link	*link;
 }	t_room;
@@ -41,10 +39,11 @@ typedef struct s_room
 typedef struct s_map
 {
 	uint16_t	nb_rooms;
+	uint16_t	capacity;
 	uint16_t	nb_links;
-	bool		has_start;
-	bool 		has_end;
 	t_room		*rooms;
+	t_room		*start_room;
+	t_room		*end_room;
 }	t_map;
 
 typedef struct s_ant
@@ -94,10 +93,6 @@ void	free_data(t_data *data);
 //					  DISPLAYER		  			//
 //												//
 //**********************************************//
-
-/* displayer/tools/find_room.c */
-t_room	*find_end_room(t_map *map);
-t_room	*find_start_room(t_map *map);
 
 /* displayer/print_general_infos.c */
 void    print_general_infos(t_data  *data);

@@ -18,3 +18,7 @@ Variable number: each room has a different number of connections
 Unknown count: don't know how many links until parsing is done
 Sequential access: iterate through a room's neighbors
 Linked list fits: dynamic growth, sequential iteration
+
+
+Reallocate with capacity for the room. Specify O(n) --> O(log(n))
+Better that reallocate each time 

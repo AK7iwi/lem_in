@@ -72,15 +72,13 @@ bool	parse_command_and_comment(t_data	*data, int	fd, char	*line)
 			is_end = is_end_cmd(line, i);
 			if (is_start)
 			{
-				if (data->map->has_start)
+				if (data->map->start_room)
 					return (EXIT_FAILURE); // two start error
-				data->map->has_start = true;
 			}
 			else if (is_end)
 			{
-				if (data->map->has_end)
+				if (data->map->end_room)
 					return (EXIT_FAILURE); // two end error
-				data->map->has_end = true;
 			}
 			else
 				return (EXIT_SUCCESS); /* Unknow command */

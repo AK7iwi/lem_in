@@ -6,10 +6,11 @@ static	bool	init_map(t_data	*data)
 	if (!data->map)
 		return (EXIT_FAILURE); // memory error
 	data->map->nb_rooms = 0;
+	data->map->capacity = 0;
 	data->map->nb_links = 0;
-	data->map->has_start = false;
-	data->map->has_end = false;
 	data->map->rooms = NULL;
+	data->map->start_room = NULL;
+	data->map->end_room = NULL;
 	return (EXIT_SUCCESS);
 }
 
