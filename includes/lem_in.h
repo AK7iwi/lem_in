@@ -41,6 +41,8 @@ typedef struct s_room
 typedef struct s_map
 {
 	uint16_t	nb_rooms;
+	bool		has_start;
+	bool 		has_end;
 	t_room		*rooms;
 }	t_map;
 
@@ -107,8 +109,8 @@ void    print_general_infos(t_data  *data);
 
 /* parser/parse_data/tools/parse_data_tools.c */
 t_room	*is_existing_room(t_data *data, char *line, size_t *i);
-bool	is_end_room(char	*line, size_t	i);
-bool	is_start_room(char	*line, size_t	i);
+bool	is_end_cmd(char	*line, size_t	i);
+bool	is_start_cmd(char	*line, size_t	i);
 bool	is_valid_name(t_data	*data, char	*line, size_t	*i);
 bool	is_valid_number(char	*line, size_t	*i);
 void	skip_space(char	*line, size_t	*i);
@@ -116,7 +118,7 @@ void	skip_space(char	*line, size_t	*i);
 /* parser/parse_data/parse_line_type.c */
 bool	parse_link(t_data *data, char	*line);
 bool	parse_room(t_data *data, char	*line, bool	is_start, bool	is_end);
-bool	parse_comment(t_data *data, int	fd, char	*line);
+bool	parse_command_and_comment(t_data *data, int	fd, char	*line);
 bool	parse_nb_ants_line(t_data *data, char	*line);
 
 /* parser/parse_data/parse_data.c */

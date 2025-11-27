@@ -6,7 +6,7 @@ static	bool	parse_line(t_data *data, int	fd, char	*line, size_t	i)
 		return(data->err.parsing_errors |= E_EMPTY_LINE, EXIT_FAILURE);
 	if (i == 0 && !parse_nb_ants_line(data, line))
 		return (EXIT_SUCCESS);
-	if (!parse_comment(data, fd, line) 
+	if (!parse_command_and_comment(data, fd, line)
 		|| !parse_room(data, line, false, false)
 		|| !parse_link(data, line))
 		return (EXIT_SUCCESS);
@@ -31,5 +31,9 @@ bool	parse_data(t_data *data, int fd)
 		free(line);
 		line = get_next_line(fd);
 	}
+	if (!data->map->has_start)
+		return (EXIT_FAILURE); // start error
+	if (!data->map->has_end)
+		return (EXIT_FAILURE); //end error
 	return (EXIT_SUCCESS);
 }

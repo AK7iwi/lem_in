@@ -54,10 +54,9 @@ bool	parse_room(t_data *data, char	*line, bool	is_start, bool	is_end)
 	return (EXIT_SUCCESS);
 }
 
-bool	parse_comment(t_data *data, int	fd, char	*line)
+bool	parse_command_and_comment(t_data	*data, int	fd, char	*line)
 {
 	size_t			i = 0;
-	static	bool	start_flag = false, end_flag = false;
 	bool 			is_start, is_end;
 	char			*next_line;
 
@@ -68,31 +67,28 @@ bool	parse_comment(t_data *data, int	fd, char	*line)
 		{
 			i += 2;
 			skip_space(line, &i);
-			is_start = is_start_room(line, i);
-			is_end = is_end_room(line, i);
+			is_start = is_start_cmd(line, i);
+			is_end = is_end_cmd(line, i);
 			if (is_start)
 			{
-				if (start_flag)
-					return (EXIT_FAILURE);
-				start_flag = true;
-				i += 5;
+				if (data->map->has_start)
+					return (EXIT_FAILURE); // two start error
+				data->map->has_start = true;
 			}
 			else if (is_end)
 			{
-				if (end_flag)
-					return (EXIT_FAILURE);
-				end_flag = true;
-				i += 3;
+				if (data->map->has_end)
+					return (EXIT_FAILURE); // two end error
+				data->map->has_end = true;
 			}
 			else
-				return (EXIT_SUCCESS);
+				return (EXIT_SUCCESS); /* Unknow command */
 		}
 		else
-			return (EXIT_SUCCESS);
+			return (EXIT_SUCCESS); /* Comment */
 	}
-	skip_space(line, &i);
-	if (!is_last_char(line[i]))
-		return (EXIT_FAILURE);
+	else
+		return (EXIT_FAILURE); /* Others lines */
 
 	next_line = get_next_line(fd);
 	if (!next_line || parse_room(data, next_line, is_start, is_end))

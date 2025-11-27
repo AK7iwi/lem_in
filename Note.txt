@@ -5,19 +5,16 @@ Parsing
 ------------------------------------------------------------------------
 I) Parsing
 
-Add maps to be tested
+parse_data_tools:
+Refacto
 
-check if there is a start and a end
-## start dwfw , should be ok 
+Add maps to be tested
 
 - To add
 Room and link cant be mixed
-Need a start and a end --> check is map->start_room/map->end_room exist
 Map must have a solution, find path between start and end
 Find a relation between room an link. Link >= room -1 
 
-- parse_data_tools
-Refacto/ Review limits of loops
 
 - Error:
 Check wich errors can be return/ Write message error
@@ -51,6 +48,8 @@ IV) Test map
 
 Test all errors that can exist (malloc or map)
 Add valgind to test
+
+Add map from subject 
 
 Room and links mixed
 Map without solution
