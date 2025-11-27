@@ -41,6 +41,7 @@ typedef struct s_room
 typedef struct s_map
 {
 	uint16_t	nb_rooms;
+	uint16_t	nb_links;
 	bool		has_start;
 	bool 		has_end;
 	t_room		*rooms;
@@ -111,6 +112,7 @@ bool	print_map(t_data *data);
 //**********************************************//
 
 /* parser/parse_data/tools/parse_data_tools.c */
+bool	is_existing_link(t_room *room, t_room *target_room);
 t_room	*is_existing_room(t_data *data, char *line, size_t *i);
 bool	is_end_cmd(char	*line, size_t	i);
 bool	is_start_cmd(char	*line, size_t	i);

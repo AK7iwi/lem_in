@@ -1,5 +1,19 @@
 #include "lem_in.h"
 
+bool	is_existing_link(t_room	*room, t_room	*target_room)
+{
+	t_room_link	*current;
+
+	current = room->link;
+	while (current)
+	{
+		if (current->room == target_room)
+			return (true);
+		current = current->next;
+	}
+	return (false);
+}
+
 static bool	compare_room_name(char	*line, size_t	name_start, size_t	name_end, char	*room_name)
 {
 	size_t	i = 0;

@@ -19,8 +19,9 @@ bool	parse_link(t_data *data, char *line)
 	skip_space(line, &i);
 	if (!is_last_char(line[i]))
 		return (EXIT_FAILURE);
-	if (init_link(room1, room2))
+	if (is_existing_link(room1, room2) || init_link(room1, room2))
 		return (EXIT_FAILURE);
+	data->map->nb_links++;
 	return(EXIT_SUCCESS);
 }
 

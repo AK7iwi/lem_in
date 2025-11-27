@@ -6,26 +6,31 @@ Parsing
 I) Parsing
 
 
-parse_data_tools/ parse_line_type:
-Refacto
-
-Add maps to be tested
+Link error:
+Check if better to have an array now 
 
 - To add
 Room and link cant be mixed
 Map must have a solution, find path between start and end
-Find a relation between room an link. Link >= room -1 
+
+parse_data_tools/ parse_line_type:
+Refacto
+
+Add maps to be tested
 
 - Error:
 Check wich errors can be return/ Write message error
 Like Minishell, global and specific error. Ex: Init error: memory error
 Write errors in error.h and display_errors
 
-
 print_map:
 Reimplement
 
 Check for perror
+
+Link:
+
+Check if a link already exist is an error : ERROR
 
 II) Exec
 
@@ -53,21 +58,20 @@ Room and links mixed
 Map without solution
 
 Start/end:
-No room after start and end
-
-Number:
-Invalid number for coordinates
+No room after start and end (more test)
 
 Room:
 
 Room starting with L/#
 Room with '-' in the name
 Room without name, coordonate, ...
+Invalid coordinates
 
 Links:
 
-Space/tab test:
+two same link (same and revert)
 
+Space/tab test:
 
 -------------------------------------
 links:
