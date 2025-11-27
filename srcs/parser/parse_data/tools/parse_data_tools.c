@@ -40,8 +40,7 @@ inline	bool	is_end_cmd(char	*line, size_t	i)
 	if (line[i] != 'e' || line[i + 1] != 'n' || line[i + 2] != 'd')
 		return (false);
 	i+= 3;
-	while (line[i] == ' ' || (line[i] >= 9 && line[i] <= 13))
-		i++;
+	skip_space(line, &i);
 	return (is_last_char(line[i]));
 }
 
@@ -51,8 +50,7 @@ inline	bool	is_start_cmd(char	*line, size_t	i)
 		||line[i + 3] != 'r' || line[i + 4] != 't')
 		return (false);
 	i += 5;
-	while (line[i] == ' ' || (line[i] >= 9 && line[i] <= 13))
-		i++;
+	skip_space(line, &i);
 	return (is_last_char(line[i]));
 }
 

@@ -101,6 +101,9 @@ t_room	*find_start_room(t_map *map);
 /* displayer/print_general_infos.c */
 void    print_general_infos(t_data  *data);
 
+/* displayer/print_map.c */
+bool	print_map(t_data *data);
+
 //**********************************************//
 //												//
 //					  PARSER		  			//

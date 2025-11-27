@@ -5,8 +5,11 @@ Parsing
 ------------------------------------------------------------------------
 I) Parsing
 
-parse_data_tools:
+parse_data_tools/ parse_line_type:
 Refacto
+
+print_map:
+Review
 
 Add maps to be tested
 
@@ -57,7 +60,6 @@ Map without solution
 Start/end:
 No room after start and end
 
-
 Number:
 Invalid number for coordinates
 
@@ -69,10 +71,11 @@ Room without name, coordonate, ...
 
 Links:
 
-
 Space/tab test:
 
 
+
+-------------------------------------
 links:
 
 https://dilipkumar.medium.com/ant-colony-optimization-aco-algorithm-6a954b0b083e

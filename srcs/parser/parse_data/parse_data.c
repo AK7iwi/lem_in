@@ -31,6 +31,7 @@ bool	parse_data(t_data *data, int fd)
 		free(line);
 		line = get_next_line(fd);
 	}
+	//fct to check that map is valid, add relation between rooms and links 
 	if (!data->map->has_start)
 		return (EXIT_FAILURE); // start error
 	if (!data->map->has_end)
