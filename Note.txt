@@ -5,11 +5,9 @@ Parsing
 ------------------------------------------------------------------------
 I) Parsing
 
+
 parse_data_tools/ parse_line_type:
 Refacto
-
-print_map:
-Review
 
 Add maps to be tested
 
@@ -18,17 +16,14 @@ Room and link cant be mixed
 Map must have a solution, find path between start and end
 Find a relation between room an link. Link >= room -1 
 
-
 - Error:
 Check wich errors can be return/ Write message error
 Like Minishell, global and specific error. Ex: Init error: memory error
 Write errors in error.h and display_errors
 
 
-Refacto:
-parse_comment
-
-print_map
+print_map:
+Reimplement
 
 Check for perror
 
@@ -72,7 +67,6 @@ Room without name, coordonate, ...
 Links:
 
 Space/tab test:
-
 
 
 -------------------------------------

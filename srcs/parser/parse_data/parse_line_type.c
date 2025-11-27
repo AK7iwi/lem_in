@@ -2,8 +2,8 @@
 
 bool	parse_link(t_data *data, char *line)
 {
-	size_t		i = 0;
-	t_room		*room1, *room2;
+	size_t	i = 0;
+	t_room	*room1, *room2;
 
 	skip_space(line, &i);
 	room1 = is_existing_room(data, line, &i);
@@ -56,9 +56,9 @@ bool	parse_room(t_data *data, char	*line, bool	is_start, bool	is_end)
 
 bool	parse_command_and_comment(t_data	*data, int	fd, char	*line)
 {
-	size_t			i = 0;
-	bool 			is_start, is_end;
-	char			*next_line;
+	size_t	i = 0;
+	bool	is_start, is_end;
+	char	*next_line;
 
 	skip_space(line, &i);
 	if (line[i] == '#') 
