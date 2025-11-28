@@ -7,7 +7,7 @@ I) Parsing
 
 Init_room:
 Refacto/delete useless var, fct,.. if possible
-
+Check gpt answer and test
 
 - To add
 Room and link cant be mixed
@@ -25,6 +25,11 @@ Write errors in error.h and display_errors
 
 print_map:
 Reimplement
+
+Recheck array/linked list
+
+Norme
+
 
 II) Exec
 
