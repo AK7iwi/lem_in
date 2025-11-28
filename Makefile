@@ -8,7 +8,7 @@ SRCS			:=	main.c \
 					init/init_struct/init_nb_ants.c init/init_struct/init_room.c init/init_struct/init_link.c \
 					errors/display_errors.c \
 					parser/parser.c parser/parse_data/parse_data.c parser/parse_data/parse_line_type.c \
-					parser/parse_data/tools/parse_data_tools.c \
+					parser/parse_data/bfs_algo/bfs.c parser/parse_data/tools/parse_data_tools.c \
 					displayer/print_general_infos.c displayer/print_map.c \
 					tools/get_next_line/srcs/get_next_line.c tools/get_next_line/srcs/utils/utils.c \
 					tools/print/print.c \

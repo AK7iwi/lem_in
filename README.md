@@ -5,7 +5,7 @@
 
 
 
-
+Init
 
 - Rooms vs Links - Different access patterns:
 a) Rooms:
@@ -42,3 +42,38 @@ has_start = true;        // Pointer exists
 start_index = 5;         // It's at position 5
 if (has_start)           // true → pointer will be restored ✓
     start_room = &rooms[5];
+
+
+
+start_index/end_index:
+
+When you do pointer1 - pointer2 in C:
+The result is the number of elements between the pointers
+
+data->map->rooms points to rooms[0] (array name decays to pointer to first element)
+
+
+If start_room points to rooms[0]:
+rooms array in memory:
+[room0][room1][room2][room3][room4]
+ ^
+ |
+ rooms (points here)
+ start_room (also points here if it's the first room)
+
+start_room - rooms = 0  (same position)
+
+If start_room points to rooms[2]:
+[room0][room1][room2][room3][room4]
+ ^              ^
+ |              |
+ rooms          start_room
+
+start_room - rooms = 2  (2 elements difference)
+
+
+Parsing:
+
+
+BFS algo:
+

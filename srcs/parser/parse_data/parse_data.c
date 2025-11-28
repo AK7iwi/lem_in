@@ -64,5 +64,7 @@ bool	parse_data(t_data *data, int fd)
 		return (EXIT_FAILURE); //end error
 	if (data->map->nb_links < data->map->nb_rooms - 1)
 		return (EXIT_FAILURE); // Not enough links error 
+	if (!has_path(data->map))
+		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }

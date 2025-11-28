@@ -6,11 +6,15 @@ Parsing
 I) Parsing
 
 - To add
-Room and link cant be mixed
 Map must have a solution, find path between start and end
 
-parse_data_tools/ parse_line_type:
-Refacto
+Init_room;
+free rooms with the free_rooms fct?
+
+
+- Refacto
+fct + folder
+
 
 
 - Error:
@@ -49,11 +53,11 @@ Add valgind to test
 
 Add map from subject 
 
-Room and links mixed
 Map without solution
 
 Start/end:
 No room after start and end (more test)
+Map where start == end
 
 Room:
 

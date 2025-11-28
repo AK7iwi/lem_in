@@ -16,12 +16,11 @@ static void	free_room_links(t_room_link *link)
 
 static void	free_rooms(t_map *map)
 {
-	size_t	i;
+	size_t	i = 0;
 
 	if (!map->rooms)
 		return;
-	
-	i = 0;
+
 	while (i < map->nb_rooms)
 	{
 		if (map->rooms[i].name)

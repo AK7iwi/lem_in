@@ -106,6 +106,9 @@ bool	print_map(t_data *data);
 //												//
 //**********************************************//
 
+/* parser/parse_data/bfs_algo/bfs.c */
+bool    has_path(t_map	*map);
+
 /* parser/parse_data/tools/parse_data_tools.c */
 bool	is_existing_link(t_room *room, t_room *target_room);
 t_room	*is_existing_room(t_data *data, char *line, size_t *i);
