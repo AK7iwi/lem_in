@@ -5,10 +5,6 @@ Parsing
 ------------------------------------------------------------------------
 I) Parsing
 
-Init_room:
-Refacto/delete useless var, fct,.. if possible
-Check gpt answer and test
-
 - To add
 Room and link cant be mixed
 Map must have a solution, find path between start and end
@@ -16,7 +12,6 @@ Map must have a solution, find path between start and end
 parse_data_tools/ parse_line_type:
 Refacto
 
-Add maps to be tested
 
 - Error:
 Check wich errors can be return/ Write message error
@@ -28,8 +23,9 @@ Reimplement
 
 Recheck array/linked list
 
-Norme
+Add maps to be tested
 
+Norme
 
 II) Exec
 

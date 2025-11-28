@@ -32,6 +32,9 @@ bool	parse_room(t_data *data, char	*line, bool	is_start, bool	is_end)
 	size_t	x_start, x_end;
 	size_t	y_start, y_end;
 
+	if (data->map->nb_links)
+		return (EXIT_FAILURE);
+
 	skip_space(line, &i);
 	name_start = i;
 	if (!is_valid_name(data, line, &i)) /* Room's name */
