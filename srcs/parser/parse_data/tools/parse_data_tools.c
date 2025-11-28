@@ -1,19 +1,5 @@
 #include "lem_in.h"
 
-bool	is_existing_link(t_room	*room, t_room	*target_room)
-{
-	t_room_link	*current;
-
-	current = room->link;
-	while (current)
-	{
-		if (current->room == target_room)
-			return (true);
-		current = current->next;
-	}
-	return (false);
-}
-
 static bool	compare_room_name(char	*line, size_t	name_start, size_t	name_end, char	*room_name)
 {
 	size_t	i = 0;
@@ -49,42 +35,6 @@ t_room	*is_existing_room(t_data	*data, char	*line, size_t	*i)
 	return (NULL);
 }
 
-inline	bool	is_end_cmd(char	*line, size_t	i)
-{
-	if (line[i] != 'e' || line[i + 1] != 'n' || line[i + 2] != 'd')
-		return (false);
-	i+= 3;
-	skip_space(line, &i);
-	return (is_last_char(line[i]));
-}
-
-inline	bool	is_start_cmd(char	*line, size_t	i)
-{
-	if (line[i] != 's' || line[i + 1] != 't' || line[i + 2] != 'a'
-		||line[i + 3] != 'r' || line[i + 4] != 't')
-		return (false);
-	i += 5;
-	skip_space(line, &i);
-	return (is_last_char(line[i]));
-}
-
-bool	is_valid_name(t_data	*data, char	*line, size_t	*i)
-{
-	bool	found_name = false;
-	size_t	j = (*i);
-
-	if (line[*i] == 'L' || line[*i] == '#')
-		return (false);
-	while (line[*i] && line[*i] != ' ') //&& !(line[*i] >= 9 && line[*i] <= 13)
-	{
-		if (!is_alnum(line[*i]))
-			return (false);
-		found_name = true;
-		(*i)++;
-	}
-	return (found_name && !is_existing_room(data, line, &j));
-}
-
 bool	is_valid_number(char	*line, size_t	*i)
 {
 	bool	found_digit = false;
@@ -99,7 +49,6 @@ bool	is_valid_number(char	*line, size_t	*i)
 	return (found_digit);
 }
 
-//tools
 void	skip_space(char	*line, size_t	*i)
 {
 	while (line[*i] == ' ' || (line[*i] >= 9 && line[*i] <= 13))

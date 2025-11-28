@@ -5,17 +5,16 @@ Parsing
 ------------------------------------------------------------------------
 I) Parsing
 
-- To add
-Map must have a solution, find path between start and end
-
-Init_room;
-free rooms with the free_rooms fct?
-
 
 - Refacto
 fct + folder
+struct parameter t_map instead of t_data if only need t_map
+fct name
+English
+tools-> parser_tools
+tools in parse_data -> check value
 
-
+Fill Makefile and lem_in.h
 
 - Error:
 Check wich errors can be return/ Write message error
@@ -26,10 +25,13 @@ print_map:
 Reimplement
 
 Recheck array/linked list
+free_rooms in init_rooms (test)
 
 Add maps to be tested
 
 Norme
+
+Test
 
 II) Exec
 
@@ -65,6 +67,7 @@ Room starting with L/#
 Room with '-' in the name
 Room without name, coordonate, ...
 Invalid coordinates
+Two rooms with the same coordinates
 
 Links:
 
@@ -78,3 +81,7 @@ links:
 https://dilipkumar.medium.com/ant-colony-optimization-aco-algorithm-6a954b0b083e
 https://members.loria.fr/VThomas/enseignement/M2rar/slides/04_algorithme%20fourmis_v2.pdf
 https://github.com/jraleman
+
+
+BFS algo:
+https://www.geeksforgeeks.org/dsa/breadth-first-search-or-bfs-for-a-graph/

@@ -29,8 +29,8 @@ typedef struct s_room_link
 typedef struct s_room
 {
 	char		*name;
-	uint16_t	x;
-	uint16_t	y;
+	uint32_t	x;
+	uint32_t	y;
 	bool		is_empty;
 
 	t_room_link	*link;
@@ -110,6 +110,7 @@ bool	print_map(t_data *data);
 bool    has_path(t_map	*map);
 
 /* parser/parse_data/tools/parse_data_tools.c */
+bool	is_existing_coordinates(t_data *data, uint32_t x, uint32_t y);
 bool	is_existing_link(t_room *room, t_room *target_room);
 t_room	*is_existing_room(t_data *data, char *line, size_t *i);
 bool	is_end_cmd(char	*line, size_t	i);

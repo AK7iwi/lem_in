@@ -58,7 +58,7 @@ static	bool    bfs(t_map	*map)
 	}
 
 	free(visited);
-	free(queue); //good free?
+	free(queue);
 	return (false);
 }
 
