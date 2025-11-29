@@ -8,7 +8,7 @@ static	bool	is_valid_map(t_data	*data)
 		return (false); //end error
 	if (data->map->nb_links < data->map->nb_rooms - 1)
 		return (false); // Not enough links error 
-	if (!has_path(data->map))
+	if (!has_path(data->map)) /* BFS algo */
 		return (false); // no path error
 
 	return (true);
@@ -26,12 +26,12 @@ bool	parse_data(t_data *data, int fd)
 	while (line)
 	{
 		empty_line_result = parse_empty_line(data, fd, line);
-		if (empty_line_result == 1)
+		if (empty_line_result == 1) /* Empty lines at end of file */
 		{
 			free(line);
 			break;
 		}
-		else if (empty_line_result == 2)
+		else if (empty_line_result == 2) /* Empty line in the middle of the file */
 			return (free(line), EXIT_FAILURE);
 		else if (parse_line(data, fd, line, i))
 			return (free(line), EXIT_FAILURE);

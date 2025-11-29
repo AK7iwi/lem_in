@@ -205,7 +205,7 @@ static void	print_canvas(t_canvas *canvas)
 	}
 }
 
-bool	print_map(t_data *data)
+bool	print_map(t_data *data) //display_map
 {
 	t_canvas	canvas;
 

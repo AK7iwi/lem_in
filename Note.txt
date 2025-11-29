@@ -5,16 +5,14 @@ Parsing
 ------------------------------------------------------------------------
 I) Parsing
 
+Fill Makefile and lem_in.h
 
-- Refacto
-fct + folder
+- Restruct/ Refacto
+Refacto fcts:
 struct parameter t_map instead of t_data if only need t_map
 fct name
 English
-tools-> parser_tools
-tools in parse_data -> check value
-
-Fill Makefile and lem_in.h
+(core folder)
 
 - Error:
 Check wich errors can be return/ Write message error
@@ -24,12 +22,10 @@ Write errors in error.h and display_errors
 print_map:
 Reimplement
 
-Recheck array/linked list
-free_rooms in init_rooms (test)
-
-Add maps to be tested
 
 Norme
+
+Add maps to be tested
 
 Test
 

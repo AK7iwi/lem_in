@@ -6,8 +6,12 @@ OBJ_DIR			:= obj
 SRCS			:=	main.c \
 					init/init.c \
 					init/init_struct/init_nb_ants.c init/init_struct/init_room.c init/init_struct/init_link.c \
-					errors/display_errors.c \
-					parser/parser.c parser/parse_data/parse_data.c \
+					parser/parser.c \
+					parser/parse_data/parse_data.c \
+					parser/parse_data/parse_line/parse_line.c \
+					parser/parse_data/parse_line/parse_room/parse_room.c \
+					
+
 					parser/parse_data/parse_line/parse_line_type.c \
 					parser/parse_data/parse_line/parse_ants/parse_ants.c \
 					parser/parse_data/parse_line/parse_command_ant_comment/parse_command_ant_comment.c \

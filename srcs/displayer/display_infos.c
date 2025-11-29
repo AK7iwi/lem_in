@@ -57,7 +57,7 @@ static void	print_rooms(t_map *map)
 	}
 }
 
-void	print_general_infos(t_data *data)
+void	display_infos(t_data *data)
 {
 	t_room	*start_room;
 	t_room	*end_room;

@@ -10,7 +10,7 @@ int	main(int	argc, char	**argv)
 		errors_displayer(data.err);
 		return (free_data(&data), EXIT_FAILURE);
 	}
-	print_general_infos(&data);
+	display_infos(&data);
 	// print_map(&data);
 	return (free_data(&data), EXIT_SUCCESS);
 }
