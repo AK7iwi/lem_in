@@ -27,13 +27,6 @@
 # include <fcntl.h>
 
 //**********************************************//
-//					GET_NEXT_LINE   			//
-//**********************************************//
-
-char	*extract_line(char *line_buffer, char *buf);
-char	*get_next_line(int fd);
-
-//**********************************************//
 //					UTILS   					//
 //**********************************************//
 
@@ -41,5 +34,11 @@ bool	is_end_line(char *buf);
 size_t	ft_strlen(char *buf);
 char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strdup(char *s);
+
+//**********************************************//
+//					GET_NEXT_LINE   			//
+//**********************************************//
+
+char	*get_next_line(int fd);
 
 #endif 

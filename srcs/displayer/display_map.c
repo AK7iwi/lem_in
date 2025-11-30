@@ -10,13 +10,13 @@ static int	ft_abs(int n)
 
 typedef struct s_canvas
 {
-	char	grid[MAX_HEIGHT][MAX_WIDTH];
-	int		width;
-	int		height;
-	int		min_x;
-	int		min_y;
-	int		max_x;
-	int		max_y;
+	char		grid[MAX_HEIGHT][MAX_WIDTH];
+	int			width;
+	int			height;
+	uint32_t	min_x;
+	uint32_t	min_y;
+	uint32_t	max_x;
+	uint32_t	max_y;
 }	t_canvas;
 
 static void	init_canvas(t_canvas *canvas, t_map *map)

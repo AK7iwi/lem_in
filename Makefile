@@ -9,28 +9,29 @@ SRCS			:=	main.c \
 					parser/parser.c \
 					parser/parse_data/parse_data.c \
 					parser/parse_data/parse_line/parse_line.c \
-					parser/parse_data/parse_line/parse_room/parse_room.c \
-					
-
-					parser/parse_data/parse_line/parse_line_type.c \
 					parser/parse_data/parse_line/parse_ants/parse_ants.c \
-					parser/parse_data/parse_line/parse_command_ant_comment/parse_command_ant_comment.c \
-					parser/parser_data/parse_line/parse_room/parse_room.c \
-					parser/parser_data/parser_line/parse_link/parse_link.c \
+					parser/parse_data/parse_line/parse_ants/tools/ft_atoi.c \
+					parser/parse_data/parse_line/parse_command_and_comment/parse_command_and_comment.c \
+					parser/parse_data/parse_line/parse_command_and_comment/validate_data/validate_command_and_comment_data.c \
+					parser/parse_data/parse_line/parse_link/parse_link.c \
+					parser/parse_data/parse_line/parse_link/validate_data/validate_link_data.c \
+					parser/parse_data/parse_line/parse_room/parse_room.c \
+					parser/parse_data/parse_line/parse_room/validate_data/validate_room_data.c \
+					parser/parse_data/parse_line/parse_room/extract_data/extract_room_data.c \
+					parser/parse_data/parse_line/parse_room/tools/check_char_type.c \
+					parser/parse_data/parse_line/validate_data/validate_data.c \
+					parser/parse_data/parse_line/tools/skip_space_char.c parser/parse_data/parse_line/tools/check_char_type.c \
 					parser/parse_data/bfs_algo/bfs.c \
-					parser/parse_data/tools/parse_data_tools.c \
-					displayer/print_general_infos.c displayer/print_map.c \
-					tools/get_next_line/srcs/get_next_line.c tools/get_next_line/srcs/utils/utils.c \
-					tools/print/print.c \
-					tools/check_type/check_type.c \
-					tools/convert_type/ft_atoi.c \
-					tools/free/free_data.c
+					parser/parse_data/tools/get_next_line/srcs/get_next_line.c parser/parse_data/tools/get_next_line/srcs/utils/utils.c \
+					displayer/display_errors.c displayer/display_infos.c displayer/display_map.c \
+					displayer/tools/print.c \
+					free/free_data.c
 SRCS        	:= $(SRCS:%=$(SRC_DIR)/%)
 OBJS        	:= $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 CC				:= cc
 CFLAGS			:= -Wall -Wextra -Werror
-CPPFLAGS    	:= -I includes -I srcs/tools/get_next_line/includes
+CPPFLAGS    	:= -I includes -I srcs/parser/parse_data/tools/get_next_line/includes
 
 RM				:= rm -rf
 DIR_DUP     	= mkdir -p $(@D)

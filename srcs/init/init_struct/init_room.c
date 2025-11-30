@@ -47,7 +47,7 @@ static	bool	add_room_to_map(t_data *data, t_room *new_room)
 	return (EXIT_SUCCESS);
 }
 
-bool	init_room(t_data	*data, char	*line,	char	*name,
+bool	init_room(t_data	*data, char	*name,
 				  uint32_t	x, uint32_t	y,
 				  bool	is_start, bool	is_end)
 {

@@ -1,6 +1,6 @@
 #include "lem_in.h"
 
-bool	parse_nb_ants_line(t_data *data, char	*line)
+bool	parse_ants_line(t_data	*data, char	*line)
 {
 	size_t	i = 0;
 

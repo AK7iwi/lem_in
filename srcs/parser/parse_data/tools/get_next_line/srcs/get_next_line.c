@@ -12,7 +12,7 @@
 
 #include "get_next_line.h"
 
-char	*extract_line(char *line_buffer, char *buf)
+static	char	*extract_line(char *line_buffer, char *buf)
 {
 	char			*line;
 	size_t			i;

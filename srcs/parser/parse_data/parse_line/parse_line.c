@@ -1,8 +1,8 @@
 #include "lem_in.h"
 
-static	bool	parse_line(t_data *data, int	fd, char	*line, size_t	i)
+bool	parse_line(t_data	*data, int	fd, char	*line, size_t	i)
 {	
-	if (i == 0 && !parse_nb_ants_line(data, line))
+	if (i == 0 && !parse_ants_line(data, line))
 		return (EXIT_SUCCESS);
 	if (!parse_command_and_comment(data, fd, line)
 		|| !parse_room(data, line, false, false)
@@ -12,7 +12,7 @@ static	bool	parse_line(t_data *data, int	fd, char	*line, size_t	i)
 	return (EXIT_FAILURE);
 }
 
-static	uint8_t	parse_empty_line(t_data	*data, int	fd, char	*line)
+uint8_t	parse_empty_line(t_data	*data, int	fd, char	*line)
 {
 	char	*next_line;
 

@@ -14,7 +14,7 @@ static	bool	is_valid_map(t_data	*data)
 	return (true);
 }
 
-bool	parse_data(t_data *data, int fd)
+bool	parse_data(t_data	*data, int	fd)
 {
 	char	*line;
 	uint8_t	empty_line_result;
