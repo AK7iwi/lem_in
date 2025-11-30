@@ -20,13 +20,13 @@ bool	is_valid_name(t_data	*data, char	*line, size_t	*i)
 	size_t	j = (*i);
 
 	if (line[*i] == 'L' || line[*i] == '#')
-		return (false);
+		return (false); //error
 	while (line[*i] && line[*i] != ' ') //&& !(line[*i] >= 9 && line[*i] <= 13)
 	{
 		if (!is_alnum(line[*i]))
-			return (false);
+			return (false); //error 
 		found_name = true;
 		(*i)++;
 	}
-	return (found_name && !is_existing_room(data, line, &j));
+	return (found_name && !is_existing_room(data, line, &j)); //error 
 }

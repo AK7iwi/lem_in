@@ -6,25 +6,32 @@ Parsing
 I) Parsing
 
 - Restruct/ Refacto
-Refacto fcts:
+Check limit condition of validate_fct
+Create tools fct; is_space_char, ...
+Refacto/clean fcts:
 struct parameter t_map instead of t_data if only need t_map
-fct name
-English
-(core folder)
+
+
+fct name/ english
+(Core folder)
 
 - Error:
-Check wich errors can be return/ Write message error
+Write messages error
 Like Minishell, global and specific error. Ex: Init error: memory error
-Write errors in error.h and display_errors
 
-print_map:
-Reimplement
+Check what to do with that
+
+Please note that because the commands and comments also appear on the
+standard output, it is possible to pass specific commands to the visualizer
+(such as various colors or levels
 
 Norme
 
 Add maps to be tested
 
 Test
+
+Vizualizer 
 
 II) Exec
 
@@ -52,6 +59,7 @@ Map without solution
 
 Start/end:
 No room after start and end (more test)
+comment or command after ##start and ##end
 Map where start == end
 
 Room:
@@ -61,6 +69,7 @@ Room with '-' in the name
 Room without name, coordonate, ...
 Invalid coordinates
 Two rooms with the same coordinates
+Only string rooms 
 
 Links:
 
