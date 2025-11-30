@@ -132,7 +132,7 @@ static void	draw_line(t_canvas *canvas, int x1, int y1, int x2, int y2)
 static void	draw_connections(t_canvas *canvas, t_map *map)
 {
 	size_t		i;
-	t_room_link	*current_link;
+	t_link	*current_link;
 	t_room		*room1;
 	t_room		*room2;
 	

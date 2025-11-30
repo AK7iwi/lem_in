@@ -1,9 +1,9 @@
 #include "lem_in.h"
 
-static void	free_room_links(t_room_link *link)
+static void	free_room_links(t_link *link)
 {
-	t_room_link	*current;
-	t_room_link	*next;
+	t_link	*current;
+	t_link	*next;
 
 	current = link;
 	while (current)

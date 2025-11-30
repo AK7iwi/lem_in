@@ -12,7 +12,7 @@ static	bool    bfs(t_map	*map)
 	t_room		**queue;
 	size_t		queue_front, queue_back;
 	t_room		*current;
-	t_room_link	*link;
+	t_link	*link;
 	size_t		neighbor_idx;
 
 	if (map->start_room == map->end_room)

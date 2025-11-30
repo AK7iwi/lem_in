@@ -3,7 +3,7 @@
 static void	print_links(t_map *map)
 {
 	size_t		i;
-	t_room_link	*current_link;
+	t_link	*current_link;
 	t_room		*room1;
 	t_room		*room2;
 

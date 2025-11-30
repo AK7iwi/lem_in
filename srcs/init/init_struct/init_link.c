@@ -3,9 +3,9 @@
 
 static bool	add_link_to_room(t_room *room, t_room *target_room)
 {
-	t_room_link	*new_link;
+	t_link	*new_link;
 
-	new_link = malloc(sizeof(t_room_link));
+	new_link = malloc(sizeof(t_link));
 	if (!new_link)
 		return (EXIT_FAILURE);
 	

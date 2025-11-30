@@ -18,13 +18,13 @@
 
 typedef struct s_room	t_room;
 
-typedef struct s_room_link
+typedef struct s_link
 {
 	t_room	*room;
 	uint8_t	pheromones_rate;
 
-	struct s_room_link	*next;
-}	t_room_link;
+	struct s_link	*next;
+}	t_link;
 
 typedef struct s_room
 {
@@ -33,7 +33,7 @@ typedef struct s_room
 	uint32_t	y;
 	bool		is_empty;
 
-	t_room_link	*link;
+	t_link	*link;
 }	t_room;
 
 typedef struct s_map

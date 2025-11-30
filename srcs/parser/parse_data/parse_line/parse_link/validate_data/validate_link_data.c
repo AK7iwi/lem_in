@@ -2,7 +2,7 @@
 
 bool	is_existing_link(t_room	*room, t_room	*target_room)
 {
-	t_room_link	*current;
+	t_link	*current;
 
 	current = room->link;
 	while (current)

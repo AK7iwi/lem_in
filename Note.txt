@@ -5,8 +5,6 @@ Parsing
 ------------------------------------------------------------------------
 I) Parsing
 
-Fill Makefile and lem_in.h
-
 - Restruct/ Refacto
 Refacto fcts:
 struct parameter t_map instead of t_data if only need t_map
@@ -21,7 +19,6 @@ Write errors in error.h and display_errors
 
 print_map:
 Reimplement
-
 
 Norme
 
