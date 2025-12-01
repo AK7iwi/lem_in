@@ -26,6 +26,11 @@
 # define ERR_EMPTY_LINE		"empty line\n"
 # define ERR_NUMBER			"First line must contain only one number\n"
 
+/* General errors */
+
+# define E_MEMORY			0x1
+
+# define ERR_MEMORY			"Memory error\n"
 
 //**********************************************//
 //					STRUCTURES					//

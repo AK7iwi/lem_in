@@ -2,7 +2,7 @@
 
 static	uint32_t	extract_coordinate(char	*line, size_t start, size_t end)
 {
-	uint16_t	result;
+	uint32_t	result;
 
 	result = 0;
 	while (start < end)

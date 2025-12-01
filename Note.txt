@@ -6,24 +6,16 @@ Parsing
 I) Parsing
 
 - Restruct/ Refacto
-Check limit condition of validate_fct
-Create tools fct; is_space_char, ...
-Refacto/clean fcts:
+parse_room/parse_link: less loop 
+refacto fct to have "main"
 struct parameter t_map instead of t_data if only need t_map
-
-
 fct name/ english
+
 (Core folder)
 
 - Error:
 Write messages error
 Like Minishell, global and specific error. Ex: Init error: memory error
-
-Check what to do with that
-
-Please note that because the commands and comments also appear on the
-standard output, it is possible to pass specific commands to the visualizer
-(such as various colors or levels
 
 Norme
 

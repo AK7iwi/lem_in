@@ -14,9 +14,11 @@ bool	parse_room(t_data *data, char	*line, bool	is_start, bool	is_end)
 
 	skip_space(line, &i);
 	name_start = i;
-	if (!is_valid_name(data, line, &i)) /* Room's name */
+	if (!is_valid_name(line, &i)) /* Room's name */
 		return (EXIT_FAILURE);
 	name_end = i;
+	if (is_existing_room(data, line, name_start, name_end))
+		return (EXIT_FAILURE);
 	skip_space(line, &i);
 	x_start = i;
 	if (!is_valid_number(line, &i)) /* coord_x */

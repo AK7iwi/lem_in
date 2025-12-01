@@ -8,7 +8,7 @@ bool	parse_line(t_data	*data, int	fd, char	*line, size_t	i)
 		|| !parse_room(data, line, false, false)
 		|| !parse_link(data, line))
 		return (EXIT_SUCCESS);
-
+	// possible to check empty line here for the message error
 	return (EXIT_FAILURE);
 }
 

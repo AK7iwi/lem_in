@@ -111,7 +111,8 @@ bool	is_digit(int c);
 void	skip_space(char	*line, size_t	*i);
 
 /* parser/parse_data/parse_line/validate_data/validate_data.c */
-t_room	*is_existing_room(t_data	*data, char	*line, size_t	*i);
+t_room	*is_existing_room(t_data	*data, char	*line, size_t	name_start, size_t	name_end);
+bool	is_valid_name(char	*line, size_t	*i);
 bool	is_valid_number(char	*line, size_t	*i);
 
 /* parser/parse_data/parse_line/parse_link/validate_data/validate_link_data.c */
@@ -124,8 +125,7 @@ bool	is_alnum(int c);
 /* parser/parse_data/parse_line/parse_room/extract_data/extract_room_data.c */
 bool	extract_room_data(t_data	*data, char *line, char	**name, uint32_t *x, uint32_t	*y, size_t	name_start,	size_t	name_end, size_t	x_start, size_t	x_end, size_t	y_start, size_t y_end);
 /* parser/parse_data/parse_line/parse_room/validate_data/validate_room_data.c */
-bool	is_existing_coordinates(t_data *data, uint16_t x, uint16_t y);
-bool	is_valid_name(t_data	*data, char	*line, size_t	*i);
+bool	is_existing_coordinates(t_data *data, uint32_t x, uint32_t y);
 /* parser/parse_data/parse_line/parse_room/parse_room.c */
 bool	parse_room(t_data *data, char	*line, bool	is_start, bool	is_end);
 

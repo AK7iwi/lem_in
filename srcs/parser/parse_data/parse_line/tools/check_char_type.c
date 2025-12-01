@@ -2,7 +2,7 @@
 
 inline	bool	is_last_char(char c)
 {
-	return (c == '\0' || c == '\n');
+	return (c == '\0' || c == '\n'); 
 }
 
 inline	bool	is_digit(int c)
