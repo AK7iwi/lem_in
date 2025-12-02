@@ -101,6 +101,10 @@ void	errors_displayer(t_err error);
 //												//
 //**********************************************//
 
+/* parser/parse_data/bfs_algo/tools/room_index.c */
+size_t	get_room_index(t_map *map, t_room *room);
+/* parser/parse_data/bfs_algo/tools/free_array.c */
+void	free_bfs_arrays(bool *visited, t_room **queue);
 /* parser/parse_data/bfs_algo/bfs.c */
 bool    has_path(t_map	*map);
 
@@ -130,8 +134,8 @@ bool	is_existing_coordinates(t_data *data, uint32_t x, uint32_t y);
 bool	parse_room(t_data *data, char	*line, bool	is_start, bool	is_end);
 
 /* parser/parse_data/parse_line/parse_command_and_comment/validate_data/validate_command_and_comment_data.c */
-bool	is_end_cmd(char	*line, size_t	i);
-bool	is_start_cmd(char	*line, size_t	i);
+bool	has_start_or_end_room(t_data *data, bool	is_start, bool	is_end);
+void	find_valid_cmd(char	*line, size_t	i, bool	*is_start, bool	*is_end);
 /* parser/parse_data/parse_line/parse_command_and_comment/parse_command_and_comment.c */
 bool	parse_command_and_comment(t_data	*data, int	fd, char	*line);
 
@@ -161,7 +165,7 @@ bool	init_link(t_room *room1, t_room *room2);
 /* init/init_struct/init_room.c */
 bool	init_room(t_data	*data, char	*name, uint32_t	x, uint32_t	y, bool	is_start, bool	is_end);
 /* init/init_struct/init_nb_ants.c */
-void	init_nb_ants(t_data *data, char *line);
+void	init_nb_ants(t_data	*data, int	nb_ants);
 
 /* init/init.c */
 bool	init(t_data *data, char **argv);

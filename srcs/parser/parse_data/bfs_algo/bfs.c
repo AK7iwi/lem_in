@@ -1,48 +1,17 @@
 #include "lem_in.h"
 
-static	inline	size_t	get_room_index(t_map *map, t_room *room)
+static	bool	bfs(t_map *map, bool *visited, t_room	**queue, size_t queue_front, size_t queue_back)
 {
-	return (room - map->rooms);
-}
-
-//init_bfs, bfs
-static	bool    bfs(t_map	*map)
-{
-	bool    	*visited;
-	t_room		**queue;
-	size_t		queue_front, queue_back;
-	t_room		*current;
+	t_room	*current;
 	t_link	*link;
-	size_t		neighbor_idx;
-
-	if (map->start_room == map->end_room)
-		return (true);
-
-	visited = malloc(sizeof(bool) * map->nb_rooms);
-	if (!visited)
-		return (false);
-	for (size_t i = 0; i < map->nb_rooms; i++)
-		visited[i] = false;
-
-	queue = malloc(sizeof(t_room *) * map->nb_rooms);
-	if (!queue)
-		return (free(visited), false);
-
-	queue_front = 0;
-	queue_back = 0;
-	queue[queue_back++] = map->start_room;
-	visited[get_room_index(map, map->start_room)] = true;
+	size_t	neighbor_idx;
 
 	while (queue_front < queue_back)
 	{
 		current = queue[queue_front++];
 		
 		if (current == map->end_room)
-		{
-			free(visited);
-			free(queue);
-			return (true);
-		}
+			return (EXIT_SUCCESS);
 
 		link = current->link;
 		while (link)
@@ -56,14 +25,42 @@ static	bool    bfs(t_map	*map)
 			link = link->next;
 		}
 	}
-
-	free(visited);
-	free(queue);
-	return (false);
+	return (EXIT_FAILURE);
 }
 
-
-bool    has_path(t_map	*map)
+static	bool	init_bfs(t_map *map, bool **visited, t_room ***queue, size_t *queue_front, size_t *queue_back)
 {
-	return (bfs(map));
+	*visited = malloc(sizeof(bool) * map->nb_rooms);
+	if (!*visited)
+		return (false);
+	for (size_t i = 0; i < map->nb_rooms; i++)
+		(*visited)[i] = false;
+
+	*queue = malloc(sizeof(t_room *) * map->nb_rooms);
+	if (!*queue)
+		return (free_bfs_arrays(*visited, NULL), EXIT_FAILURE);
+
+	*queue_front = 0;
+	*queue_back = 0;
+	(*queue)[(*queue_back)++] = map->start_room;
+	(*visited)[get_room_index(map, map->start_room)] = true;
+
+	return (EXIT_SUCCESS);
+}
+
+bool	has_path(t_map	*map)
+{
+	bool	*visited;
+	t_room	**queue;
+	size_t	queue_front, queue_back;
+
+	if (map->start_room == map->end_room)
+		return (true);
+
+	if (init_bfs(map, &visited, &queue, &queue_front, &queue_back))
+		return (false);
+	if (bfs(map, visited, queue, queue_front, queue_back))
+		return (free_bfs_arrays(visited, queue), false);
+
+	return (free_bfs_arrays(visited, queue), true);
 }

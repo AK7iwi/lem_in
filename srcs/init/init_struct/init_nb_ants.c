@@ -1,6 +1,6 @@
 #include "lem_in.h"
 
-void	init_nb_ants(t_data	*data, char	*line)
+void	init_nb_ants(t_data	*data, int	nb_ants)
 {
-	data->nb_ants = ft_atoi(line);
+	data->nb_ants = nb_ants;
 }

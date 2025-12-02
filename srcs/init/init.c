@@ -19,7 +19,7 @@ static	bool	init_data(t_data *data)
 	data->ant = NULL;
 
 	if (init_map(data))
-		return (EXIT_FAILURE);
+		return (EXIT_FAILURE); //one return
 	return (EXIT_SUCCESS);
 }
 
@@ -34,6 +34,6 @@ bool	init(t_data *data, char **argv)
 	(void)argv;
 	init_errors(data);
 	if (init_data(data))
-		return (EXIT_FAILURE);
+		return (EXIT_FAILURE); //one return
 	return (EXIT_SUCCESS);
 }

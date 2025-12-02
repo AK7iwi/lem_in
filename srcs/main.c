@@ -11,6 +11,6 @@ int	main(int	argc, char	**argv)
 		return (free_data(&data), EXIT_FAILURE);
 	}
 	display_infos(&data);
-	// print_map(&data);
+
 	return (free_data(&data), EXIT_SUCCESS);
 }

@@ -22,6 +22,7 @@ SRCS			:=	main.c \
 					parser/parse_data/parse_line/validate_data/validate_data.c \
 					parser/parse_data/parse_line/tools/skip_space_char.c parser/parse_data/parse_line/tools/check_char_type.c \
 					parser/parse_data/bfs_algo/bfs.c \
+					parser/parse_data/bfs_algo/tools/free_array.c parser/parse_data/bfs_algo/tools/room_index.c \
 					parser/parse_data/tools/get_next_line/srcs/get_next_line.c parser/parse_data/tools/get_next_line/srcs/utils/utils.c \
 					displayer/display_errors.c displayer/display_infos.c displayer/display_map.c \
 					displayer/tools/print.c \

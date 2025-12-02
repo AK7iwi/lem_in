@@ -10,6 +10,6 @@ bool	parse_ants_line(t_data	*data, char	*line)
 	skip_space(line, &i);
 	if (!is_last_char(line[i]))
 		return (data->err.parsing_errors |= E_NUMBER , EXIT_FAILURE);
-	init_nb_ants(data, line);
+	init_nb_ants(data, ft_atoi(line));
 	return (EXIT_SUCCESS);
 }

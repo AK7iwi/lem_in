@@ -6,12 +6,6 @@ Parsing
 I) Parsing
 
 - Restruct/ Refacto
-parse_room/parse_link: less loop 
-refacto fct to have "main"
-struct parameter t_map instead of t_data if only need t_map
-fct name/ english
-
-(Core folder)
 
 - Error:
 Write messages error
@@ -20,7 +14,6 @@ Like Minishell, global and specific error. Ex: Init error: memory error
 Norme
 
 Add maps to be tested
-
 Test
 
 Vizualizer 

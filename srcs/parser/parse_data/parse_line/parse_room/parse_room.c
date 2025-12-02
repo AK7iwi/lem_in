@@ -10,7 +10,7 @@ bool	parse_room(t_data *data, char	*line, bool	is_start, bool	is_end)
 	size_t		y_start, y_end;
 
 	if (data->map->nb_links)
-		return (EXIT_FAILURE);
+		return (EXIT_FAILURE); //error: rooms and links mixed
 
 	skip_space(line, &i);
 	name_start = i;
@@ -33,8 +33,8 @@ bool	parse_room(t_data *data, char	*line, bool	is_start, bool	is_end)
 	if (!is_last_char(line[i]))
 		return (EXIT_FAILURE);
 	if (extract_room_data(data, line, &name, &x, &y, name_start, name_end, x_start, x_end, y_start, y_end) 
-		|| is_existing_coordinates(data, x, y)
-		|| init_room(data, name, x, y, is_start, is_end))
+		|| is_existing_coordinates(data, x, y) //free_name if fail
+		|| init_room(data, name, x, y, is_start, is_end)) //free_name if fail
 		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }
