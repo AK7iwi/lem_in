@@ -1,5 +1,7 @@
 #include "lem_in.h"
 
+//bool validate_room()
+
 bool	parse_room(t_data *data, char	*line, bool	is_start, bool	is_end)
 {
 	size_t		i = 0;
@@ -34,7 +36,7 @@ bool	parse_room(t_data *data, char	*line, bool	is_start, bool	is_end)
 		return (EXIT_FAILURE);
 	if (extract_room_data(data, line, &name, &x, &y, name_start, name_end, x_start, x_end, y_start, y_end) 
 		|| is_existing_coordinates(data, x, y) //free_name if fail
-		|| init_room(data, name, x, y, is_start, is_end)) //free_name if fail
+		|| init_room(data, name, x, y, is_start, is_end)) //free_name if fail (check init)
 		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }

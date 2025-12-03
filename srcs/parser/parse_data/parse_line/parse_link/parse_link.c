@@ -6,6 +6,8 @@ bool	parse_link(t_data *data, char *line)
 	t_room	*room1, *room2;
 	size_t	room_start, room_end;
 
+	//check that there is room
+	
 	skip_space(line, &i);
 	room_start = i;
 	if (!is_valid_name(line, &i))

@@ -13,6 +13,15 @@
 # include <stdbool.h>
 
 //**********************************************//
+//					DEFINES						//
+//**********************************************//
+
+// modify later in functioN of performance
+
+# define MAX_ANTS	1000000
+# define MAX_ROOMS	100000 
+
+//**********************************************//
 //					STRUCTURES					//
 //**********************************************//
 
@@ -48,7 +57,8 @@ typedef struct s_map
 
 typedef struct s_ant
 {
-	uint16_t	id;
+	uint32_t	nb_ants;
+	uint32_t	id;
 	t_room		*current_room;
 	bool		has_moved;
 
@@ -57,9 +67,8 @@ typedef struct s_ant
 
 typedef struct s_data
 {
-	uint16_t	moves;
-	uint16_t	time;
-	uint16_t	nb_ants;
+	// uint16_t	moves;
+	// uint16_t	time;
 
 	t_err		err;
 	t_ant		*ant;
@@ -113,6 +122,8 @@ bool	is_last_char(char c);
 bool	is_digit(int c);
 /* parser/parse_data/parse_line/tools/skip_space_char.c */
 void	skip_space(char	*line, size_t	*i);
+/* parser/parse_data/parse_line/tools/empty_line.c */
+bool	is_empty_line(char	*line);
 
 /* parser/parse_data/parse_line/validate_data/validate_data.c */
 t_room	*is_existing_room(t_data	*data, char	*line, size_t	name_start, size_t	name_end);
@@ -145,11 +156,14 @@ int		ft_atoi(const char *nptr);
 bool	parse_ants_line(t_data *data, char	*line);
 
 /* parser/parse_data/parse_line/parse_line.c */
-bool	parse_line(t_data	*data, int	fd, char	*line, size_t	i);
+bool	parse_line(t_data	*data, int	fd, char	*line);
 uint8_t	parse_empty_line(t_data	*data, int	fd, char	*line);
 
 /* parser/parse_data/parse_data.c */
 bool	parse_data(t_data	*data, int	fd);
+
+/* parser/parse_arg/validate_arg.c */
+bool	has_no_arg(int	argc);
 
 /* parser/parser.c */
 bool	parser(t_data	*data, int	fd, int	argc);

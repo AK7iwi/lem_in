@@ -14,10 +14,9 @@ static	bool	is_valid_map(t_data	*data)
 	return (true);
 }
 
-bool	parse_data(t_data	*data, int	fd)
+static	bool	parse_map(t_data	*data, int	fd)
 {
 	char	*line;
-	uint8_t	empty_line_result;
 	size_t	i = 0;
 
 	line = get_next_line(fd);
@@ -25,21 +24,20 @@ bool	parse_data(t_data	*data, int	fd)
 		return (EXIT_FAILURE); //empty file message error
 	while (line)
 	{
-		empty_line_result = parse_empty_line(data, fd, line);
-		if (empty_line_result == 1) /* Empty lines at end of file */
-		{
-			free(line);
-			break;
-		}
-		else if (empty_line_result == 2) /* Empty line in the middle of the file */
-			return (free(line), EXIT_FAILURE);
-		else if (parse_line(data, fd, line, i))
-			return (free(line), EXIT_FAILURE);
+		if (parse_line(data, fd, line))
+			return (free(line), EXIT_FAILURE); //return i for line error 
 		i++;
 		free(line);
 		line = get_next_line(fd);
 	}
+	return (EXIT_SUCCESS);
+}
+
+bool	parse_data(t_data	*data, int	fd)
+{
+	if (parse_map(data, fd))
+		return (EXIT_FAILURE); // bad value error
 	if (!is_valid_map(data))
-		return (EXIT_FAILURE); // map error
+		return (EXIT_FAILURE); // missing info error
 	return (EXIT_SUCCESS);
 }

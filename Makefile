@@ -7,6 +7,7 @@ SRCS			:=	main.c \
 					init/init.c \
 					init/init_struct/init_nb_ants.c init/init_struct/init_room.c init/init_struct/init_link.c \
 					parser/parser.c \
+					parser/parse_arg/validate_arg.c \
 					parser/parse_data/parse_data.c \
 					parser/parse_data/parse_line/parse_line.c \
 					parser/parse_data/parse_line/parse_ants/parse_ants.c \
@@ -20,7 +21,7 @@ SRCS			:=	main.c \
 					parser/parse_data/parse_line/parse_room/extract_data/extract_room_data.c \
 					parser/parse_data/parse_line/parse_room/tools/check_char_type.c \
 					parser/parse_data/parse_line/validate_data/validate_data.c \
-					parser/parse_data/parse_line/tools/skip_space_char.c parser/parse_data/parse_line/tools/check_char_type.c \
+					parser/parse_data/parse_line/tools/skip_space_char.c parser/parse_data/parse_line/tools/check_char_type.c parser/parse_data/parse_line/tools/empty_line.c \
 					parser/parse_data/bfs_algo/bfs.c \
 					parser/parse_data/bfs_algo/tools/free_array.c parser/parse_data/bfs_algo/tools/room_index.c \
 					parser/parse_data/tools/get_next_line/srcs/get_next_line.c parser/parse_data/tools/get_next_line/srcs/utils/utils.c \

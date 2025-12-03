@@ -6,15 +6,31 @@ Parsing
 I) Parsing
 
 - Restruct/ Refacto
+parse_ants 
+parse_room
+parse_link
+parse_command_and_comment (if possible)
+
+Init ants struct
+Checkif all struct are init
+
+MAX nb_rooms
+MAX nb_ants
+
+Return line error
+
+Restruct: check how to retruct folder. Rename: extract_data --> extract
+Check for if, else if
 
 - Error:
 Write messages error
 Like Minishell, global and specific error. Ex: Init error: memory error
+Line error
 
 Norme
 
 Add maps to be tested
-Test
+Test (also malloc error)
 
 Vizualizer 
 
@@ -35,10 +51,7 @@ III) Vizualizer
 
 IV) Test map
 
-Test all errors that can exist (malloc or map)
-Add valgind to test
-
-Add map from subject 
+Add map from subject
 
 Map without solution
 

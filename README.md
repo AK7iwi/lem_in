@@ -1,8 +1,10 @@
 
 
 
+Parsing:
+Format required
 
-
+No empty lines
 
 
 Init
@@ -22,6 +24,7 @@ Linked list fits: dynamic growth, sequential iteration
 
 Reallocate with capacity for the room. Specify O(n) --> O(log(n))
 Better that reallocate each time
+
 has_start, has_end flag:
 
 Save the boolean value before free
@@ -71,8 +74,6 @@ If start_room points to rooms[2]:
 
 start_room - rooms = 2  (2 elements difference)
 
-
-Parsing:
 
 
 BFS algo:
