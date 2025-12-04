@@ -28,7 +28,7 @@ bool	parse_command_and_comment(t_data	*data, int	fd, char	*line)
 		{
 			i += 2;
 			skip_space(line, &i);
-			find_valid_cmd(line, i, &is_start, &is_end);
+			is_valid_cmd(line, i, &is_start, &is_end);
 			if (is_start || is_end)
 			{
 				if (has_start_or_end_room(data, is_start, is_end))

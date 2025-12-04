@@ -5,26 +5,30 @@ OBJ_DIR			:= obj
 
 SRCS			:=	main.c \
 					init/init.c \
-					init/init_struct/init_nb_ants.c init/init_struct/init_room.c init/init_struct/init_link.c \
 					parser/parser.c \
 					parser/parse_arg/validate_arg.c \
 					parser/parse_data/parse_data.c \
+					parser/parse_data/tools/get_next_line/srcs/get_next_line.c parser/parse_data/tools/get_next_line/srcs/utils/utils.c \
 					parser/parse_data/parse_line/parse_line.c \
-					parser/parse_data/parse_line/parse_ants/parse_ants.c \
-					parser/parse_data/parse_line/parse_ants/tools/ft_atoi.c \
-					parser/parse_data/parse_line/parse_command_and_comment/parse_command_and_comment.c \
-					parser/parse_data/parse_line/parse_command_and_comment/validate_data/validate_command_and_comment_data.c \
-					parser/parse_data/parse_line/parse_link/parse_link.c \
-					parser/parse_data/parse_line/parse_link/validate_data/validate_link_data.c \
-					parser/parse_data/parse_line/parse_room/parse_room.c \
-					parser/parse_data/parse_line/parse_room/validate_data/validate_room_data.c \
-					parser/parse_data/parse_line/parse_room/extract_data/extract_room_data.c \
-					parser/parse_data/parse_line/parse_room/tools/check_char_type.c \
-					parser/parse_data/parse_line/validate_data/validate_data.c \
-					parser/parse_data/parse_line/tools/skip_space_char.c parser/parse_data/parse_line/tools/check_char_type.c parser/parse_data/parse_line/tools/empty_line.c \
+					parser/parse_data/parse_line/tools/empty_line.c \
+					parser/parse_data/parse_line/parsers/parse_ants/parse_ants.c \
+					parser/parse_data/parse_line/parsers/parse_ants/validate/validate_ants.c \
+					parser/parse_data/parse_line/parsers/parse_ants/create/create_ants.c \
+					parser/parse_data/parse_line/parsers/parse_ants/tools/ft_atoi.c \
+					parser/parse_data/parse_line/parsers/parse_command_and_comment/parse_command_and_comment.c \
+					parser/parse_data/parse_line/parsers/parse_command_and_comment/validate/validate_command_and_comment.c \
+					parser/parse_data/parse_line/parsers/parse_room/parse_room.c \
+					parser/parse_data/parse_line/parsers/parse_room/validate/validate_room.c \
+					parser/parse_data/parse_line/parsers/parse_room/extract/extract_room.c \
+					parser/parse_data/parse_line/parsers/parse_room/create/create_room.c \
+					parser/parse_data/parse_line/parsers/parse_room/tools/check_char_type.c \
+					parser/parse_data/parse_line/parsers/parse_link/parse_link.c \
+					parser/parse_data/parse_line/parsers/parse_link/validate/validate_link.c \
+					parser/parse_data/parse_line/parsers/parse_link/create/create_link.c \
+					parser/parse_data/parse_line/parsers/validate/validate_data.c \
+					parser/parse_data/parse_line/parsers/tools/check_char_type.c parser/parse_data/parse_line/parsers/tools/skip_space_char.c \
 					parser/parse_data/bfs_algo/bfs.c \
 					parser/parse_data/bfs_algo/tools/free_array.c parser/parse_data/bfs_algo/tools/room_index.c \
-					parser/parse_data/tools/get_next_line/srcs/get_next_line.c parser/parse_data/tools/get_next_line/srcs/utils/utils.c \
 					displayer/display_errors.c displayer/display_infos.c displayer/display_map.c \
 					displayer/tools/print.c \
 					free/free_data.c

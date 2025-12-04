@@ -75,4 +75,6 @@ void	display_infos(t_data *data)
 
 	print_rooms(data->map);
 	print_links(data->map);
+
+	print_room(data->ant->current_room);
 }

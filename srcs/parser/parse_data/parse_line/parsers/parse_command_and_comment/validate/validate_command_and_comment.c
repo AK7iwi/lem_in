@@ -29,7 +29,7 @@ static	bool	is_start_cmd(char	*line, size_t	i)
 	return (is_last_char(line[i]));
 }
 
-void	find_valid_cmd(char	*line, size_t	i, bool	*is_start, bool	*is_end)
+void	is_valid_cmd(char	*line, size_t	i, bool	*is_start, bool	*is_end)
 {
 	(*is_start) = false;
 	(*is_end) = false;

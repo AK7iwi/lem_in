@@ -7,7 +7,7 @@ int	main(int	argc, char	**argv)
 	init(&data, argv);
 	if (parser(&data, STDIN_FILENO, argc))
 	{
-		errors_displayer(data.err);
+		errors_displayer(data.err); //display error
 		return (free_data(&data), EXIT_FAILURE);
 	}
 	display_infos(&data);

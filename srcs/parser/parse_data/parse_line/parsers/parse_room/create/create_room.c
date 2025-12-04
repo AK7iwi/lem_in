@@ -47,7 +47,7 @@ static	bool	add_room_to_map(t_data *data, t_room *new_room)
 	return (EXIT_SUCCESS);
 }
 
-bool	init_room(t_data	*data, char	*name,
+bool	create_room(t_data	*data, char	*name,
 				  uint32_t	x, uint32_t	y,
 				  bool	is_start, bool	is_end)
 {
@@ -63,7 +63,10 @@ bool	init_room(t_data	*data, char	*name,
 		return (free(new_room.name), EXIT_FAILURE);
 
 	if (is_start)
+	{
 		data->map->start_room = &data->map->rooms[data->map->nb_rooms - 1];
+		set_ants_start_room(data);
+	}
 	if (is_end)
 		data->map->end_room = &data->map->rooms[data->map->nb_rooms - 1];
 

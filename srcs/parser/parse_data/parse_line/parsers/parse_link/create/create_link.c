@@ -17,7 +17,7 @@ static bool	add_link_to_room(t_room *room, t_room *target_room)
 	return (EXIT_SUCCESS);
 }
 
-bool	init_link(t_room	*room1, t_room	*room2)
+bool	create_link(t_room	*room1, t_room	*room2)
 {
 	if (add_link_to_room(room1, room2) || add_link_to_room(room2, room1))
 		return (EXIT_FAILURE);
