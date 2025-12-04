@@ -6,10 +6,9 @@ Parsing
 I) Parsing
 
 - Restruct/ Refacto
-Follow pattern of validate_ants (make a main )
+Follow pattern of validate_ants (make a main)
 parse_room:
-MAX nb_rooms
-parse_link
+MAX nb_rooms, free name for error
 
 Take main of parsers to check condtion:
 For ants:

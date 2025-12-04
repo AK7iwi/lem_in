@@ -132,7 +132,7 @@ bool	is_valid_number(char	*line, size_t	*i);
 /* parse_data/parse_line/parsers/parse_link/create/create_link.c */
 bool	create_link(t_data	*data, t_room	*room1, t_room	*room2);
 /* parse_data/parse_line/parsers/parse_link/validate/validate_link.c */
-bool	is_existing_link(t_room	*room, t_room	*target_room);
+bool	validate_link(t_data *data, char *line, t_room **room1, t_room **room2);
 /* parse_data/parse_line/parsers/parse_link/parse_link.c */
 bool	parse_link(t_data *data, char *line);
 
