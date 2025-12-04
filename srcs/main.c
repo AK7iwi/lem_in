@@ -8,9 +8,9 @@ int	main(int	argc, char	**argv)
 	if (parser(&data, STDIN_FILENO, argc))
 	{
 		errors_displayer(data.err); //display error
-		return (free_data(&data), 1);
+		return (free_data(&data), EXIT_FAILURE);
 	}
 	display_infos(&data);
 
-	return (free_data(&data), 0);
+	return (free_data(&data), EXIT_SUCCESS);
 }

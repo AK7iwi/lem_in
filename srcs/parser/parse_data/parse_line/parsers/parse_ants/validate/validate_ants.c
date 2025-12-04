@@ -1,9 +1,9 @@
 #include "lem_in.h"
 
-static	inline	bool	validate_ants_value(uint32_t	*nb_ants)
+static	inline	bool	validate_ants_value(uint32_t nb_ants)
 {
 	//error
-	return (*nb_ants == 0 || *nb_ants > MAX_ANTS);
+	return (nb_ants == 0 || nb_ants > MAX_ANTS);
 }
 
 static	bool	validate_ants_number(char	*line)
@@ -26,7 +26,7 @@ bool	validate_ants(t_data	*data, char	*line, uint32_t	*nb_ants)
 	if (validate_ants_number(line))
 		return (1); // error 
 	*nb_ants = ft_atoi(line);
-	if (validate_ants_value(nb_ants))
+	if (validate_ants_value(*nb_ants))
 		return (1); //error: nb_ants between 1 and 65000?
 
 	return (0);

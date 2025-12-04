@@ -1,10 +1,10 @@
 #include "lem_in.h"
 
-static	bool	has_start_or_end_room(t_data *data, bool *is_start, bool *is_end)
+static	bool	has_start_or_end_room(t_data *data, bool is_start, bool is_end)
 {
-	if (*is_start && data->map->start_room)
+	if (is_start && data->map->start_room)
 		return (1); //two start error
-	else if (*is_end && data->map->end_room)
+	else if (is_end && data->map->end_room)
 		return (1); //two end error
 
 	return (0);
@@ -54,7 +54,7 @@ bool	validate_cmd_and_cmt(t_data	*data, char	*line, bool *is_start, bool *is_end
 	is_valid_cmd(line, i, is_start, is_end);
 	if (*is_start || *is_end)
 	{
-		if (has_start_or_end_room(data, is_start, is_end))
+		if (has_start_or_end_room(data, *is_start, *is_end))
 			return (1);
 	}
 	return (0);

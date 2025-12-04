@@ -144,7 +144,7 @@ bool	create_room(t_data	*data, char	*name, uint32_t	x, uint32_t	y, bool	is_start
 /* parse_data/parse_line/parsers/parse_room/extract/extract_room.c */
 bool	extract_room(t_data	*data, char *line, char	**name, uint32_t *x, uint32_t	*y, size_t	name_start,	size_t	name_end, size_t	x_start, size_t	x_end, size_t	y_start, size_t y_end);
 /* parse_data/parse_line/parsers/parse_room/validate/validate_room.c */
-bool	is_existing_coordinates(t_data *data, uint32_t x, uint32_t y);
+bool	validate_room(t_data *data, char *line, char **name, uint32_t *x, uint32_t *y);
 /* parse_data/parse_line/parsers/parse_room/parse_room.c */
 bool	parse_room(t_data *data, char	*line, bool	is_start, bool	is_end);
 
