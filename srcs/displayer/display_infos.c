@@ -76,5 +76,28 @@ void	display_infos(t_data *data)
 	print_rooms(data->map);
 	print_links(data->map);
 
-	print_room(data->ant->current_room);
+	// Display current_room of first 3 ants
+	ft_putstr("\n--- First 3 Ants Current Rooms ---\n", STDOUT_FILENO);
+	t_ant	*current_ant;
+	uint32_t	count;
+
+	current_ant = data->ant;
+	count = 0;
+	while (current_ant && count < 3)
+	{
+		ft_putstr("Ant ", STDOUT_FILENO);
+		ft_putnbr(current_ant->id, STDOUT_FILENO);
+		ft_putstr(": ", STDOUT_FILENO);
+		if (current_ant->current_room)
+		{
+			ft_putstr(current_ant->current_room->name, STDOUT_FILENO);
+		}
+		else
+		{
+			ft_putstr("NULL", STDOUT_FILENO);
+		}
+		ft_putchar('\n', STDOUT_FILENO);
+		current_ant = current_ant->next;
+		count++;
+	}
 }

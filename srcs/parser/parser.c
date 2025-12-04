@@ -3,8 +3,8 @@
 bool	parser(t_data	*data, int	fd, int	argc)
 {
 	if (!has_no_arg(argc))
-		return (data->err.parsing_errors |= E_ARGC, EXIT_FAILURE);
+		return (data->err.parsing_errors |= E_ARGC, 1);
 	if (parse_data(data, fd))
-		return (EXIT_FAILURE);
-	return (EXIT_SUCCESS);
+		return (1);
+	return (0);
 }

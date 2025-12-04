@@ -3,9 +3,9 @@
 static	bool	add_room_to_map(t_data *data, t_room *new_room)
 {
 	t_room	*new_rooms;
+	bool	has_start, has_end;
 	size_t	new_capacity;
 	size_t	start_index = 0, end_index = 0;
-	bool	has_start, has_end;
 
 	if (data->map->nb_rooms >= data->map->capacity)
 	{
@@ -24,7 +24,7 @@ static	bool	add_room_to_map(t_data *data, t_room *new_room)
 
 		new_rooms = malloc(sizeof(t_room) * new_capacity);
 		if (!new_rooms)
-			return (EXIT_FAILURE);
+			return (1);
 
 		for (size_t i = 0; i < data->map->nb_rooms; i++)
 			new_rooms[i] = data->map->rooms[i];
@@ -42,9 +42,8 @@ static	bool	add_room_to_map(t_data *data, t_room *new_room)
 	}
 
 	data->map->rooms[data->map->nb_rooms] = *new_room;
-	data->map->nb_rooms++;
 	
-	return (EXIT_SUCCESS);
+	return (0);
 }
 
 bool	create_room(t_data	*data, char	*name,
@@ -60,15 +59,13 @@ bool	create_room(t_data	*data, char	*name,
 	new_room.link = NULL;
 	
 	if (add_room_to_map(data, &new_room))
-		return (free(new_room.name), EXIT_FAILURE);
+		return (free(new_room.name), 1);
+	data->map->nb_rooms++;
 
 	if (is_start)
-	{
 		data->map->start_room = &data->map->rooms[data->map->nb_rooms - 1];
-		set_ants_start_room(data);
-	}
 	if (is_end)
 		data->map->end_room = &data->map->rooms[data->map->nb_rooms - 1];
 
-	return (EXIT_SUCCESS);
+	return (0);
 }

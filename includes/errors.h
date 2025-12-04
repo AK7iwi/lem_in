@@ -39,7 +39,7 @@
 typedef struct s_err
 {
 	uint8_t		gen_errors;
-	uint16_t	parsing_errors;
+	uint32_t	parsing_errors;
 }	t_err;
 
 //**********************************************//

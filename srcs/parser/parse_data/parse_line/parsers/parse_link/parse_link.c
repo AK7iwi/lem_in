@@ -11,28 +11,27 @@ bool	parse_link(t_data *data, char *line)
 	skip_space(line, &i);
 	room_start = i;
 	if (!is_valid_name(line, &i))
-		return (EXIT_FAILURE);
+		return (1);
 	room_end = i;
 	room1 = is_existing_room(data, line, room_start, room_end);
 	if (!room1)
-		return (EXIT_FAILURE);
+		return (1);
 	skip_space(line, &i);
 	if (line[i] != '-')
-		return (EXIT_FAILURE);
+		return (1);
 	i++;
 	skip_space(line, &i);
 	room_start = i;
 	if (!is_valid_name(line, &i))
-		return (EXIT_FAILURE);
+		return (1);
 	room_end = i;
 	room2 = is_existing_room(data, line, room_start, room_end);
 	if (!room2)
-		return (EXIT_FAILURE);
+		return (1);
 	skip_space(line, &i);
 	if (!is_last_char(line[i]))
-		return (EXIT_FAILURE);
-	if (is_existing_link(room1, room2) || create_link(room1, room2))
-		return (EXIT_FAILURE);
-	data->map->nb_links++;
-	return(EXIT_SUCCESS);
+		return (1);
+	if (is_existing_link(room1, room2) || create_link(data, room1, room2))
+		return (1);
+	return(0);
 }

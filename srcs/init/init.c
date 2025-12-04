@@ -4,14 +4,14 @@ static	bool	init_map(t_data	*data)
 {
 	data->map = malloc(sizeof(t_map));
 	if (!data->map)
-		return (EXIT_FAILURE); // memory error
+		return (1); // memory error
 	data->map->nb_rooms = 0;
 	data->map->capacity = 0;
 	data->map->nb_links = 0;
 	data->map->rooms = NULL;
 	data->map->start_room = NULL;
 	data->map->end_room = NULL;
-	return (EXIT_SUCCESS);
+	return (0);
 }
 
 static	inline	void	init_errors(t_data *data)
@@ -26,7 +26,7 @@ bool	init(t_data *data, char **argv)
 
 	init_errors(data);
 	if (init_map(data))
-		return (EXIT_FAILURE); //one return 
+		return (1); //one return
 
-	return (EXIT_SUCCESS);
+	return (0);
 }

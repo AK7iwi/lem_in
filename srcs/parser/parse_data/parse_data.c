@@ -21,23 +21,24 @@ static	bool	parse_map(t_data	*data, int	fd)
 
 	line = get_next_line(fd);
 	if (!line)
-		return (EXIT_FAILURE); //empty file message error
+		return (1); //empty file message error
 	while (line)
 	{
 		if (parse_line(data, fd, line))
-			return (free(line), EXIT_FAILURE); //return i for line error 
+			return (free(line), 1); //return i for line error 
 		i++;
 		free(line);
 		line = get_next_line(fd);
 	}
-	return (EXIT_SUCCESS);
+	return (0);
 }
 
 bool	parse_data(t_data	*data, int	fd)
 {
 	if (parse_map(data, fd))
-		return (EXIT_FAILURE); // bad value error
+		return (1); // bad value error
 	if (!is_valid_map(data))
-		return (EXIT_FAILURE); // missing info error
-	return (EXIT_SUCCESS);
+		return (1); // missing info error
+	set_ants_start_room(data);
+	return (0);
 }

@@ -15,8 +15,8 @@ SRCS			:=	main.c \
 					parser/parse_data/parse_line/parsers/parse_ants/validate/validate_ants.c \
 					parser/parse_data/parse_line/parsers/parse_ants/create/create_ants.c \
 					parser/parse_data/parse_line/parsers/parse_ants/tools/ft_atoi.c \
-					parser/parse_data/parse_line/parsers/parse_command_and_comment/parse_command_and_comment.c \
-					parser/parse_data/parse_line/parsers/parse_command_and_comment/validate/validate_command_and_comment.c \
+					parser/parse_data/parse_line/parsers/parse_cmd_and_cmt/parse_cmd_and_cmt.c \
+					parser/parse_data/parse_line/parsers/parse_cmd_and_cmt/validate/validate_cmd_and_cmt.c \
 					parser/parse_data/parse_line/parsers/parse_room/parse_room.c \
 					parser/parse_data/parse_line/parsers/parse_room/validate/validate_room.c \
 					parser/parse_data/parse_line/parsers/parse_room/extract/extract_room.c \

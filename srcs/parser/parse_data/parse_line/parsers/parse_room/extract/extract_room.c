@@ -39,9 +39,9 @@ bool	extract_room(t_data	*data, char *line,
 	(void)data;
 	*name = extract_name(line, name_start, name_end);
 	if (!(*name))
-		return (EXIT_FAILURE);
+		return (1);
 	*x = extract_coordinate(line, x_start, x_end);
 	*y = extract_coordinate(line, y_start, y_end);
 
-	return (EXIT_SUCCESS);
+	return (0);
 }

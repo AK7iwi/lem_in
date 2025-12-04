@@ -11,7 +11,7 @@ static	bool	bfs(t_map *map, bool *visited, t_room	**queue, size_t queue_front, s
 		current = queue[queue_front++];
 		
 		if (current == map->end_room)
-			return (EXIT_SUCCESS);
+			return (0);
 
 		link = current->link;
 		while (link)
@@ -25,7 +25,7 @@ static	bool	bfs(t_map *map, bool *visited, t_room	**queue, size_t queue_front, s
 			link = link->next;
 		}
 	}
-	return (EXIT_FAILURE);
+	return (1);
 }
 
 static	bool	init_bfs(t_map *map, bool **visited, t_room ***queue, size_t *queue_front, size_t *queue_back)
@@ -38,14 +38,14 @@ static	bool	init_bfs(t_map *map, bool **visited, t_room ***queue, size_t *queue_
 
 	*queue = malloc(sizeof(t_room *) * map->nb_rooms);
 	if (!*queue)
-		return (free_bfs_arrays(*visited, NULL), EXIT_FAILURE);
+		return (free_bfs_arrays(*visited, NULL), 1);
 
 	*queue_front = 0;
 	*queue_back = 0;
 	(*queue)[(*queue_back)++] = map->start_room;
 	(*visited)[get_room_index(map, map->start_room)] = true;
 
-	return (EXIT_SUCCESS);
+	return (0);
 }
 
 bool	has_path(t_map	*map)

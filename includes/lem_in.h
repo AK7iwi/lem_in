@@ -130,7 +130,7 @@ bool	is_valid_number(char	*line, size_t	*i);
 
 
 /* parse_data/parse_line/parsers/parse_link/create/create_link.c */
-bool	create_link(t_room	*room1, t_room	*room2);
+bool	create_link(t_data	*data, t_room	*room1, t_room	*room2);
 /* parse_data/parse_line/parsers/parse_link/validate/validate_link.c */
 bool	is_existing_link(t_room	*room, t_room	*target_room);
 /* parse_data/parse_line/parsers/parse_link/parse_link.c */
@@ -149,11 +149,10 @@ bool	is_existing_coordinates(t_data *data, uint32_t x, uint32_t y);
 bool	parse_room(t_data *data, char	*line, bool	is_start, bool	is_end);
 
 
-/* parse_data/parse_line/parsers/parse_command_and_comment/validate/validate_command_and_comment.c */
-bool	has_start_or_end_room(t_data *data, bool	is_start, bool	is_end);
-void	is_valid_cmd(char	*line, size_t	i, bool	*is_start, bool	*is_end);
-/* parse_data/parse_line/parsers/parse_command_and_comment/parse_command_and_comment.c */
-bool	parse_command_and_comment(t_data	*data, int	fd, char	*line);
+/* parse_data/parse_line/parsers/parse_cmd_and_cmt/validate/validate_cmd_and_cmt.c */
+bool	validate_cmd_and_cmt(t_data	*data, char	*line, bool *is_start, bool *is_end);
+/* parse_data/parse_line/parsers/parse_cmd_and_cmt/parse_cmd_and_cmt.c */
+bool	parse_cmd_and_cmt(t_data *data, int fd, char *line);
 
 
 /* parse_data/parse_line/parsers/parse_ants/tools/ft_atoi.c */

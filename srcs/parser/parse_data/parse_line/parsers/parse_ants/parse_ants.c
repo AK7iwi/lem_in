@@ -5,13 +5,11 @@ bool	parse_ants(t_data	*data, char	*line)
 	uint32_t	nb_ants;
 
 	if (data->map->nb_rooms)
-		return (EXIT_FAILURE); // error: rooms already parsed
+		return (1); // error: rooms already parsed
 	
 	if (validate_ants(data, line, &nb_ants))
-		return (EXIT_FAILURE);
-
+		return (1);
 	if (create_ants(data, nb_ants))
-		return (EXIT_FAILURE);
-
-	return (EXIT_SUCCESS);
+		return (1);
+	return (0);
 }
