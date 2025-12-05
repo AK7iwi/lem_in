@@ -2,11 +2,10 @@
 
 static	inline	bool	validate_ants_value(uint32_t nb_ants)
 {
-	//error
-	return (nb_ants == 0 || nb_ants > MAX_ANTS);
+	return (nb_ants < MIN_ANTS || nb_ants > MAX_ANTS);
 }
 
-static	bool	validate_ants_number(char	*line)
+static	bool	validate_ants_format(char *line)
 {
 	size_t	i = 0;
 
@@ -20,10 +19,10 @@ static	bool	validate_ants_number(char	*line)
 	return (0);
 }
 
-bool	validate_ants(t_data	*data, char	*line, uint32_t	*nb_ants)
+bool	validate_ants(t_data *data, char *line, uint32_t *nb_ants)
 {
 	(void)data;
-	if (validate_ants_number(line))
+	if (validate_ants_format(line))
 		return (1); // error 
 	*nb_ants = ft_atoi(line);
 	if (validate_ants_value(*nb_ants))

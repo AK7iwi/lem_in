@@ -1,6 +1,6 @@
 #include "lem_in.h"
 
-static	uint32_t	extract_coordinate(char	*line, size_t start, size_t end)
+static	uint32_t	extract_coordinate(char *line, size_t start, size_t end)
 {
 	uint32_t	result;
 
@@ -13,7 +13,7 @@ static	uint32_t	extract_coordinate(char	*line, size_t start, size_t end)
 	return (result);
 }
 
-static	char	*extract_name(char	*line, size_t	name_start, size_t	name_end)
+static	char	*extract_name(char *line, size_t name_start, size_t name_end)
 {
 	size_t	name_len;
 	char	*name;
@@ -30,11 +30,11 @@ static	char	*extract_name(char	*line, size_t	name_start, size_t	name_end)
 	return (name);
 }
 
-bool	extract_room(t_data	*data, char *line,
-						  char	**name, uint32_t *x, uint32_t	*y,
-						  size_t	name_start,	size_t	name_end,
-						  size_t	x_start, size_t	x_end,
-						  size_t	y_start, size_t y_end)
+bool	extract_room(t_data *data, char *line,
+						char **name, uint32_t *x, uint32_t *y,
+						size_t name_start, size_t name_end,
+						size_t x_start, size_t x_end,
+						size_t y_start, size_t y_end)
 {
 	(void)data;
 	*name = extract_name(line, name_start, name_end);

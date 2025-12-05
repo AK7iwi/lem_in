@@ -1,6 +1,6 @@
 #include "lem_in.h"
 
-bool	parse_room(t_data *data, char	*line, bool	is_start, bool	is_end)
+bool	parse_room(t_data *data, char *line, bool is_start, bool is_end)
 {
 	char		*name;
 	uint32_t	x, y;
@@ -11,6 +11,8 @@ bool	parse_room(t_data *data, char	*line, bool	is_start, bool	is_end)
 	if (validate_room(data, line, &name, &x, &y))
 		return (1);
 	if (create_room(data, name, x, y, is_start, is_end))
+		return (1);
+	if (validate_nb_rooms(data))
 		return (1);
 
 	return (0);

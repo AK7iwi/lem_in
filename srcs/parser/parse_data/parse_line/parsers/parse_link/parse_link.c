@@ -10,5 +10,6 @@ bool	parse_link(t_data *data, char *line)
 		return (1);
 	if (create_link(data, room1, room2))
 		return (1);
+
 	return(0);
 }

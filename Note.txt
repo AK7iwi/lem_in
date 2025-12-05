@@ -6,17 +6,17 @@ Parsing
 I) Parsing
 
 - Restruct/ Refacto
+
 Follow pattern of validate_ants (make a main)
-parse_room:
-MAX nb_rooms, free name for error
 
 Take main of parsers to check condtion:
 For ants:
 if (data->map->nb_rooms)
 	return (1)
 
-Return line error
+(Return line error)
 
+Check repetition of condition. Follow the flow of the code
 Check for if, else if
 
 - Error:

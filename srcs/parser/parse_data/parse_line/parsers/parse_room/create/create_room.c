@@ -46,9 +46,9 @@ static	bool	add_room_to_map(t_data *data, t_room *new_room)
 	return (0);
 }
 
-bool	create_room(t_data	*data, char	*name,
-				  uint32_t	x, uint32_t	y,
-				  bool	is_start, bool	is_end)
+bool	create_room(t_data *data, char *name,
+				  uint32_t x, uint32_t y,
+				  bool is_start, bool is_end)
 {
 	t_room	new_room;
 	

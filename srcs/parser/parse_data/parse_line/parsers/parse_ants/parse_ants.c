@@ -1,6 +1,6 @@
 #include "lem_in.h"
 
-bool	parse_ants(t_data	*data, char	*line)
+bool	parse_ants(t_data *data, char *line)
 {
 	uint32_t	nb_ants;
 
@@ -11,5 +11,6 @@ bool	parse_ants(t_data	*data, char	*line)
 		return (1);
 	if (create_ants(data, nb_ants))
 		return (1);
+
 	return (0);
 }

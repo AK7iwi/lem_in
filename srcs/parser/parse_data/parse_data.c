@@ -6,6 +6,7 @@ static	bool	is_valid_map(t_data	*data)
 		return (false); // start error
 	if (!data->map->end_room)
 		return (false); //end error
+
 	if (data->map->nb_links < data->map->nb_rooms - 1)
 		return (false); // Not enough links error 
 	if (!has_path(data->map)) /* BFS algo */
