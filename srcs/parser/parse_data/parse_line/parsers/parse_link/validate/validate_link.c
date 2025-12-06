@@ -14,7 +14,7 @@ static	bool	is_existing_link(t_room	*room, t_room	*target_room)
 	return (false);
 }
 
-bool	validate_link(t_data *data, char *line, t_room **room1, t_room **room2)
+static	bool	validate_link_format(t_data *data, char *line, t_room **room1, t_room **room2)
 {
 	size_t	i = 0;
 	size_t	room_start, room_end;
@@ -43,6 +43,13 @@ bool	validate_link(t_data *data, char *line, t_room **room1, t_room **room2)
 	if (!is_last_char(line[i]))
 		return (1);
 
+	return(0);
+}
+
+bool	validate_link(t_data *data, char *line, t_room **room1, t_room **room2)
+{
+	if (validate_link_format(data, line, room1, room2))
+		return (1);
 	if (is_existing_link((*room1), (*room2)))
 		return (1);
 

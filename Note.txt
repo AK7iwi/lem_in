@@ -7,10 +7,6 @@ I) Parsing
 
 - Restruct/ Refacto
 
-Follow pattern of validate_ants (make a main)
-validate_cmd_and_cmt
-validate_link
-
 cut validate_format: validate_name, validate_coordinate
 
 Take main of parsers to check condtion:
@@ -21,6 +17,7 @@ if (data->map->nb_rooms)
 (Return line error)
 
 Check repetition of condition. Follow the flow of the code
+check paren for (*) (Norme)
 Check for if, else if
 
 - Error:
