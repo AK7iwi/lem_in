@@ -37,12 +37,9 @@ static	void	is_valid_cmd(char *line, size_t	i, bool	*is_start, bool	*is_end)
 		(*is_end) = true;
 }
 
-bool	validate_cmd_and_cmt(t_data	*data, char	*line, bool *is_start, bool *is_end)
+static	bool	validate_cmd_and_cmt_format(char *line, bool *is_start, bool *is_end)
 {
 	size_t	i = 0;
-
-	(*is_start) = false;
-	(*is_end) = false;
 
 	skip_space(line, &i);
 	if (line[i] != '#')
@@ -52,10 +49,19 @@ bool	validate_cmd_and_cmt(t_data	*data, char	*line, bool *is_start, bool *is_end
 	i += 2;
 	skip_space(line, &i);
 	is_valid_cmd(line, i, is_start, is_end);
-	if (*is_start || *is_end)
-	{
-		if (has_start_or_end_room(data, *is_start, *is_end))
-			return (1);
-	}
+
+	return (0);
+}
+
+bool	validate_cmd_and_cmt(t_data	*data, char	*line, bool *is_start, bool *is_end)
+{
+	(*is_start) = false;
+	(*is_end) = false;
+
+	if (validate_cmd_and_cmt_format(line, is_start, is_end))
+		return (1);
+	if (has_start_or_end_room(data, *is_start, *is_end))
+		return (1);
+
 	return (0);
 }

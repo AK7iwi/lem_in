@@ -1,0 +1,19 @@
+#include "lem_in.h"
+
+bool	create_valid_cmd(t_data	*data, int fd, bool is_start, bool	is_end)
+{
+	char	*next_line;
+
+	if (!is_start && !is_end)
+		return (0); /* Unknow command or comment */
+	next_line = get_next_line(fd);
+	if (!next_line || parse_room(data, next_line, is_start, is_end))
+	{
+		if (next_line)
+			free(next_line);
+		return (1);
+	}
+	free(next_line);
+
+	return (0);
+}

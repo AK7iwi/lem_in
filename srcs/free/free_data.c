@@ -56,7 +56,6 @@ void	free_data(t_data *data)
 		free_ants(data->ant);
 		data->ant = NULL;
 	}
-
 	if (data->map)
 	{
 		free_rooms(data->map);

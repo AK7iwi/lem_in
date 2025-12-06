@@ -152,7 +152,8 @@ bool	validate_room(t_data *data, char *line, char **name, uint32_t *x, uint32_t 
 /* parse_data/parse_line/parsers/parse_room/parse_room.c */
 bool	parse_room(t_data *data, char	*line, bool	is_start, bool	is_end);
 
-
+/* parse_data/parse_line/parsers/parse_cmd_and_cmt/create/create_valid_cmd.c */
+bool	create_valid_cmd(t_data	*data, int fd, bool is_start, bool	is_end);
 /* parse_data/parse_line/parsers/parse_cmd_and_cmt/validate/validate_cmd_and_cmt.c */
 bool	validate_cmd_and_cmt(t_data	*data, char	*line, bool *is_start, bool *is_end);
 /* parse_data/parse_line/parsers/parse_cmd_and_cmt/parse_cmd_and_cmt.c */
