@@ -122,7 +122,7 @@ bool	has_path(t_map	*map);
 /* parse_data/parse_line/parsers/tools/skip_space_char.c */
 void	skip_space(char	*line, size_t	*i);
 /* parse_data/parse_line/parsers/tools/check_char_type.c */
-bool	is_last_char(char c);
+bool	is_alnum(int c);
 bool	is_digit(int c);
 
 
@@ -140,8 +140,6 @@ bool	validate_link(t_data *data, char *line, t_room **room1, t_room **room2);
 bool	parse_link(t_data *data, char *line);
 
 
-/* parse_data/parse_line/parsers/parse_room/tools/check_char_type.c */
-bool	is_alnum(int c);
 /* parse_data/parse_line/parsers/parse_room/create/create_room.c */
 bool	create_room(t_data	*data, char	*name, uint32_t	x, uint32_t	y, bool	is_start, bool	is_end);
 /* parse_data/parse_line/parsers/parse_room/extract/extract_room.c */
@@ -170,7 +168,8 @@ bool	validate_ants(t_data	*data, char	*line, uint32_t	*nb_ants);
 /* parse_data/parse_line/parsers/parse_ants/parse_ants.c */
 bool	parse_ants(t_data	*data, char	*line);
 
-
+/* parse_data/parse_line/tools/last_char.c */
+bool	is_last_char(char c);
 /* parse_data/parse_line/tools/empty_line.c */
 bool	is_empty_line(char	*line);
 /* parse_data/parse_line/parse_line.c */

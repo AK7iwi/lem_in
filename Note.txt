@@ -38,6 +38,8 @@ II) Vizualizer
 
 III) Exec
 
+0) Time start when clicking on start button. Ending when have the result
+
 Main algo (ACO):
 
 Trouver un papier de recherche sur l'algo
@@ -49,7 +51,6 @@ II) Heuristic Information (Path Length)
 
 Algo to reinforcement and evaporation pheomones in times 
 
-III) Vizualizer
 
 IV) Test map
 

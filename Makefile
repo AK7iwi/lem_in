@@ -10,7 +10,7 @@ SRCS			:=	main.c \
 					parser/parse_data/parse_data.c \
 					parser/parse_data/tools/get_next_line/srcs/get_next_line.c parser/parse_data/tools/get_next_line/srcs/utils/utils.c \
 					parser/parse_data/parse_line/parse_line.c \
-					parser/parse_data/parse_line/tools/empty_line.c \
+					parser/parse_data/parse_line/tools/empty_line.c parser/parse_data/parse_line/tools/last_char.c \
 					parser/parse_data/parse_line/parsers/parse_ants/parse_ants.c \
 					parser/parse_data/parse_line/parsers/parse_ants/validate/validate_ants.c \
 					parser/parse_data/parse_line/parsers/parse_ants/create/create_ants.c \
@@ -22,7 +22,6 @@ SRCS			:=	main.c \
 					parser/parse_data/parse_line/parsers/parse_room/validate/validate_room.c \
 					parser/parse_data/parse_line/parsers/parse_room/extract/extract_room.c \
 					parser/parse_data/parse_line/parsers/parse_room/create/create_room.c \
-					parser/parse_data/parse_line/parsers/parse_room/tools/check_char_type.c \
 					parser/parse_data/parse_line/parsers/parse_link/parse_link.c \
 					parser/parse_data/parse_line/parsers/parse_link/validate/validate_link.c \
 					parser/parse_data/parse_line/parsers/parse_link/create/create_link.c \

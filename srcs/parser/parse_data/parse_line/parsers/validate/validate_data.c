@@ -32,7 +32,7 @@ bool	is_valid_name(char	*line, size_t	*i)
 	size_t	j = (*i);
 
 	if (line[*i] == 'L' || line[*i] == '#')
-		return (false); //error
+		return (false);
 	while (is_alnum(line[*i]))
 		(*i)++;
 	return (j < (*i));
