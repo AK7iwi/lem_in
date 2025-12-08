@@ -1,6 +1,6 @@
 #include "lem_in.h"
 
-static	bool	compare_room_name(char	*line, size_t	name_start, size_t	name_end, char	*room_name)
+static	bool	compare_room_name(char *line, size_t name_start, size_t	name_end, char *room_name)
 {
 	size_t	i = 0;
 
@@ -14,7 +14,7 @@ static	bool	compare_room_name(char	*line, size_t	name_start, size_t	name_end, ch
 	return (name_start == name_end && room_name[i] == '\0');
 }
 
-t_room	*is_existing_room(t_data	*data, char	*line, size_t	name_start, size_t	name_end)
+t_room	*is_existing_room(t_data *data, char *line, size_t name_start, size_t name_end)
 {
 	size_t	j = 0;
 
@@ -27,18 +27,18 @@ t_room	*is_existing_room(t_data	*data, char	*line, size_t	name_start, size_t	nam
 	return (NULL);
 }
 
-bool	is_valid_name(char	*line, size_t	*i)
+bool	is_valid_name(char *line, size_t *i)
 {
 	size_t	j = (*i);
 
-	if (line[*i] == 'L' || line[*i] == '#')
+	if (line[*i] == 'L' || line[*i] == '#') //# already check bottom with isalnum
 		return (false);
 	while (is_alnum(line[*i]))
 		(*i)++;
 	return (j < (*i));
 }
 
-bool	is_valid_number(char	*line, size_t	*i)
+bool	is_valid_number(char *line, size_t *i)
 {
 	size_t	j = (*i);
 

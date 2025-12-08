@@ -25,6 +25,7 @@ static	bool	bfs(t_map *map, bool *visited, t_room	**queue, size_t queue_front, s
 			link = link->next;
 		}
 	}
+
 	return (1);
 }
 
@@ -56,7 +57,6 @@ bool	has_path(t_map	*map)
 
 	if (map->start_room == map->end_room)
 		return (true);
-
 	if (init_bfs(map, &visited, &queue, &queue_front, &queue_back))
 		return (false);
 	if (bfs(map, visited, queue, queue_front, queue_back))

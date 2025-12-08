@@ -19,7 +19,7 @@ SRCS			:=	main.c \
 					parser/parse_data/parse_line/parsers/parse_cmd_and_cmt/validate/validate_cmd_and_cmt.c \
 					parser/parse_data/parse_line/parsers/parse_cmd_and_cmt/create/create_valid_cmd.c \
 					parser/parse_data/parse_line/parsers/parse_room/parse_room.c \
-					parser/parse_data/parse_line/parsers/parse_room/validate/validate_room.c \
+					parser/parse_data/parse_line/parsers/parse_room/validate/validate_room.c parser/parse_data/parse_line/parsers/parse_room/validate/validate_room_format.c parser/parse_data/parse_line/parsers/parse_room/validate/validate_room_values.c \
 					parser/parse_data/parse_line/parsers/parse_room/extract/extract_room.c \
 					parser/parse_data/parse_line/parsers/parse_room/create/create_room.c \
 					parser/parse_data/parse_line/parsers/parse_link/parse_link.c \
