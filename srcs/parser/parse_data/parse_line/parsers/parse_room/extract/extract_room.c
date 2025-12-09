@@ -13,7 +13,7 @@ static	uint32_t	extract_coordinate(char *line, size_t start, size_t end)
 	return (result);
 }
 
-static	char	*extract_name(char *line, size_t name_start, size_t name_end)
+char	*extract_name(char *line, size_t name_start, size_t name_end)
 {
 	size_t	name_len;
 	char	*name;

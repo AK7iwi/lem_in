@@ -1,0 +1,29 @@
+#include "lem_in.h"
+
+static	bool	is_existing_link(t_room	*room, t_room	*target_room)
+{
+	t_link	*current;
+
+	current = room->link;
+	while (current)
+	{
+		if (current->room == target_room)
+			return (true);
+		current = current->next;
+	}
+	return (false);
+}
+
+bool	validate_link_values(t_data *data, t_room **room1, char *room1_name, t_room **room2, char *room2_name)
+{
+	*room1 = is_existing_room(data, room1_name);
+	if (!*room1)
+		return (1);
+	*room2 = is_existing_room(data, room2_name);
+	if (!*room2)
+		return (1);
+	if (is_existing_link(*room1, *room2))
+		return (1);
+
+	return (0);
+}

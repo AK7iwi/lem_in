@@ -127,13 +127,16 @@ bool	is_digit(int c);
 
 
 /* parse_data/parse_line/parsers/validate/validate_data.c */
-t_room	*is_existing_room(t_data	*data, char	*line, size_t	name_start, size_t	name_end);
 bool	is_valid_name(char	*line, size_t	*i);
 bool	is_valid_number(char	*line, size_t	*i);
 
 
 /* parse_data/parse_line/parsers/parse_link/create/create_link.c */
 bool	create_link(t_data	*data, t_room	*room1, t_room	*room2);
+/* parse_data/parse_line/parsers/parse_link/validate/validate_link_values.c */
+bool	validate_link_values(t_data *data, t_room **room1, char *room1_name, t_room **room2, char *room2_name);
+/* parse_data/parse_line/parsers/parse_link/validate/validate_link_format.c */
+bool	validate_link_format(t_data *data, char *line, size_t *room1_start, size_t *room1_end, size_t *room2_start, size_t *room2_end);
 /* parse_data/parse_line/parsers/parse_link/validate/validate_link.c */
 bool	validate_link(t_data *data, char *line, t_room **room1, t_room **room2);
 /* parse_data/parse_line/parsers/parse_link/parse_link.c */
@@ -143,10 +146,13 @@ bool	parse_link(t_data *data, char *line);
 /* parse_data/parse_line/parsers/parse_room/create/create_room.c */
 bool	create_room(t_data	*data, char	*name, uint32_t	x, uint32_t	y, bool	is_start, bool	is_end);
 /* parse_data/parse_line/parsers/parse_room/extract/extract_room.c */
+char	*extract_name(char *line, size_t name_start, size_t name_end);
 bool	extract_room(t_data	*data, char *line, char	**name, uint32_t *x, uint32_t	*y, size_t	name_start,	size_t	name_end, size_t	x_start, size_t	x_end, size_t	y_start, size_t y_end);
 /* parse_data/parse_line/parsers/parse_room/validate/validate_room_values.c */
+t_room	*is_existing_room(t_data *data, char *name);
 bool    validate_room_values(t_data *data, char *name, uint32_t x, uint32_t y);
 /* parse_data/parse_line/parsers/parse_room/validate/validate_room_format.c */
+bool	validate_name(char *line, size_t *i, size_t *name_start, size_t *name_end);
 bool	validate_room_format(t_data *data, char *line, size_t *name_start, size_t *name_end, size_t *x_start, size_t *x_end, size_t *y_start, size_t *y_end);
 /* parse_data/parse_line/parsers/parse_room/validate/validate_room.c */
 bool	validate_nb_rooms(t_data *data);
@@ -154,8 +160,13 @@ bool	validate_room(t_data *data, char *line, char **name, uint32_t *x, uint32_t 
 /* parse_data/parse_line/parsers/parse_room/parse_room.c */
 bool	parse_room(t_data *data, char	*line, bool	is_start, bool	is_end);
 
+
 /* parse_data/parse_line/parsers/parse_cmd_and_cmt/create/create_valid_cmd.c */
 bool	create_valid_cmd(t_data	*data, int fd, bool is_start, bool	is_end);
+/* parse_data/parse_line/parsers/parse_cmd_and_cmt/validate/validate_cmd_and_cmt_value.c */
+bool	has_start_or_end_room(t_data *data, bool is_start, bool is_end);
+/* parse_data/parse_line/parsers/parse_cmd_and_cmt/validate/validate_cmd_and_cmt_format.c */
+bool	validate_cmd_and_cmt_format(char *line, bool *is_start, bool *is_end);
 /* parse_data/parse_line/parsers/parse_cmd_and_cmt/validate/validate_cmd_and_cmt.c */
 bool	validate_cmd_and_cmt(t_data	*data, char	*line, bool *is_start, bool *is_end);
 /* parse_data/parse_line/parsers/parse_cmd_and_cmt/parse_cmd_and_cmt.c */
@@ -167,10 +178,15 @@ int		ft_atoi(const char *nptr);
 /* parse_data/parse_line/parsers/parse_ants/create/create_ants.c */
 void	set_ants_start_room(t_data	*data);
 bool	create_ants(t_data	*data, uint32_t	nb_ants);
+/* parse_data/parse_line/parsers/parse_ants/validate/validate_ants_value.c */
+bool	validate_ants_value(uint32_t nb_ants);
+/* parse_data/parse_line/parsers/parse_ants/validate/validate_ants_format.c */
+bool	validate_ants_format(char *line);
 /* parse_data/parse_line/parsers/parse_ants/validate/validate_ants.c */
 bool	validate_ants(t_data	*data, char	*line, uint32_t	*nb_ants);
 /* parse_data/parse_line/parsers/parse_ants/parse_ants.c */
 bool	parse_ants(t_data	*data, char	*line);
+
 
 /* parse_data/parse_line/tools/last_char.c */
 bool	is_last_char(char c);

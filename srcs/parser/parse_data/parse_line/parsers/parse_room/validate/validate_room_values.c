@@ -42,18 +42,18 @@ static	bool	compare_room_name(char *name, char *room_name)
 	return (true);
 }
 
-static	bool	is_existing_room(t_data *data, char *name)
+t_room	*is_existing_room(t_data *data, char *name)
 {
 	size_t i = 0;
 
 	while (i < data->map->nb_rooms)
 	{
 		if (compare_room_name(name, data->map->rooms[i].name))
-			return (true);
+			return (&data->map->rooms[i]);
 		i++;
 	}
 
-	return (false);
+	return (NULL);
 }
 
 bool    validate_room_values(t_data *data, char *name, uint32_t x, uint32_t y)

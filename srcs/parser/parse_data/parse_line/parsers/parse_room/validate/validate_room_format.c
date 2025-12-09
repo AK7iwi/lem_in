@@ -9,7 +9,7 @@ static	bool	validate_coordinate(char *line, size_t *i, size_t *coord_start, size
 	return (0);
 }
 
-static	bool	validate_name(char *line, size_t *i, size_t *name_start, size_t *name_end)
+bool	validate_name(char *line, size_t *i, size_t *name_start, size_t *name_end)
 {
 	(*name_start) = *i;
 	if (!is_valid_name(line, i))

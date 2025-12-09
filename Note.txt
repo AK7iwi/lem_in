@@ -7,16 +7,14 @@ I) Parsing
 
 - Restruct/ Refacto
 cut validate_format (main):
-validate_room
-validate_link
+validate_room OK 
+validate_link:
 valide_parse_cmd_and_cmt
-validate_ants
+validate_ants OK 
 
 
 validate_format
 validate_values 
-
-is_existing room for room?
 
 file for set_nb_ants
 
