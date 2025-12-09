@@ -6,24 +6,10 @@ Parsing
 I) Parsing
 
 - Restruct/ Refacto
-cut validate_format (main):
-validate_room OK 
-validate_link:
-valide_parse_cmd_and_cmt
-validate_ants OK 
 
-
-validate_format
-validate_values 
-
+Restruct parse_line
+Rename fct
 file for set_nb_ants
-
-Take main of parsers to check condtion:
-For ants:
-if (data->map->nb_rooms)
-	return (1)
-
-(Return line error)
 
 - Error:
 How to handle:
@@ -33,13 +19,14 @@ Write messages error
 Like Minishell, global and specific error. Ex: Init error: memory error
 Line error
 
+Test:
+Malloc error
 Add maps to be tested
-Test (also malloc error)
 
 Check repetition of condition. Follow the flow of the code
 Check for if, else if
 
-Norme
+Norme:
 check paren for (*)
 
 II) Vizualizer

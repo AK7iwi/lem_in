@@ -8,6 +8,7 @@ static	bool	init_map(t_data	*data)
 	data->map->nb_rooms = 0;
 	data->map->capacity = 0;
 	data->map->nb_links = 0;
+	data->map->nb_valid_cmds = 0;
 	data->map->rooms = NULL;
 	data->map->start_room = NULL;
 	data->map->end_room = NULL;
@@ -23,6 +24,7 @@ static	inline	void	init_ants(t_data *data)
 
 static	inline	void	init_errors(t_data *data)
 {
+	data->err.line_error = 0;
 	data->err.gen_errors = 0;
 	data->err.parsing_errors = 0;
 }

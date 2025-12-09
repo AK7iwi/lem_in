@@ -63,7 +63,7 @@ while IFS= read -r -d '' map; do
     if [ $exit_code -ne 0 ]; then
         # Check if first line is "ERROR"
         first_line=$(echo "$output" | head -n 1)
-        if [ "$first_line" = "ERROR:" ]; then
+        if [ "$first_line" = "ERROR" ]; then
             echo -e "${GREEN}✓ PASSED (correctly rejected with ERROR)${NC}"
             if [ -n "$output" ]; then
                 echo -e "Error message:"

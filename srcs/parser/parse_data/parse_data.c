@@ -26,7 +26,10 @@ static	bool	parse_map(t_data	*data, int	fd)
 	while (line)
 	{
 		if (parse_line(data, fd, line))
-			return (free(line), 1); //return i for line error 
+		{
+			data->err.line_error += (i + data->map->nb_valid_cmds + 1);  
+			return (free(line), 1);
+		}
 		i++;
 		free(line);
 		line = get_next_line(fd);

@@ -16,9 +16,12 @@ static	void	display_gen_errors(uint8_t gen_errors)
 	printf("display_gen_errors\n");
 }
 
-void	errors_displayer(t_err error)
+void	errors_displayer(t_err error) //display errors
 {
-	ft_putstr("ERROR:\n", STDERR_FILENO);
+	ft_putstr("ERROR\n", STDERR_FILENO);
+	ft_putstr("Line ", STDERR_FILENO);
+	ft_putnbr(error.line_error, STDERR_FILENO);
+	ft_putstr(":", STDERR_FILENO);
 	if (error.gen_errors)
 		display_gen_errors(error.gen_errors);
 	if (error.parsing_errors)

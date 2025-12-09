@@ -6,6 +6,7 @@
 //**********************************************//
 
 # include <stdint.h>
+# include <stdlib.h>
 
 //**********************************************//
 //					DEFINES						//
@@ -27,7 +28,6 @@
 # define ERR_NUMBER			"First line must contain only one number\n"
 
 /* General errors */
-
 # define E_MEMORY			0x1
 
 # define ERR_MEMORY			"Memory error\n"
@@ -38,6 +38,7 @@
 
 typedef struct s_err
 {
+	size_t		line_error;
 	uint8_t		gen_errors;
 	uint32_t	parsing_errors;
 }	t_err;

@@ -53,6 +53,7 @@ typedef struct s_map
 	uint16_t	nb_rooms;
 	uint16_t	capacity;
 	uint16_t	nb_links;
+	uint16_t	nb_valid_cmds;
 	t_room		*rooms;
 	t_room		*start_room;
 	t_room		*end_room;
