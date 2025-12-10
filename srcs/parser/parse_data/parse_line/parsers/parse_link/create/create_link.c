@@ -1,6 +1,5 @@
 #include "lem_in.h"
 
-
 static bool	add_link_to_room(t_room *room, t_room *target_room)
 {
 	t_link	*new_link;

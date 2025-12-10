@@ -1,33 +1,32 @@
 TO-DO:
 
-Parsing
+Parsing:
+
+Finish rename/restruct
+Error handling (msg)
+Test
 
 ------------------------------------------------------------------------
 I) Parsing
 
 - Restruct/ Refacto
 
-Restruct parse_line
-Rename fct
-file for set_nb_ants
+Refacto parse_line:
 
 - Error:
 How to handle:
 Sure errors
-
 Write messages error
-Like Minishell, global and specific error. Ex: Init error: memory error
-Line error
 
-Test:
+- Test:
 Malloc error
 Add maps to be tested
 
+- Norme:
+check paren for (*)
+
 Check repetition of condition. Follow the flow of the code
 Check for if, else if
-
-Norme:
-check paren for (*)
 
 II) Vizualizer
 

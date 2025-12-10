@@ -9,16 +9,6 @@ static	bool	validate_coordinate(char *line, size_t *i, size_t *coord_start, size
 	return (0);
 }
 
-bool	validate_name(char *line, size_t *i, size_t *name_start, size_t *name_end)
-{
-	(*name_start) = *i;
-	if (!is_valid_name(line, i))
-		return (1);
-	(*name_end) = *i;
-
-	return (0);
-}
-
 bool	validate_room_format(t_data *data, char *line,
 								size_t *name_start, size_t *name_end,
 								size_t *x_start, size_t *x_end,

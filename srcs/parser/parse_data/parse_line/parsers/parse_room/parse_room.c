@@ -5,7 +5,7 @@ bool	parse_room(t_data *data, char *line, bool is_start, bool is_end)
 	char		*name;
 	uint32_t	x, y;
 
-	if (data->map->nb_links)
+	if (!data->nb_ants || data->map->nb_links)
 		return (1);
 
 	if (validate_room(data, line, &name, &x, &y))

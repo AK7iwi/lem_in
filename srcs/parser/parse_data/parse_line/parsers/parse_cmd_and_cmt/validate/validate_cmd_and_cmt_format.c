@@ -33,7 +33,7 @@ bool	validate_cmd_and_cmt_format(char *line, bool *is_start, bool *is_end)
 
 	skip_space(line, &i);
 	if (line[i] != '#')
-		return (1);  /* Others lines */
+		return (1);  /* Other lines */
 	if (line[i + 1] != '#')
 		return (0); /* Comment */
 	i += 2;

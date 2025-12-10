@@ -13,20 +13,24 @@ SRCS			:=	main.c \
 					parser/parse_data/parse_line/tools/empty_line.c parser/parse_data/parse_line/tools/last_char.c \
 					parser/parse_data/parse_line/parsers/parse_ants/parse_ants.c \
 					parser/parse_data/parse_line/parsers/parse_ants/validate/validate_ants.c parser/parse_data/parse_line/parsers/parse_ants/validate/validate_ants_format.c parser/parse_data/parse_line/parsers/parse_ants/validate/validate_ants_value.c \
-					parser/parse_data/parse_line/parsers/parse_ants/create/create_ants.c \
+					parser/parse_data/parse_line/parsers/parse_ants/extract/extract_ants.c \
+					parser/parse_data/parse_line/parsers/parse_ants/create/create_ants.c parser/parse_data/parse_line/parsers/parse_ants/create/set_start_room.c \
 					parser/parse_data/parse_line/parsers/parse_ants/tools/ft_atoi.c \
 					parser/parse_data/parse_line/parsers/parse_cmd_and_cmt/parse_cmd_and_cmt.c \
 					parser/parse_data/parse_line/parsers/parse_cmd_and_cmt/validate/validate_cmd_and_cmt.c parser/parse_data/parse_line/parsers/parse_cmd_and_cmt/validate/validate_cmd_and_cmt_format.c parser/parse_data/parse_line/parsers/parse_cmd_and_cmt/validate/validate_cmd_and_cmt_value.c \
-					parser/parse_data/parse_line/parsers/parse_cmd_and_cmt/create/create_valid_cmd.c \
+					parser/parse_data/parse_line/parsers/parse_cmd_and_cmt/create/create_cmd.c \
 					parser/parse_data/parse_line/parsers/parse_room/parse_room.c \
 					parser/parse_data/parse_line/parsers/parse_room/validate/validate_room.c parser/parse_data/parse_line/parsers/parse_room/validate/validate_room_format.c parser/parse_data/parse_line/parsers/parse_room/validate/validate_room_values.c \
 					parser/parse_data/parse_line/parsers/parse_room/extract/extract_room.c \
 					parser/parse_data/parse_line/parsers/parse_room/create/create_room.c \
 					parser/parse_data/parse_line/parsers/parse_link/parse_link.c \
 					parser/parse_data/parse_line/parsers/parse_link/validate/validate_link.c parser/parse_data/parse_line/parsers/parse_link/validate/validate_link_format.c parser/parse_data/parse_line/parsers/parse_link/validate/validate_link_values.c \
+					parser/parse_data/parse_line/parsers/parse_link/extract/extract_link.c \
 					parser/parse_data/parse_line/parsers/parse_link/create/create_link.c \
-					parser/parse_data/parse_line/parsers/validate/validate_data.c \
-					parser/parse_data/parse_line/parsers/tools/check_char_type.c parser/parse_data/parse_line/parsers/tools/skip_space_char.c \
+					parser/parse_data/parse_line/parsers/parse_link/tools/free_rooms.c \
+					parser/parse_data/parse_line/parsers/common/validate/validate_data.c \
+					parser/parse_data/parse_line/parsers/common/extract/extract_data.c \
+					parser/parse_data/parse_line/parsers/common/tools/check_char_type.c parser/parse_data/parse_line/parsers/common/tools/skip_space_char.c \
 					parser/parse_data/bfs_algo/bfs.c \
 					parser/parse_data/bfs_algo/tools/free_array.c parser/parse_data/bfs_algo/tools/room_index.c \
 					displayer/display_errors.c displayer/display_infos.c displayer/display_map.c \
