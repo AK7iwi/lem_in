@@ -104,7 +104,7 @@ bool	print_map(t_data *data);
 /* display_infos.c */
 void	display_infos(t_data *data);
 /* display_errors.c */
-void	errors_displayer(t_err error);
+void	display_errors(t_err error);
 
 //**********************************************//
 //												//

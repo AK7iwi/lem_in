@@ -62,7 +62,7 @@ while IFS= read -r -d '' map; do
     exit_code=$?
     if [ $exit_code -ne 0 ]; then
         # Check if first line is "ERROR"
-        first_line=$(echo "$output" | head -n 1)
+        first_line=$(echo "$output" | head -n 1 | sed 's/\x1b\[[0-9;]*m//g')
         if [ "$first_line" = "ERROR" ]; then
             echo -e "${GREEN}✓ PASSED (correctly rejected with ERROR)${NC}"
             if [ -n "$output" ]; then

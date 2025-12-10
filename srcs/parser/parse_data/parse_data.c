@@ -1,6 +1,6 @@
 #include "lem_in.h"
 
-static	bool	is_valid_map(t_data	*data)
+static	bool	is_valid_map(t_data *data)
 {
 	if (!data->map->start_room)
 		return (false); // start error
@@ -14,14 +14,14 @@ static	bool	is_valid_map(t_data	*data)
 	return (true);
 }
 
-static	bool	parse_map(t_data	*data, int	fd)
+static	bool	parse_map(t_data *data, int fd)
 {
 	char	*line;
 	size_t	i = 0;
 
 	line = get_next_line(fd);
 	if (!line)
-		return (1); //empty file message error
+		return (data->err.parsing_errors |= E_EMPTY_FILE, 1);
 	while (line)
 	{
 		if (parse_line(data, fd, line))
@@ -37,7 +37,7 @@ static	bool	parse_map(t_data	*data, int	fd)
 	return (0);
 }
 
-bool	parse_data(t_data	*data, int	fd)
+bool	parse_data(t_data *data, int fd)
 {
 	if (parse_map(data, fd))
 		return (1); // bad value error

@@ -2,25 +2,20 @@ TO-DO:
 
 Parsing:
 
-Finish rename/restruct
 Error handling (msg)
 Test
 
 ------------------------------------------------------------------------
 I) Parsing
 
-- Restruct/ Refacto
-
-Refacto parse_line:
-
 - Error:
 How to handle:
-Sure errors
-Write messages error
+No error from validate_format
+Error from validate_value 
 
 - Test:
-Malloc error
 Add maps to be tested
+Malloc error
 
 - Norme:
 check paren for (*)
@@ -29,7 +24,6 @@ Check repetition of condition. Follow the flow of the code
 Check for if, else if
 
 II) Vizualizer
-
 
 III) Exec
 
@@ -50,8 +44,6 @@ Algo to reinforcement and evaporation pheomones in times
 IV) Test map
 
 Add map from subject
-
-Map without solution
 
 Start/end:
 No room after start and end (more test)

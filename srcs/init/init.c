@@ -4,7 +4,7 @@ static	bool	init_map(t_data	*data)
 {
 	data->map = malloc(sizeof(t_map));
 	if (!data->map)
-		return (1); // memory error
+		return (data->err.gen_errors |= E_MEMORY, 1);
 	data->map->nb_rooms = 0;
 	data->map->capacity = 0;
 	data->map->nb_links = 0;
@@ -35,8 +35,5 @@ bool	init(t_data *data, char **argv)
 
 	init_errors(data);
 	init_ants(data);
-	if (init_map(data))
-		return (1); //one return
-
-	return (0);
+	return (init_map(data));
 }
