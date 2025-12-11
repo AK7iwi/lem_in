@@ -120,8 +120,6 @@ void	free_bfs_arrays(bool *visited, t_room **queue);
 bool	has_path(t_map	*map);
 
 
-/* parse_data/parse_line/parsers/common/tools/skip_space_char.c */
-void	skip_space(char	*line, size_t *i);
 /* parse_data/parse_line/parsers/common/tools/check_char_type.c */
 bool	is_alnum(int c);
 bool	is_digit(int c);
@@ -198,6 +196,8 @@ bool	parse_ants(t_data *data, char *line);
 
 /* parse_data/parse_line/tools/last_char.c */
 bool	is_last_char(char c);
+/* parse_data/parse_line/tools/skip_space_char.c */
+void	skip_space(char	*line, size_t *i);
 /* parse_data/parse_line/tools/empty_line.c */
 bool	is_empty_line(char *line);
 

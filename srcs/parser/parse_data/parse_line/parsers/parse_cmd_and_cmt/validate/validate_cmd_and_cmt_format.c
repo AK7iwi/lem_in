@@ -6,6 +6,7 @@ static	bool	is_end_cmd(char *line, size_t i)
 		return (false);
 	i+= 3;
 	skip_space(line, &i);
+
 	return (is_last_char(line[i]));
 }
 
@@ -16,6 +17,7 @@ static	bool	is_start_cmd(char *line, size_t i)
 		return (false);
 	i += 5;
 	skip_space(line, &i);
+
 	return (is_last_char(line[i]));
 }
 

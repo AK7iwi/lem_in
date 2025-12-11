@@ -36,6 +36,16 @@
 # define E_ANTS_VALUE		0x8
 # define ERR_ANTS_VALUE		"Number of ants must be between 1 and 1000000\n"
 
+# define E_TWO_STARTS		0x10
+# define ERR_TWO_STARTS		"There must be exactly one start room\n"
+# define E_TWO_ENDS			0x20
+# define ERR_TWO_ENDS		"There must be exactly one end room\n"
+# define E_START			0x40
+# define ERR_START			"Start room is missing or invalid\n"
+# define E_END				0x80
+# define ERR_END			"End room is missing or invalid\n"
+
+
 //**********************************************//
 //					STRUCTURES					//
 //**********************************************//

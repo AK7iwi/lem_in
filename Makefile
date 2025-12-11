@@ -10,7 +10,7 @@ SRCS			:=	main.c \
 					parser/parse_data/parse_data.c \
 					parser/parse_data/tools/get_next_line/srcs/get_next_line.c parser/parse_data/tools/get_next_line/srcs/utils/utils.c \
 					parser/parse_data/parse_line/parse_line.c \
-					parser/parse_data/parse_line/tools/empty_line.c parser/parse_data/parse_line/tools/last_char.c \
+					parser/parse_data/parse_line/tools/empty_line.c parser/parse_data/parse_line/tools/skip_space_char.c parser/parse_data/parse_line/tools/last_char.c \
 					parser/parse_data/parse_line/parsers/parse_ants/parse_ants.c \
 					parser/parse_data/parse_line/parsers/parse_ants/validate/validate_ants.c parser/parse_data/parse_line/parsers/parse_ants/validate/validate_ants_format.c parser/parse_data/parse_line/parsers/parse_ants/validate/validate_ants_value.c \
 					parser/parse_data/parse_line/parsers/parse_ants/extract/extract_ants.c \
@@ -30,7 +30,7 @@ SRCS			:=	main.c \
 					parser/parse_data/parse_line/parsers/parse_link/tools/free_rooms.c \
 					parser/parse_data/parse_line/parsers/common/validate/validate_data.c \
 					parser/parse_data/parse_line/parsers/common/extract/extract_data.c \
-					parser/parse_data/parse_line/parsers/common/tools/check_char_type.c parser/parse_data/parse_line/parsers/common/tools/skip_space_char.c \
+					parser/parse_data/parse_line/parsers/common/tools/check_char_type.c \
 					parser/parse_data/bfs_algo/bfs.c \
 					parser/parse_data/bfs_algo/tools/free_array.c parser/parse_data/bfs_algo/tools/room_index.c \
 					displayer/display_errors.c displayer/display_infos.c displayer/display_map.c \

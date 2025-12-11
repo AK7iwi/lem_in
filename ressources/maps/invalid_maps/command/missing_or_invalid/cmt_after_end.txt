@@ -2,12 +2,9 @@
 ##start
 0 1 0
 ##end
+# invalid
 1 5 0
-# cdm
-#dcefe
-##cmddm
 2 9 0
-     
 3 13 0
 0-2
 2-3

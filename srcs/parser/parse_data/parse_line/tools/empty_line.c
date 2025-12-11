@@ -1,6 +1,9 @@
 #include "lem_in.h"
 
-inline	bool	is_empty_line(char	*line)
+bool	is_empty_line(char *line)
 {
-	return (is_last_char(line[0]));
+	size_t i = 0;
+
+	skip_space(line, &i);
+	return (is_last_char(line[i]));
 }

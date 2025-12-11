@@ -5,15 +5,31 @@ Parsing:
 Error handling (msg)
 Test
 
+
+commit:
+
+parse_cmd_and_cmt
+empty line fix 
 ------------------------------------------------------------------------
 I) Parsing
 
 - Error:
-How to handle:
-No error from validate_format
-Error from validate_value 
+Rules:
+No error message from validate_format
+Error message from validate_value
+Case to handle:
+Map where start == end
 
+parse_cmd_and_cmt:
+ad map + test
+parse_room
+parse_link
+
+
+idea:
 Genereal message error if parse_errors and gen_errors = 0
+
+
 - Test:
 Add maps to be tested
 Malloc error
@@ -41,14 +57,10 @@ II) Heuristic Information (Path Length)
 
 Algo to reinforcement and evaporation pheomones in times 
 
-
 IV) Test map
 
 Add map from subject
 
-Start/end:
-No room after start and end (more test)
-comment or command after ##start and ##end
 Map where start == end
 
 Room:
