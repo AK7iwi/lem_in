@@ -1,6 +1,6 @@
 #include "lem_in.h"
 
-bool	create_ants(t_data	*data, uint32_t	nb_ants)
+bool	create_ants(t_data *data, uint32_t nb_ants)
 {
 	t_ant		*new_ant, *prev_ant;
 	uint32_t	i;
@@ -13,7 +13,7 @@ bool	create_ants(t_data	*data, uint32_t	nb_ants)
 	{
 		new_ant = malloc(sizeof(t_ant));
 		if (!new_ant)
-			return (1); // memory error
+			return (data->err.gen_errors |= E_MEMORY, 1);
 		new_ant->id = i;
 		new_ant->current_room = NULL;
 		new_ant->has_moved = false;
@@ -27,5 +27,6 @@ bool	create_ants(t_data	*data, uint32_t	nb_ants)
 		prev_ant = new_ant;
 		i++;
 	}
+
 	return (0);
 }

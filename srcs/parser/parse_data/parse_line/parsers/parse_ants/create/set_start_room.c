@@ -1,6 +1,6 @@
 #include "lem_in.h"
 
-void	set_start_room(t_data	*data)
+void	set_start_room(t_data *data)
 {
 	t_ant	*current;
 

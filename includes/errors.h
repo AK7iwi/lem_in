@@ -33,9 +33,8 @@
 # define E_EMPTY_LINE		0x4
 # define ERR_EMPTY_LINE		"This program does not accept empty line(s)\n"
 
-
-# define E_NUMBER			0x8
-# define ERR_NUMBER			"First line must contain only one number\n"
+# define E_ANTS_VALUE		0x8
+# define ERR_ANTS_VALUE		"Number of ants must be between 1 and 1000000\n"
 
 //**********************************************//
 //					STRUCTURES					//

@@ -13,6 +13,7 @@ How to handle:
 No error from validate_format
 Error from validate_value 
 
+Genereal message error if parse_errors and gen_errors = 0
 - Test:
 Add maps to be tested
 Malloc error
