@@ -19,8 +19,7 @@ bool	extract_room_data(t_data *data, char *line,
 						size_t x_start, size_t x_end,
 						size_t y_start, size_t y_end)
 {
-	(void)data;
-	*name = extract_name(line, name_start, name_end);
+	*name = extract_name(data, line, name_start, name_end);
 	if (!(*name))
 		return (1);
 	*x = extract_coordinate(line, x_start, x_end);

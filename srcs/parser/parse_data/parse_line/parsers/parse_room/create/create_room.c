@@ -24,7 +24,7 @@ static	bool	add_room_to_map(t_data *data, t_room *new_room)
 
 		new_rooms = malloc(sizeof(t_room) * new_capacity);
 		if (!new_rooms)
-			return (1);
+			return (data->err.gen_errors |= E_MEMORY, 1);
 
 		for (size_t i = 0; i < data->map->nb_rooms; i++)
 			new_rooms[i] = data->map->rooms[i];
@@ -40,15 +40,14 @@ static	bool	add_room_to_map(t_data *data, t_room *new_room)
 		if (has_end)
 			data->map->end_room = &data->map->rooms[end_index];
 	}
-
 	data->map->rooms[data->map->nb_rooms] = *new_room;
 	
 	return (0);
 }
 
 bool	create_room(t_data *data, char *name,
-				  uint32_t x, uint32_t y,
-				  bool is_start, bool is_end)
+					uint32_t x, uint32_t y,
+					bool is_start, bool is_end)
 {
 	t_room	new_room;
 	

@@ -19,15 +19,16 @@ No error message from validate_format
 Error message from validate_value
 Case to handle:
 Map where start == end
+delete (void)data
 
-parse_cmd_and_cmt:
-ad map + test
 parse_room
 parse_link
 
+display error: separate errors (ants, cmd, room, link) and use if/else if
+
 
 idea:
-Genereal message error if parse_errors and gen_errors = 0
+Genereal message error for format
 
 
 - Test:

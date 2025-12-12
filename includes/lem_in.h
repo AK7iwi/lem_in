@@ -125,7 +125,7 @@ bool	is_alnum(int c);
 bool	is_digit(int c);
 
 /* parse_data/parse_line/parsers/common/extract/extract_data.c */
-char	*extract_name(char *line, size_t name_start, size_t name_end);
+char	*extract_name(t_data *data, char *line, size_t name_start, size_t name_end);
 
 /* parse_data/parse_line/parsers/common/validate/validate_data.c */
 t_room	*is_existing_room(t_data *data, char *name);
@@ -138,7 +138,7 @@ void	free_room_names(char *room1_name, char *room2_name);
 /* parse_data/parse_line/parsers/parse_link/create/create_link.c */
 bool	create_link(t_data *data, t_room *room1, t_room *room2);
 /* parse_data/parse_line/parsers/parse_link/extract/extract_link.c */
-bool	extract_room_names(char *line, char **room1_name, size_t room1_start, size_t room1_end, char **room2_name, size_t room2_start, size_t room2_end);
+bool	extract_room_names(t_data *data, char *line, char **room1_name, size_t room1_start, size_t room1_end, char **room2_name, size_t room2_start, size_t room2_end);
 /* parse_data/parse_line/parsers/parse_link/validate/validate_link_values.c */
 bool	validate_link_values(t_data *data, t_room **room1, char *room1_name, t_room **room2, char *room2_name);
 /* parse_data/parse_line/parsers/parse_link/validate/validate_link_format.c */

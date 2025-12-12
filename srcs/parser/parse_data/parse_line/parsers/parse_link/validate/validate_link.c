@@ -8,7 +8,7 @@ bool	validate_link(t_data *data, char *line, t_room **room1, t_room **room2)
 
 	if (validate_link_format(data, line, &room1_start, &room1_end, &room2_start, &room2_end))
 		return (1);
-	if (extract_room_names(line, &room1_name, room1_start, room1_end, &room2_name, room2_start, room2_end))
+	if (extract_room_names(data, line, &room1_name, room1_start, room1_end, &room2_name, room2_start, room2_end))
 		return (1);
 	if (validate_link_values(data, room1, room1_name, room2, room2_name))
 		return (free_room_names(room1_name, room2_name), 1);

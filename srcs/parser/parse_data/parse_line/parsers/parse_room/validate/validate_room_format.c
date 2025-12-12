@@ -6,6 +6,7 @@ static	bool	validate_coordinate(char *line, size_t *i, size_t *coord_start, size
 	if (!is_valid_number(line, i))
 		return (1);
 	(*coord_end) = *i;
+
 	return (0);
 }
 

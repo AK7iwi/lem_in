@@ -24,6 +24,20 @@ static	void	display_parsing_errors(uint16_t parsing_errors)
 		ft_putstr(ERR_START, STDERR_FILENO);
 	if (parsing_errors & E_END)
 		ft_putstr(ERR_END, STDERR_FILENO);
+
+	/* Room errors */
+	if (parsing_errors & E_MIX_ANTS_AND_ROOMS)
+		ft_putstr(ERR_MIX_ANTS_AND_ROOM, STDERR_FILENO);
+	if (parsing_errors & E_ROOM_EXIST)
+		ft_putstr(ERR_ROOM_EXIST, STDERR_FILENO);
+	if (parsing_errors & E_COORD_VALUES)
+		ft_putstr(ERR_COORD_VALUES, STDERR_FILENO);
+	if (parsing_errors & E_COORD_EXIST)
+		ft_putstr(ERR_COORD_EXIST, STDERR_FILENO);
+	if (parsing_errors & E_NB_ROOMS)
+		ft_putstr(ERR_NB_ROOMS, STDERR_FILENO);
+
+	/* Link errors */
 }
 
 static	void	display_gen_errors(uint8_t gen_errors)
@@ -45,6 +59,6 @@ void	display_errors(t_err error)
 	}
 	if (error.gen_errors)
 		display_gen_errors(error.gen_errors);
-	if (error.parsing_errors)
+	else if (error.parsing_errors)
 		display_parsing_errors(error.parsing_errors);
 }

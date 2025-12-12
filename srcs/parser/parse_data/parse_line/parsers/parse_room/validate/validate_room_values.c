@@ -7,9 +7,10 @@ static	bool	is_existing_coordinates(t_data *data, uint32_t x, uint32_t y)
 	while (i < data->map->nb_rooms)
 	{
 		if (data->map->rooms[i].x == x && data->map->rooms[i].y == y)
-			return (true); //error 
+			return (true);
 		i++;
 	}
+
 	return (false);
 }
 
@@ -21,9 +22,9 @@ static	inline	bool	validate_coordinates_values(uint32_t x, uint32_t y)
 static	bool	validate_coordinates(t_data *data, uint32_t x, uint32_t y)
 {
 	if (validate_coordinates_values(x, y))
-		return (1);
+		return (data->err.parsing_errors |= E_COORD_VALUES, 1);
 	if (is_existing_coordinates(data, x, y))
-		return (1);
+		return (data->err.parsing_errors |= E_COORD_EXIST, 1);
 
 	return (0);
 }
@@ -31,7 +32,7 @@ static	bool	validate_coordinates(t_data *data, uint32_t x, uint32_t y)
 bool    validate_room_values(t_data *data, char *name, uint32_t x, uint32_t y)
 {
 	if (is_existing_room(data, name))
-		return (1);
+		return (data->err.parsing_errors |= E_ROOM_EXIST, 1);
 	if (validate_coordinates(data, x, y))
 		return (1);
 

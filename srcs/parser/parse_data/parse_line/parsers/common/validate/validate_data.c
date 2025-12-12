@@ -11,7 +11,7 @@ static	bool	compare_room_name(char *name, char *room_name)
 		i++;
 	}
 
-	return (true);
+	return (name[i] == room_name[i]);
 }
 
 t_room	*is_existing_room(t_data *data, char *name)
