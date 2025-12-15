@@ -64,6 +64,12 @@
 # define ERR_ROOM_NOT_FOUND			"Room in link does not exist\n"
 # define E_LINK_EXISTS				0x10000
 # define ERR_LINK_EXISTS			"Link already exists\n"
+# define E_NB_LINKS					0x20000
+# define ERR_NB_LINKS				"Not enough links to connect all rooms\n"
+
+# define E_NO_PATH					0x40000
+# define ERR_NO_PATH				"No path exists between start and end rooms\n"
+
 
 //**********************************************//
 //					STRUCTURES					//

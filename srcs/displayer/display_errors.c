@@ -46,6 +46,12 @@ static	void	display_parsing_errors(uint32_t parsing_errors)
 		ft_putstr(ERR_ROOM_NOT_FOUND, STDERR_FILENO);
 	if (parsing_errors & E_LINK_EXISTS)
 		ft_putstr(ERR_LINK_EXISTS, STDERR_FILENO);
+	if (parsing_errors & E_NB_LINKS)
+		ft_putstr(ERR_NB_LINKS, STDERR_FILENO);
+
+	/* Path error */
+	if (parsing_errors & E_NO_PATH)
+		ft_putstr(ERR_NO_PATH, STDERR_FILENO);
 }
 
 static	void	display_gen_errors(uint8_t gen_errors)

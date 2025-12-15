@@ -7,9 +7,9 @@ static	bool	is_valid_map(t_data *data)
 	if (!data->map->end_room)
 		return (data->err.parsing_errors |= E_END, false);
 	if (data->map->nb_links < data->map->nb_rooms - 1)
-		return (false); // Not enough links error 
-	if (!has_path(data->map)) /* BFS algo */
-		return (false); // no path error
+		return (data->err.parsing_errors |= E_NB_LINKS, false);
+	if (!has_path(data)) /* BFS algo */
+		return (data->err.parsing_errors |= E_NO_PATH, false);
 
 	return (true);
 }
@@ -24,7 +24,6 @@ static	bool	parse_map(t_data *data, int fd)
 		return (data->err.parsing_errors |= E_EMPTY_FILE, 1);
 	while (line)
 	{
-		// printf("Line:%s\n", line);  
 		if (parse_line(data, fd, line))
 		{
 			data->err.line_error += (i + data->map->nb_valid_cmds + 1);  

@@ -117,7 +117,7 @@ size_t	get_room_index(t_map *map, t_room *room);
 /* parse_data/bfs_algo/tools/free_array.c */
 void	free_bfs_arrays(bool *visited, t_room **queue);
 /* parse_data/bfs_algo/bfs.c */
-bool	has_path(t_map	*map);
+bool	has_path(t_data *data);
 
 
 /* parse_data/parse_line/parsers/common/tools/check_char_type.c */
