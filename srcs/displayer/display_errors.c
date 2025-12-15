@@ -1,6 +1,6 @@
 #include "lem_in.h"
 
-static	void	display_parsing_errors(uint16_t parsing_errors)
+static	void	display_parsing_errors(uint32_t parsing_errors)
 {
 	if (parsing_errors & E_ARGC)
 		ft_putstr(ERR_ARGC, STDERR_FILENO);
@@ -26,18 +26,26 @@ static	void	display_parsing_errors(uint16_t parsing_errors)
 		ft_putstr(ERR_END, STDERR_FILENO);
 
 	/* Room errors */
-	if (parsing_errors & E_MIX_ANTS_AND_ROOMS)
-		ft_putstr(ERR_MIX_ANTS_AND_ROOM, STDERR_FILENO);
-	if (parsing_errors & E_ROOM_EXIST)
-		ft_putstr(ERR_ROOM_EXIST, STDERR_FILENO);
-	if (parsing_errors & E_COORD_VALUES)
-		ft_putstr(ERR_COORD_VALUES, STDERR_FILENO);
-	if (parsing_errors & E_COORD_EXIST)
-		ft_putstr(ERR_COORD_EXIST, STDERR_FILENO);
+	if (parsing_errors & E_ANTS_AND_ROOMS_MIXED)
+		ft_putstr(ERR_ANTS_AND_ROOMS_MIXED, STDERR_FILENO);
+	if (parsing_errors & E_ROOM_EXISTS)
+		ft_putstr(ERR_ROOM_EXISTS, STDERR_FILENO);
+	if (parsing_errors & E_COORDS_VALUES)
+		ft_putstr(ERR_COORDS_VALUES, STDERR_FILENO);
+	if (parsing_errors & E_COORDS_EXIST)
+		ft_putstr(ERR_COORDS_EXIST, STDERR_FILENO);
 	if (parsing_errors & E_NB_ROOMS)
 		ft_putstr(ERR_NB_ROOMS, STDERR_FILENO);
 
 	/* Link errors */
+	if (parsing_errors & E_ANTS_AND_LINKS_MIXED)
+		ft_putstr(ERR_ANTS_AND_LINKS_MIXED, STDERR_FILENO);
+	if (parsing_errors & E_ROOMS_AND_LINKS_MIXED)
+		ft_putstr(ERR_ROOMS_AND_LINKS_MIXED, STDERR_FILENO);
+	if (parsing_errors & E_ROOM_NOT_FOUND)
+		ft_putstr(ERR_ROOM_NOT_FOUND, STDERR_FILENO);
+	if (parsing_errors & E_LINK_EXISTS)
+		ft_putstr(ERR_LINK_EXISTS, STDERR_FILENO);
 }
 
 static	void	display_gen_errors(uint8_t gen_errors)

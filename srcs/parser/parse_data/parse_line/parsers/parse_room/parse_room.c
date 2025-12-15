@@ -6,7 +6,7 @@ bool	parse_room(t_data *data, char *line, bool is_start, bool is_end)
 	uint32_t	x, y;
 
 	if (!data->nb_ants && !data->err.parsing_errors)
-		return (data->err.parsing_errors |= E_MIX_ANTS_AND_ROOMS, 1);
+		return (data->err.parsing_errors |= E_ANTS_AND_ROOMS_MIXED, 1);
 	if (data->map->nb_links)
 		return (1);
 	if (validate_room(data, line, &name, &x, &y))

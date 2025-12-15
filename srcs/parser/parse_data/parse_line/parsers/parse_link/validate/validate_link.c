@@ -12,6 +12,6 @@ bool	validate_link(t_data *data, char *line, t_room **room1, t_room **room2)
 		return (1);
 	if (validate_link_values(data, room1, room1_name, room2, room2_name))
 		return (free_room_names(room1_name, room2_name), 1);
-	free_room_names(room1_name, room2_name);
-	return (0);
+
+	return (free_room_names(room1_name, room2_name), 0);
 }

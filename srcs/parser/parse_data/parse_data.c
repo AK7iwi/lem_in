@@ -41,9 +41,9 @@ static	bool	parse_map(t_data *data, int fd)
 bool	parse_data(t_data *data, int fd)
 {
 	if (parse_map(data, fd))
-		return (1); // bad value error
+		return (1);
 	if (!is_valid_map(data))
-		return (1); // missing info error
+		return (1); 
 	set_start_room(data);
 
 	return (0);
