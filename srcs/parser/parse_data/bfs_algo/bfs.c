@@ -32,13 +32,13 @@ static	bool	bfs(t_map *map, bool *visited, t_room	**queue, size_t queue_front, s
 static	bool	init_bfs(t_map *map, bool **visited, t_room ***queue, size_t *queue_front, size_t *queue_back)
 {
 	*visited = malloc(sizeof(bool) * map->nb_rooms);
-	if (!*visited)
+	if (!(*visited))
 		return (1);
 	for (size_t i = 0; i < map->nb_rooms; i++)
 		(*visited)[i] = false;
 
 	*queue = malloc(sizeof(t_room *) * map->nb_rooms);
-	if (!*queue)
+	if (!(*queue))
 		return (free_bfs_arrays(*visited, NULL), 1);
 
 	*queue_front = 0;

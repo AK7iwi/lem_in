@@ -8,33 +8,28 @@ Test
 ------------------------------------------------------------------------
 I) Parsing
 
-- Error:
-Rules:
-No error message from validate_format
-Error message from validate_value
-Case to handle:
-Map where start == end 
-delete (void)data
+- Test:
+Malloc error
+Error error
 
 parse_link:
 check if first message error utils
 second is wrong because of the condition
 
-display error: separate errors (ants, cmd, room, link) and use if/else if
-
 idea:
-Genereal message error for format. "The line matches no format"
 i = 0 for the first line
-
-- Test:
-Add maps to be tested
-Malloc error
 
 - Norme:
 check paren for (*)
 
 Check repetition of condition. Follow the flow of the code
 Check for if, else if
+
+- Test map
+Ants:
+Rooms:
+Links:
+Space/tab test:
 
 II) Vizualizer
 
@@ -53,30 +48,6 @@ II) Heuristic Information (Path Length)
 
 Algo to reinforcement and evaporation pheomones in times 
 
-IV) Test map
-
-Add map from subject
-
-Map where start == end
-
-
-Ants:
-
-Valid ants at start, invalid ants in the middle
-
-
-
-Room:
-Room starting with L/#
-Room with '-' in the name
-Room without name, coordonate, ...
-Only string rooms 
-
-Links:
-two same links (same and revert)
-
-
-Space/tab test:
 
 -------------------------------------
 links:

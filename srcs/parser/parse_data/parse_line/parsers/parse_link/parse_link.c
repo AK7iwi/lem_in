@@ -6,7 +6,7 @@ bool	parse_link(t_data *data, char *line)
 
 	if (!data->nb_ants && !data->err.parsing_errors)
 		return (data->err.parsing_errors |= E_ANTS_AND_LINKS_MIXED, 1);
-	if (!data->map->nb_rooms) // maybe too specific error. 
+	if (!data->map->nb_rooms && !data->err.parsing_errors) // maybe too specific error. 
 		return (data->err.parsing_errors |= E_ROOMS_AND_LINKS_MIXED, 1);
 	if (validate_link(data, line, &room1, &room2))
 		return (1);

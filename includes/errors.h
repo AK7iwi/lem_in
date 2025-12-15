@@ -20,9 +20,6 @@
 # define E_MEMORY					0x1
 # define ERR_MEMORY					"Memory error\n"
 
-# define E_TEST						0x2
-# define ERR_TEST					"Test error\n"
-
 /* Parsing errors */
 # define E_ARGC						0x1
 # define ERR_ARGC					"This program does not accept arguments\n"
@@ -69,6 +66,8 @@
 
 # define E_NO_PATH					0x40000
 # define ERR_NO_PATH				"No path exists between start and end rooms\n"
+
+# define ERR_FORMAT					"Invalid line format\n"
 
 
 //**********************************************//

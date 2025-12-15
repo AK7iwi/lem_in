@@ -10,13 +10,13 @@ static	bool	validate_coordinate(char *line, size_t *i, size_t *coord_start, size
 	return (0);
 }
 
-bool	validate_room_format(t_data *data, char *line,
+bool	validate_room_format(char *line,
 								size_t *name_start, size_t *name_end,
 								size_t *x_start, size_t *x_end,
 								size_t *y_start, size_t *y_end)
 {
 	size_t	i = 0;
-	(void)data;
+
 	skip_space(line, &i);
 	if (validate_name(line, &i, name_start, name_end))
 		return (1);

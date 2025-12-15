@@ -142,7 +142,7 @@ bool	extract_room_names(t_data *data, char *line, char **room1_name, size_t room
 /* parse_data/parse_line/parsers/parse_link/validate/validate_link_values.c */
 bool	validate_link_values(t_data *data, t_room **room1, char *room1_name, t_room **room2, char *room2_name);
 /* parse_data/parse_line/parsers/parse_link/validate/validate_link_format.c */
-bool	validate_link_format(t_data *data, char *line, size_t *room1_start, size_t *room1_end, size_t *room2_start, size_t *room2_end);
+bool	validate_link_format(char *line, size_t *room1_start, size_t *room1_end, size_t *room2_start, size_t *room2_end);
 /* parse_data/parse_line/parsers/parse_link/validate/validate_link.c */
 bool	validate_link(t_data *data, char *line, t_room **room1, t_room **room2);
 /* parse_data/parse_line/parsers/parse_link/parse_link.c */
@@ -156,7 +156,7 @@ bool	extract_room_data(t_data *data, char *line, char **name, uint32_t *x, uint3
 /* parse_data/parse_line/parsers/parse_room/validate/validate_room_values.c */
 bool    validate_room_values(t_data *data, char *name, uint32_t x, uint32_t y);
 /* parse_data/parse_line/parsers/parse_room/validate/validate_room_format.c */
-bool	validate_room_format(t_data *data, char *line, size_t *name_start, size_t *name_end, size_t *x_start, size_t *x_end, size_t *y_start, size_t *y_end);
+bool	validate_room_format(char *line, size_t *name_start, size_t *name_end, size_t *x_start, size_t *x_end, size_t *y_start, size_t *y_end);
 /* parse_data/parse_line/parsers/parse_room/validate/validate_room.c */
 bool	validate_nb_rooms(t_data *data);
 bool	validate_room(t_data *data, char *line, char **name, uint32_t *x, uint32_t *y);
