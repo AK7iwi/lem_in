@@ -1,11 +1,5 @@
 
-
-
-Parsing:
-Format required
-
-No empty lines
-
+C DOC:
 
 Init
 
@@ -26,7 +20,6 @@ Reallocate with capacity for the room. Specify O(n) --> O(log(n))
 Better that reallocate each time
 
 has_start, has_end flag:
-
 Save the boolean value before free
 
 // Scenario 1: Start room at index 0
@@ -47,14 +40,12 @@ if (has_start)           // true → pointer will be restored ✓
     start_room = &rooms[5];
 
 
-
 start_index/end_index:
 
 When you do pointer1 - pointer2 in C:
 The result is the number of elements between the pointers
 
 data->map->rooms points to rooms[0] (array name decays to pointer to first element)
-
 
 If start_room points to rooms[0]:
 rooms array in memory:
@@ -75,6 +66,13 @@ If start_room points to rooms[2]:
 start_room - rooms = 2  (2 elements difference)
 
 
+Parsing:
+Format required
+
+No empty lines
 
 BFS algo:
 
+Vizualizer:
+
+https://wiki.libsdl.org/SDL3/FrontPage

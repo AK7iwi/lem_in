@@ -33,7 +33,7 @@ SRCS			:=	main.c \
 					parser/parse_data/parse_line/parsers/common/tools/check_char_type.c \
 					parser/parse_data/bfs_algo/bfs.c \
 					parser/parse_data/bfs_algo/tools/free_array.c parser/parse_data/bfs_algo/tools/room_index.c \
-					displayer/display_errors.c displayer/display_infos.c displayer/display_map.c \
+					displayer/display_errors.c displayer/display_infos.c \
 					displayer/tools/print.c \
 					free/free_data.c
 SRCS        	:= $(SRCS:%=$(SRC_DIR)/%)

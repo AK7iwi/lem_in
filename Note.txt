@@ -1,17 +1,13 @@
 TO-DO:
 
-Parsing:
-
-Error handling (msg)
-Test
+Vizualizer
 
 ------------------------------------------------------------------------
-I) Parsing
 
-- Test:
+I) Parsing OK
 
 - Norme:
-check paren for (*)
+check if paren for (*)
 
 - Test map
 Ants:
@@ -34,7 +30,7 @@ Deposer pheromones sur le chemin retour si chemin le plus court
 
 II) Heuristic Information (Path Length)
 
-Algo to reinforcement and evaporation pheomones in times 
+Algo to reinforcement and evaporation pheomones in times
 
 -------------------------------------
 links:

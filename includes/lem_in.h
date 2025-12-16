@@ -99,8 +99,7 @@ void	ft_putnbr(int	n, int	fd);
 void	ft_putstr(char *str, int	fd);
 void	ft_putchar(char	c, int	fd);
 
-/* display_map.c */
-bool	print_map(t_data *data);
+
 /* display_infos.c */
 void	display_infos(t_data *data);
 /* display_errors.c */
