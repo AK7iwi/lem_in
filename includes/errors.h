@@ -43,7 +43,7 @@
 # define ERR_END					"End room is missing or invalid\n"
 
 # define E_ANTS_AND_ROOMS_MIXED		0X100
-# define ERR_ANTS_AND_ROOMS_MIXED	"Number of ants must be the first line\n"
+# define ERR_ANTS_AND_ROOMS_MIXED	"Number of ants must be the first line and a positive number betwenn 1 and 1000000\n"
 # define E_ROOM_EXISTS				0x200
 # define ERR_ROOM_EXISTS			"The room already exists\n"
 # define E_COORDS_VALUES			0x400
@@ -51,19 +51,18 @@
 # define E_COORDS_EXIST				0X800
 # define ERR_COORDS_EXIST			"There is already a room at these coordinates\n"
 # define E_NB_ROOMS					0x1000
-# define ERR_NB_ROOMS				"Number of rooms must be between 1 and 10000\n"
+# define ERR_NB_ROOMS				"Number of rooms must be between 2 and 10000\n"
 
-# define E_ANTS_AND_LINKS_MIXED		0x2000
-# define ERR_ANTS_AND_LINKS_MIXED	"Number of ants must be the first line\n"
-# define E_ROOMS_AND_LINKS_MIXED	0x4000
+# define E_ROOMS_AND_LINKS_MIXED	0x2000
 # define ERR_ROOMS_AND_LINKS_MIXED	"Rooms must be defined before links\n"
-# define E_ROOM_NOT_FOUND			0x8000
-# define ERR_ROOM_NOT_FOUND			"Room in link does not exist\n"
+# define E_ROOM_NOT_FOUND			0x4000
+# define ERR_ROOM_NOT_FOUND			"Room does not exist\n"
+# define E_SAME_ROOM				0x8000
+# define ERR_SAME_ROOM				"A link cannot connect a room to itself\n"
 # define E_LINK_EXISTS				0x10000
 # define ERR_LINK_EXISTS			"Link already exists\n"
 # define E_NB_LINKS					0x20000
 # define ERR_NB_LINKS				"Not enough links to connect all rooms\n"
-
 # define E_NO_PATH					0x40000
 # define ERR_NO_PATH				"No path exists between start and end rooms\n"
 

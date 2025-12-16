@@ -9,21 +9,9 @@ Test
 I) Parsing
 
 - Test:
-Malloc error
-Error error
-
-parse_link:
-check if first message error utils
-second is wrong because of the condition
-
-idea:
-i = 0 for the first line
 
 - Norme:
 check paren for (*)
-
-Check repetition of condition. Follow the flow of the code
-Check for if, else if
 
 - Test map
 Ants:
@@ -47,7 +35,6 @@ Deposer pheromones sur le chemin retour si chemin le plus court
 II) Heuristic Information (Path Length)
 
 Algo to reinforcement and evaporation pheomones in times 
-
 
 -------------------------------------
 links:

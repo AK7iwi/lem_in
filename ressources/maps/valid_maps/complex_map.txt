@@ -5,15 +5,15 @@
 #again
 ##Ho again
 ### WAW
-7 4 6
-4 0 4
+7     4     6
+4 0 4   
 ##             end        
 1end 4 2
 ## start     no
-2 4 4
+   2 4   4
 #end
-5 8 2
-## start
+5  8   2
+##    start
 star6t 8 4
    0 -   1end
 3-   4

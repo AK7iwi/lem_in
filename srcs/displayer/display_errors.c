@@ -13,12 +13,12 @@ static	void	display_path_errors(uint32_t parsing_errors)
 
 static	void	display_link_errors(uint32_t parsing_errors)
 {
-	if (parsing_errors & E_ANTS_AND_LINKS_MIXED)
-		ft_putstr(ERR_ANTS_AND_LINKS_MIXED, STDERR_FILENO);
 	if (parsing_errors & E_ROOMS_AND_LINKS_MIXED)
 		ft_putstr(ERR_ROOMS_AND_LINKS_MIXED, STDERR_FILENO);
 	if (parsing_errors & E_ROOM_NOT_FOUND)
 		ft_putstr(ERR_ROOM_NOT_FOUND, STDERR_FILENO);
+	if (parsing_errors & E_SAME_ROOM)
+		ft_putstr(ERR_SAME_ROOM, STDERR_FILENO);
 	if (parsing_errors & E_LINK_EXISTS)
 		ft_putstr(ERR_LINK_EXISTS, STDERR_FILENO);
 	if (parsing_errors & E_NB_LINKS)

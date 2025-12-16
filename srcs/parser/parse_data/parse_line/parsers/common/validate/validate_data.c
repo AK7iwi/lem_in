@@ -32,9 +32,9 @@ static	bool	is_valid_name(char *line, size_t *i)
 {
 	size_t	j = (*i);
 
-	if (line[*i] == 'L' || line[*i] == '#') //# already check bottom with isalnum
+	if (line[*i] == 'L')
 		return (false);
-	while (is_alnum(line[*i]))
+	while (is_alnum(line[*i])) // '#' handled here
 		(*i)++;
 
 	return (j < (*i));
