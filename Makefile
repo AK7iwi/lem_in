@@ -3,6 +3,11 @@ NAME			:= lem-in
 SRC_DIR			:= srcs
 OBJ_DIR			:= obj
 
+# SDL3 Configuration
+SDL3_DIR			:= $(SRC_DIR)/visualizer/SDL
+SDL3_BUILD_DIR		:= $(SDL3_DIR)/build
+SDL3_LIB			:= $(SDL3_BUILD_DIR)/libSDL3.a
+
 SRCS			:=	main.c \
 					init/init.c \
 					parser/parser.c \
@@ -41,7 +46,8 @@ OBJS        	:= $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 CC				:= cc
 CFLAGS			:= -Wall -Wextra -Werror
-CPPFLAGS    	:= -I includes -I srcs/parser/parse_data/tools/get_next_line/includes
+CPPFLAGS    	:= -I includes -I srcs/parser/parse_data/tools/get_next_line/includes -I $(SDL3_DIR)/include
+LDFLAGS			:= -L$(SDL3_BUILD_DIR) -lSDL3 -lm -lpthread -ldl -lrt
 
 RM				:= rm -rf
 DIR_DUP     	= mkdir -p $(@D)
@@ -54,8 +60,16 @@ all: $(NAME)
 	@clear
 	@echo "$(RED)lem_in ready$(DEF_COLOR)"
 
-$(NAME): $(OBJS)
-	$(CC) $(OBJS) -o $(NAME)
+# Build SDL3 library
+$(SDL3_LIB):
+	@echo "$(RED)Building SDL3...$(DEF_COLOR)"
+	@mkdir -p $(SDL3_BUILD_DIR)
+	@cd $(SDL3_BUILD_DIR) && cmake .. -DCMAKE_BUILD_TYPE=Release -DSDL_SHARED=OFF -DSDL_STATIC=ON
+	@cd $(SDL3_BUILD_DIR) && cmake --build . -j$$(nproc)
+	@echo "$(RED)SDL3 built$(DEF_COLOR)"
+
+$(NAME): $(SDL3_LIB) $(OBJS)
+	$(CC) $(OBJS) -o $(NAME) $(LDFLAGS)
 
 $(OBJ_DIR)/%.o:	$(SRC_DIR)/%.c
 	$(DIR_DUP)
@@ -69,6 +83,7 @@ clean:
 
 fclean: clean
 	$(RM) $(NAME)
+	$(RM) $(SDL3_BUILD_DIR)
 	@echo "$(RED)lem_in cleaned$(DEF_COLOR)"
 
 re:	fclean all
