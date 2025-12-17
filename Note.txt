@@ -17,8 +17,9 @@ Space/tab test:
 
 II) Vizualizer
 
-Init of SDL
-Visualize the init map
+Visualize the init map:
+CHeck why basic map not well printed 
+Normalize data 
 Simulation must be fluid
 
 III) Exec
