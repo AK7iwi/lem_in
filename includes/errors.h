@@ -68,6 +68,9 @@
 
 # define ERR_FORMAT					"Invalid line format\n"
 
+/* Visualizer errors */
+# define E_VISU						0x1
+# define ERR_VISU					"Couldn't create window/renderer\n"
 
 //**********************************************//
 //					STRUCTURES					//
@@ -78,6 +81,7 @@ typedef struct s_err
 	size_t		line_error;
 	uint8_t		gen_errors;
 	uint32_t	parsing_errors;
+	uint8_t		visu_errors;
 }	t_err;
 
 //**********************************************//

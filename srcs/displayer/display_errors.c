@@ -1,5 +1,11 @@
 #include "lem_in.h"
 
+static	void	display_visu_errors(uint8_t visu_errors)
+{
+	if (visu_errors & E_VISU)
+		ft_putstr(ERR_VISU, STDERR_FILENO);
+}
+
 static	void	display_format_error(void)
 {
 	ft_putstr(ERR_FORMAT, STDERR_FILENO);
@@ -92,6 +98,8 @@ void	display_errors(t_err error)
 		display_gen_errors(error.gen_errors);
 	else if (error.parsing_errors)
 		display_parsing_errors(error.parsing_errors);
+	else if (error.visu_errors)
+		display_visu_errors(error.visu_errors);
 	else
 		display_format_error();
 }

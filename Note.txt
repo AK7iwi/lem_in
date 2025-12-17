@@ -17,8 +17,9 @@ Space/tab test:
 
 II) Vizualizer
 
-Installation of SDL
-Init of SDL 
+Init of SDL
+Visualize the init map
+Simulation must be fluid
 
 III) Exec
 

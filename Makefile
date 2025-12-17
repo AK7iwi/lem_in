@@ -40,7 +40,8 @@ SRCS			:=	main.c \
 					parser/parse_data/bfs_algo/tools/free_array.c parser/parse_data/bfs_algo/tools/room_index.c \
 					displayer/display_errors.c displayer/display_infos.c \
 					displayer/tools/print.c \
-					free/free_data.c
+					free/free_data.c \
+					visualizer/visualizer.c 
 SRCS        	:= $(SRCS:%=$(SRC_DIR)/%)
 OBJS        	:= $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 

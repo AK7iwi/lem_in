@@ -75,4 +75,7 @@ BFS algo:
 
 Vizualizer:
 
-https://wiki.libsdl.org/SDL3/FrontPage
+https://www.libsdl.org/
+https://github.com/libsdl-org/SDL
+
+Explain how to add SDL 
