@@ -10,6 +10,6 @@ int	main(int argc, char **argv)
 		return (free_data(&data), EXIT_FAILURE);
 	}
 	display_infos(&data);
-
+	// visualizer here 
 	return (free_data(&data), EXIT_SUCCESS);
 }

@@ -17,7 +17,6 @@
 //**********************************************//
 
 // modify later in function of performance
-
 # define MAX_ANTS	1000000
 # define MIN_ANTS	1
 # define MAX_ROOMS	10000
@@ -90,14 +89,24 @@ void	free_data(t_data *data);
 
 //**********************************************//
 //												//
+//					  VISUALIZER		  		//
+//												//
+//**********************************************//
+
+/* visualizer.c */
+
+
+
+//**********************************************//
+//												//
 //					  DISPLAYER		  			//
 //												//
 //**********************************************//
 
 /* tools/print.c */
-void	ft_putnbr(int	n, int	fd);
-void	ft_putstr(char *str, int	fd);
-void	ft_putchar(char	c, int	fd);
+void	ft_putnbr(int n, int fd);
+void	ft_putstr(char *str, int fd);
+void	ft_putchar(char	c, int fd);
 
 
 /* display_infos.c */
