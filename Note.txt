@@ -15,12 +15,17 @@ Rooms:
 Links:
 Space/tab test:
 
-II) Vizualizer
+II) Visualizer
 
-Visualize the init map:
-CHeck why basic map not well printed 
-Normalize data 
 Simulation must be fluid
+
+Normalize data 
+Link must be draw until circle limit
+Use generator_linux to create map
+Name in the Rooms
+Create folder/file for draw_circle
+Understand the algo circle: Midpoint Circle Algorithm (Bresenham's circle algorithm)
+int -->uint8_t
 
 III) Exec
 
@@ -43,10 +48,10 @@ Algo to reinforcement and evaporation pheomones in times
 -------------------------------------
 links:
 
+BFS algo:
+https://www.geeksforgeeks.org/dsa/breadth-first-search-or-bfs-for-a-graph/
+
+
 https://dilipkumar.medium.com/ant-colony-optimization-aco-algorithm-6a954b0b083e
 https://members.loria.fr/VThomas/enseignement/M2rar/slides/04_algorithme%20fourmis_v2.pdf
 https://github.com/jraleman
-
-
-BFS algo:
-https://www.geeksforgeeks.org/dsa/breadth-first-search-or-bfs-for-a-graph/

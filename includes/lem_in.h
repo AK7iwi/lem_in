@@ -7,6 +7,7 @@
 
 # include "errors.h"
 # include "get_next_line.h"
+# include <SDL3/SDL.h>
 # include <stdlib.h>
 # include <stdio.h>
 # include <unistd.h>
@@ -99,8 +100,10 @@ void	free_data(t_data *data);
 //												//
 //**********************************************//
 
-/* visualizer.c */
+/* draw/draw_render.c */
+void	draw_render(SDL_Renderer *renderer, t_data *data);
 
+/* visualizer.c */
 bool	visualizer(t_data *data);
 
 //**********************************************//
