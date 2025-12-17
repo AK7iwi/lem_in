@@ -1,0 +1,3 @@
+[submodule "srcs/visualizer/SDL"]
+	path = srcs/visualizer/SDL
+	url = https://github.com/libsdl-org/SDL

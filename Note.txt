@@ -24,6 +24,9 @@ III) Exec
 
 0) Time start when clicking on start button. Ending when have the result
 
+Line counter
+Timer 
+
 Main algo (ACO):
 
 Trouver un papier de recherche sur l'algo
