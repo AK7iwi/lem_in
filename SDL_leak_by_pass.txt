@@ -1,0 +1,178 @@
+# X11 Library Leaks (SDL uses X11 on Linux)
+{
+   X11_all_leaks
+   Memcheck:Leak
+   match-leak-kinds: reachable,definite,indirect,possible
+   ...
+   obj:*/libX11.so*
+   ...
+}
+
+{
+   X11_init_leaks
+   Memcheck:Leak
+   match-leak-kinds: reachable,definite,indirect,possible
+   ...
+   fun:_X*
+   ...
+}
+
+{
+   X11_locale_leaks
+   Memcheck:Leak
+   match-leak-kinds: reachable,definite,indirect,possible
+   ...
+   fun:_Xlc*
+   ...
+}
+
+{
+   X11_resource_leaks
+   Memcheck:Leak
+   match-leak-kinds: reachable,definite,indirect,possible
+   ...
+   fun:Xrm*
+   ...
+}
+
+{
+   X11_set_locale_leaks
+   Memcheck:Leak
+   match-leak-kinds: reachable,definite,indirect,possible
+   ...
+   fun:XSetLocaleModifiers
+   ...
+}
+
+# LLVM Library Leaks (Mesa/Graphics drivers use LLVM)
+{
+   LLVM_all_leaks
+   Memcheck:Leak
+   match-leak-kinds: reachable,definite,indirect,possible
+   ...
+   obj:*/libLLVM*.so*
+   ...
+}
+
+{
+   LLVM_managed_static
+   Memcheck:Leak
+   match-leak-kinds: reachable,definite,indirect,possible
+   ...
+   fun:*llvm*
+   ...
+}
+
+# DBus Library Leaks
+{
+   DBus_all_leaks
+   Memcheck:Leak
+   match-leak-kinds: reachable,definite,indirect,possible
+   ...
+   obj:*/libdbus*.so*
+   ...
+}
+
+{
+   DBus_functions
+   Memcheck:Leak
+   match-leak-kinds: reachable,definite,indirect,possible
+   ...
+   fun:dbus_*
+   ...
+}
+
+{
+   DBus_internal
+   Memcheck:Leak
+   match-leak-kinds: reachable,definite,indirect,possible
+   ...
+   fun:_dbus_*
+   ...
+}
+
+# Dynamic Linker Leaks (library loading)
+{
+   DL_open_leaks
+   Memcheck:Leak
+   match-leak-kinds: reachable,definite,indirect,possible
+   ...
+   fun:_dl_*
+   ...
+}
+
+{
+   DL_dlopen_leaks
+   Memcheck:Leak
+   match-leak-kinds: reachable,definite,indirect,possible
+   ...
+   fun:dlopen*
+   ...
+}
+
+{
+   DL_init_leaks
+   Memcheck:Leak
+   match-leak-kinds: reachable,definite,indirect,possible
+   ...
+   fun:call_init*
+   ...
+}
+
+# C++ Standard Library
+{
+   Stdcpp_leaks
+   Memcheck:Leak
+   match-leak-kinds: reachable,definite,indirect,possible
+   ...
+   obj:*/libstdc++.so*
+   ...
+}
+
+# Mesa/GL Graphics Leaks
+{
+   Mesa_all_leaks
+   Memcheck:Leak
+   match-leak-kinds: reachable,definite,indirect,possible
+   ...
+   obj:*/libGL*.so*
+   ...
+}
+
+{
+   DRI_all_leaks
+   Memcheck:Leak
+   match-leak-kinds: reachable,definite,indirect,possible
+   ...
+   obj:*/dri/*
+   ...
+}
+
+# SDL Direct Leaks
+{
+   SDL_lib_leaks
+   Memcheck:Leak
+   match-leak-kinds: reachable,definite,indirect,possible
+   ...
+   obj:*/libSDL*.so*
+   ...
+}
+
+{
+   SDL_static_leaks
+   Memcheck:Leak
+   match-leak-kinds: reachable,definite,indirect,possible
+   obj:*/lem-in
+   ...
+   fun:X11_*
+   ...
+}
+
+# Invalid reads from dynamic linker (harmless)
+{
+   DL_invalid_read
+   Memcheck:Addr8
+   fun:strncmp
+   fun:is_dst
+   ...
+}
