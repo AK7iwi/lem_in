@@ -94,12 +94,12 @@ void	display_errors(t_err error)
 		ft_putnbr(error.line_error, STDERR_FILENO);
 		ft_putstr(": ", STDERR_FILENO);
 	}
-	if (error.gen_errors)
+	if (error.visu_errors)
+		display_visu_errors(error.visu_errors);
+	else if (error.gen_errors)
 		display_gen_errors(error.gen_errors);
 	else if (error.parsing_errors)
 		display_parsing_errors(error.parsing_errors);
-	else if (error.visu_errors)
-		display_visu_errors(error.visu_errors);
 	else
 		display_format_error();
 }
