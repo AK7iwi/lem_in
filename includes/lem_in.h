@@ -12,6 +12,7 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <stdbool.h>
+#include <math.h>
 
 //**********************************************//
 //					DEFINES						//
@@ -33,6 +34,17 @@
 //**********************************************//
 //					STRUCTURES					//
 //**********************************************//
+
+typedef struct s_normalize
+{
+	float	scale;
+	float	offset_x;
+	float	offset_y;
+	float	min_x;
+	float	max_x;
+	float	min_y;
+	float	max_y;
+}	t_normalize;
 
 typedef struct s_room	t_room;
 
@@ -100,10 +112,17 @@ void	free_data(t_data *data);
 //												//
 //**********************************************//
 
-/* draw/draw_shape.c */
-void	draw_circle(SDL_Renderer *renderer, int center_x, int center_y, int radius);
+/* draw/draw_links.c */
+void	draw_links(SDL_Renderer *renderer, t_room *room, t_normalize *norm);
+/* draw/draw_rooms.c */
+void	draw_rooms(SDL_Renderer *renderer, t_data *data, t_room *room, t_normalize *norm);
 /* draw/draw_render.c */
 void	draw_render(SDL_Renderer *renderer, t_data *data);
+
+/* normalize/normalize.c */
+void	calculate_normalization(t_data *data, t_normalize *norm);
+int		normalize_x(uint32_t x, t_normalize *norm);
+int		normalize_y(uint32_t y, t_normalize *norm);
 
 /* visualizer.c */
 bool	visualizer(t_data *data);

@@ -2,12 +2,12 @@ TO-DO:
 
 Vizualizer
 
+- Norme:
+check if paren for (*)
+
 ------------------------------------------------------------------------
 
 I) Parsing OK
-
-- Norme:
-check if paren for (*)
 
 - Test map
 Ants:
@@ -17,16 +17,17 @@ Space/tab test:
 
 II) Visualizer
 
-Simulation must be fluid
-
-Refacto draw_rooms, draw_links OK
-Create folder/file for draw_circle OK 
-Normalize data 
-Link must be draw until circle limit
-Use generator_linux to create map
-Name in the Rooms
-Understand the algo circle: Midpoint Circle Algorithm (Bresenham's circle algorithm)
+- Refacto
+Recover the min,max coordinates in is_existing_coordinates
+Clean the code
+- Name in the Rooms
+Put a limit and len of names (10 char)
+- Use generator_linux to create map
+Test 
+- Refacto/clean
 int -->uint8_t
+
+Understand the algo circle: Midpoint Circle Algorithm (Bresenham's circle algorithm)
 
 III) Exec
 
