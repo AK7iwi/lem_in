@@ -1,9 +1,10 @@
 TO-DO:
 
-Vizualizer
-
+- Vizualizer
+- Exec
 - Norme:
 check if paren for (*)
+Uniformization of norme 
 
 ------------------------------------------------------------------------
 
@@ -13,19 +14,17 @@ I) Parsing OK
 Ants:
 Rooms:
 Links:
-Space/tab test:
+ 
+Add format to error format message
 
 II) Visualizer
 
-- Refacto
-Recover the min,max coordinates in is_existing_coordinates
-Clean the code
-- Name in the Rooms
-Put a limit and len of names (10 char)
-- Use generator_linux to create map
-Test 
-- Refacto/clean
+Free normalize struct 
+Refacto/ Clean
 int -->uint8_t
+Rename
+- Use generator_linux to create map
+Test
 
 Understand the algo circle: Midpoint Circle Algorithm (Bresenham's circle algorithm)
 
@@ -57,3 +56,11 @@ https://www.geeksforgeeks.org/dsa/breadth-first-search-or-bfs-for-a-graph/
 https://dilipkumar.medium.com/ant-colony-optimization-aco-algorithm-6a954b0b083e
 https://members.loria.fr/VThomas/enseignement/M2rar/slides/04_algorithme%20fourmis_v2.pdf
 https://github.com/jraleman
+
+
+
+Algo:
+
+BFS
+Midpoint Circle Algorithm (Bresenham's circle algorithm)
+ACO

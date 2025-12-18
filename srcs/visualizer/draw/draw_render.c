@@ -3,17 +3,15 @@
 
 void	draw_render(SDL_Renderer *renderer, t_data *data)
 {
-	size_t		i;
+	size_t		i = 0;
 	t_room		*room;
-	t_normalize	norm;
 
-	calculate_normalization(data, &norm);
-	i = 0;
+	calculate_normalization(data->norm);
 	while (i < data->map->nb_rooms)
 	{
 		room = &data->map->rooms[i];
-		draw_rooms(renderer, data, room, &norm);
-		draw_links(renderer, room, &norm);
+		draw_rooms(renderer, data, room);
+		draw_links(renderer, data->norm, room);
 		i++;
 	}
 }

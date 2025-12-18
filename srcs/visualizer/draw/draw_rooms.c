@@ -28,30 +28,24 @@ static  void	draw_circle(SDL_Renderer *renderer, int center_x, int center_y, int
 	}
 }
 
-static  void	draw_text_centered(SDL_Renderer *renderer, char *text, int x, int y)
+static  void	draw_room_name(SDL_Renderer *renderer, char *text, int x, int y)
 {
-	size_t	len;
 	int		text_width;
 	int		offset_x;
 
-	len = ft_strlen(text);
-	
-	// Each character is approximately 8 pixels wide in debug font
-	text_width = len * 8;
+	text_width = ft_strlen(text) * 8;
 	offset_x = text_width / 2;
 	
-	// Center the text (debug font height is ~8 pixels)
 	SDL_RenderDebugText(renderer, x - offset_x, y - 4, text);
 }
 
-void	draw_rooms(SDL_Renderer *renderer, t_data *data, t_room *room, t_normalize *norm)
+void	draw_rooms(SDL_Renderer *renderer, t_data *data, t_room *room)
 {
-	int	screen_x;
-	int	screen_y;
+	int	screen_x, screen_y;
 
-	screen_x = normalize_x(room->x, norm);
-	screen_y = normalize_y(room->y, norm);
+	normalize_coordinates(data->norm, room->x, &screen_x, room->y, &screen_y);
 
+	// fct colors 
 	if (room == data->map->start_room)
 		SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255); // Green for start
 	else if (room == data->map->end_room)
@@ -60,7 +54,5 @@ void	draw_rooms(SDL_Renderer *renderer, t_data *data, t_room *room, t_normalize 
 		SDL_SetRenderDrawColor(renderer, 200, 200, 200, 255); // Gray for normal rooms
 
 	draw_circle(renderer, screen_x, screen_y, CIRCLE_RADIUS);
-
-	// rename draw_room_name
-	draw_text_centered(renderer, room->name, screen_x, screen_y);
+	draw_room_name(renderer, room->name, screen_x, screen_y);
 }

@@ -1,64 +1,41 @@
 #include "lem_in.h"
 
-void	calculate_normalization(t_data *data, t_normalize *norm)
+void	normalize_coordinates(t_normalize *norm, uint32_t x, int *screen_x, uint32_t y, int *screen_y)
 {
-	size_t	i;
+	*screen_x = (int)(x * norm->scale + norm->offset_x);
+	*screen_y = (int)(y * norm->scale + norm->offset_y);
+}
+
+// more precis name
+void	calculate_normalization(t_normalize *norm)
+{
 	float	map_width;
 	float	map_height;
 	float	scale_x;
 	float	scale_y;
 
-	if (!data->map || data->map->nb_rooms == 0)
-		return;
-
-	// Find min and max coordinates
-	norm->min_x = (float)data->map->rooms[0].x;
-	norm->max_x = (float)data->map->rooms[0].x;
-	norm->min_y = (float)data->map->rooms[0].y;
-	norm->max_y = (float)data->map->rooms[0].y;
-
-	i = 1;
-	while (i < data->map->nb_rooms)
-	{
-		if (data->map->rooms[i].x < norm->min_x)
-			norm->min_x = (float)data->map->rooms[i].x;
-		if (data->map->rooms[i].x > norm->max_x)
-			norm->max_x = (float)data->map->rooms[i].x;
-		if (data->map->rooms[i].y < norm->min_y)
-			norm->min_y = (float)data->map->rooms[i].y;
-		if (data->map->rooms[i].y > norm->max_y)
-			norm->max_y = (float)data->map->rooms[i].y;
-		i++;
-	}
-
-	// Calculate map dimensions
 	map_width = norm->max_x - norm->min_x;
 	map_height = norm->max_y - norm->min_y;
-
-	// Handle edge case: all rooms at same position
-	if (map_width < 1.0f)
+	if (map_width < 1.0f) /* Same x */
 		map_width = 1.0f;
-	if (map_height < 1.0f)
+	if (map_height < 1.0f) /* Same y */
 		map_height = 1.0f;
 
-	// Calculate scale to fit window with padding
 	scale_x = (WINDOW_WIDTH - 2 * PADDING - 2 * CIRCLE_RADIUS) / map_width;
 	scale_y = (WINDOW_HEIGHT - 2 * PADDING - 2 * CIRCLE_RADIUS) / map_height;
-
-	// Use the smaller scale to maintain aspect ratio
 	norm->scale = (scale_x < scale_y) ? scale_x : scale_y;
-
-	// Calculate offsets to center the map
 	norm->offset_x = PADDING + CIRCLE_RADIUS - norm->min_x * norm->scale;
 	norm->offset_y = PADDING + CIRCLE_RADIUS - norm->min_y * norm->scale;
 }
 
-int	normalize_x(uint32_t x, t_normalize *norm)
+void	calculate_map_limits(t_normalize *norm, uint32_t x, uint32_t y)
 {
-	return ((int)(x * norm->scale + norm->offset_x));
-}
-
-int	normalize_y(uint32_t y, t_normalize *norm)
-{
-	return ((int)(y * norm->scale + norm->offset_y));
+	if (x < norm->min_x)
+		norm->min_x = x;
+	if (x > norm->max_x)
+		norm->max_x = x;
+	if (y < norm->min_y)
+		norm->min_y = y;
+	if (y > norm->max_y)
+		norm->max_y = y;
 }

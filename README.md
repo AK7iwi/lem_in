@@ -78,4 +78,6 @@ Vizualizer:
 https://www.libsdl.org/
 https://github.com/libsdl-org/SDL
 
-Explain how to add SDL 
+Explain how to add SDL:
+
+	// ft_putstr(SDL_GetError(), STDERR_FILENO); // Use for debug

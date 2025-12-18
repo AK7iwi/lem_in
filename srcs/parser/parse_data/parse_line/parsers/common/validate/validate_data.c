@@ -46,6 +46,8 @@ bool	validate_name(char *line, size_t *i, size_t *name_start, size_t *name_end)
 	if (!is_valid_name(line, i))
 		return (1);
 	(*name_end) = *i;
+	if ((*name_end) - (*name_start) > 6)
+		return (1);
 
 	return (0);
 }

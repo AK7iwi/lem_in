@@ -62,4 +62,9 @@ void	free_data(t_data *data)
 		free(data->map);
 		data->map = NULL;
 	}
+	if (data->norm)
+	{
+		free(data->norm);
+		data->norm = NULL;
+	}
 }

@@ -12,14 +12,14 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <stdbool.h>
-#include <math.h>
+# include <math.h>
 
 //**********************************************//
 //					DEFINES						//
 //**********************************************//
 
 // modify later in function of performance
-# define MAX_ANTS	1000000
+# define MAX_ANTS	1000000 // maybe too much
 # define MIN_ANTS	1
 # define MAX_ROOMS	10000
 # define MIN_ROOMS	2
@@ -29,7 +29,7 @@
 # define WINDOW_WIDTH 1280
 # define WINDOW_HEIGHT 720
 # define PADDING 20
-# define CIRCLE_RADIUS 10
+# define CIRCLE_RADIUS 25
 
 //**********************************************//
 //					STRUCTURES					//
@@ -95,6 +95,7 @@ typedef struct s_data
 	t_err		err;
 	t_ant		*ant;
 	t_map		*map;
+	t_normalize *norm;
 }	t_data;
 
 //**********************************************//
@@ -113,16 +114,16 @@ void	free_data(t_data *data);
 //**********************************************//
 
 /* draw/draw_links.c */
-void	draw_links(SDL_Renderer *renderer, t_room *room, t_normalize *norm);
+void	draw_links(SDL_Renderer *renderer, t_normalize *norm, t_room *room);
 /* draw/draw_rooms.c */
-void	draw_rooms(SDL_Renderer *renderer, t_data *data, t_room *room, t_normalize *norm);
+void	draw_rooms(SDL_Renderer *renderer, t_data *data, t_room *room);
 /* draw/draw_render.c */
 void	draw_render(SDL_Renderer *renderer, t_data *data);
 
 /* normalize/normalize.c */
-void	calculate_normalization(t_data *data, t_normalize *norm);
-int		normalize_x(uint32_t x, t_normalize *norm);
-int		normalize_y(uint32_t y, t_normalize *norm);
+void	normalize_coordinates(t_normalize *norm, uint32_t x, int *screen_x, uint32_t y, int *screen_y);
+void	calculate_normalization(t_normalize *norm);
+void	calculate_map_limits(t_normalize *norm, uint32_t x, uint32_t y);
 
 /* visualizer.c */
 bool	visualizer(t_data *data);
