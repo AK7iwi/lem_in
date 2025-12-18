@@ -34,7 +34,6 @@ static  bool	init_render(t_data *data, SDL_Window **window, SDL_Renderer **rende
 	// ft_putstr(SDL_GetError(), STDERR_FILENO); // Use for debug
 	if (!SDL_Init(SDL_INIT_VIDEO))
 		return (data->err.visu_errors |= E_VISU, 1);
-
 	if (!SDL_CreateWindowAndRenderer("Lem-in Visualizer", WINDOW_WIDTH, WINDOW_HEIGHT,
 			SDL_WINDOW_RESIZABLE, window, renderer))
 	{

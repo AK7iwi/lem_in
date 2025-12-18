@@ -28,7 +28,7 @@
 # define WINDOW_WIDTH 1280
 # define WINDOW_HEIGHT 720
 # define PADDING 20
-# define SCALE 100
+# define CIRCLE_RADIUS 10
 
 //**********************************************//
 //					STRUCTURES					//
@@ -100,6 +100,8 @@ void	free_data(t_data *data);
 //												//
 //**********************************************//
 
+/* draw/draw_shape.c */
+void	draw_circle(SDL_Renderer *renderer, int center_x, int center_y, int radius);
 /* draw/draw_render.c */
 void	draw_render(SDL_Renderer *renderer, t_data *data);
 

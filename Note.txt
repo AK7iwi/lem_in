@@ -19,11 +19,12 @@ II) Visualizer
 
 Simulation must be fluid
 
+Refacto draw_rooms, draw_links OK
+Create folder/file for draw_circle OK 
 Normalize data 
 Link must be draw until circle limit
 Use generator_linux to create map
 Name in the Rooms
-Create folder/file for draw_circle
 Understand the algo circle: Midpoint Circle Algorithm (Bresenham's circle algorithm)
 int -->uint8_t
 

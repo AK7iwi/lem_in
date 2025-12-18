@@ -42,7 +42,7 @@ SRCS			:=	main.c \
 					displayer/tools/print.c \
 					free/free_data.c \
 					visualizer/visualizer.c \
-					visualizer/draw/draw_render.c
+					visualizer/draw/draw_render.c visualizer/draw/draw_shape.c
 SRCS        	:= $(SRCS:%=$(SRC_DIR)/%)
 OBJS        	:= $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
