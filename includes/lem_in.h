@@ -95,7 +95,7 @@ typedef struct s_data
 	t_err		err;
 	t_ant		*ant;
 	t_map		*map;
-	t_normalize *norm;
+	t_normalize	norm;
 }	t_data;
 
 //**********************************************//

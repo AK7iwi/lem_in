@@ -8,7 +8,7 @@ static	bool	is_existing_coordinates(t_data *data, uint32_t x, uint32_t y)
 	{
 		if (data->map->rooms[i].x == x && data->map->rooms[i].y == y)
 			return (true);
-		calculate_map_limits(data->norm, x, y);
+		calculate_map_limits(&data->norm, x, y);
 		i++;
 	}
 

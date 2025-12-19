@@ -1,19 +1,14 @@
 #include "lem_in.h"
 
-static	bool	init_normalize(t_data *data)
+static	inline	void	init_normalize(t_data *data)
 {
-	data->norm = malloc(sizeof(t_normalize));
-	if (!data->norm)
-		return (data->err.gen_errors |= E_MEMORY, 1);
-	data->norm->scale = 0;
-	data->norm->offset_x = 0;
-	data->norm->offset_y = 0;
-	data->norm->min_x = 0;
-	data->norm->max_x = 0;
-	data->norm->min_y = 0;
-	data->norm->max_y = 0;
-
-	return (0);
+	data->norm.scale = 0;
+	data->norm.offset_x = 0;
+	data->norm.offset_y = 0;
+	data->norm.min_x = 0;
+	data->norm.max_x = 0;
+	data->norm.min_y = 0;
+	data->norm.max_y = 0;
 }
 
 static	bool	init_map(t_data	*data)
@@ -52,5 +47,6 @@ bool	init(t_data *data, char **argv)
 
 	init_errors(data);
 	init_ants(data);
-	return (init_map(data) || init_normalize(data));
+	init_normalize(data);
+	return (init_map(data));
 }

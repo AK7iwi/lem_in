@@ -43,7 +43,7 @@ void	draw_rooms(SDL_Renderer *renderer, t_data *data, t_room *room)
 {
 	int	screen_x, screen_y;
 
-	normalize_coordinates(data->norm, room->x, &screen_x, room->y, &screen_y);
+	normalize_coordinates(&data->norm, room->x, &screen_x, room->y, &screen_y);
 
 	// fct colors 
 	if (room == data->map->start_room)
