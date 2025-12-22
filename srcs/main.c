@@ -15,5 +15,6 @@ int	main(int argc, char **argv)
 		display_errors(data.err);
 		return (free_data(&data), EXIT_FAILURE);
 	}
+
 	return (free_data(&data), EXIT_SUCCESS);
 }

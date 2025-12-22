@@ -23,11 +23,11 @@
 # define MIN_ANTS	1
 # define MAX_ROOMS	10000
 # define MIN_ROOMS	2
-# define MAX_COORDINATE (MAX_ROOMS * 100)
+# define MAX_COORDINATE MAX_ROOMS * 100
 
 /* Visualizer */
-# define WINDOW_WIDTH 1280
-# define WINDOW_HEIGHT 720
+# define WINDOW_WIDTH 1920
+# define WINDOW_HEIGHT 1080
 # define PADDING 20
 # define CIRCLE_RADIUS 25
 

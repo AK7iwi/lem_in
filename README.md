@@ -68,7 +68,6 @@ start_room - rooms = 2  (2 elements difference)
 
 Parsing:
 Format required
-
 No empty lines
 
 BFS algo:

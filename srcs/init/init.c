@@ -5,9 +5,9 @@ static	inline	void	init_normalize(t_data *data)
 	data->norm.scale = 0;
 	data->norm.offset_x = 0;
 	data->norm.offset_y = 0;
-	data->norm.min_x = 0;
+	data->norm.min_x = MAX_ROOMS * 100;
 	data->norm.max_x = 0;
-	data->norm.min_y = 0;
+	data->norm.min_y = MAX_ROOMS * 100;
 	data->norm.max_y = 0;
 }
 

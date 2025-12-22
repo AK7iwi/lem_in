@@ -1,6 +1,6 @@
 TO-DO:
 
-- Vizualizer
+- Vizualizer ~
 - Exec
 - Norme:
 check if paren for (*)
@@ -19,10 +19,9 @@ Add format to error format message
 
 II) Visualizer
 
+RADIUS_CIRCLE should be adapted
+
 - Refacto/ Clean
-Review visalizer part code/logic
-Write an sqrt fct
-Rename
 - Use generator_linux to create map
 Test
 
@@ -62,5 +61,6 @@ https://github.com/jraleman
 Algo:
 
 BFS
+Newton-Raphson (Babylonian) method (sqrt)
 Midpoint Circle Algorithm (Bresenham's circle algorithm)
 ACO
