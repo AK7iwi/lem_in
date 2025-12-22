@@ -37,13 +37,13 @@
 
 typedef struct s_normalize
 {
-	float	scale;
-	float	offset_x;
-	float	offset_y;
-	float	min_x;
-	float	max_x;
-	float	min_y;
-	float	max_y;
+	float		scale;
+	float		offset_x;
+	float		offset_y;
+	uint32_t	min_x;
+	uint32_t	max_x;
+	uint32_t	min_y;
+	uint32_t	max_y;
 }	t_normalize;
 
 typedef struct s_room	t_room;
@@ -121,7 +121,7 @@ void	draw_rooms(SDL_Renderer *renderer, t_data *data, t_room *room);
 void	draw_render(SDL_Renderer *renderer, t_data *data);
 
 /* normalize/normalize.c */
-void	normalize_coordinates(t_normalize *norm, uint32_t x, int *screen_x, uint32_t y, int *screen_y);
+void	normalize_coordinates(t_normalize *norm, uint32_t x, float *screen_x, uint32_t y, float *screen_y);
 void	calculate_normalization(t_normalize *norm);
 void	calculate_map_limits(t_normalize *norm, uint32_t x, uint32_t y);
 

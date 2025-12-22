@@ -20,16 +20,14 @@ Add format to error format message
 II) Visualizer
 
 - Refacto/ Clean
-t_normalize like t_error (no malloc)
 Review visalizer part code/logic
-int -->uint8_t
+Write an sqrt fct
 Rename
 - Use generator_linux to create map
 Test
 
-Understand the algo circle: Midpoint Circle Algorithm (Bresenham's circle algorithm)
 
-Dockerfile for SDL ??
+Understand the algo circle: Midpoint Circle Algorithm (Bresenham's circle algorithm)
 
 III) Exec
 

@@ -1,10 +1,10 @@
 #include "lem_in.h"
 
-static  void	draw_circle(SDL_Renderer *renderer, int center_x, int center_y, int radius)
+static  void	draw_circle(SDL_Renderer *renderer, float center_x, float center_y, int radius)
 {
-	int x = 0;
-	int y = radius;
-	int d = 1 - radius;
+	float x = 0;
+	float y = radius;
+	float d = 1 - radius;
 
 	while (x <= y)
 	{
@@ -28,10 +28,10 @@ static  void	draw_circle(SDL_Renderer *renderer, int center_x, int center_y, int
 	}
 }
 
-static  void	draw_room_name(SDL_Renderer *renderer, char *text, int x, int y)
+static  void	draw_room_name(SDL_Renderer *renderer, char *text, float x, float y)
 {
-	int		text_width;
-	int		offset_x;
+	uint8_t		text_width;
+	float		offset_x;
 
 	text_width = ft_strlen(text) * 8;
 	offset_x = text_width / 2;
@@ -39,20 +39,22 @@ static  void	draw_room_name(SDL_Renderer *renderer, char *text, int x, int y)
 	SDL_RenderDebugText(renderer, x - offset_x, y - 4, text);
 }
 
-void	draw_rooms(SDL_Renderer *renderer, t_data *data, t_room *room)
+static	void	set_colors(SDL_Renderer *renderer, t_data *data, t_room *room)
 {
-	int	screen_x, screen_y;
-
-	normalize_coordinates(&data->norm, room->x, &screen_x, room->y, &screen_y);
-
-	// fct colors 
 	if (room == data->map->start_room)
 		SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255); // Green for start
 	else if (room == data->map->end_room)
 		SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255); // Red for end
 	else
 		SDL_SetRenderDrawColor(renderer, 200, 200, 200, 255); // Gray for normal rooms
+}
 
+void	draw_rooms(SDL_Renderer *renderer, t_data *data, t_room *room)
+{
+	float	screen_x, screen_y;
+
+	normalize_coordinates(&data->norm, room->x, &screen_x, room->y, &screen_y);
+	set_colors(renderer, data, room);
 	draw_circle(renderer, screen_x, screen_y, CIRCLE_RADIUS);
 	draw_room_name(renderer, room->name, screen_x, screen_y);
 }
