@@ -29,7 +29,6 @@
 # define WINDOW_WIDTH 1920
 # define WINDOW_HEIGHT 1080
 # define PADDING 20
-# define CIRCLE_RADIUS 25
 
 //**********************************************//
 //					STRUCTURES					//
@@ -44,6 +43,7 @@ typedef struct s_normalize
 	uint32_t	max_x;
 	uint32_t	min_y;
 	uint32_t	max_y;
+	uint8_t		radius;
 }	t_normalize;
 
 typedef struct s_room	t_room;
@@ -122,7 +122,7 @@ void	draw_render(SDL_Renderer *renderer, t_data *data);
 
 /* normalize/normalize.c */
 void	normalize_coordinates(t_normalize *norm, uint32_t x, float *screen_x, uint32_t y, float *screen_y);
-void	calculate_normalization(t_normalize *norm);
+void	calculate_normalization(t_normalize *norm, uint16_t nb_rooms);
 void	calculate_map_limits(t_normalize *norm, uint32_t x, uint32_t y);
 
 /* visualizer.c */

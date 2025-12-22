@@ -19,7 +19,13 @@ Add format to error format message
 
 II) Visualizer
 
-RADIUS_CIRCLE should be adapted
+Improve visu:
+
+Test visualisation of the map, adapt the radius, the lenght of the links
+Change color of random room in blue
+For big maps, more than 200 rooms, the radius for start and end bigger
+float-->int for better printing
+print nb_rooms for test.txt and generator_linux 
 
 - Refacto/ Clean
 - Use generator_linux to create map

@@ -6,7 +6,7 @@ void	normalize_coordinates(t_normalize *norm, uint32_t x, float *screen_x, uint3
 	*screen_y = y * norm->scale + norm->offset_y;
 }
 
-void	calculate_normalization(t_normalize *norm)
+void	calculate_normalization(t_normalize *norm, uint16_t nb_rooms)
 {
 	uint32_t	map_width;
 	uint32_t	map_height;
@@ -15,16 +15,31 @@ void	calculate_normalization(t_normalize *norm)
 
 	map_width = norm->max_x - norm->min_x;
 	map_height = norm->max_y - norm->min_y;
-	if (map_width == 0) /* if same x */
+	if (map_width == 0)
 		map_width = 1;
-	if (map_height == 0) /* if same y */
+	if (map_height == 0)
 		map_height = 1;
 
-	scale_x = (WINDOW_WIDTH - 2 * PADDING - 2 * CIRCLE_RADIUS) / map_width;
-	scale_y = (WINDOW_HEIGHT - 2 * PADDING - 2 * CIRCLE_RADIUS) / map_height;
+	// Refcato in fct
+	// Adapt the values
+	if (nb_rooms < 10)
+		norm->radius = 25;
+	else if (nb_rooms < 30)
+		norm->radius = 20;
+	else if (nb_rooms < 60)
+		norm->radius = 15;
+	else if (nb_rooms < 100)
+		norm->radius = 12;
+	else if (nb_rooms < 200)
+		norm->radius = 3;
+	else
+		norm->radius = 1;
+
+	scale_x = (WINDOW_WIDTH - 2 * PADDING - 2 * norm->radius) / map_width;
+	scale_y = (WINDOW_HEIGHT - 2 * PADDING - 2 * norm->radius) / map_height;
 	norm->scale = (scale_x < scale_y) ? scale_x : scale_y;
-	norm->offset_x = PADDING + CIRCLE_RADIUS - norm->min_x * norm->scale;
-	norm->offset_y = PADDING + CIRCLE_RADIUS - norm->min_y * norm->scale;
+	norm->offset_x = PADDING + norm->radius - norm->min_x * norm->scale;
+	norm->offset_y = PADDING + norm->radius - norm->min_y * norm->scale;
 }
 
 void	calculate_map_limits(t_normalize *norm, uint32_t x, uint32_t y)

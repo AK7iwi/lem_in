@@ -9,6 +9,7 @@ static	inline	void	init_normalize(t_data *data)
 	data->norm.max_x = 0;
 	data->norm.min_y = MAX_ROOMS * 100;
 	data->norm.max_y = 0;
+	data->norm.radius = 0;
 }
 
 static	bool	init_map(t_data	*data)

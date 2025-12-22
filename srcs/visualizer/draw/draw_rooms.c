@@ -1,6 +1,6 @@
 #include "lem_in.h"
 
-static  void	draw_circle(SDL_Renderer *renderer, float center_x, float center_y, int radius)
+static  void	draw_circle(SDL_Renderer *renderer, float center_x, float center_y, uint8_t radius)
 {
 	float x = 0;
 	float y = radius;
@@ -55,6 +55,8 @@ void	draw_rooms(SDL_Renderer *renderer, t_data *data, t_room *room)
 
 	normalize_coordinates(&data->norm, room->x, &screen_x, room->y, &screen_y);
 	set_colors(renderer, data, room);
-	draw_circle(renderer, screen_x, screen_y, CIRCLE_RADIUS);
-	draw_room_name(renderer, room->name, screen_x, screen_y);
+	draw_circle(renderer, screen_x, screen_y, data->norm.radius);
+	
+	if (data->map->nb_rooms < 100 || room == data->map->start_room || room == data->map->end_room)
+		draw_room_name(renderer, room->name, screen_x, screen_y);
 }
