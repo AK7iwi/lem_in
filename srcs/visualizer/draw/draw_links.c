@@ -43,7 +43,7 @@ void	draw_links(SDL_Renderer *renderer, t_normalize *norm, t_room *room)
 {
 	t_link	*link;
 	float	x1, y1, x2, y2;
-	float	start_x, start_y, end_x, end_y;
+	float	start_x, start_y, end_x, end_y; //uint for better visu
 
 	SDL_SetRenderDrawColor(renderer, 100, 100, 100, 255);
 	link = room->link;

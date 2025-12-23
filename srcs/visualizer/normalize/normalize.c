@@ -31,7 +31,7 @@ void	calculate_normalization(t_normalize *norm, uint16_t nb_rooms)
 	else if (nb_rooms < 100)
 		norm->radius = 12;
 	else if (nb_rooms < 200)
-		norm->radius = 3;
+		norm->radius = 1;
 	else
 		norm->radius = 1;
 
