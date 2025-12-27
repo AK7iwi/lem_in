@@ -1,10 +1,11 @@
 TO-DO:
 
 - Vizualizer ~
+- Parsing
 - Exec
 - Norme:
+Uniformisation of norme
 check if paren for (*)
-Uniformisation of norme 
 
 ------------------------------------------------------------------------
 
@@ -15,25 +16,40 @@ Ants:
 Rooms:
 Links:
  
+Errors:
 Add format to error format message
+Refacto display_errors
 
 II) Visualizer
 
-Improve visu:
-Test visualisation of the map, adapt the radius, the lenght of the links
+- Improve visu: (Test visualisation of the map, adapt the radius, the lenght of the links)
 
-Change color of random room in blue
+Check SDL fct for scale:
+bool SDL_SetRenderScale(SDL_Renderer *renderer, float scaleX, float scaleY);
+Check for scale values: Radius , offsets (calculate_normalization values)
+normalize_coordinates can be deleted
+Write nb_rooms for all rooms (delete the 100 rooms cond)
+add zoom with mouse
+
+Check SDL fct to print text:
+bool TTF_DrawRendererText(TTF_Text *text, float x, float y);
+Check if others fct to draw text 
+
+float--> int for better printing
+
 For big maps, more than 200 rooms, the radius for start and end bigger
-float-->int for better printing
-print nb_rooms for test.txt and generator_linux
-Case where rooms are to closer: Circle touch each others 
+
 
 - Refacto/ Clean
-- Use generator_linux to create map
-Test
+Protect SDL fct
+- Test (Use generator_linux to create map)
+print nb_rooms to adapt
+Case where rooms are to closer: Circle touch each others 
 
+- Docker?
 
-Understand the algo circle: Midpoint Circle Algorithm (Bresenham's circle algorithm)
+- Idea
+Rooms/links in blue when a ant in
 
 III) Exec
 

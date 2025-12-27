@@ -22,7 +22,7 @@
 # define MAX_ANTS	1000000 // maybe too much
 # define MIN_ANTS	1
 # define MAX_ROOMS	10000
-# define MIN_ROOMS	2
+# define MIN_ROOMS	2		// useless
 # define MAX_COORDINATE MAX_ROOMS * 100
 
 /* Visualizer */
@@ -123,7 +123,7 @@ void	draw_render(SDL_Renderer *renderer, t_data *data);
 /* normalize/normalize.c */
 void	normalize_coordinates(t_normalize *norm, uint32_t x, float *screen_x, uint32_t y, float *screen_y);
 void	calculate_normalization(t_normalize *norm, uint16_t nb_rooms);
-void	calculate_map_limits(t_normalize *norm, uint32_t x, uint32_t y);
+void	get_map_limits(t_normalize *norm, uint32_t x, uint32_t y);
 
 /* visualizer.c */
 bool	visualizer(t_data *data);

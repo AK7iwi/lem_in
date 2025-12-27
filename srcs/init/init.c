@@ -5,9 +5,9 @@ static	inline	void	init_normalize(t_data *data)
 	data->norm.scale = 0;
 	data->norm.offset_x = 0;
 	data->norm.offset_y = 0;
-	data->norm.min_x = MAX_ROOMS * 100;
+	data->norm.min_x = MAX_COORDINATE;
 	data->norm.max_x = 0;
-	data->norm.min_y = MAX_ROOMS * 100;
+	data->norm.min_y = MAX_COORDINATE;
 	data->norm.max_y = 0;
 	data->norm.radius = 0;
 }
@@ -47,7 +47,7 @@ bool	init(t_data *data, char **argv)
 	(void)argv;
 
 	init_errors(data);
-	init_ants(data);
 	init_normalize(data);
+	init_ants(data);
 	return (init_map(data));
 }

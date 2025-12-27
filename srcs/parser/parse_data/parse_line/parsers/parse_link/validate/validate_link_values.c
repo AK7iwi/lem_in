@@ -14,7 +14,7 @@ static	bool	is_existing_link(t_room	*room, t_room *target_room)
 	return (false);
 }
 
-static	bool	are_same_room(t_room *room1, t_room *room2)
+static	inline	bool	are_same_room(t_room *room1, t_room *room2)
 {
 	return (room1 == room2);
 }

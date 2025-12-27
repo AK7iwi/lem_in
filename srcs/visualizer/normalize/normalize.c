@@ -21,7 +21,7 @@ void	calculate_normalization(t_normalize *norm, uint16_t nb_rooms)
 		map_height = 1;
 
 	// Refcato in fct
-	// Adapt the values
+	// Adapt the values in fct of the map size and not nb rooms 
 	if (nb_rooms < 10)
 		norm->radius = 25;
 	else if (nb_rooms < 30)
@@ -42,7 +42,7 @@ void	calculate_normalization(t_normalize *norm, uint16_t nb_rooms)
 	norm->offset_y = PADDING + norm->radius - norm->min_y * norm->scale;
 }
 
-void	calculate_map_limits(t_normalize *norm, uint32_t x, uint32_t y)
+void	get_map_limits(t_normalize *norm, uint32_t x, uint32_t y)
 {
 	if (x < norm->min_x)
 		norm->min_x = x;
