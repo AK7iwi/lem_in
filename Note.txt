@@ -50,6 +50,7 @@ Case where rooms are to closer: Circle touch each others
 
 - Idea
 Rooms/links in blue when a ant in
+Ants moving in the start room
 
 III) Exec
 

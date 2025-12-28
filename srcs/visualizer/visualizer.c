@@ -60,7 +60,6 @@ bool	visualizer(t_data *data)
 
 	if (init_render(data, &window, &renderer))
 		return (1);
-
 	render(renderer, data);
 	close_render(window, renderer);
 

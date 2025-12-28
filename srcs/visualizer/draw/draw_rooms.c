@@ -57,6 +57,6 @@ void	draw_rooms(SDL_Renderer *renderer, t_data *data, t_room *room)
 	normalize_coordinates(&data->norm, room->x, &screen_x, room->y, &screen_y);
 	draw_circle(renderer, screen_x, screen_y, data->norm.radius);
 	
-	if (data->map->nb_rooms < 100 || room == data->map->start_room || room == data->map->end_room)
-		draw_room_name(renderer, room->name, screen_x, screen_y);
+	// if (data->map->nb_rooms < 100 || room == data->map->start_room || room == data->map->end_room)
+	draw_room_name(renderer, room->name, screen_x, screen_y);
 }

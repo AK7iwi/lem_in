@@ -3,6 +3,7 @@
 static	void	display_visu_errors(uint8_t visu_errors)
 {
 	//get_errors from SDL
+	//SDL_GetError()
 	if (visu_errors & E_VISU)
 		ft_putstr(ERR_VISU, STDERR_FILENO);
 }
