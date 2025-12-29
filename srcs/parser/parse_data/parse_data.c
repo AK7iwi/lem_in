@@ -24,9 +24,10 @@ static	bool	parse_map(t_data *data, int fd)
 		return (data->err.parsing_errors |= E_EMPTY_FILE, 1);
 	while (line)
 	{
+		// printf("Line:%s\n", line);
 		if (parse_line(data, fd, line))
 		{
-			data->err.line_error += (i + data->map->nb_valid_cmds + 1);  
+			data->err.line_error += i + data->map->nb_valid_cmds + 1;  
 			return (free(line), 1);
 		}
 		i++;

@@ -58,6 +58,7 @@ bool	visualizer(t_data *data)
 	SDL_Window	    *window;
 	SDL_Renderer    *renderer;
 
+	calculate_normalization(&data->norm, data->map->nb_rooms);
 	if (init_render(data, &window, &renderer))
 		return (1);
 	render(renderer, data);

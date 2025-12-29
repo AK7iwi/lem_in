@@ -6,7 +6,6 @@ void	draw_render(SDL_Renderer *renderer, t_data *data)
 	size_t		i = 0;
 	t_room		*room;
 
-	calculate_normalization(&data->norm, data->map->nb_rooms);
 	while (i < data->map->nb_rooms)
 	{
 		room = &data->map->rooms[i];

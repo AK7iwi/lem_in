@@ -1,6 +1,6 @@
 #include "lem_in.h"
 
-static	bool	bfs(t_map *map, bool *visited, t_room	**queue, size_t queue_front, size_t queue_back)
+static	bool	bfs(t_map *map, bool *visited, t_room **queue, size_t queue_front, size_t queue_back)
 {
 	t_room	*current;
 	t_link	*link;

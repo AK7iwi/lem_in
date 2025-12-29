@@ -22,7 +22,6 @@
 # define MAX_ANTS	1000000 // maybe too much
 # define MIN_ANTS	1
 # define MAX_ROOMS	10000
-# define MIN_ROOMS	2		// useless
 # define MAX_COORDINATE MAX_ROOMS * 100
 
 /* Visualizer */
@@ -59,8 +58,8 @@ typedef struct s_link
 typedef struct s_room
 {
 	char		*name;
-	uint32_t	x;
-	uint32_t	y;
+	uint32_t	x; //uin16_t?
+	uint32_t	y; //uin16_t?
 	bool		is_empty;
 
 	t_link		*link;
@@ -122,8 +121,9 @@ void	draw_render(SDL_Renderer *renderer, t_data *data);
 
 /* normalize/normalize.c */
 void	normalize_coordinates(t_normalize *norm, uint32_t x, float *screen_x, uint32_t y, float *screen_y);
-void	calculate_normalization(t_normalize *norm, uint16_t nb_rooms);
 void	get_map_limits(t_normalize *norm, uint32_t x, uint32_t y);
+/* normalize/calculate_normalization.c */
+void	calculate_normalization(t_normalize *norm, uint16_t nb_rooms);
 
 /* visualizer.c */
 bool	visualizer(t_data *data);

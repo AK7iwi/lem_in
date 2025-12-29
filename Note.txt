@@ -2,6 +2,8 @@ TO-DO:
 
 - Vizualizer ~
 - Parsing
+
+- Review/Refacto/Clean code. Check with the header Review defined map limits 
 - Exec
 - Norme:
 Uniformisation of norme
@@ -22,33 +24,35 @@ Refacto display_errors
 
 II) Visualizer
 
-- Improve visu: (Test visualisation of the map, adapt the radius, the lenght of the links)
+- Improve visu: (Test visualisation of the map, adapt the radius, the lenght of the links, ...)
 
-Check SDL fct for scale:
+a) Check SDL fct for scale:
 bool SDL_SetRenderScale(SDL_Renderer *renderer, float scaleX, float scaleY);
 Check for scale values: Radius , offsets (calculate_normalization values)
-normalize_coordinates can be deleted
-Write nb_rooms for all rooms (delete the 100 rooms cond)
-add zoom with mouse
 
-Check SDL fct to print text:
+b) float--> int for better printing
+
+c) add zoom and scrap with mouse
+max zoom
+
+d) Check SDL fct to print text:
 bool TTF_DrawRendererText(TTF_Text *text, float x, float y);
 Check if others fct to draw text 
-
-float--> int for better printing
+Write nb_rooms for all rooms (delete the 100 rooms cond)
+- Docker?
+Avantages/Inconvenients Docker ou faire compiler 
 
 For big maps, more than 200 rooms, the radius for start and end bigger
 
-
 - Refacto/ Clean
 Protect SDL fct
+Refacto as parser; visualizer should be a main alone. Separate render and normalize
 - Test (Use generator_linux to create map)
 print nb_rooms to adapt
 Case where rooms are to closer: Circle touch each others 
+Map bigger than windows
 
-- Docker?
-
-- Idea
+- Idea for futur
 Rooms/links in blue when a ant in
 Ants moving in the start room
 
@@ -76,7 +80,7 @@ links:
 BFS algo:
 https://www.geeksforgeeks.org/dsa/breadth-first-search-or-bfs-for-a-graph/
 
-
+ACO algo:
 https://dilipkumar.medium.com/ant-colony-optimization-aco-algorithm-6a954b0b083e
 https://members.loria.fr/VThomas/enseignement/M2rar/slides/04_algorithme%20fourmis_v2.pdf
 https://github.com/jraleman
