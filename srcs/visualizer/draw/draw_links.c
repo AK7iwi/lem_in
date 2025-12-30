@@ -1,27 +1,8 @@
 #include "lem_in.h"
 
-static float	ft_sqrt(float n)
-{
-	float	x;
-	float	prev;
-	float	epsilon;
-
-	x = n;
-	epsilon = 0.00001f;
-	while (true)
-	{
-		prev = x;
-		x = (x + n / x) / 2;
-		if (x - prev < epsilon && prev - x < epsilon)
-			break ;
-	}
-
-	return (x);
-}
-
 static void	calculate_line_endpoints(float x1, float y1, float x2, float y2,
-									float *start_x, float *start_y,
-									float *end_x, float *end_y, uint8_t radius)
+									float *start_x, float *start_y, float *end_x, float *end_y,
+									uint8_t radius)
 {
 	float	dx;
 	float	dy;
@@ -43,7 +24,7 @@ void	draw_links(SDL_Renderer *renderer, t_normalize *norm, t_room *room)
 {
 	t_link	*link;
 	float	x1, y1, x2, y2;
-	float	start_x, start_y, end_x, end_y; //uint for better visu
+	float	start_x, start_y, end_x, end_y; //int for better visu
 
 	SDL_SetRenderDrawColor(renderer, 100, 100, 100, 255);
 	link = room->link;

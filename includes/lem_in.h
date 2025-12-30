@@ -112,6 +112,8 @@ void	free_data(t_data *data);
 //												//
 //**********************************************//
 
+/* tools/ft_sqrt.c */
+float	ft_sqrt(float n);
 /* draw/draw_links.c */
 void	draw_links(SDL_Renderer *renderer, t_normalize *norm, t_room *room);
 /* draw/draw_rooms.c */

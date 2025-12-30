@@ -43,7 +43,8 @@ SRCS			:=	main.c \
 					free/free_data.c \
 					visualizer/visualizer.c \
 					visualizer/normalize/calculate_normalization.c visualizer/normalize/normalize.c \
-					visualizer/draw/draw_render.c visualizer/draw/draw_rooms.c visualizer/draw/draw_links.c
+					visualizer/draw/draw_render.c visualizer/draw/draw_rooms.c visualizer/draw/draw_links.c \
+					visualizer/tools/ft_sqrt.c 
 SRCS        	:= $(SRCS:%=$(SRC_DIR)/%)
 OBJS        	:= $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 

@@ -45,7 +45,6 @@ static	inline	void	init_errors(t_data *data)
 bool	init(t_data *data, char **argv)
 {
 	(void)argv;
-
 	init_errors(data);
 	init_normalize(data);
 	init_ants(data);

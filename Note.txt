@@ -2,8 +2,8 @@ TO-DO:
 
 - Vizualizer ~
 - Parsing
+- Review/Refacto/Clean code. Check the header. Review defined map limits
 
-- Review/Refacto/Clean code. Check with the header Review defined map limits 
 - Exec
 - Norme:
 Uniformisation of norme
@@ -46,11 +46,13 @@ For big maps, more than 200 rooms, the radius for start and end bigger
 
 - Refacto/ Clean
 Protect SDL fct
-Refacto as parser; visualizer should be a main alone. Separate render and normalize
+Refacto as parser: visualizer should be a main alone. Separate render and normalize
+
 - Test (Use generator_linux to create map)
 print nb_rooms to adapt
 Case where rooms are to closer: Circle touch each others 
 Map bigger than windows
+Map with high density 
 
 - Idea for futur
 Rooms/links in blue when a ant in

@@ -3,12 +3,11 @@
 bool	create_ants(t_data *data, uint32_t nb_ants)
 {
 	t_ant		*new_ant, *prev_ant;
-	uint32_t	i;
+	uint32_t	i = 1;
 
 	data->nb_ants = nb_ants;
 	data->ant = NULL;
 	prev_ant = NULL;
-	i = 1;
 	while (i <= data->nb_ants)
 	{
 		new_ant = malloc(sizeof(t_ant));

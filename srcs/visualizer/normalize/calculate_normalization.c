@@ -1,24 +1,5 @@
 #include "lem_in.h"
 
-static float	ft_sqrt(float n)
-{
-	float	x;
-	float	prev;
-	float	epsilon;
-
-	x = n;
-	epsilon = 0.00001f;
-	while (true)
-	{
-		prev = x;
-		x = (x + n / x) / 2;
-		if (x - prev < epsilon && prev - x < epsilon)
-			break ;
-	}
-
-	return (x);
-}
-
 // rename 
 void	calculate_normalization(t_normalize *norm, uint16_t nb_rooms)
 {
@@ -27,7 +8,6 @@ void	calculate_normalization(t_normalize *norm, uint16_t nb_rooms)
 	float		scale_x;
 	float		scale_y;
 	uint32_t 	map_area;
-	// float		density;
 	float		space;
 
 	//calculate map_size
@@ -46,29 +26,20 @@ void	calculate_normalization(t_normalize *norm, uint16_t nb_rooms)
 	norm->scale = (scale_x < scale_y) ? scale_x : scale_y;
 	printf("norm->scale:%f\n", norm->scale);
 
-	len_x = map_width / ft_sqrt(nb_roooms);
-	len_y = map_height / ft_sqrt(nb_rooms);
-
-	space = ft_sqrt(len_x **2 + len_y ** 2);
-	space = space * norm->scale;
-
 	//calculate scale values
 	map_area = map_width * map_height;
-	// density = nb_rooms / map_area;
-	space = ft_sqrt(map_area / nb_rooms);
-	norm->radius = space * norm->scale * 0.2f;
-
-	printf("norm->radius1:%u\n", norm->radius);
-
-	if (norm->radius > 30)
-		norm->radius = 30;
-	else if (norm->radius < 2)
-		norm->radius = 2;
-	// printf("map_area:%u\n", map_area);
-	// printf("density:%f\n", density);
+	space = ft_sqrt(map_area / nb_rooms) * norm->scale;
 	printf("space:%f\n", space);
+	norm->radius = space * 0.2f;
 	printf("norm->radius1:%u\n", norm->radius);
 
+	if (norm->radius > 25)
+		norm->radius = 25;
+	else if (norm->radius < 1)
+		norm->radius = 1;
+	printf("norm->radius2:%u\n", norm->radius);
+
+	//calulcate offset
 	norm->offset_x = PADDING + norm->radius - norm->min_x * norm->scale;
 	norm->offset_y = PADDING + norm->radius - norm->min_y * norm->scale;
 }
