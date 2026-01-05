@@ -2,7 +2,7 @@
 
 static void	calculate_line_endpoints(float x1, float y1, float x2, float y2,
 									float *start_x, float *start_y, float *end_x, float *end_y,
-									uint8_t radius)
+									float radius)
 {
 	float	dx;
 	float	dy;
@@ -13,6 +13,7 @@ static void	calculate_line_endpoints(float x1, float y1, float x2, float y2,
 	dy = y2 - y1;
 	distance = ft_sqrt(dx * dx + dy * dy);
 
+	printf("distance:%f\n", distance);
 	ratio = radius / distance;
 	*start_x = x1 + dx * ratio;
 	*start_y = y1 + dy * ratio;
@@ -24,7 +25,7 @@ void	draw_links(SDL_Renderer *renderer, t_normalize *norm, t_room *room)
 {
 	t_link	*link;
 	float	x1, y1, x2, y2;
-	float	start_x, start_y, end_x, end_y; //int for better visu
+	float	start_x, start_y, end_x, end_y;
 
 	SDL_SetRenderDrawColor(renderer, 100, 100, 100, 255);
 	link = room->link;

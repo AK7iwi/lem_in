@@ -2,7 +2,7 @@ TO-DO:
 
 - Vizualizer ~
 - Parsing
-- Review/Refacto/Clean code. Check the header. Review defined map limits
+- Review/Refacto/Clean code. Check the header
 
 - Exec
 - Norme:
@@ -26,14 +26,15 @@ II) Visualizer
 
 - Improve visu: (Test visualisation of the map, adapt the radius, the lenght of the links, ...)
 
-a) Check SDL fct for scale:
-bool SDL_SetRenderScale(SDL_Renderer *renderer, float scaleX, float scaleY);
-Check for scale values: Radius , offsets (calculate_normalization values)
+a) Check for scale values: Radius , offsets (calculate_normalization values)
+Review defined map limits
+Draw links
 
-b) float--> int for better printing
 
-c) add zoom and scrap with mouse
-max zoom
+c) Check SDL fct for scale:
+bool SDL_SetRenderScale(SDL_Renderer *renderer, float scaleX, float scaleY); 
+add zoom and scrap with mouse
+max/min zoom
 
 d) Check SDL fct to print text:
 bool TTF_DrawRendererText(TTF_Text *text, float x, float y);
@@ -42,7 +43,7 @@ Write nb_rooms for all rooms (delete the 100 rooms cond)
 - Docker?
 Avantages/Inconvenients Docker ou faire compiler 
 
-For big maps, more than 200 rooms, the radius for start and end bigger
+- if radius too small, bigger radius for start/ end rooms
 
 - Refacto/ Clean
 Protect SDL fct

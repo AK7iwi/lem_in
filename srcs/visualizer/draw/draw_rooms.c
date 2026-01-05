@@ -11,11 +11,11 @@ static  void	draw_room_name(SDL_Renderer *renderer, char *text, float x, float y
 	SDL_RenderDebugText(renderer, x - offset_x, y - 4, text);
 }
 
-static  void	draw_circle(SDL_Renderer *renderer, float center_x, float center_y, uint8_t radius)
+static  void	draw_circle(SDL_Renderer *renderer, float center_x, float center_y, float radius)
 {
-	float x = 0; // uint
-	float y = radius; //uint
-	float d = 1 - radius; //uint
+	float x = 0;
+	float y = radius;
+	float d = 1 - radius;
 
 	while (x <= y)
 	{
@@ -56,7 +56,5 @@ void	draw_rooms(SDL_Renderer *renderer, t_data *data, t_room *room)
 	set_colors(renderer, data, room);
 	normalize_coordinates(&data->norm, room->x, &screen_x, room->y, &screen_y);
 	draw_circle(renderer, screen_x, screen_y, data->norm.radius);
-	
-	// if (data->map->nb_rooms < 100 || room == data->map->start_room || room == data->map->end_room)
 	draw_room_name(renderer, room->name, screen_x, screen_y);
 }

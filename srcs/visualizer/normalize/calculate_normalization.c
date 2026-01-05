@@ -17,27 +17,21 @@ void	calculate_normalization(t_normalize *norm, uint16_t nb_rooms)
 		map_width = 1;
 	if (map_height == 0)
 		map_height = 1;
-	printf("map_width:%u\n", map_width);
-	printf("map_height:%u\n", map_height);
 
 	//calculate scales
 	scale_x = (WINDOW_WIDTH - 2 * PADDING) / (float)map_width;
-	scale_y = (WINDOW_HEIGHT - 2 * PADDING) / (float)map_height;
+	scale_y = (WINDOW_HEIGHT - 2 * PADDING ) / (float)map_height;
 	norm->scale = (scale_x < scale_y) ? scale_x : scale_y;
-	printf("norm->scale:%f\n", norm->scale);
 
-	//calculate scale values
+	//calculate radius
 	map_area = map_width * map_height;
-	space = ft_sqrt(map_area / nb_rooms) * norm->scale;
-	printf("space:%f\n", space);
-	norm->radius = space * 0.2f;
-	printf("norm->radius1:%u\n", norm->radius);
+	space = ft_sqrt(map_area / nb_rooms);
+	norm->radius = space * 0.2f * norm->scale;
 
-	if (norm->radius > 25)
-		norm->radius = 25;
-	else if (norm->radius < 1)
-		norm->radius = 1;
-	printf("norm->radius2:%u\n", norm->radius);
+	if (norm->radius > 25.0)
+		norm->radius = 25.0;
+	else if (norm->radius < 1.0)
+		norm->radius = 1.0;
 
 	//calulcate offset
 	norm->offset_x = PADDING + norm->radius - norm->min_x * norm->scale;

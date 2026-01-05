@@ -27,7 +27,7 @@
 /* Visualizer */
 # define WINDOW_WIDTH 1920
 # define WINDOW_HEIGHT 1080
-# define PADDING 20
+# define PADDING 60
 
 //**********************************************//
 //					STRUCTURES					//
@@ -42,7 +42,7 @@ typedef struct s_normalize
 	uint32_t	max_x;
 	uint32_t	min_y;
 	uint32_t	max_y;
-	uint8_t		radius;
+	float		radius;
 }	t_normalize;
 
 typedef struct s_room	t_room;
