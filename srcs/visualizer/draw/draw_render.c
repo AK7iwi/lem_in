@@ -1,5 +1,4 @@
 #include "lem_in.h"
-#include <SDL3/SDL.h>
 
 void	draw_render(SDL_Renderer *renderer, t_data *data)
 {

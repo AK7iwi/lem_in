@@ -2,7 +2,7 @@ TO-DO:
 
 - Vizualizer ~
 - Parsing
-- Review/Refacto/Clean code. Review the header
+- Review/Refacto/Clean code. Review the header/Makefile
 
 - Exec
 - Norme:
@@ -26,28 +26,30 @@ Refacto display_errors
 
 II) Visualizer
 
+- Refacto/ Clean
+Refacto as parser: visualizer should be a main alone. Separate render and normalize
+Protect SDL fct
+
+- Draw
+Draw much beautifull links 
+Check the colors 
+
 d) Check SDL fct to print text:
 bool TTF_DrawRendererText(TTF_Text *text, float x, float y);
 Check if others fct to draw text 
-Write nb_rooms for all rooms (delete the 100 rooms cond)
 - Docker?
 Avantages/Inconvenients Docker ou faire compiler 
 
-(- if radius too small, bigger radius for start/ end rooms)
-
-- Refacto/ Clean
-Protect SDL fct
-Refacto as parser: visualizer should be a main alone. Separate render and normalize
-
 - Test (Use generator_linux to create map)
-print nb_rooms to adapt
-Case where rooms are to closer: Circle touch each others 
+Case where rooms are to closer: Circle touch each others
+if radius too small, bigger radius for start/ end rooms
 Map bigger than windows
 Map with high density 
 
 - Idea for futur
 Rooms/links in blue when a ant in
 Ants moving in the start room
+Add a list of touch (R, zoom, ...)
 
 III) Exec
 

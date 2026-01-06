@@ -132,6 +132,11 @@ void	get_map_limits(t_normalize *norm, uint32_t x, uint32_t y);
 /* normalize/calculate_normalization.c */
 void	calculate_normalization(t_normalize *norm, uint16_t nb_rooms);
 
+/* render/render.c */
+void	close_render(SDL_Window *window, SDL_Renderer *renderer);
+void	render(SDL_Renderer *renderer, t_data *data);
+bool    init_render(t_data *data, SDL_Window **window, SDL_Renderer **renderer);
+
 /* visualizer.c */
 bool	visualizer(t_data *data);
 

@@ -42,6 +42,7 @@ SRCS			:=	main.c \
 					displayer/tools/print.c \
 					free/free_data.c \
 					visualizer/visualizer.c \
+					visualizer/render/render.c \
 					visualizer/normalize/calculate_normalization.c visualizer/normalize/normalize.c \
 					visualizer/draw/draw_render.c visualizer/draw/draw_rooms.c visualizer/draw/draw_links.c \
 					visualizer/tools/ft_sqrt.c 
