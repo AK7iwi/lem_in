@@ -25,8 +25,8 @@
 # define MAX_COORDINATE MAX_ROOMS * 100
 
 /* Visualizer */
-# define WINDOW_WIDTH 1920
-# define WINDOW_HEIGHT 1080
+# define WINDOW_WIDTH 1280
+# define WINDOW_HEIGHT 720
 # define PADDING 60
 
 //**********************************************//
@@ -35,13 +35,15 @@
 
 typedef struct s_normalize
 {
-	float		scale;
-	float		offset_x;
-	float		offset_y;
+	uint16_t	window_width;
+	uint16_t	window_height;
 	uint32_t	min_x;
 	uint32_t	max_x;
 	uint32_t	min_y;
 	uint32_t	max_y;
+	float		scale;
+	float		offset_x;
+	float		offset_y;
 	float		radius;
 }	t_normalize;
 
@@ -89,7 +91,7 @@ typedef struct s_data
 {
 	// uint16_t	moves;
 	// uint16_t	time;
-	uint32_t	nb_ants;
+	uint32_t	nb_ants; //uint16_t
 
 	t_err		err;
 	t_ant		*ant;

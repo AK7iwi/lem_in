@@ -13,7 +13,6 @@ static void	calculate_line_endpoints(float x1, float y1, float x2, float y2,
 	dy = y2 - y1;
 	distance = ft_sqrt(dx * dx + dy * dy);
 
-	printf("distance:%f\n", distance);
 	ratio = radius / distance;
 	*start_x = x1 + dx * ratio;
 	*start_y = y1 + dy * ratio;

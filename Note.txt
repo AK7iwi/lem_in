@@ -2,7 +2,7 @@ TO-DO:
 
 - Vizualizer ~
 - Parsing
-- Review/Refacto/Clean code. Check the header
+- Review/Refacto/Clean code. Review the header. Check map limits
 
 - Exec
 - Norme:
@@ -17,7 +17,9 @@ I) Parsing OK
 Ants:
 Rooms:
 Links:
- 
+
+Review ants limits
+
 Errors:
 Add format to error format message
 Refacto display_errors
@@ -25,11 +27,6 @@ Refacto display_errors
 II) Visualizer
 
 - Improve visu: (Test visualisation of the map, adapt the radius, the lenght of the links, ...)
-
-a) Check for scale values: Radius , offsets (calculate_normalization values)
-Review defined map limits
-Draw links
-
 
 c) Check SDL fct for scale:
 bool SDL_SetRenderScale(SDL_Renderer *renderer, float scaleX, float scaleY); 

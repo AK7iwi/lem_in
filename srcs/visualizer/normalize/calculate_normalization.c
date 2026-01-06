@@ -19,8 +19,8 @@ void	calculate_normalization(t_normalize *norm, uint16_t nb_rooms)
 		map_height = 1;
 
 	//calculate scales
-	scale_x = (WINDOW_WIDTH - 2 * PADDING) / (float)map_width;
-	scale_y = (WINDOW_HEIGHT - 2 * PADDING ) / (float)map_height;
+	scale_x = (norm->window_width - 2 * PADDING) / (float)map_width;
+	scale_y = (norm->window_height - 2 * PADDING) / (float)map_height;
 	norm->scale = (scale_x < scale_y) ? scale_x : scale_y;
 
 	//calculate radius
