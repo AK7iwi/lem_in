@@ -45,6 +45,9 @@ typedef struct s_normalize
 	float		offset_x;
 	float		offset_y;
 	float		radius;
+	float		zoom;
+	float		pan_x;
+	float		pan_y;
 }	t_normalize;
 
 typedef struct s_room	t_room;

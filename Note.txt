@@ -2,7 +2,7 @@ TO-DO:
 
 - Vizualizer ~
 - Parsing
-- Review/Refacto/Clean code. Review the header. Check map limits
+- Review/Refacto/Clean code. Review the header
 
 - Exec
 - Norme:
@@ -18,20 +18,13 @@ Ants:
 Rooms:
 Links:
 
-Review ants limits
+Review ants limits, map limits 
 
 Errors:
 Add format to error format message
 Refacto display_errors
 
 II) Visualizer
-
-- Improve visu: (Test visualisation of the map, adapt the radius, the lenght of the links, ...)
-
-c) Check SDL fct for scale:
-bool SDL_SetRenderScale(SDL_Renderer *renderer, float scaleX, float scaleY); 
-add zoom and scrap with mouse
-max/min zoom
 
 d) Check SDL fct to print text:
 bool TTF_DrawRendererText(TTF_Text *text, float x, float y);
@@ -40,7 +33,7 @@ Write nb_rooms for all rooms (delete the 100 rooms cond)
 - Docker?
 Avantages/Inconvenients Docker ou faire compiler 
 
-- if radius too small, bigger radius for start/ end rooms
+(- if radius too small, bigger radius for start/ end rooms)
 
 - Refacto/ Clean
 Protect SDL fct
