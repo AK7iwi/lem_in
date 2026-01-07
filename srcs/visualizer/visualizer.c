@@ -7,7 +7,7 @@ bool	visualizer(t_data *data)
 
 	if (init_render(data, &window, &renderer))
 		return (1);
-	calculate_normalization(&data->norm, data->map->nb_rooms);
+	set_render_params(&data->norm, data->map->nb_rooms);
 	render(renderer, data);
 	close_render(window, renderer);
 

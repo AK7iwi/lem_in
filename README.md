@@ -65,6 +65,8 @@ If start_room points to rooms[2]:
 
 start_room - rooms = 2  (2 elements difference)
 
+Lem_in:
+
 
 Parsing:
 Format required

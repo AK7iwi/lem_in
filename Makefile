@@ -37,14 +37,14 @@ SRCS			:=	main.c \
 					parser/parse_data/parse_line/parsers/common/extract/extract_data.c \
 					parser/parse_data/parse_line/parsers/common/tools/check_char_type.c \
 					parser/parse_data/bfs_algo/bfs.c \
-					parser/parse_data/bfs_algo/tools/free_array.c parser/parse_data/bfs_algo/tools/room_index.c \
+					parser/parse_data/bfs_algo/tools/free_array.c \
 					displayer/display_errors.c displayer/display_infos.c \
 					displayer/tools/print.c \
 					free/free_data.c \
 					visualizer/visualizer.c \
-					visualizer/render/render.c \
+					visualizer/render/render.c visualizer/render/render_event.c \
+					visualizer/render/draw/draw_render.c visualizer/render/draw/draw_rooms.c visualizer/render/draw/draw_links.c \
 					visualizer/normalize/calculate_normalization.c visualizer/normalize/normalize.c \
-					visualizer/draw/draw_render.c visualizer/draw/draw_rooms.c visualizer/draw/draw_links.c \
 					visualizer/tools/ft_sqrt.c 
 SRCS        	:= $(SRCS:%=$(SRC_DIR)/%)
 OBJS        	:= $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)

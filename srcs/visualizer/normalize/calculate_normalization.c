@@ -1,7 +1,12 @@
 #include "lem_in.h"
 
-static void	calculate_radius(t_normalize *norm, uint32_t map_area,
-							uint16_t nb_rooms)
+static	void	set_offset(t_normalize *norm)
+{
+	norm->offset_x = PADDING + norm->radius - norm->min_x * norm->scale;
+	norm->offset_y = PADDING + norm->radius - norm->min_y * norm->scale;
+}
+
+static	void	set_radius(t_normalize *norm, uint32_t map_area, uint16_t nb_rooms)
 {
 	float	space;
 
@@ -13,13 +18,7 @@ static void	calculate_radius(t_normalize *norm, uint32_t map_area,
 		norm->radius = 1.0f;
 }
 
-static void	calculate_offset(t_normalize *norm)
-{
-	norm->offset_x = PADDING + norm->radius - norm->min_x * norm->scale;
-	norm->offset_y = PADDING + norm->radius - norm->min_y * norm->scale;
-}
-
-static void	calculate_scale(t_normalize *norm, uint32_t map_width, uint32_t map_height)
+static	void	set_scale(t_normalize *norm, uint32_t map_width, uint32_t map_height)
 {
 	float	scale_x;
 	float	scale_y;
@@ -29,7 +28,7 @@ static void	calculate_scale(t_normalize *norm, uint32_t map_width, uint32_t map_
 	norm->scale = (scale_x < scale_y) ? scale_x : scale_y;
 }
 
-static void	calculate_map_dimensions(t_normalize *norm, uint32_t *map_width,uint32_t *map_height, uint32_t *map_area) 
+static	void	get_map_bounds(t_normalize *norm, uint32_t *map_width, uint32_t *map_height, uint32_t *map_area) 
 {
 	*map_width = norm->max_x - norm->min_x;
 	*map_height = norm->max_y - norm->min_y;
@@ -41,14 +40,14 @@ static void	calculate_map_dimensions(t_normalize *norm, uint32_t *map_width,uint
 	*map_area = *map_width * *map_height;
 }
 
-void	calculate_normalization(t_normalize *norm, uint16_t nb_rooms)
+void	set_render_params(t_normalize *norm, uint16_t nb_rooms)
 {
 	uint32_t	map_width;
 	uint32_t	map_height;
 	uint32_t 	map_area;
 
-	calculate_map_dimensions(norm, &map_width, &map_height, &map_area);
-	calculate_scale(norm, map_width, map_height);
-	calculate_radius(norm, map_area, nb_rooms);
-	calculate_offset(norm);
+	get_map_bounds(norm, &map_width, &map_height, &map_area);
+	set_scale(norm, map_width, map_height);
+	set_radius(norm, map_area, nb_rooms);
+	set_offset(norm);
 }

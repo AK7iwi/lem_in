@@ -1,5 +1,10 @@
 #include "lem_in.h"
 
+static	inline	size_t	get_room_index(t_map *map, t_room *room)
+{
+	return (room - map->rooms);
+}
+
 static	bool	bfs(t_map *map, bool *visited, t_room **queue, size_t queue_front, size_t queue_back)
 {
 	t_room	*current;
@@ -9,7 +14,6 @@ static	bool	bfs(t_map *map, bool *visited, t_room **queue, size_t queue_front, s
 	while (queue_front < queue_back)
 	{
 		current = queue[queue_front++];
-		
 		if (current == map->end_room)
 			return (0);
 

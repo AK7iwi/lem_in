@@ -1,14 +1,13 @@
 TO-DO:
 
-- Vizualizer ~
+- Vizualizer
 - Parsing
-- Review/Refacto/Clean code. Review the header/Makefile
-
+- Review/Refacto/Clean code, check name of fcts, files, folders. Review the header(improve with subtitles)/Makefile, tree 
 - Exec
-- Norme:
-Uniformisation of norme
-check if paren for (*)
+- Norme
 
+TO COMMIT:
+SDL update + refacto of visualizer 
 ------------------------------------------------------------------------
 
 I) Parsing OK
@@ -22,12 +21,13 @@ Review ants limits, map limits
 
 Errors:
 Add format to error format message
-Refacto display_errors
+Refacto display_errors + add get_error for SDL fct 
 
 II) Visualizer
 
 - Refacto/ Clean
-Refacto as parser: visualizer should be a main alone. Separate render and normalize
+Refacto render 
+Rename folders/files
 Protect SDL fct
 
 - Draw
@@ -53,7 +53,7 @@ Add a list of touch (R, zoom, ...)
 
 III) Exec
 
-0) Time start when clicking on start button. Ending when have the result
+- Time start when clicking on start button. Ending when have the result
 
 Line counter
 Timer 
@@ -62,12 +62,19 @@ Main algo (ACO):
 
 Trouver un papier de recherche sur l'algo
 2 criters:
-I) Pheromone Level 
+a) Pheromone Level 
 Deposer pheromones sur le chemin retour si chemin le plus court
 
-II) Heuristic Information (Path Length)
+b) Heuristic Information (Path Length)
 
 Algo to reinforcement and evaporation pheomones in times
+
+IV) Norme 
+
+Following convention for naming 
+Uniformisation of norme
+No paren for (*)
+Tree
 
 -------------------------------------
 links:

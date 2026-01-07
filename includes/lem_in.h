@@ -119,23 +119,29 @@ void	free_data(t_data *data);
 
 /* tools/ft_sqrt.c */
 float	ft_sqrt(float n);
-/* draw/draw_links.c */
-void	draw_links(SDL_Renderer *renderer, t_normalize *norm, t_room *room);
-/* draw/draw_rooms.c */
-void	draw_rooms(SDL_Renderer *renderer, t_data *data, t_room *room);
-/* draw/draw_render.c */
-void	draw_render(SDL_Renderer *renderer, t_data *data);
+
 
 /* normalize/normalize.c */
 void	normalize_coordinates(t_normalize *norm, uint32_t x, float *screen_x, uint32_t y, float *screen_y);
 void	get_map_limits(t_normalize *norm, uint32_t x, uint32_t y);
 /* normalize/calculate_normalization.c */
-void	calculate_normalization(t_normalize *norm, uint16_t nb_rooms);
+void	set_render_params(t_normalize *norm, uint16_t nb_rooms);
 
+/* render/draw/draw_links.c */
+void	draw_links(SDL_Renderer *renderer, t_normalize *norm, t_room *room);
+/* render/draw/draw_rooms.c */
+void	draw_rooms(SDL_Renderer *renderer, t_data *data, t_room *room);
+/* render/draw/draw_render.c */
+void	draw_render(SDL_Renderer *renderer, t_data *data);
+
+
+/* render/render_event.c */
+bool	render_event(t_data *data);
 /* render/render.c */
 void	close_render(SDL_Window *window, SDL_Renderer *renderer);
 void	render(SDL_Renderer *renderer, t_data *data);
 bool    init_render(t_data *data, SDL_Window **window, SDL_Renderer **renderer);
+
 
 /* visualizer.c */
 bool	visualizer(t_data *data);
@@ -163,8 +169,6 @@ void	display_errors(t_err error);
 //												//
 //**********************************************//
 
-/* parse_data/bfs_algo/tools/room_index.c */
-size_t	get_room_index(t_map *map, t_room *room);
 /* parse_data/bfs_algo/tools/free_array.c */
 void	free_bfs_arrays(bool *visited, t_room **queue);
 /* parse_data/bfs_algo/bfs.c */
@@ -174,10 +178,8 @@ bool	has_path(t_data *data);
 /* parse_data/parse_line/parsers/common/tools/check_char_type.c */
 bool	is_alnum(int c);
 bool	is_digit(int c);
-
 /* parse_data/parse_line/parsers/common/extract/extract_data.c */
 char	*extract_name(t_data *data, char *line, size_t name_start, size_t name_end);
-
 /* parse_data/parse_line/parsers/common/validate/validate_data.c */
 t_room	*is_existing_room(t_data *data, char *name);
 bool	validate_name(char *line, size_t *i, size_t *name_start, size_t *name_end);
