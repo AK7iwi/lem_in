@@ -7,7 +7,7 @@ TO-DO:
 - Norme
 
 TO COMMIT:
-SDL update + refacto of visualizer 
+When refacto done, V2 OK
 ------------------------------------------------------------------------
 
 I) Parsing OK
