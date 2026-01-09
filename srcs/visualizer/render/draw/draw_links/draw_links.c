@@ -1,13 +1,11 @@
 #include "lem_in.h"
 
 static void	calculate_line_endpoints(float x1, float y1, float x2, float y2,
-									float *start_x, float *start_y, float *end_x, float *end_y,
-									float radius)
+									 float *start_x, float *start_y, float *end_x, float *end_y,
+									 float radius)
 {
-	float	dx;
-	float	dy;
-	float	distance;
-	float	ratio;
+	float	dx, dy;
+	float	distance, ratio;
 
 	dx = x2 - x1;
 	dy = y2 - y1;

@@ -2,7 +2,8 @@ TO-DO:
 
 - Vizualizer
 - Parsing
-- Review/Refacto/Clean code, check name of fcts, files, folders. Review the header(improve with subtitles)/Makefile, tree 
+- Review/Refacto/Clean code, check name of fcts, files, folders. Review the header(spac, improve with subtitles) /Makefile, tree
+parse_map fct in parse_line, is_valid_map in validate_map folder with bfs algo. parse_line folder/file --> parse_map
 - Exec
 - Norme
 
@@ -26,8 +27,7 @@ Refacto display_errors + add get_error for SDL fct
 II) Visualizer
 
 - Refacto/ Clean
-Refacto render 
-Rename folders/files
+Rename/Restruct folders/files
 Protect SDL fct
 
 - Draw
@@ -75,6 +75,10 @@ Following convention for naming
 Uniformisation of norme
 No paren for (*)
 Tree
+
+V) Test
+
+valgrind --leak-check=full --track-fds=yes --track-origins=yes --show-leak-kinds=all --suppressions=ressources/SDL_leak_by_pass.txt ./lem-in < ressources/maps/valid_maps/400_rooms.txt
 
 -------------------------------------
 links:

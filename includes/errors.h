@@ -25,7 +25,7 @@
 # define ERR_ARGC					"This program does not accept arguments\n"
 
 # define E_EMPTY_FILE				0x2
-# define ERR_EMPTY_FILE				"File is empty\n"
+# define ERR_EMPTY_FILE				"Empty or missing file\n"
 
 # define E_EMPTY_LINE				0x4
 # define ERR_EMPTY_LINE				"This program does not accept empty line(s)\n"

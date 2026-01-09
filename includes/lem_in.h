@@ -124,19 +124,29 @@ float	ft_sqrt(float n);
 /* normalize/normalize.c */
 void	normalize_coordinates(t_normalize *norm, uint32_t x, float *screen_x, uint32_t y, float *screen_y);
 void	get_map_limits(t_normalize *norm, uint32_t x, uint32_t y);
-/* normalize/calculate_normalization.c */
+/* normalize/render_params.c */
 void	set_render_params(t_normalize *norm, uint16_t nb_rooms);
 
-/* render/draw/draw_links.c */
+/* render/draw/draw_links/draw_links.c */
 void	draw_links(SDL_Renderer *renderer, t_normalize *norm, t_room *room);
-/* render/draw/draw_rooms.c */
+/* render/draw/draw_rooms/draw_rooms.c */
 void	draw_rooms(SDL_Renderer *renderer, t_data *data, t_room *room);
 /* render/draw/draw_render.c */
 void	draw_render(SDL_Renderer *renderer, t_data *data);
 
+/* render/event/drag/drag.c */
+void	handle_drag(t_data *data, SDL_Event *event);
+/* render/event/zoom/zoom.c */
+void	handle_zoom(t_data *data, SDL_Event *event);
+/* render/event/key/key.c */
+bool	handle_key(t_data *data, SDL_Event *event);
+/* render/event/quit/quit.c */
+bool	handle_quit(SDL_Event *event);
 
-/* render/render_event.c */
+/* render/event/render_event.c */
 bool	render_event(t_data *data);
+
+
 /* render/render.c */
 void	close_render(SDL_Window *window, SDL_Renderer *renderer);
 void	render(SDL_Renderer *renderer, t_data *data);

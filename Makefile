@@ -42,9 +42,15 @@ SRCS			:=	main.c \
 					displayer/tools/print.c \
 					free/free_data.c \
 					visualizer/visualizer.c \
-					visualizer/render/render.c visualizer/render/render_event.c \
-					visualizer/render/draw/draw_render.c visualizer/render/draw/draw_rooms.c visualizer/render/draw/draw_links.c \
-					visualizer/normalize/calculate_normalization.c visualizer/normalize/normalize.c \
+					visualizer/render/render.c \
+					visualizer/render/event/render_event.c \
+					visualizer/render/event/quit/quit.c \
+					visualizer/render/event/key/key.c \
+					visualizer/render/event/zoom/zoom.c \
+					visualizer/render/event/drag/drag.c \
+					visualizer/render/draw/draw_render.c \
+					visualizer/render/draw/draw_rooms/draw_rooms.c visualizer/render/draw/draw_links/draw_links.c \
+					visualizer/normalize/render_params.c visualizer/normalize/normalize.c \
 					visualizer/tools/ft_sqrt.c 
 SRCS        	:= $(SRCS:%=$(SRC_DIR)/%)
 OBJS        	:= $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)

@@ -15,28 +15,30 @@
 static	char	*extract_line(char *line_buffer, char *buf)
 {
 	char			*line;
-	size_t			i;
-	size_t			j;
+	size_t			i = 0;
+	size_t			j = 0;
 
-	i = 0;
-	j = 0;
 	while (line_buffer[i] && line_buffer[i] != '\n')
 		i++;
 	if (line_buffer[i] == '\n')
 		i++;
+
 	line = malloc(sizeof(char) * (i + 1));
 	if (!line)
 		return (NULL);
+
 	while (line_buffer[j] && j < i)
 	{
 		line[j] = line_buffer[j];
 		j++;
 	}
 	line[j] = '\0';
+
 	j = 0;
 	while (line_buffer[i] && j < BUFFER_SIZE)
 		buf[j++] = line_buffer[i++];
 	buf[j] = '\0';
+
 	return (line);
 }
 
@@ -64,5 +66,6 @@ char	*get_next_line(int fd)
 			return (NULL);
 	}
 	line = extract_line(line_buffer, buf);
+
 	return (free(line_buffer), line);
 }

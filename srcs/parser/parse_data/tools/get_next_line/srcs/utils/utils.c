@@ -14,38 +14,36 @@
 
 bool	is_end_line(char *buf)
 {
-	size_t	i;
+	size_t	i = 0;
 
-	i = 0;
 	while (buf[i])
 	{
 		if (buf[i] == '\n')
 			return (true);
 		i++;
 	}
+
 	return (false);
 }
 
 size_t	ft_strlen(char *buf)
 {
-	size_t	i;
+	size_t	i = 0;
 
-	i = 0;
 	if (!buf)
 		return (0);
 	while (buf[i])
 		i++;
+
 	return (i);
 }
 
 char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*dest;
-	size_t	i;
-	size_t	j;
+	size_t	i = 0;
+	size_t	j = 0;
 
-	i = 0;
-	j = 0;
 	dest = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2)) + 1);
 	if (!dest)
 		return (NULL);
@@ -57,23 +55,25 @@ char	*ft_strjoin(char *s1, char *s2)
 	while (s2[j])
 		dest[i++] = s2[j++];
 	dest[i] = '\0';
+
 	return (free(s1), dest);
 }
 
 char	*ft_strdup(char *s)
 {
 	char	*dest;
-	size_t	i;
+	size_t	i = 0;
 
 	dest = malloc(sizeof(char) * (ft_strlen(s) + 1));
 	if (!dest)
 		return (NULL);
-	i = 0;
+
 	while (s[i])
 	{
 		dest[i] = s[i];
 		i++;
 	}
 	dest[i] = '\0';
+
 	return (dest);
 }
