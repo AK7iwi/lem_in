@@ -6,6 +6,7 @@ void	normalize_coordinates(t_normalize *norm, uint32_t x, float *screen_x, uint3
 	*screen_y = y * norm->scale + norm->offset_y + norm->pan_y / norm->zoom;
 }
 
+// smae folder as render_params.c 
 void	get_map_limits(t_normalize *norm, uint32_t x, uint32_t y)
 {
 	if (x < norm->min_x)

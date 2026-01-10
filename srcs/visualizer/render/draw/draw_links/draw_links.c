@@ -1,8 +1,8 @@
 #include "lem_in.h"
 
-static void	calculate_line_endpoints(float x1, float y1, float x2, float y2,
-									 float *start_x, float *start_y, float *end_x, float *end_y,
-									 float radius)
+static	void	calculate_line_endpoints(float x1, float y1, float x2, float y2,
+									 	 float *start_x, float *start_y, float *end_x, float *end_y,
+									 	 float radius)
 {
 	float	dx, dy;
 	float	distance, ratio;
@@ -18,13 +18,15 @@ static void	calculate_line_endpoints(float x1, float y1, float x2, float y2,
 	*end_y = y2 - dy * ratio;
 }
 
-void	draw_links(SDL_Renderer *renderer, t_normalize *norm, t_room *room)
+bool	draw_links(SDL_Renderer *renderer, t_normalize *norm, t_room *room)
 {
 	t_link	*link;
 	float	x1, y1, x2, y2;
 	float	start_x, start_y, end_x, end_y;
 
-	SDL_SetRenderDrawColor(renderer, 100, 100, 100, 255);
+	if (!SDL_SetRenderDrawColor(renderer, 100, 100, 100, 255))
+		return (1);
+
 	link = room->link;
 	while (link)
 	{
@@ -35,8 +37,11 @@ void	draw_links(SDL_Renderer *renderer, t_normalize *norm, t_room *room)
 			normalize_coordinates(norm, room->x, &x1, room->y, &y1);
 			normalize_coordinates(norm, link->room->x, &x2, link->room->y, &y2);
 			calculate_line_endpoints(x1, y1, x2, y2, &start_x, &start_y, &end_x, &end_y, norm->radius);
-			SDL_RenderLine(renderer, start_x, start_y, end_x, end_y);	
+			if (!SDL_RenderLine(renderer, start_x, start_y, end_x, end_y))
+				return (1);	
 		}
 		link = link->next;
 	}
+	
+	return (0);
 }

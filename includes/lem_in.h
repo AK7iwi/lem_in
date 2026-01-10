@@ -128,11 +128,11 @@ void	get_map_limits(t_normalize *norm, uint32_t x, uint32_t y);
 void	set_render_params(t_normalize *norm, uint16_t nb_rooms);
 
 /* render/draw/draw_links/draw_links.c */
-void	draw_links(SDL_Renderer *renderer, t_normalize *norm, t_room *room);
+bool	draw_links(SDL_Renderer *renderer, t_normalize *norm, t_room *room);
 /* render/draw/draw_rooms/draw_rooms.c */
-void	draw_rooms(SDL_Renderer *renderer, t_data *data, t_room *room);
+bool	draw_rooms(SDL_Renderer *renderer, t_data *data, t_room *room);
 /* render/draw/draw_render.c */
-void	draw_render(SDL_Renderer *renderer, t_data *data);
+bool	draw_render(SDL_Renderer *renderer, t_data *data);
 
 /* render/event/drag/drag.c */
 void	handle_drag(t_data *data, SDL_Event *event);
@@ -149,7 +149,7 @@ bool	render_event(t_data *data);
 
 /* render/render.c */
 void	close_render(SDL_Window *window, SDL_Renderer *renderer);
-void	render(SDL_Renderer *renderer, t_data *data);
+bool	render(SDL_Renderer *renderer, t_data *data);
 bool    init_render(t_data *data, SDL_Window **window, SDL_Renderer **renderer);
 
 

@@ -6,10 +6,9 @@ bool	visualizer(t_data *data)
 	SDL_Renderer    *renderer;
 
 	if (init_render(data, &window, &renderer))
-		return (1);
+		return (close_render(window, renderer), 1); //maybe just return (1)
 	set_render_params(&data->norm, data->map->nb_rooms);
-	render(renderer, data);
-	close_render(window, renderer);
-
-	return (0);
+	if (render(renderer, data))
+		return (close_render(window, renderer), 1);
+	return (close_render(window, renderer), 0);
 }

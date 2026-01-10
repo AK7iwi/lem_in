@@ -27,8 +27,8 @@ Refacto display_errors + add get_error for SDL fct
 II) Visualizer
 
 - Refacto/ Clean
+Protect SDL fct + test
 Rename/Restruct folders/files
-Protect SDL fct
 
 - Draw
 Draw much beautifull links 
@@ -51,6 +51,10 @@ Rooms/links in blue when a ant in
 Ants moving in the start room
 Add a list of touch (R, zoom, ...)
 
+
+SDL_RotateSurface()
+SDL_GetGlobalMouseState() and SDL_GetWindowPosition.
+
 III) Exec
 
 - Time start when clicking on start button. Ending when have the result
@@ -71,10 +75,12 @@ Algo to reinforcement and evaporation pheomones in times
 
 IV) Norme 
 
-Following convention for naming 
 Uniformisation of norme
+Following convention for naming 
 No paren for (*)
 Tree
+Place of message errors 
+
 
 V) Test
 

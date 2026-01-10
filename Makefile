@@ -100,7 +100,7 @@ fclean: clean
 re:	fclean all
 	@echo "$(RED)lem_in cleaned and rebuilt$(DEF_COLOR)"
 
-test:	all
+test: fclean all
 	@./map_tester/test_maps.sh || true
 
 .PHONY: all clean fclean re test
