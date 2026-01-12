@@ -1,7 +1,9 @@
 #include "lem_in.h"
 
-void	close_render(SDL_Window *window, SDL_Renderer *renderer)
+void	close_render(SDL_Window *window, SDL_Renderer *renderer, SDL_Texture *map_cache)
 {
+	if (map_cache)
+		SDL_DestroyTexture(map_cache);
 	if (renderer)
 		SDL_DestroyRenderer(renderer);
 	if (window)
@@ -9,18 +11,71 @@ void	close_render(SDL_Window *window, SDL_Renderer *renderer)
 	SDL_Quit();
 }
 
-bool	render(SDL_Renderer *renderer, t_data *data)
+static	bool	needs_cache_update(t_data *data)
 {
-	bool	running = true;
+	static float	last_zoom = 1.0f;
+	static float	last_pan_x = 0.0f;
+	static float	last_pan_y = 0.0f;
+
+	if (data->norm.zoom != last_zoom || data->norm.pan_x != last_pan_x || data->norm.pan_y != last_pan_y)
+	{
+		last_zoom = data->norm.zoom;
+		last_pan_x = data->norm.pan_x;
+		last_pan_y = data->norm.pan_y;
+		return (true);
+	}
+
+	return (false);
+}
+
+static	bool	render_to_cache(SDL_Renderer *renderer, SDL_Texture *map_cache, t_data *data) //data first 
+{	
+	if (!SDL_SetRenderTarget(renderer, map_cache))
+		return (1);
+
+	if (!SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255)
+		|| !SDL_RenderClear(renderer))
+	{
+		SDL_SetRenderTarget(renderer, NULL);
+		return (1);
+	}
+	
+	if (!SDL_SetRenderScale(renderer, data->norm.zoom, data->norm.zoom))
+	{
+		SDL_SetRenderTarget(renderer, NULL);
+		return (1);
+	}
+	
+	if (draw_render(renderer, data))
+	{
+		SDL_SetRenderTarget(renderer, NULL);
+		return (1);
+	}
+
+	if (!SDL_SetRenderTarget(renderer, NULL))
+		return (1);
+
+	return (0);
+}
+
+bool	render(SDL_Renderer *renderer, t_data *data, SDL_Texture *map_cache) //data first 
+{
+	bool			running = true;
+
+	if (render_to_cache(renderer, map_cache, data))
+		return (data->err.visu_errors |= E_VISU, 1);
 
 	while (running)
 	{
 		if (render_event(data))
 			running = false;
+		if (needs_cache_update(data))
+			if (render_to_cache(renderer, map_cache, data))
+				return (data->err.visu_errors |= E_VISU, 1);
+
 		if (!SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255)
 			|| !SDL_RenderClear(renderer)
-			|| !SDL_SetRenderScale(renderer, data->norm.zoom, data->norm.zoom)
-			|| draw_render(renderer, data)
+			|| !SDL_RenderTexture(renderer, map_cache, NULL, NULL)
 			|| !SDL_RenderPresent(renderer))
 			return (data->err.visu_errors |= E_VISU, 1);
 	}
@@ -28,7 +83,7 @@ bool	render(SDL_Renderer *renderer, t_data *data)
 	return (0);
 }
 
-bool    init_render(t_data *data, SDL_Window **window, SDL_Renderer **renderer)
+bool    init_render(t_data *data, SDL_Window **window, SDL_Renderer **renderer, SDL_Texture **map_cache)
 {
 	const SDL_DisplayMode	*display_mode;
 
@@ -42,7 +97,13 @@ bool    init_render(t_data *data, SDL_Window **window, SDL_Renderer **renderer)
 	data->norm.window_height = (uint16_t)(display_mode->h * 0.9f);
 
 	if (!SDL_CreateWindowAndRenderer("Lem-in Visualizer", data->norm.window_width, data->norm.window_height, SDL_WINDOW_RESIZABLE, window, renderer)
-		|| !SDL_SetRenderLogicalPresentation(*renderer, data->norm.window_width, data->norm.window_height, SDL_LOGICAL_PRESENTATION_LETTERBOX))
+		|| !SDL_SetRenderLogicalPresentation(*renderer, data->norm.window_width, data->norm.window_height, SDL_LOGICAL_PRESENTATION_LETTERBOX)
+		|| !SDL_SetRenderVSync(*renderer, 1))
+		return (data->err.visu_errors |= E_VISU, 1);
+
+	*map_cache = SDL_CreateTexture(*renderer, SDL_PIXELFORMAT_RGBA8888, 
+		SDL_TEXTUREACCESS_TARGET, data->norm.window_width, data->norm.window_height);
+	if (!*map_cache)
 		return (data->err.visu_errors |= E_VISU, 1);
 
 	return (0);

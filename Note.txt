@@ -29,14 +29,16 @@ Refacto display_errors
 II) Visualizer
 
 - Refacto/ Clean
-Check if SDL fct to improve/simply 
-Better undestanding of render. Check for pan, mouse_x, draw fct...
+Refacto render_to_cache + Test SDL error 
+Check place of data in proto
 Rename/Restruct folders/files
 Check diff between render and renderer
+Better undestanding of render. Check for pan, mouse_x, draw fct...
 
 - Draw
 Draw much beautifull links 
-Check the colors 
+Check the colors
+SDL_RotateSurface()
 
 d) Check SDL fct to print text:
 bool TTF_DrawRendererText(TTF_Text *text, float x, float y);
@@ -54,9 +56,6 @@ Map with high density
 Rooms/links in blue when a ant in
 Ants moving in the start room
 Add a list of touch (R, zoom, ...)
-
-SDL_RotateSurface()
-SDL_GetGlobalMouseState() and SDL_GetWindowPosition.
 
 III) Exec
 

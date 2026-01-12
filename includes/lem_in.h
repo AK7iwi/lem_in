@@ -148,9 +148,9 @@ bool	render_event(t_data *data);
 
 
 /* render/render.c */
-void	close_render(SDL_Window *window, SDL_Renderer *renderer);
-bool	render(SDL_Renderer *renderer, t_data *data);
-bool    init_render(t_data *data, SDL_Window **window, SDL_Renderer **renderer);
+void	close_render(SDL_Window *window, SDL_Renderer *renderer, SDL_Texture *map_cache);
+bool	render(SDL_Renderer *renderer, t_data *data, SDL_Texture *map_cache);
+bool    init_render(t_data *data, SDL_Window **window, SDL_Renderer **renderer, SDL_Texture **map_cache);
 
 
 /* visualizer.c */
