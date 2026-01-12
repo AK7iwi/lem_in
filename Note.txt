@@ -24,15 +24,15 @@ Review ants limits, map limits
 
 Errors:
 Add format to error format message
-Refacto display_errors + add get_error for SDL fct 
+Refacto display_errors
 
 II) Visualizer
 
 - Refacto/ Clean
-Protect SDL fct + test
-Check the use of close_render
-Check diff between render and renderer
+Check if SDL fct to improve/simply 
+Better undestanding of render. Check for pan, mouse_x, draw fct...
 Rename/Restruct folders/files
+Check diff between render and renderer
 
 - Draw
 Draw much beautifull links 
@@ -87,8 +87,14 @@ Place of message errors
 
 V) Test
 
+- General:
 valgrind --leak-check=full --track-fds=yes --track-origins=yes --show-leak-kinds=all --suppressions=ressources/SDL_leak_by_pass.txt ./lem-in < ressources/maps/valid_maps/400_rooms.txt
 
+- SDL_Init fail:
+
+SDL_VIDEODRIVER=nonexistent ./lem-in < ressources/maps/valid_maps/400_rooms.txt
+
+SDL_VIDEODRIVER=nonexistent valgrind --leak-check=full --track-fds=yes --track-origins=yes --show-leak-kinds=all --suppressions=ressources/SDL_leak_by_pass.txt ./lem-in < ressources/maps/valid_maps/400_rooms.txt
 -------------------------------------
 links:
 

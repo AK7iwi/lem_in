@@ -7,7 +7,7 @@ static  bool	draw_room_name(SDL_Renderer *renderer, char *text, float x, float y
 
 	text_width = ft_strlen(text) * 8;
 	offset_x = text_width / 2;
-	
+
 	return (!SDL_RenderDebugText(renderer, x - offset_x, y - 4, text));
 }
 
@@ -71,8 +71,7 @@ bool	draw_rooms(SDL_Renderer *renderer, t_data *data, t_room *room)
 	if (set_colors(renderer, data, room))
 		return (1);
 	normalize_coordinates(&data->norm, room->x, &screen_x, room->y, &screen_y);
-	if (draw_circle(renderer, screen_x, screen_y, data->norm.radius) 
-		|| draw_room_name(renderer, room->name, screen_x, screen_y))	
+	if (draw_circle(renderer, screen_x, screen_y, data->norm.radius) || draw_room_name(renderer, room->name, screen_x, screen_y))	
 		return (1);
 
 	return (0);

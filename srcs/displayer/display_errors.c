@@ -2,10 +2,11 @@
 
 static	void	display_visu_errors(uint8_t visu_errors)
 {
-	//get_errors from SDL
-	//SDL_GetError()
 	if (visu_errors & E_VISU)
+	{
 		ft_putstr(ERR_VISU, STDERR_FILENO);
+		ft_putstr((char *)SDL_GetError(), STDERR_FILENO);
+	}
 }
 
 static	void	display_format_error(void)

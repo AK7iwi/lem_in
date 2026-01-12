@@ -35,11 +35,10 @@ bool    init_render(t_data *data, SDL_Window **window, SDL_Renderer **renderer)
 	if (!SDL_Init(SDL_INIT_VIDEO))
 		return (data->err.visu_errors |= E_VISU, 1);
 
-	/* Use 90% of screen size */
 	display_mode = SDL_GetCurrentDisplayMode(SDL_GetPrimaryDisplay());
 	if (!display_mode)
 		return (data->err.visu_errors |= E_VISU, 1);
-	data->norm.window_width = (uint16_t)(display_mode->w * 0.9f);
+	data->norm.window_width = (uint16_t)(display_mode->w * 0.9f); /* Use 90% of screen size */
 	data->norm.window_height = (uint16_t)(display_mode->h * 0.9f);
 
 	if (!SDL_CreateWindowAndRenderer("Lem-in Visualizer", data->norm.window_width, data->norm.window_height, SDL_WINDOW_RESIZABLE, window, renderer)

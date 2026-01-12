@@ -1,6 +1,6 @@
 #include "lem_in.h"
 
-static void	free_room_links(t_link *link)
+static	void	free_room_links(t_link *link)
 {
 	t_link	*current;
 	t_link	*next;
@@ -14,7 +14,7 @@ static void	free_room_links(t_link *link)
 	}
 }
 
-static void	free_rooms(t_map *map)
+static	void	free_rooms(t_map *map)
 {
 	size_t	i = 0;
 
@@ -32,7 +32,7 @@ static void	free_rooms(t_map *map)
 	free(map->rooms);
 }
 
-static void	free_ants(t_ant *ant)
+static	void	free_ants(t_ant *ant)
 {
 	t_ant	*current;
 	t_ant	*next;
