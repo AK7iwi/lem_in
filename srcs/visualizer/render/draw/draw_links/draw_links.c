@@ -18,7 +18,7 @@ static	void	calculate_line_endpoints(float x1, float y1, float x2, float y2,
 	*end_y = y2 - dy * ratio;
 }
 
-bool	draw_links(SDL_Renderer *renderer, t_normalize *norm, t_room *room)
+bool	draw_links(t_normalize *norm, SDL_Renderer *renderer, t_room *room)
 {
 	t_link	*link;
 	float	x1, y1, x2, y2;

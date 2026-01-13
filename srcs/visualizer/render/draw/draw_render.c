@@ -1,6 +1,6 @@
 #include "lem_in.h"
 
-bool	draw_render(SDL_Renderer *renderer, t_data *data)
+bool	draw_render(t_data *data, SDL_Renderer *renderer)
 {
 	size_t		i = 0;
 	t_room		*room;
@@ -8,7 +8,7 @@ bool	draw_render(SDL_Renderer *renderer, t_data *data)
 	while (i < data->map->nb_rooms)
 	{
 		room = &data->map->rooms[i];
-		if (draw_rooms(renderer, data, room) || draw_links(renderer, &data->norm, room))
+		if (draw_rooms(data, renderer, room) || draw_links(&data->norm, renderer, room))
 			return (1);
 		i++;
 	}

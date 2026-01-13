@@ -2,17 +2,15 @@
 
 static void	print_links(t_map *map)
 {
-	size_t		i;
+	size_t	i = 0;
 	t_link	*current_link;
-	t_room		*room1;
-	t_room		*room2;
+	t_room	*room1;
+	t_room	*room2;
 
-	i = 0;
 	while (i < map->nb_rooms)
 	{
 		room1 = &map->rooms[i];
 		current_link = room1->link;
-		
 		while (current_link)
 		{
 			room2 = current_link->room;
@@ -42,9 +40,8 @@ static void	print_room(t_room *room)
 
 static void	print_rooms(t_map *map)
 {
-	size_t	i;
+	size_t	i = 0;
 
-	i = 0;
 	while (i < map->nb_rooms)
 	{
 		if (&map->rooms[i] == map->start_room || &map->rooms[i] == map->end_room)

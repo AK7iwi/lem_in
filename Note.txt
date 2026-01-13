@@ -28,19 +28,17 @@ Refacto display_errors
 
 II) Visualizer
 
-- Refacto/ Clean
-Refacto render_to_cache + Test SDL error 
-Check place of data in proto
-Rename/Restruct folders/files
-Check diff between render and renderer
-Better undestanding of render. Check for pan, mouse_x, draw fct...
-
 - Draw
 Draw much beautifull links 
 Check the colors
 SDL_RotateSurface()
 
-d) Check SDL fct to print text:
+- Refacto/ Clean
+Rename/Restruct folders/files,fcts
+Check diff between render and renderer
+Better undestanding of render. Check for pan, mouse_x, draw fct...
+
+- Check SDL fct to print text:
 bool TTF_DrawRendererText(TTF_Text *text, float x, float y);
 Check if others fct to draw text 
 - Docker?
@@ -79,9 +77,10 @@ IV) Norme
 
 Uniformisation of norme
 Following convention for naming 
-No paren for (*)
+No paren for (*) when not needed
 Tree
-Place of message errors 
+Place of message errors
+t_data first in proto
 
 
 V) Test

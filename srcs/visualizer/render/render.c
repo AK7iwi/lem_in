@@ -28,25 +28,15 @@ static	bool	needs_cache_update(t_data *data)
 	return (false);
 }
 
-static	bool	render_to_cache(SDL_Renderer *renderer, SDL_Texture *map_cache, t_data *data) //data first 
+static	bool	render_to_cache(t_data *data, SDL_Renderer *renderer, SDL_Texture *map_cache)
 {	
 	if (!SDL_SetRenderTarget(renderer, map_cache))
 		return (1);
 
 	if (!SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255)
-		|| !SDL_RenderClear(renderer))
-	{
-		SDL_SetRenderTarget(renderer, NULL);
-		return (1);
-	}
-	
-	if (!SDL_SetRenderScale(renderer, data->norm.zoom, data->norm.zoom))
-	{
-		SDL_SetRenderTarget(renderer, NULL);
-		return (1);
-	}
-	
-	if (draw_render(renderer, data))
+		|| !SDL_RenderClear(renderer)
+		|| !SDL_SetRenderScale(renderer, data->norm.zoom, data->norm.zoom)
+		|| draw_render(data, renderer))
 	{
 		SDL_SetRenderTarget(renderer, NULL);
 		return (1);
@@ -58,11 +48,11 @@ static	bool	render_to_cache(SDL_Renderer *renderer, SDL_Texture *map_cache, t_da
 	return (0);
 }
 
-bool	render(SDL_Renderer *renderer, t_data *data, SDL_Texture *map_cache) //data first 
+bool	render(t_data *data, SDL_Renderer *renderer, SDL_Texture *map_cache)
 {
 	bool			running = true;
 
-	if (render_to_cache(renderer, map_cache, data))
+	if (render_to_cache(data, renderer, map_cache))
 		return (data->err.visu_errors |= E_VISU, 1);
 
 	while (running)
@@ -70,7 +60,7 @@ bool	render(SDL_Renderer *renderer, t_data *data, SDL_Texture *map_cache) //data
 		if (render_event(data))
 			running = false;
 		if (needs_cache_update(data))
-			if (render_to_cache(renderer, map_cache, data))
+			if (render_to_cache(data, renderer, map_cache))
 				return (data->err.visu_errors |= E_VISU, 1);
 
 		if (!SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255)

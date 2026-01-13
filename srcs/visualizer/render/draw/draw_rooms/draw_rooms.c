@@ -1,14 +1,14 @@
 #include "lem_in.h"
 
-static  bool	draw_room_name(SDL_Renderer *renderer, char *text, float x, float y)
+static  bool	draw_room_name(SDL_Renderer *renderer, char *name, float x, float y)
 {
 	uint8_t		text_width;
 	float		offset_x;
 
-	text_width = ft_strlen(text) * 8;
+	text_width = ft_strlen(name) * 8;
 	offset_x = text_width / 2;
 
-	return (!SDL_RenderDebugText(renderer, x - offset_x, y - 4, text));
+	return (!SDL_RenderDebugText(renderer, x - offset_x, y - 4, name));
 }
 
 static  bool	draw_circle(SDL_Renderer *renderer, float center_x, float center_y, float radius)
@@ -42,7 +42,7 @@ static  bool	draw_circle(SDL_Renderer *renderer, float center_x, float center_y,
 	return (0);
 }
 
-static	bool	set_colors(SDL_Renderer *renderer, t_data *data, t_room *room)
+static	bool	set_colors(t_data *data, SDL_Renderer *renderer, t_room *room)
 {
 	uint8_t r, g, b;
 
@@ -54,7 +54,7 @@ static	bool	set_colors(SDL_Renderer *renderer, t_data *data, t_room *room)
 		g = 255; /* Green for end */ 
 	else if (room == data->map->end_room)
 		r = 255; /* Red for end */
-	else /* Gray for normal rooms */
+	else 		/* Gray for normal rooms */
 	{
 		r = 200;
 		g = 200;
@@ -64,11 +64,11 @@ static	bool	set_colors(SDL_Renderer *renderer, t_data *data, t_room *room)
 	return (!SDL_SetRenderDrawColor(renderer, r, g, b, 255));
 }
 
-bool	draw_rooms(SDL_Renderer *renderer, t_data *data, t_room *room)
+bool	draw_rooms(t_data *data, SDL_Renderer *renderer, t_room *room)
 {
 	float	screen_x, screen_y;
 
-	if (set_colors(renderer, data, room))
+	if (set_colors(data, renderer, room))
 		return (1);
 	normalize_coordinates(&data->norm, room->x, &screen_x, room->y, &screen_y);
 	if (draw_circle(renderer, screen_x, screen_y, data->norm.radius) || draw_room_name(renderer, room->name, screen_x, screen_y))	
