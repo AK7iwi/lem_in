@@ -40,7 +40,7 @@ Better undestanding of render. Check for pan, mouse_x, draw fct...
 
 - Check SDL fct to print text:
 bool TTF_DrawRendererText(TTF_Text *text, float x, float y);
-Check if others fct to draw text 
+Check if others fct to draw text
 - Docker?
 Avantages/Inconvenients Docker ou faire compiler 
 

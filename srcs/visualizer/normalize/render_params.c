@@ -20,8 +20,7 @@ static	void	set_radius(t_normalize *norm, uint32_t map_area, uint16_t nb_rooms)
 
 static	void	set_scale(t_normalize *norm, uint32_t map_width, uint32_t map_height)
 {
-	float	scale_x;
-	float	scale_y;
+	float	scale_x, scale_y;
 
 	scale_x = (norm->window_width - 2 * PADDING) / (float)map_width;
 	scale_y = (norm->window_height - 2 * PADDING) / (float)map_height;
@@ -42,9 +41,7 @@ static	void	get_map_bounds(t_normalize *norm, uint32_t *map_width, uint32_t *map
 
 void	set_render_params(t_normalize *norm, uint16_t nb_rooms)
 {
-	uint32_t	map_width;
-	uint32_t	map_height;
-	uint32_t 	map_area;
+	uint32_t	map_width, map_height, map_area;
 
 	get_map_bounds(norm, &map_width, &map_height, &map_area);
 	set_scale(norm, map_width, map_height);
