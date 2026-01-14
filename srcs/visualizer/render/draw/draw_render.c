@@ -2,13 +2,16 @@
 
 bool	draw_render(t_data *data, SDL_Renderer *renderer)
 {
-	size_t		i = 0;
-	t_room		*room;
+	size_t	i = 0;
+	t_room	*room;
+	float	screen_x, screen_y;
 
 	while (i < data->map->nb_rooms)
 	{
 		room = &data->map->rooms[i];
-		if (draw_rooms(data, renderer, room) || draw_links(&data->norm, renderer, room))
+		transform_coords(&data->norm, room->x, &screen_x, room->y, &screen_y);
+		if (draw_rooms(data, renderer, room, screen_x, screen_y) 
+			|| draw_links(&data->norm, renderer, room, screen_x, screen_y))
 			return (1);
 		i++;
 	}

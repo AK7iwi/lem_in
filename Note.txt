@@ -3,7 +3,7 @@ TO-DO:
 - Vizualizer
 - Parsing
 
-- Review/Refacto/Clean code, check name of fcts, files, folders. Review the header(spac, improve with subtitles) /Makefile, tree
+- Review/Refacto/Restruct/Clean code, check name of fcts, files, folders. Review the header(spac, improve with subtitles)/Makefile, tree logic
 parse_map fct in parse_line, is_valid_map in validate_map folder with bfs algo. parse_line folder/file --> parse_map
 
 - Exec
@@ -28,15 +28,8 @@ Refacto display_errors
 
 II) Visualizer
 
-- Draw
-Draw much beautifull links 
-Check the colors
-SDL_RotateSurface()
-
 - Refacto/ Clean
 Rename/Restruct folders/files,fcts
-Check diff between render and renderer
-Better undestanding of render. Check for pan, mouse_x, draw fct...
 
 - Check SDL fct to print text:
 bool TTF_DrawRendererText(TTF_Text *text, float x, float y);
@@ -45,15 +38,15 @@ Check if others fct to draw text
 Avantages/Inconvenients Docker ou faire compiler 
 
 - Test (Use generator_linux to create map)
-Case where rooms are to closer: Circle touch each others
-if radius too small, bigger radius for start/ end rooms
-Map bigger than windows
+Case where rooms are to closer: Circle touch each others (test.txt)
 Map with high density 
+Map bigger than windows
 
 - Idea for futur
 Rooms/links in blue when a ant in
 Ants moving in the start room
 Add a list of touch (R, zoom, ...)
+Links must not overlaps the rooms 
 
 III) Exec
 
@@ -76,14 +69,17 @@ Algo to reinforcement and evaporation pheomones in times
 IV) Norme 
 
 Uniformisation of norme
-Following convention for naming 
+
+Naming: follow conventions, follow a logic 
 No paren for (*) when not needed
-Tree
+Tree logic
 Place of message errors
 t_data first in proto
+Check what(struct) is send to fcts. Dont send the all struct if only need one param
+Return instead of void if case (like map_area in set_render_params) 
 
 
-V) Test
+V) Test cmd
 
 - General:
 valgrind --leak-check=full --track-fds=yes --track-origins=yes --show-leak-kinds=all --suppressions=ressources/SDL_leak_by_pass.txt ./lem-in < ressources/maps/valid_maps/400_rooms.txt

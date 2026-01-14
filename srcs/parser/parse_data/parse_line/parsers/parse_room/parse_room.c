@@ -16,5 +16,5 @@ bool	parse_room(t_data *data, char *line, bool is_start, bool is_end)
 	if (validate_nb_rooms(data))
 		return (data->err.parsing_errors |= E_NB_ROOMS, 1);
 
-	return (get_map_limits(&data->norm, x, y), 0);
+	return (get_map_bounds(&data->norm, x, y), 0);
 }

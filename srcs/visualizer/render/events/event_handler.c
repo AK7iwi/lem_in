@@ -1,6 +1,6 @@
 #include "lem_in.h"
 
-bool	render_event(t_data *data)
+bool	event_handler(t_data *data)
 {
 	SDL_Event		event;
 

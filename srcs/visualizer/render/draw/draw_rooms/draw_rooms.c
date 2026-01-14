@@ -11,7 +11,7 @@ static  bool	draw_room_name(SDL_Renderer *renderer, char *name, float x, float y
 	return (!SDL_RenderDebugText(renderer, x - offset_x, y - 4, name));
 }
 
-static  bool	draw_circle(SDL_Renderer *renderer, float center_x, float center_y, float radius)
+static  bool	draw_circle(SDL_Renderer *renderer, float radius, float center_x, float center_y)
 {
 	float x = 0;
 	float y = radius;
@@ -51,28 +51,22 @@ static	bool	set_colors(t_data *data, SDL_Renderer *renderer, t_room *room)
 	b = 0;
 
 	if (room == data->map->start_room)
-		g = 255; /* Green for end */ 
+		g = 255;
 	else if (room == data->map->end_room)
-		r = 255; /* Red for end */
-	else 		/* Gray for normal rooms */
+		r = 255;
+	else
 	{
-		r = 200;
-		g = 200;
-		b = 200;
+		r = 255;
+		g = 255;
+		b = 255;
 	}
 
 	return (!SDL_SetRenderDrawColor(renderer, r, g, b, 255));
 }
 
-bool	draw_rooms(t_data *data, SDL_Renderer *renderer, t_room *room)
+bool	draw_rooms(t_data *data, SDL_Renderer *renderer, t_room *room, float screen_x, float screen_y)
 {
-	float	screen_x, screen_y;
-
-	if (set_colors(data, renderer, room))
-		return (1);
-	normalize_coordinates(&data->norm, room->x, &screen_x, room->y, &screen_y);
-	if (draw_circle(renderer, screen_x, screen_y, data->norm.radius) || draw_room_name(renderer, room->name, screen_x, screen_y))	
-		return (1);
-
-	return (0);
+	return (set_colors(data, renderer, room)
+			|| draw_circle(renderer, data->norm.radius, screen_x, screen_y)
+			|| draw_room_name(renderer, room->name, screen_x, screen_y));
 }
