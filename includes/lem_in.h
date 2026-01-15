@@ -128,7 +128,7 @@ uint32_t	calculate_map_size(t_normalize *norm, uint32_t *map_width, uint32_t *ma
 void		get_map_bounds(t_normalize *norm, uint32_t x, uint32_t y);
 
 /* render/draw/transform/coord_transform.c */
-void		transform_coords(t_normalize *norm, uint32_t x, float *screen_x, uint32_t y, float *screen_y);
+void		transform_coords(t_normalize *norm, uint32_t x, uint32_t y, float *screen_x, float *screen_y);
 
 /* render/draw/draw_links/draw_links.c */
 bool		draw_links(t_normalize *norm, SDL_Renderer *renderer, t_room *room, float screen_x, float screen_y);

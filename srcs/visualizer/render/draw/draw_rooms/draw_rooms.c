@@ -11,6 +11,18 @@ static  bool	draw_room_name(SDL_Renderer *renderer, char *name, float x, float y
 	return (!SDL_RenderDebugText(renderer, x - offset_x, y - 4, name));
 }
 
+static	bool	draw_circle_points(SDL_Renderer *renderer, float center_x, float center_y, float x, float y)
+{
+	return (!SDL_RenderPoint(renderer, center_x + x, center_y + y)
+		|| !SDL_RenderPoint(renderer, center_x - x, center_y + y)
+		|| !SDL_RenderPoint(renderer, center_x + x, center_y - y)
+		|| !SDL_RenderPoint(renderer, center_x - x, center_y - y)
+		|| !SDL_RenderPoint(renderer, center_x + y, center_y + x)
+		|| !SDL_RenderPoint(renderer, center_x - y, center_y + x)
+		|| !SDL_RenderPoint(renderer, center_x + y, center_y - x)
+		|| !SDL_RenderPoint(renderer, center_x - y, center_y - x));
+}
+
 static  bool	draw_circle(SDL_Renderer *renderer, float radius, float center_x, float center_y)
 {
 	float x = 0;
@@ -19,14 +31,7 @@ static  bool	draw_circle(SDL_Renderer *renderer, float radius, float center_x, f
 
 	while (x <= y)
 	{
-		if (!SDL_RenderPoint(renderer, center_x + x, center_y + y)
-			|| !SDL_RenderPoint(renderer, center_x - x, center_y + y)
-			|| !SDL_RenderPoint(renderer, center_x + x, center_y - y)
-			|| !SDL_RenderPoint(renderer, center_x - x, center_y - y)
-			|| !SDL_RenderPoint(renderer, center_x + y, center_y + x)
-			|| !SDL_RenderPoint(renderer, center_x - y, center_y + x)
-			|| !SDL_RenderPoint(renderer, center_x + y, center_y - x)
-			|| !SDL_RenderPoint(renderer, center_x - y, center_y - x))
+		if (draw_circle_points(renderer, center_x, center_y, x, y))
 			return (1);
 
 		if (d < 0)
@@ -44,11 +49,7 @@ static  bool	draw_circle(SDL_Renderer *renderer, float radius, float center_x, f
 
 static	bool	set_colors(t_data *data, SDL_Renderer *renderer, t_room *room)
 {
-	uint8_t r, g, b;
-
-	r = 0;
-	g = 0;
-	b = 0;
+	uint8_t r = 0, g = 0, b = 0;
 
 	if (room == data->map->start_room)
 		g = 255;

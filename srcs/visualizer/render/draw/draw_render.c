@@ -9,7 +9,7 @@ bool	draw_render(t_data *data, SDL_Renderer *renderer)
 	while (i < data->map->nb_rooms)
 	{
 		room = &data->map->rooms[i];
-		transform_coords(&data->norm, room->x, &screen_x, room->y, &screen_y);
+		transform_coords(&data->norm, room->x, room->y, &screen_x, &screen_y);
 		if (draw_rooms(data, renderer, room, screen_x, screen_y) 
 			|| draw_links(&data->norm, renderer, room, screen_x, screen_y))
 			return (1);

@@ -29,7 +29,7 @@ Refacto display_errors
 II) Visualizer
 
 - Refacto/ Clean
-Rename/Restruct folders/files,fcts
+Rename/Restruct folders/files,fcts: separate draw_links in two new file. Set_links and draw_corridor
 
 - Check SDL fct to print text:
 bool TTF_DrawRendererText(TTF_Text *text, float x, float y);
@@ -70,13 +70,14 @@ IV) Norme
 
 Uniformisation of norme
 
-Naming: follow conventions, follow a logic 
+Naming: find and follow conventions, follow a logic 
 No paren for (*) when not needed
 Tree logic
 Place of message errors
-t_data first in proto
+t_data first parameter in proto
+Number of parameters by line 
 Check what(struct) is send to fcts. Dont send the all struct if only need one param
-Return instead of void if case (like map_area in set_render_params) 
+Return instead of void if case (like map_area in set_render_params)
 
 
 V) Test cmd

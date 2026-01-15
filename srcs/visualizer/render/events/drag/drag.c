@@ -1,8 +1,14 @@
 #include "lem_in.h"
 
+static	void	stop_drag(SDL_Event *event, bool *is_dragging)
+{
+	if (event->type == SDL_EVENT_MOUSE_BUTTON_UP && event->button.button == SDL_BUTTON_LEFT)
+		*is_dragging = false;
+}
+
 static	void	update_pan_while_dragging(t_data *data, SDL_Event *event,
-										bool is_dragging, float *drag_start_x,
-										float *drag_start_y)
+										bool is_dragging,
+										float *drag_start_x, float *drag_start_y)
 {
 	float	mouse_x, mouse_y;
 
@@ -15,12 +21,6 @@ static	void	update_pan_while_dragging(t_data *data, SDL_Event *event,
 		*drag_start_x = mouse_x;
 		*drag_start_y = mouse_y;
 	}
-}
-
-static	void	stop_drag(SDL_Event *event, bool *is_dragging)
-{
-	if (event->type == SDL_EVENT_MOUSE_BUTTON_UP && event->button.button == SDL_BUTTON_LEFT)
-		*is_dragging = false;
 }
 
 static	void	start_drag(SDL_Event *event, bool *is_dragging,
@@ -41,6 +41,6 @@ void	handle_drag(t_data *data, SDL_Event *event)
 	static float	drag_start_y = 0.0f;
 
 	start_drag(event, &is_dragging, &drag_start_x, &drag_start_y);
-	stop_drag(event, &is_dragging);
 	update_pan_while_dragging(data, event, is_dragging, &drag_start_x, &drag_start_y);
+	stop_drag(event, &is_dragging);
 }

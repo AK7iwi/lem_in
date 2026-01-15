@@ -2,9 +2,7 @@
 
 float	ft_sqrt(float n)
 {
-	float	x;
-	float	prev;
-	float	epsilon;
+	float	x, prev, epsilon;
 
 	x = n;
 	epsilon = 0.00001f;
