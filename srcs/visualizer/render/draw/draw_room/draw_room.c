@@ -65,7 +65,7 @@ static	bool	set_colors(t_data *data, SDL_Renderer *renderer, t_room *room)
 	return (!SDL_SetRenderDrawColor(renderer, r, g, b, 255));
 }
 
-bool	draw_rooms(t_data *data, SDL_Renderer *renderer, t_room *room, float screen_x, float screen_y)
+bool	draw_room(t_data *data, SDL_Renderer *renderer, t_room *room, float screen_x, float screen_y)
 {
 	return (set_colors(data, renderer, room)
 			|| draw_circle(renderer, data->norm.radius, screen_x, screen_y)

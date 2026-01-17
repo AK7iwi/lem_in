@@ -8,12 +8,12 @@ static	bool create_map_cache(t_data *data, SDL_Renderer *renderer, SDL_Texture *
 	return (!*map_cache);
 }
 
-static	bool	set_renderer(SDL_Renderer *renderer)
+static	bool set_renderer(SDL_Renderer *renderer)
 {
 	return (!SDL_SetRenderVSync(renderer, 1));
 }
 
-static	bool	create_window_and_renderer(t_data *data, SDL_Window **window, SDL_Renderer **renderer)
+static	bool create_window_and_renderer(t_data *data, SDL_Window **window, SDL_Renderer **renderer)
 {
 	return (!SDL_CreateWindowAndRenderer("Lem-in Visualizer", data->norm.window_width, data->norm.window_height, SDL_WINDOW_RESIZABLE, window, renderer));
 }
@@ -32,7 +32,7 @@ static	bool set_window_size(t_data *data)
 	return (0);
 }
 
-static	bool	init_SDL(void)
+static	bool init_SDL(void)
 {
 	return (!SDL_Init(SDL_INIT_VIDEO));
 }

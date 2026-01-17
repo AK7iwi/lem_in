@@ -42,6 +42,7 @@ SRCS			:=	main.c \
 					displayer/tools/print.c \
 					free/free_data.c \
 					visualizer/visualizer.c \
+					visualizer/params/map_metrics.c visualizer/params/set_params.c \
 					visualizer/render/init_render.c visualizer/render/render.c visualizer/render/close_render.c \
 					visualizer/render/events/event_handler.c \
 					visualizer/render/events/quit/quit.c \
@@ -49,10 +50,11 @@ SRCS			:=	main.c \
 					visualizer/render/events/zoom/zoom.c \
 					visualizer/render/events/drag/drag.c \
 					visualizer/render/draw/draw_render.c \
-					visualizer/render/draw/draw_rooms/draw_rooms.c \
-					visualizer/render/draw/draw_links/draw_links.c \
 					visualizer/render/draw/transform/coord_transform.c \
-					visualizer/params/map_metrics.c visualizer/params/set_params.c \
+					visualizer/render/draw/draw_room/draw_room.c \
+					visualizer/render/draw/draw_link/draw_link.c \
+					visualizer/render/draw/draw_link/set_corridor/set_corridor.c \
+					visualizer/render/draw/draw_link/draw_corridor/draw_corridor.c \
 					visualizer/tools/ft_sqrt.c 
 SRCS        	:= $(SRCS:%=$(SRC_DIR)/%)
 OBJS        	:= $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)

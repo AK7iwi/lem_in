@@ -29,7 +29,7 @@ Refacto display_errors
 II) Visualizer
 
 - Refacto/ Clean
-Rename/Restruct folders/files,fcts: separate draw_links in two new file. Set_links and draw_corridor? Draw room also?
+Rename/Restruct folders/files,fcts: separate draw_links in two new file. Set_corridor and draw_corridor. Same for Draw room
 
 - Check SDL fct to print text:
 bool TTF_DrawRendererText(TTF_Text *text, float x, float y);
@@ -75,7 +75,8 @@ No paren for (*) when not needed
 Tree logic
 Place of message errors
 t_data first parameter in proto
-Number of parameters by line 
+Number of parameters by line in proto
+tab for proto
 Check what(struct) is send to fcts. Dont send the all struct if only need one param
 Return instead of void if case (like map_area in set_render_params)
 

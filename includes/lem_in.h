@@ -130,10 +130,15 @@ void		get_map_bounds(t_normalize *norm, uint32_t x, uint32_t y);
 /* render/draw/transform/coord_transform.c */
 void		transform_coords(t_normalize *norm, uint32_t x, uint32_t y, float *screen_x, float *screen_y);
 
-/* render/draw/draw_links/draw_links.c */
-bool		draw_links(t_normalize *norm, SDL_Renderer *renderer, t_room *room, float screen_x, float screen_y);
-/* render/draw/draw_rooms/draw_rooms.c */
-bool		draw_rooms(t_data *data, SDL_Renderer *renderer, t_room *room, float screen_x, float screen_y);
+/* render/draw/draw_link/draw_corridor/draw_corridor.c */
+bool		draw_corridor(SDL_Renderer *renderer, float x1, float y1, float x2, float y2, float radius, float perp_x, float perp_y);
+/* render/draw/draw_link/set_corridor/set_corridor.c */
+void		set_corridor(t_normalize *norm, t_link *link, float screen_x, float screen_y, float *screen_x2, float *screen_y2, float *start_x, float *start_y, float *end_x, float *end_y, float *length, float *perp_x, float *perp_y);
+/* render/draw/draw_link/draw_link.c */
+bool		draw_link(t_normalize *norm, SDL_Renderer *renderer, t_room *room, float screen_x, float screen_y);
+
+/* render/draw/draw_room/draw_room.c */
+bool		draw_room(t_data *data, SDL_Renderer *renderer, t_room *room, float screen_x, float screen_y);
 
 /* render/draw/draw_render.c */
 bool		draw_render(t_data *data, SDL_Renderer *renderer);
