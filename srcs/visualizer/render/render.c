@@ -28,7 +28,7 @@ static	bool	render_to_cache(t_data *data, SDL_Renderer *renderer, SDL_Texture *m
 	if (!SDL_SetRenderTarget(renderer, map_cache))
 		return (1);
 
-	if ( !SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255)
+	if (!SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255)
 		|| !SDL_RenderClear(renderer)
 		|| !SDL_SetRenderScale(renderer, data->norm.zoom, data->norm.zoom)
 		|| draw_render(data, renderer))

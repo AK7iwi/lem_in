@@ -44,14 +44,17 @@ SRCS			:=	main.c \
 					visualizer/visualizer.c \
 					visualizer/params/map_metrics.c visualizer/params/set_params.c \
 					visualizer/render/init_render.c visualizer/render/render.c visualizer/render/close_render.c \
-					visualizer/render/events/event_handler.c \
-					visualizer/render/events/quit/quit.c \
-					visualizer/render/events/key/key.c \
-					visualizer/render/events/zoom/zoom.c \
-					visualizer/render/events/drag/drag.c \
+					visualizer/render/event/event_handler.c \
+					visualizer/render/event/quit/quit.c \
+					visualizer/render/event/key/key.c \
+					visualizer/render/event/zoom/zoom.c \
+					visualizer/render/event/drag/drag.c \
 					visualizer/render/draw/draw_render.c \
 					visualizer/render/draw/transform/coord_transform.c \
 					visualizer/render/draw/draw_room/draw_room.c \
+					visualizer/render/draw/draw_room/set_room/set_room.c \
+					visualizer/render/draw/draw_room/draw_circle/draw_circle.c \
+					visualizer/render/draw/draw_room/draw_name/draw_name.c \
 					visualizer/render/draw/draw_link/draw_link.c \
 					visualizer/render/draw/draw_link/set_corridor/set_corridor.c \
 					visualizer/render/draw/draw_link/draw_corridor/draw_corridor.c \

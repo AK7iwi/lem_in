@@ -27,7 +27,7 @@ static	void	set_scale(t_normalize *norm, uint32_t map_width, uint32_t map_height
 	norm->scale = (scale_x < scale_y) ? scale_x : scale_y;
 }
 
-void	set_render_params(t_normalize *norm, uint16_t nb_rooms)
+void	set_params(t_normalize *norm, uint16_t nb_rooms)
 {
 	uint32_t	map_area, map_width, map_height;
 

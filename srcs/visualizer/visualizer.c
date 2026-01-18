@@ -8,7 +8,7 @@ bool	visualizer(t_data *data)
 
 	if (init_render(data, &window, &renderer, &map_cache))
 		return (close_render(window, renderer, map_cache), 1);
-	set_render_params(&data->norm, data->map->nb_rooms);
+	set_params(&data->norm, data->map->nb_rooms);
 	if (render(data, renderer, map_cache))
 		return (close_render(window, renderer, map_cache), 1);
 

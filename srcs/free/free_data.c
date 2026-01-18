@@ -50,7 +50,6 @@ void	free_data(t_data *data)
 {
 	if (!data)
 		return;
-	
 	if (data->ant)
 	{
 		free_ants(data->ant);

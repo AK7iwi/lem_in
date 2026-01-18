@@ -121,39 +121,39 @@ void	free_data(t_data *data);
 float		ft_sqrt(float n);
 
 
-/* params/set_params. */
-void		set_render_params(t_normalize *norm, uint16_t nb_rooms);
-/* params/bounds.c */
-uint32_t	calculate_map_size(t_normalize *norm, uint32_t *map_width, uint32_t *map_height);
-void		get_map_bounds(t_normalize *norm, uint32_t x, uint32_t y);
-
-/* render/draw/transform/coord_transform.c */
-void		transform_coords(t_normalize *norm, uint32_t x, uint32_t y, float *screen_x, float *screen_y);
-
 /* render/draw/draw_link/draw_corridor/draw_corridor.c */
 bool		draw_corridor(SDL_Renderer *renderer, float x1, float y1, float x2, float y2, float radius, float perp_x, float perp_y);
 /* render/draw/draw_link/set_corridor/set_corridor.c */
-void		set_corridor(t_normalize *norm, t_link *link, float screen_x, float screen_y, float *screen_x2, float *screen_y2, float *start_x, float *start_y, float *end_x, float *end_y, float *length, float *perp_x, float *perp_y);
+void		set_corridor(t_normalize *norm, t_link *link, float screen_x, float screen_y, float *start_x, float *start_y, float *end_x, float *end_y, float *length, float *perp_x, float *perp_y);
 /* render/draw/draw_link/draw_link.c */
 bool		draw_link(t_normalize *norm, SDL_Renderer *renderer, t_room *room, float screen_x, float screen_y);
 
+/* visualizer/render/draw/draw_room/draw_name/draw_name.c */
+bool		draw_name(SDL_Renderer *renderer, char *name, float x, float y);
+/* render/draw/draw_room/draw_circle/draw_circle.c */
+bool		draw_circle(SDL_Renderer *renderer, float radius, float center_x, float center_y);
+/* render/draw/draw_room/set_room/set_room.c */
+bool		set_colors(t_data *data, SDL_Renderer *renderer, t_room *room);
 /* render/draw/draw_room/draw_room.c */
 bool		draw_room(t_data *data, SDL_Renderer *renderer, t_room *room, float screen_x, float screen_y);
+
+/* render/draw/transform/coord_transform.c */
+void		transform_coords(t_normalize *norm, uint32_t x, uint32_t y, float *screen_x, float *screen_y);
 
 /* render/draw/draw_render.c */
 bool		draw_render(t_data *data, SDL_Renderer *renderer);
 
 
-/* render/events/drag/drag.c */
+/* render/event/drag/drag.c */
 void		handle_drag(t_data *data, SDL_Event *event);
-/* render/events/zoom/zoom.c */
+/* render/event/zoom/zoom.c */
 void		handle_zoom(t_data *data, SDL_Event *event);
-/* render/events/key/key.c */
+/* render/event/key/key.c */
 bool		handle_key(t_data *data, SDL_Event *event);
-/* render/events/quit/quit.c */
+/* render/event/quit/quit.c */
 bool		handle_quit(SDL_Event *event);
 
-/* render/events/event_handler.c */
+/* render/event/event_handler.c */
 bool		event_handler(t_data *data);
 
 
@@ -161,6 +161,13 @@ bool		event_handler(t_data *data);
 void		close_render(SDL_Window *window, SDL_Renderer *renderer, SDL_Texture *map_cache);
 bool		render(t_data *data, SDL_Renderer *renderer, SDL_Texture *map_cache);
 bool    	init_render(t_data *data, SDL_Window **window, SDL_Renderer **renderer, SDL_Texture **map_cache);
+
+
+/* params/set_params. */
+void		set_params(t_normalize *norm, uint16_t nb_rooms);
+/* params/bounds.c */
+uint32_t	calculate_map_size(t_normalize *norm, uint32_t *map_width, uint32_t *map_height);
+void		get_map_bounds(t_normalize *norm, uint32_t x, uint32_t y);
 
 
 /* visualizer.c */
