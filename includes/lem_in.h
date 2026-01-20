@@ -18,16 +18,16 @@
 //					DEFINES						//
 //**********************************************//
 
-// modify later in function of performance
-# define MAX_ANTS	1000000 // maybe too much
-# define MIN_ANTS	1
-# define MAX_ROOMS	10000
-# define MAX_COORDINATE MAX_ROOMS * 100
-
 /* Visualizer */
 # define WINDOW_WIDTH 1280
 # define WINDOW_HEIGHT 720
 # define PADDING 60
+
+/* Parsing */
+# define MAX_ANTS	2000
+# define MIN_ANTS	1
+# define MAX_ROOMS	10000
+# define MAX_COORDINATE MAX_ROOMS * 100
 
 //**********************************************//
 //					STRUCTURES					//
@@ -63,8 +63,8 @@ typedef struct s_link
 typedef struct s_room
 {
 	char		*name;
-	uint32_t	x; //uin16_t?
-	uint32_t	y; //uin16_t?
+	uint32_t	x;
+	uint32_t	y;
 	bool		is_empty;
 
 	t_link		*link;
@@ -83,7 +83,7 @@ typedef struct s_map
 
 typedef struct s_ant
 {
-	uint32_t		id;
+	uint16_t		id;
 	t_room			*current_room;
 	bool			has_moved;
 
@@ -94,7 +94,7 @@ typedef struct s_data
 {
 	// uint16_t	moves;
 	// uint16_t	time;
-	uint32_t	nb_ants; //uint16_t
+	uint16_t	nb_ants;
 
 	t_err		err;
 	t_ant		*ant;
@@ -109,7 +109,7 @@ typedef struct s_data
 //**********************************************//
 
 /* free_data.c */
-void	free_data(t_data *data);
+void		free_data(t_data *data);
 
 //**********************************************//
 //												//
@@ -128,7 +128,7 @@ void		set_corridor(t_normalize *norm, t_link *link, float screen_x, float screen
 /* render/draw/draw_link/draw_link.c */
 bool		draw_link(t_normalize *norm, SDL_Renderer *renderer, t_room *room, float screen_x, float screen_y);
 
-/* visualizer/render/draw/draw_room/draw_name/draw_name.c */
+/* render/draw/draw_room/draw_name/draw_name.c */
 bool		draw_name(SDL_Renderer *renderer, char *name, float x, float y);
 /* render/draw/draw_room/draw_circle/draw_circle.c */
 bool		draw_circle(SDL_Renderer *renderer, float radius, float center_x, float center_y);
@@ -157,15 +157,17 @@ bool		handle_quit(SDL_Event *event);
 bool		event_handler(t_data *data);
 
 
-/* render/render.c */
+/* render/close_render.c */
 void		close_render(SDL_Window *window, SDL_Renderer *renderer, SDL_Texture *map_cache);
+/* render/render.c */
 bool		render(t_data *data, SDL_Renderer *renderer, SDL_Texture *map_cache);
+/* render/init_render.c */
 bool    	init_render(t_data *data, SDL_Window **window, SDL_Renderer **renderer, SDL_Texture **map_cache);
 
 
-/* params/set_params. */
+/* params/set_params.c */
 void		set_params(t_normalize *norm, uint16_t nb_rooms);
-/* params/bounds.c */
+/* params/map_metrics.c */
 uint32_t	calculate_map_size(t_normalize *norm, uint32_t *map_width, uint32_t *map_height);
 void		get_map_bounds(t_normalize *norm, uint32_t x, uint32_t y);
 
@@ -185,10 +187,26 @@ void		ft_putstr(char *str, int fd);
 void		ft_putchar(char	c, int fd);
 
 
-/* display_infos.c */
-void		display_infos(t_data *data);
-/* display_errors.c */
+/* errors/visu/visu_error.c */
+void		display_visu_error(uint8_t visu_errors);
+/* errors/parsing/parsing_error.c */
+void		display_format_error(void);
+void		display_parsing_error(uint32_t parsing_errors);
+/* errors/gen/gen_error.c */
+void		display_gen_error(uint8_t gen_errors);
+
+/* errors/display_errors.c */
 void		display_errors(t_err error);
+
+
+/* infos/display_link/display_link.c */
+void		display_links(t_map *map);
+/* infos/display_room/display_room.c */
+void		display_room(t_room *room);
+void		display_rooms(t_map *map);
+
+/* infos/display_infos.c */
+void		display_infos(t_data *data);
 
 //**********************************************//
 //												//
@@ -196,94 +214,95 @@ void		display_errors(t_err error);
 //												//
 //**********************************************//
 
-/* parse_data/bfs_algo/tools/free_array.c */
+/* parse_data/validate_map/bfs_algo/tools/free_array.c */
 void		free_bfs_arrays(bool *visited, t_room **queue);
-/* parse_data/bfs_algo/bfs.c */
+/* parse_data/validate_map/bfs_algo/bfs.c */
 bool		has_path(t_data *data);
+/* parse_data/validate_map/validate_map.c */
+bool		is_valid_map(t_data *data);
+
+/* parse_data/parse_map/tools/last_char.c */
+bool		is_last_char(char c);
+/* parse_data/parse_map/tools/skip_space_char.c */
+void		skip_space(char	*line, size_t *i);
+/* parse_data/parse_map/tools/empty_line.c */
+bool		is_empty_line(char *line);
 
 
-/* parse_data/parse_line/parsers/common/tools/check_char_type.c */
+/* parse_data/parse_map/common/tools/check_char_type.c */
 bool		is_alnum(int c);
 bool		is_digit(int c);
-/* parse_data/parse_line/parsers/common/extract/extract_data.c */
+/* parse_data/parse_map/common/extract/extract_data.c */
 char		*extract_name(t_data *data, char *line, size_t name_start, size_t name_end);
-/* parse_data/parse_line/parsers/common/validate/validate_data.c */
+/* parse_data/parse_map/common/validate/validate_data.c */
 t_room		*is_existing_room(t_data *data, char *name);
 bool		validate_name(char *line, size_t *i, size_t *name_start, size_t *name_end);
 bool		is_valid_number(char *line, size_t *i);
 
 
-/* parse_data/parse_line/parsers/parse_link/tools/free_rooms.c */
+/* parse_data/parse_map/parse_link/tools/free_rooms.c */
 void		free_room_names(char *room1_name, char *room2_name);
-/* parse_data/parse_line/parsers/parse_link/create/create_link.c */
+/* parse_data/parse_map/parse_link/create/create_link.c */
 bool		create_link(t_data *data, t_room *room1, t_room *room2);
-/* parse_data/parse_line/parsers/parse_link/extract/extract_link.c */
+/* parse_data/parse_map/parse_link/extract/extract_link.c */
 bool		extract_room_names(t_data *data, char *line, char **room1_name, size_t room1_start, size_t room1_end, char **room2_name, size_t room2_start, size_t room2_end);
-/* parse_data/parse_line/parsers/parse_link/validate/validate_link_values.c */
+/* parse_data/parse_map/parse_link/validate/validate_link_values.c */
 bool		validate_link_values(t_data *data, t_room **room1, char *room1_name, t_room **room2, char *room2_name);
-/* parse_data/parse_line/parsers/parse_link/validate/validate_link_format.c */
+/* parse_data/parse_map/parse_link/validate/validate_link_format.c */
 bool		validate_link_format(char *line, size_t *room1_start, size_t *room1_end, size_t *room2_start, size_t *room2_end);
-/* parse_data/parse_line/parsers/parse_link/validate/validate_link.c */
+/* parse_data/parse_map/parse_link/validate/validate_link.c */
 bool		validate_link(t_data *data, char *line, t_room **room1, t_room **room2);
-/* parse_data/parse_line/parsers/parse_link/parse_link.c */
+/* parse_data/parse_map/parse_link/parse_link.c */
 bool		parse_link(t_data *data, char *line);
 
 
-/* parse_data/parse_line/parsers/parse_room/create/create_room.c */
+/* parse_data/parse_map/parse_room/create/create_room.c */
 bool		create_room(t_data	*data, char	*name, uint32_t	x, uint32_t	y, bool	is_start, bool	is_end);
-/* parse_data/parse_line/parsers/parse_room/extract/extract_room.c */
+/* parse_data/parse_map/parse_room/extract/extract_room.c */
 bool		extract_room_data(t_data *data, char *line, char **name, uint32_t *x, uint32_t *y, size_t name_start, size_t name_end, size_t x_start, size_t x_end, size_t y_start, size_t y_end);
-/* parse_data/parse_line/parsers/parse_room/validate/validate_room_values.c */
+/* parse_data/parse_map/parse_room/validate/validate_room_values.c */
 bool    	validate_room_values(t_data *data, char *name, uint32_t x, uint32_t y);
-/* parse_data/parse_line/parsers/parse_room/validate/validate_room_format.c */
+/* parse_data/parse_map/parse_room/validate/validate_room_format.c */
 bool		validate_room_format(char *line, size_t *name_start, size_t *name_end, size_t *x_start, size_t *x_end, size_t *y_start, size_t *y_end);
-/* parse_data/parse_line/parsers/parse_room/validate/validate_room.c */
+/* parse_data/parse_map/parse_room/validate/validate_room.c */
 bool		validate_nb_rooms(t_data *data);
 bool		validate_room(t_data *data, char *line, char **name, uint32_t *x, uint32_t *y);
-/* parse_data/parse_line/parsers/parse_room/parse_room.c */
+/* parse_data/parse_map/parse_room/parse_room.c */
 bool		parse_room(t_data *data, char *line, bool is_start, bool is_end);
 
 
-/* parse_data/parse_line/parsers/parse_cmd_and_cmt/create/create_cmd.c */
+/* parse_data/parse_map/parse_cmd_and_cmt/create/create_cmd.c */
 bool		create_cmd(t_data *data, int fd, bool is_start, bool is_end);
-/* parse_data/parse_line/parsers/parse_cmd_and_cmt/validate/validate_cmd_and_cmt_value.c */
+/* parse_data/parse_map/parse_cmd_and_cmt/validate/validate_cmd_and_cmt_value.c */
 bool		validate_cmd_and_cmt_value(t_data *data, bool is_start, bool is_end);
-/* parse_data/parse_line/parsers/parse_cmd_and_cmt/validate/validate_cmd_and_cmt_format.c */
+/* parse_data/parse_map/parse_cmd_and_cmt/validate/validate_cmd_and_cmt_format.c */
 bool		validate_cmd_and_cmt_format(char *line, bool *is_start, bool *is_end);
-/* parse_data/parse_line/parsers/parse_cmd_and_cmt/validate/validate_cmd_and_cmt.c */
+/* parse_data/parse_map/parse_cmd_and_cmt/validate/validate_cmd_and_cmt.c */
 bool		validate_cmd_and_cmt(t_data	*data, char	*line, bool *is_start, bool *is_end);
-/* parse_data/parse_line/parsers/parse_cmd_and_cmt/parse_cmd_and_cmt.c */
+/* parse_data/parse_map/parse_cmd_and_cmt/parse_cmd_and_cmt.c */
 bool		parse_cmd_and_cmt(t_data *data, int fd, char *line);
 
 
-/* parse_data/parse_line/parsers/parse_ants/tools/ft_atoi.c */
+/* parse_data/parse_map/parse_ants/tools/ft_atoi.c */
 int			ft_atoi(const char *nptr);
-/* parse_data/parse_line/parsers/parse_ants/create/set_start_room.c */
+/* parse_data/parse_map/parse_ants/create/set_start_room.c */
 void		set_start_room(t_data *data);
-/* parse_data/parse_line/parsers/parse_ants/create/create_ants.c */
-bool		create_ants(t_data *data, uint32_t nb_ants);
-/* parse_data/parse_line/parsers/parse_ants/extract_ants.c */
-void		extract_nb_ants(char *line, uint32_t *nb_ants);
-/* parse_data/parse_line/parsers/parse_ants/validate/validate_ants_value.c */
-bool		validate_ants_value(uint32_t nb_ants);
-/* parse_data/parse_line/parsers/parse_ants/validate/validate_ants_format.c */
+/* parse_data/parse_map/parse_ants/create/create_ants.c */
+bool		create_ants(t_data *data, uint16_t nb_ants);
+/* parse_data/parse_map/parse_ants/extract/extract_ants.c */
+void		extract_nb_ants(char *line, uint16_t *nb_ants);
+/* parse_data/parse_map/parse_ants/validate/validate_ants_value.c */
+bool		validate_ants_value(uint16_t nb_ants);
+/* parse_data/parse_map/parse_ants/validate/validate_ants_format.c */
 bool		validate_ants_format(char *line);
-/* parse_data/parse_line/parsers/parse_ants/validate/validate_ants.c */
-bool		validate_ants(t_data *data, char *line, uint32_t *nb_ants);
-/* parse_data/parse_line/parsers/parse_ants/parse_ants.c */
+/* parse_data/parse_map/parse_ants/validate/validate_ants.c */
+bool		validate_ants(t_data *data, char *line, uint16_t *nb_ants);
+/* parse_data/parse_map/parse_ants/parse_ants.c */
 bool		parse_ants(t_data *data, char *line);
 
 
-/* parse_data/parse_line/tools/last_char.c */
-bool		is_last_char(char c);
-/* parse_data/parse_line/tools/skip_space_char.c */
-void		skip_space(char	*line, size_t *i);
-/* parse_data/parse_line/tools/empty_line.c */
-bool		is_empty_line(char *line);
-
-
-/* parse_data/parse_line/parse_line.c */
-bool		parse_line(t_data *data, int fd, char *line);
+/* parse_data/parse_map/parse_map.c */
+bool		parse_map(t_data *data, int fd);
 
 
 /* parse_data/parse_data.c */
@@ -291,7 +310,7 @@ bool		parse_data(t_data *data, int fd);
 
 
 /* parse_arg/validate_arg.c */
-bool		has_no_arg(int	argc);
+bool		has_no_arg(int argc);
 
 
 /* parser.c */

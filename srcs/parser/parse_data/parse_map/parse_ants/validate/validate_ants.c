@@ -1,6 +1,6 @@
 #include "lem_in.h"
 
-bool	validate_ants(t_data *data, char *line, uint32_t *nb_ants)
+bool	validate_ants(t_data *data, char *line, uint16_t *nb_ants)
 {
 	if (validate_ants_format(line))
 		return (1);

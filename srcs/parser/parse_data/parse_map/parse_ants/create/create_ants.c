@@ -1,9 +1,9 @@
 #include "lem_in.h"
 
-bool	create_ants(t_data *data, uint32_t nb_ants)
+bool	create_ants(t_data *data, uint16_t nb_ants)
 {
 	t_ant		*new_ant, *prev_ant;
-	uint32_t	i = 1;
+	uint16_t	i = 1;
 
 	data->nb_ants = nb_ants;
 	data->ant = NULL;

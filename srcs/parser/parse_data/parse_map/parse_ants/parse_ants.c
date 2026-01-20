@@ -2,7 +2,7 @@
 
 bool	parse_ants(t_data *data, char *line)
 {
-	uint32_t	nb_ants;
+	uint16_t	nb_ants;
 
 	if (data->map->nb_rooms || data->map->nb_links)
 		return (1);

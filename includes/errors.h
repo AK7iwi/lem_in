@@ -66,7 +66,24 @@
 # define E_NO_PATH					0x40000
 # define ERR_NO_PATH				"No path exists between start and end rooms\n"
 
-# define ERR_FORMAT					"Invalid line format\n"
+# define ERR_FORMAT					"Invalid line format\n\n" \
+									"Expected format:\n" \
+									" - Ants: positive integer (1-2000)\n" \
+									" - Room: name x y (coordinates 0-1000000)\n" \
+									" - Link: room1-room2\n" \
+									" - Command: ##start or ##end (one each required)\n" \
+									" - Comment: #text\n\n" \
+									"Example:\n" \
+									"3\n" \
+									"##start\n" \
+									"0 1 0\n" \
+									"##end\n" \
+									"1 5 0\n" \
+									"2 9 0\n" \
+									"3 13 0\n" \
+									"0-2\n" \
+									"2-3\n" \
+									"3-1\n"
 
 /* Visualizer errors */
 # define E_VISU						0x1

@@ -1,35 +1,18 @@
 TO-DO:
 
+- Review
 - Vizualizer
-- Parsing
-
-- Review/Refacto/Restruct/Clean code, check name of fcts, files, folders. Review the header(spac, improve with subtitles)/Makefile, tree logic
-parse_map fct in parse_line, is_valid_map in validate_map folder with bfs algo. parse_line folder/file --> parse_map
-parsers --> parse_line 
 
 - Exec
 - Norme
 
 TO COMMIT:
-When visu done, V2 OK
+
 ------------------------------------------------------------------------
 
 I) Parsing OK
 
-- Test map
-Ants:
-Rooms:
-Links:
-
-Review ants limits, map limits 
-
-Errors:
-Add format to error format message
-Refacto display_errors
-
 II) Visualizer
-
-- Refacto/ Clean
 
 - Check SDL fct to print text:
 bool TTF_DrawRendererText(TTF_Text *text, float x, float y);
@@ -50,20 +33,18 @@ Links must not overlaps the rooms
 
 III) Exec
 
-- Time start when clicking on start button. Ending when have the result
+- Time start when clicking on start button
 
 Line counter
 Timer 
 
-Main algo (ACO):
+- Main algo (ACO):
 
 Trouver un papier de recherche sur l'algo
 2 criters:
 a) Pheromone Level 
 Deposer pheromones sur le chemin retour si chemin le plus court
-
 b) Heuristic Information (Path Length)
-
 Algo to reinforcement and evaporation pheomones in times
 
 IV) Norme 
@@ -77,9 +58,6 @@ Place of message errors
 t_data first parameter in proto
 Number of parameters by line in proto
 tab for proto
-Check what(struct) is send to fcts. Dont send the all struct if only need one param
-Return instead of void if case (like map_area in set_render_params)
-
 
 V) Test cmd
 
@@ -91,8 +69,16 @@ valgrind --leak-check=full --track-fds=yes --track-origins=yes --show-leak-kinds
 SDL_VIDEODRIVER=nonexistent ./lem-in < ressources/maps/valid_maps/400_rooms.txt
 
 SDL_VIDEODRIVER=nonexistent valgrind --leak-check=full --track-fds=yes --track-origins=yes --show-leak-kinds=all --suppressions=ressources/SDL_leak_by_pass.txt ./lem-in < ressources/maps/valid_maps/400_rooms.txt
+
+VI) Review
+
+Errors:
+Global Review/Refacto/Restruct/Clean code, check name of fcts, files, folders. Review the header(spac, improve with subtitles)/Makefile, tree logic
+Check what(struct) is send to fcts. Dont send the all struct if only need one param
+Return instead of void if case (like map_area in set_render_params)
 -------------------------------------
-links:
+
+Links:
 
 BFS algo:
 https://www.geeksforgeeks.org/dsa/breadth-first-search-or-bfs-for-a-graph/
