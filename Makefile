@@ -15,25 +15,33 @@ SRCS			:=	main.c \
 					parser/parse_data/parse_data.c \
 					parser/parse_data/parse_map/parse_map.c \
 					parser/parse_data/parse_map/parse_ants/parse_ants.c \
-					parser/parse_data/parse_map/parse_ants/validate/validate_ants.c parser/parse_data/parse_map/parse_ants/validate/validate_ants_format.c parser/parse_data/parse_map/parse_ants/validate/validate_ants_value.c \
-					parser/parse_data/parse_map/parse_ants/extract/extract_ants.c \
+					parser/parse_data/parse_map/parse_ants/validate/validate_ants.c \
+					parser/parse_data/parse_map/parse_ants/validate/format/validate_ants_format.c \
+					parser/parse_data/parse_map/parse_ants/validate/extract/extract_ants.c \
+					parser/parse_data/parse_map/parse_ants/validate/extract/tools/ft_atoi.c \
+					parser/parse_data/parse_map/parse_ants/validate/value/validate_ants_value.c \
 					parser/parse_data/parse_map/parse_ants/create/create_ants.c parser/parse_data/parse_map/parse_ants/create/set_start_room.c \
-					parser/parse_data/parse_map/parse_ants/tools/ft_atoi.c \
 					parser/parse_data/parse_map/parse_cmd_and_cmt/parse_cmd_and_cmt.c \
-					parser/parse_data/parse_map/parse_cmd_and_cmt/validate/validate_cmd_and_cmt.c parser/parse_data/parse_map/parse_cmd_and_cmt/validate/validate_cmd_and_cmt_format.c parser/parse_data/parse_map/parse_cmd_and_cmt/validate/validate_cmd_and_cmt_value.c \
+					parser/parse_data/parse_map/parse_cmd_and_cmt/validate/validate_cmd_and_cmt.c \
+					parser/parse_data/parse_map/parse_cmd_and_cmt/validate/format/validate_cmd_and_cmt_format.c \
+					parser/parse_data/parse_map/parse_cmd_and_cmt/validate/value/validate_cmd_and_cmt_value.c \
 					parser/parse_data/parse_map/parse_cmd_and_cmt/create/create_cmd.c \
 					parser/parse_data/parse_map/parse_room/parse_room.c \
-					parser/parse_data/parse_map/parse_room/validate/validate_room.c parser/parse_data/parse_map/parse_room/validate/validate_room_format.c parser/parse_data/parse_map/parse_room/validate/validate_room_values.c \
-					parser/parse_data/parse_map/parse_room/extract/extract_room.c \
+					parser/parse_data/parse_map/parse_room/validate/validate_room.c \
+					parser/parse_data/parse_map/parse_room/validate/format/validate_room_format.c \
+					parser/parse_data/parse_map/parse_room/validate/extract/extract_room.c \
+					parser/parse_data/parse_map/parse_room/validate/value/validate_room_values.c \
 					parser/parse_data/parse_map/parse_room/create/create_room.c \
 					parser/parse_data/parse_map/parse_link/parse_link.c \
-					parser/parse_data/parse_map/parse_link/validate/validate_link.c parser/parse_data/parse_map/parse_link/validate/validate_link_format.c parser/parse_data/parse_map/parse_link/validate/validate_link_values.c \
-					parser/parse_data/parse_map/parse_link/extract/extract_link.c \
+					parser/parse_data/parse_map/parse_link/validate/validate_link.c \
+					parser/parse_data/parse_map/parse_link/validate/format/validate_link_format.c \
+					parser/parse_data/parse_map/parse_link/validate/extract/extract_link.c \
+					parser/parse_data/parse_map/parse_link/validate/value/validate_link_values.c \
 					parser/parse_data/parse_map/parse_link/create/create_link.c \
 					parser/parse_data/parse_map/parse_link/tools/free_rooms.c \
 					parser/parse_data/parse_map/common/validate/validate_data.c \
+					parser/parse_data/parse_map/common/validate/tools/check_char_type.c \
 					parser/parse_data/parse_map/common/extract/extract_data.c \
-					parser/parse_data/parse_map/common/tools/check_char_type.c \
 					parser/parse_data/parse_map/tools/get_next_line/srcs/get_next_line.c parser/parse_data/parse_map/tools/get_next_line/srcs/utils/utils.c \
 					parser/parse_data/parse_map/tools/empty_line.c parser/parse_data/parse_map/tools/skip_space_char.c parser/parse_data/parse_map/tools/last_char.c \
 					parser/parse_data/validate_map/validate_map.c \

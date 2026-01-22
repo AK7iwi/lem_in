@@ -8,7 +8,7 @@ bool	validate_ants_format(char *line)
 	if (!is_valid_number(line, &i))
 		return (1);
 	skip_space(line, &i);
-	if (!is_last_char(line[i]))
+	if (!is_last_char(line[i])) //in return 
 		return (1);
 
 	return (0);

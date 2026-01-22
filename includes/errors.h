@@ -107,7 +107,15 @@ typedef struct s_err
 //												//
 //**********************************************//
 
-/* display/display_errors.c */
+/* displayer/errors/visu/visu_error.c */
+void	display_visu_error(uint8_t visu_errors);
+/* displayer/errors/parsing/parsing_error.c */
+void	display_format_error(void);
+void	display_parsing_error(uint32_t parsing_errors);
+/* displayer/errors/gen/gen_error.c */
+void	display_gen_error(uint8_t gen_errors);
+
+/* displayer/errors/display_errors.c */
 void	display_errors(t_err error);
 
 #endif /* ERRORS_H */

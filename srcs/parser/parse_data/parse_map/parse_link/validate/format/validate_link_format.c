@@ -20,7 +20,7 @@ bool	validate_link_format(char *line, size_t *room1_start, size_t *room1_end, si
 	if (validate_name(line, &i, room2_start, room2_end))
 		return (1);
 	skip_space(line, &i);
-	if (!is_last_char(line[i]))
+	if (!is_last_char(line[i])) // in return 
 		return (1);
 
 	return (0);

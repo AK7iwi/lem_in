@@ -6,7 +6,7 @@ bool	parse_cmd_and_cmt(t_data *data, int fd, char *line)
 
 	if (validate_cmd_and_cmt(data, line, &is_start, &is_end))
 		return (1);
-	if (create_cmd(data, fd, is_start, is_end))
+	if (create_cmd(data, fd, is_start, is_end)) //in return 
 		return (1);
 
 	return (0);

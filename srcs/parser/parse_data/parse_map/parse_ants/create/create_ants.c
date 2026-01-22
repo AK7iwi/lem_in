@@ -6,7 +6,6 @@ bool	create_ants(t_data *data, uint16_t nb_ants)
 	uint16_t	i = 1;
 
 	data->nb_ants = nb_ants;
-	data->ant = NULL;
 	prev_ant = NULL;
 	while (i <= data->nb_ants)
 	{

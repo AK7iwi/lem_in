@@ -2,8 +2,8 @@
 
 static	inline	void	init_normalize(t_data *data)
 {
-	data->norm.window_width = WINDOW_WIDTH;
-	data->norm.window_height = WINDOW_HEIGHT;
+	data->norm.window_width = 0;
+	data->norm.window_height = 0;
 	data->norm.min_x = MAX_COORDINATE;
 	data->norm.max_x = 0.0f;
 	data->norm.min_y = MAX_COORDINATE;
