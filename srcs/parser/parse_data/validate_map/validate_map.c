@@ -3,13 +3,25 @@
 bool	is_valid_map(t_data *data)
 {
 	if (!data->map->start_room)
-		return (data->err.parsing_errors |= E_START, false);
+	{
+		data->err.parsing_errors |= E_START;
+		return (false);
+	}
 	if (!data->map->end_room)
-		return (data->err.parsing_errors |= E_END, false);
+	{
+		data->err.parsing_errors |= E_END;
+		return (false);
+	}
 	if (data->map->nb_links < data->map->nb_rooms - 1)
-		return (data->err.parsing_errors |= E_NB_LINKS, false);
+	{
+		data->err.parsing_errors |= E_NB_LINKS;
+		return (false);
+	}
 	if (!has_path(data)) /* BFS algo */
-		return (data->err.parsing_errors |= E_NO_PATH, false);
+	{
+		data->err.parsing_errors |= E_NO_PATH;
+		return (false);
+	}
 
 	return (true);
 }

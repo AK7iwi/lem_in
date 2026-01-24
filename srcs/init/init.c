@@ -1,27 +1,36 @@
 #include "lem_in.h"
 
-static	inline	void	init_normalize(t_data *data)
+static	inline	void	init_normalize(t_normalize *norm)
 {
-	data->norm.window_width = 0;
-	data->norm.window_height = 0;
-	data->norm.min_x = MAX_COORDINATE;
-	data->norm.max_x = 0.0f;
-	data->norm.min_y = MAX_COORDINATE;
-	data->norm.max_y = 0.0f;
-	data->norm.scale = 0.0f;
-	data->norm.offset_x = 0.0f;
-	data->norm.offset_y = 0.0f;
-	data->norm.radius = 0.0f;
-	data->norm.zoom = 1.0f;
-	data->norm.pan_x = 0.0f;
-	data->norm.pan_y = 0.0f;
+	norm->window_width = 0;
+	norm->window_height = 0;
+	norm->min_x = MAX_COORDINATE;
+	norm->max_x = 0.0f;
+	norm->min_y = MAX_COORDINATE;
+	norm->max_y = 0.0f;
+	norm->scale = 0.0f;
+	norm->offset_x = 0.0f;
+	norm->offset_y = 0.0f;
+	norm->radius = 0.0f;
+	norm->zoom = 1.0f;
+	norm->pan_x = 0.0f;
+	norm->pan_y = 0.0f;
 }
 
-static	bool	init_map(t_data	*data)
+static	inline	void	init_ants(t_data *data)
+{
+	data->nb_ants = 0;
+	data->ant = NULL;
+}
+
+static	bool	init_map(t_data *data)
 {
 	data->map = malloc(sizeof(t_map));
 	if (!data->map)
-		return (data->err.gen_errors |= E_MEMORY, 1);
+	{
+		data->err.gen_errors |= E_MEMORY;
+		return (1);
+	}
 	data->map->nb_rooms = 0;
 	data->map->capacity = 0;
 	data->map->nb_links = 0;
@@ -33,25 +42,23 @@ static	bool	init_map(t_data	*data)
 	return (0);
 }
 
-static	inline	void	init_ants(t_data *data)
+static	inline	void	init_errors(t_err *err)
 {
-	data->nb_ants = 0;
-	data->ant = NULL;
-}
-
-static	inline	void	init_errors(t_data *data)
-{
-	data->err.line_error = 0;
-	data->err.gen_errors = 0;
-	data->err.parsing_errors = 0;
-	data->err.visu_errors = 0;
+	err->line_error = 0;
+	err->gen_errors = 0;
+	err->parsing_errors = 0;
+	err->visu_errors = 0;
 }
 
 bool	init(t_data *data, char **argv)
 {
 	(void)argv;
-	init_errors(data);
-	init_normalize(data);
+
+	init_errors(&data->err);
+	if (init_map(data))
+		return (1);
 	init_ants(data);
-	return (init_map(data));
+	init_normalize(&data->norm);
+
+	return (0);
 }

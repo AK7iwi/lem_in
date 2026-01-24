@@ -6,6 +6,7 @@ bool	parse_data(t_data *data, int fd)
 		return (1);
 	if (!is_valid_map(data))
 		return (1); 
+	set_start_room(data);
 
-	return (set_start_room(data), 0);
+	return (0);
 }

@@ -45,7 +45,10 @@ bool	render(t_data *data, SDL_Renderer *renderer, SDL_Texture *map_cache)
 	bool			running = true;
 
 	if (render_to_cache(data, renderer, map_cache))
-		return (data->err.visu_errors |= E_VISU, 1);
+	{
+		data->err.visu_errors |= E_VISU;
+		return (1);
+	}
 
 	while (running)
 	{
@@ -53,9 +56,15 @@ bool	render(t_data *data, SDL_Renderer *renderer, SDL_Texture *map_cache)
 			running = false;
 		if (needs_cache_update(data))
 			if (render_to_cache(data, renderer, map_cache))
-				return (data->err.visu_errors |= E_VISU, 1);
+			{
+				data->err.visu_errors |= E_VISU;
+				return (1);
+			}
 		if (present_frame(renderer, map_cache))
-			return (data->err.visu_errors |= E_VISU, 1);
+		{
+			data->err.visu_errors |= E_VISU;
+			return (1);
+		}
 	}
 	
 	return (0);

@@ -76,7 +76,7 @@ Global Review/Refacto/Restruct/Clean code, check name of fcts, files, folders. R
 
 Check what(struct) is send to fcts. Dont send the all struct if only need one param
 Return instead of void if case (like map_area in set_render_params)
-Return like init_render if possible
+One thing in the return
 
 -------------------------------------
 

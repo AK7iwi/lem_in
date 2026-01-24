@@ -4,8 +4,9 @@ bool	create_cmd(t_data *data, int fd, bool is_start, bool is_end)
 {
 	char	*next_line;
 
+	/* Unknow command or comment */
 	if (!is_start && !is_end)
-		return (0); /* Unknow command or comment */
+		return (0);
 
 	data->map->nb_valid_cmds++;
 	next_line = get_next_line(fd);
@@ -19,6 +20,7 @@ bool	create_cmd(t_data *data, int fd, bool is_start, bool is_end)
 			data->err.parsing_errors |= E_END;
 		return (1);
 	}
+	free(next_line);
 
-	return (free(next_line), 0);
+	return (0);
 }

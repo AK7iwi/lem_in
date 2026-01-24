@@ -7,14 +7,17 @@ int	main(int argc, char **argv)
 	if (init(&data, argv) || parser(&data, STDIN_FILENO, argc))
 	{
 		display_errors(data.err);
-		return (free_data(&data), EXIT_FAILURE);
+		free_data(&data);
+		return (EXIT_FAILURE);
 	}
 	display_infos(&data);
 	if (visualizer(&data))
 	{
 		display_errors(data.err);
-		return (free_data(&data), EXIT_FAILURE);
+		free_data(&data);
+		return (EXIT_FAILURE);
 	}
 
-	return (free_data(&data), EXIT_SUCCESS);
+	free_data(&data);
+	return (EXIT_SUCCESS);
 }

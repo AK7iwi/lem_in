@@ -22,9 +22,15 @@ static	inline	bool	validate_coordinates_values(uint32_t x, uint32_t y)
 static	bool	validate_coordinates(t_data *data, uint32_t x, uint32_t y)
 {
 	if (validate_coordinates_values(x, y))
-		return (data->err.parsing_errors |= E_COORDS_VALUES, 1);
+	{
+		data->err.parsing_errors |= E_COORDS_VALUES;
+		return (1);
+	}
 	if (is_existing_coordinates(data, x, y))
-		return (data->err.parsing_errors |= E_COORDS_EXIST, 1);
+	{
+		data->err.parsing_errors |= E_COORDS_EXIST;
+		return (1);
+	}
 
 	return (0);
 }
@@ -32,7 +38,10 @@ static	bool	validate_coordinates(t_data *data, uint32_t x, uint32_t y)
 bool    validate_room_values(t_data *data, char *name, uint32_t x, uint32_t y)
 {
 	if (is_existing_room(data, name))
-		return (data->err.parsing_errors |= E_ROOM_EXISTS, 1);
+	{
+		data->err.parsing_errors |= E_ROOM_EXISTS;
+		return (1);
+	}
 	if (validate_coordinates(data, x, y))
 		return (1);
 

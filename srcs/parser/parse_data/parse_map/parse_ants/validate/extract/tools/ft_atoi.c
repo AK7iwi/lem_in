@@ -2,13 +2,10 @@
 
 int	ft_atoi(const char *nptr)
 {
-	size_t		i;
-	long long	j;
-	int			count;
+	size_t		i = 0;
+	long long	j = 0;
+	int			count = 1;
 
-	i = 0;
-	j = 0;
-	count = 1;
 	while (nptr[i] == ' ' || (nptr[i] <= 13 && nptr[i] >= 9))
 		i++;
 	if (nptr[i] == '-' || nptr[i] == '+')
@@ -26,5 +23,6 @@ int	ft_atoi(const char *nptr)
 		j = j * 10 + nptr[i] - '0';
 		i++;
 	}
+
 	return (j * count);
 }

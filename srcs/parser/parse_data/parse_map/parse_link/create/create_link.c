@@ -6,7 +6,10 @@ static bool	add_link_to_room(t_data *data, t_room *room, t_room *target_room)
 
 	new_link = malloc(sizeof(t_link));
 	if (!new_link)
-		return (data->err.gen_errors |= E_MEMORY, 1);
+	{
+		data->err.gen_errors |= E_MEMORY;
+		return (1);
+	}
 	
 	new_link->room = target_room;
 	new_link->pheromones_rate = 0;

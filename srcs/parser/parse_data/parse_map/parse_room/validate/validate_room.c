@@ -16,7 +16,10 @@ bool	validate_room(t_data *data, char *line, char **name, uint32_t *x, uint32_t 
 	if (extract_room_data(data, line, name, x, y, name_start, name_end, x_start, x_end, y_start, y_end))
 		return (1);
 	if (validate_room_values(data, *name, *x, *y))
-		return (free(*name), 1);
+	{
+		free(*name);
+		return (1);
+	}
 
 	return (0);
 }

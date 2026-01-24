@@ -6,7 +6,10 @@ bool	parse_room(t_data *data, char *line, bool is_start, bool is_end)
 	uint32_t	x, y;
 
 	if (!data->nb_ants && !data->err.parsing_errors)
-		return (data->err.parsing_errors |= E_ANTS_AND_ROOMS_MIXED, 1);
+	{
+		data->err.parsing_errors |= E_ANTS_AND_ROOMS_MIXED;
+		return (1);
+	}
 	if (data->map->nb_links)
 		return (1);
 	if (validate_room(data, line, &name, &x, &y))
@@ -14,7 +17,11 @@ bool	parse_room(t_data *data, char *line, bool is_start, bool is_end)
 	if (create_room(data, name, x, y, is_start, is_end))
 		return (1);
 	if (validate_nb_rooms(data))
-		return (data->err.parsing_errors |= E_NB_ROOMS, 1);
+	{
+		data->err.parsing_errors |= E_NB_ROOMS;
+		return (1);
+	}
+	get_map_bounds(&data->norm, x, y);
 
-	return (get_map_bounds(&data->norm, x, y), 0);
+	return (0);
 }

@@ -11,7 +11,10 @@ bool	create_ants(t_data *data, uint16_t nb_ants)
 	{
 		new_ant = malloc(sizeof(t_ant));
 		if (!new_ant)
-			return (data->err.gen_errors |= E_MEMORY, 1);
+		{
+			data->err.gen_errors |= E_MEMORY;
+			return (1);
+		}
 		new_ant->id = i;
 		new_ant->current_room = NULL;
 		new_ant->has_moved = false;

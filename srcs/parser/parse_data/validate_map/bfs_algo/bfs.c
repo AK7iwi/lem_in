@@ -36,14 +36,17 @@ static	bool	bfs(t_map *map, bool *visited, t_room **queue, size_t queue_front, s
 static	bool	init_bfs(t_map *map, bool **visited, t_room ***queue, size_t *queue_front, size_t *queue_back)
 {
 	*visited = malloc(sizeof(bool) * map->nb_rooms);
-	if (!(*visited))
+	if (!*visited)
 		return (1);
 	for (size_t i = 0; i < map->nb_rooms; i++)
 		(*visited)[i] = false;
 
 	*queue = malloc(sizeof(t_room *) * map->nb_rooms);
-	if (!(*queue))
-		return (free_bfs_arrays(*visited, NULL), 1);
+	if (!*queue)
+	{
+		free_bfs_arrays(*visited, NULL);
+		return (1);
+	}
 
 	*queue_front = 0;
 	*queue_back = 0;
@@ -60,9 +63,16 @@ bool	has_path(t_data *data)
 	size_t	queue_front, queue_back;
 
 	if (init_bfs(data->map, &visited, &queue, &queue_front, &queue_back))
-		return (data->err.gen_errors |= E_MEMORY, false);
+	{
+		data->err.gen_errors |= E_MEMORY;
+		return (false);
+	}
 	if (bfs(data->map, visited, queue, queue_front, queue_back))
-		return (free_bfs_arrays(visited, queue), false);
+	{
+		free_bfs_arrays(visited, queue);
+		return (false);
+	}
+	free_bfs_arrays(visited, queue);
 
-	return (free_bfs_arrays(visited, queue), true);
+	return (true);
 }

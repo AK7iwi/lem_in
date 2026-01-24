@@ -59,13 +59,17 @@ char	*get_next_line(int fd)
 	{
 		ret = read(fd, buf, BUFFER_SIZE);
 		if (ret == -1 || (!ret && !line_buffer[0]))
-			return (free(line_buffer), NULL);
+		{
+			free(line_buffer);
+			return (NULL);
+		}
 		buf[ret] = '\0';
 		line_buffer = ft_strjoin(line_buffer, buf);
 		if (!line_buffer)
 			return (NULL);
 	}
 	line = extract_line(line_buffer, buf);
+	free(line_buffer);
 
-	return (free(line_buffer), line);
+	return (line);
 }

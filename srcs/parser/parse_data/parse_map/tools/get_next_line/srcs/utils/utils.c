@@ -47,6 +47,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	dest = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2)) + 1);
 	if (!dest)
 		return (NULL);
+
 	while (s1[i])
 	{
 		dest[i] = s1[i];
@@ -56,7 +57,9 @@ char	*ft_strjoin(char *s1, char *s2)
 		dest[i++] = s2[j++];
 	dest[i] = '\0';
 
-	return (free(s1), dest);
+	free(s1);
+
+	return (dest);
 }
 
 char	*ft_strdup(char *s)
