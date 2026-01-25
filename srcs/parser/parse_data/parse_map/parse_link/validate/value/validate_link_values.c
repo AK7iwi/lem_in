@@ -11,6 +11,7 @@ static	bool	is_existing_link(t_room	*room, t_room *target_room)
 			return (true);
 		current = current->next;
 	}
+
 	return (false);
 }
 
@@ -21,13 +22,13 @@ static	inline	bool	are_same_room(t_room *room1, t_room *room2)
 
 bool	validate_link_values(t_data *data, t_room **room1, char *room1_name, t_room **room2, char *room2_name)
 {
-	*room1 = is_existing_room(data, room1_name);
+	*room1 = is_existing_room(data, room1_name); //send only map
 	if (!*room1)
 	{
 		data->err.parsing_errors |= E_ROOM_NOT_FOUND;
 		return (1);
 	}
-	*room2 = is_existing_room(data, room2_name);
+	*room2 = is_existing_room(data, room2_name); //send only map
 	if (!*room2)
 	{
 		data->err.parsing_errors |= E_ROOM_NOT_FOUND;

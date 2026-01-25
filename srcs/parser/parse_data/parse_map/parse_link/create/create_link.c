@@ -21,7 +21,7 @@ static bool	add_link_to_room(t_data *data, t_room *room, t_room *target_room)
 
 bool	create_link(t_data *data, t_room *room1, t_room *room2)
 {
-	if (add_link_to_room(data, room1, room2) || add_link_to_room(data, room2, room1))
+	if (add_link_to_room(data, room1, room2) || add_link_to_room(data, room2, room1)) //send only t_err
 		return (1);
 	data->map->nb_links++;
 

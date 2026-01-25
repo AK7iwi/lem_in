@@ -30,23 +30,23 @@ t_room	*is_existing_room(t_data *data, char *name)
 
 static	bool	is_valid_name(char *line, size_t *i)
 {
-	size_t	j = (*i);
+	size_t	j = *i;
 
 	if (line[*i] == 'L')
 		return (false);
 	while (is_alnum(line[*i]) || line[*i] == '_') // '#' handled here
 		(*i)++;
 
-	return (j < (*i));
+	return (j < *i);
 }
 
-bool	validate_name(char *line, size_t *i, size_t *name_start, size_t *name_end)
+bool	validate_name(char *line, size_t *name_start, size_t *name_end, size_t *i)
 {
-	(*name_start) = *i;
+	*name_start = *i;
 	if (!is_valid_name(line, i))
 		return (1);
-	(*name_end) = *i;
-	if ((*name_end) - (*name_start) > 6)
+	*name_end = *i;
+	if (*name_end - *name_start > 6)
 		return (1);
 
 	return (0);
@@ -54,10 +54,10 @@ bool	validate_name(char *line, size_t *i, size_t *name_start, size_t *name_end)
 
 bool	is_valid_number(char *line, size_t *i)
 {
-	size_t	j = (*i);
+	size_t	j = *i;
 
 	while (is_digit(line[*i]))
 		(*i)++;
 
-	return (j < (*i));
+	return (j < *i);
 }

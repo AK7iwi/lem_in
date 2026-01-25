@@ -4,12 +4,7 @@ bool	parse_ants(t_data *data, char *line)
 {
 	uint16_t	nb_ants;
 
-	if (data->map->nb_rooms || data->map->nb_links)
-		return (1);
-	if (validate_ants(data, line, &nb_ants))
-		return (1);
-	if (create_ants(data, nb_ants))
-		return (1);
-
-	return (0);
+	return ((data->map->nb_rooms || data->map->nb_links) 
+		  || validate_ants(&data->err, line, &nb_ants)
+		  || create_ants(data, nb_ants));
 }

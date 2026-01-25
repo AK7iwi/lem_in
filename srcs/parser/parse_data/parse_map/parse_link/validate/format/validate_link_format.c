@@ -10,18 +10,16 @@ bool	validate_link_format(char *line, size_t *room1_start, size_t *room1_end, si
 	size_t	i = 0;
 
 	skip_space(line, &i);
-	if (validate_name(line, &i, room1_start, room1_end))
+	if (validate_name(line, room1_start, room1_end, &i))
 		return (1);
 	skip_space(line, &i);
 	if (!is_dash(line[i]))
 		return (1);
 	i++;
 	skip_space(line, &i);
-	if (validate_name(line, &i, room2_start, room2_end))
+	if (validate_name(line, room2_start, room2_end, &i))
 		return (1);
 	skip_space(line, &i);
-	if (!is_last_char(line[i])) // in return 
-		return (1);
 
-	return (0);
+	return (!is_last_char(line[i]));
 }

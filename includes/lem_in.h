@@ -222,7 +222,7 @@ bool		is_alnum(int c);
 bool		is_digit(int c);
 /* parse_data/parse_map/common/validate/validate_data.c */
 t_room		*is_existing_room(t_data *data, char *name);
-bool		validate_name(char *line, size_t *i, size_t *name_start, size_t *name_end);
+bool		validate_name(char *line, size_t *name_start, size_t *name_end, size_t *i);
 bool		is_valid_number(char *line, size_t *i);
 
 
@@ -282,7 +282,7 @@ void		extract_nb_ants(char *line, uint16_t *nb_ants);
 /* parse_data/parse_map/parse_ants/validate/format/validate_ants_format.c */
 bool		validate_ants_format(char *line);
 /* parse_data/parse_map/parse_ants/validate/validate_ants.c */
-bool		validate_ants(t_data *data, char *line, uint16_t *nb_ants);
+bool		validate_ants(t_err *err, char *line, uint16_t *nb_ants);
 /* parse_data/parse_map/parse_ants/parse_ants.c */
 bool		parse_ants(t_data *data, char *line);
 

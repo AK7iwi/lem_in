@@ -18,7 +18,7 @@ bool	validate_room_format(char *line,
 	size_t	i = 0;
 
 	skip_space(line, &i);
-	if (validate_name(line, &i, name_start, name_end))
+	if (validate_name(line, name_start, name_end, &i))
 		return (1);
 	skip_space(line, &i);
 	if (validate_coordinate(line, &i, x_start, x_end))

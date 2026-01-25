@@ -17,7 +17,7 @@ int	main(int argc, char **argv)
 		free_data(&data);
 		return (EXIT_FAILURE);
 	}
-
 	free_data(&data);
+
 	return (EXIT_SUCCESS);
 }

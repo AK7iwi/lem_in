@@ -4,10 +4,6 @@ bool	parse_cmd_and_cmt(t_data *data, int fd, char *line)
 {
 	bool	is_start, is_end;
 
-	if (validate_cmd_and_cmt(data, line, &is_start, &is_end))
-		return (1);
-	if (create_cmd(data, fd, is_start, is_end))
-		return (1);
-
-	return (0);
+	return (validate_cmd_and_cmt(data, line, &is_start, &is_end)
+		 || create_cmd(data, fd, is_start, is_end));
 }

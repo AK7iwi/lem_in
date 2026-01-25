@@ -9,10 +9,7 @@ bool	parse_link(t_data *data, char *line)
 		data->err.parsing_errors |= E_ROOMS_AND_LINKS_MIXED;
 		return (1);
 	}
-	if (validate_link(data, line, &room1, &room2))
-		return (1);
-	if (create_link(data, room1, room2))
-		return (1);
 
-	return (0);
+	return (validate_link(data, line, &room1, &room2)
+		 || create_link(data, room1, room2));
 }

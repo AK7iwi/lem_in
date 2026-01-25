@@ -62,6 +62,9 @@ tab for proto
 V) Test cmd
 
 - General:
+
+./lem-in < ressources/maps/valid_maps/400_rooms.txt
+
 valgrind --leak-check=full --track-fds=yes --track-origins=yes --show-leak-kinds=all --suppressions=ressources/SDL_leak_by_pass.txt ./lem-in < ressources/maps/valid_maps/400_rooms.txt
 
 - SDL_Init fail:
@@ -76,7 +79,9 @@ Global Review/Refacto/Restruct/Clean code, check name of fcts, files, folders. R
 
 Check what(struct) is send to fcts. Dont send the all struct if only need one param
 Return instead of void if case (like map_area in set_render_params)
-One thing in the return
+One thing in the return, no comma
+
+Review early return for parse_files
 
 -------------------------------------
 
