@@ -16,7 +16,7 @@ bool	parse_room(t_data *data, char *line, bool is_start, bool is_end)
 		return (1);
 	if (create_room(data, name, x, y, is_start, is_end))
 		return (1);
-	if (validate_nb_rooms(data))
+	if (validate_nb_rooms(data->map))
 	{
 		data->err.parsing_errors |= E_NB_ROOMS;
 		return (1);

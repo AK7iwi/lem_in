@@ -3,13 +3,13 @@
 static	bool	draw_circle_points(SDL_Renderer *renderer, float center_x, float center_y, float x, float y)
 {
 	return (!SDL_RenderPoint(renderer, center_x + x, center_y + y)
-		|| !SDL_RenderPoint(renderer, center_x - x, center_y + y)
-		|| !SDL_RenderPoint(renderer, center_x + x, center_y - y)
-		|| !SDL_RenderPoint(renderer, center_x - x, center_y - y)
-		|| !SDL_RenderPoint(renderer, center_x + y, center_y + x)
-		|| !SDL_RenderPoint(renderer, center_x - y, center_y + x)
-		|| !SDL_RenderPoint(renderer, center_x + y, center_y - x)
-		|| !SDL_RenderPoint(renderer, center_x - y, center_y - x));
+		 || !SDL_RenderPoint(renderer, center_x - x, center_y + y)
+		 || !SDL_RenderPoint(renderer, center_x + x, center_y - y)
+		 || !SDL_RenderPoint(renderer, center_x - x, center_y - y)
+		 || !SDL_RenderPoint(renderer, center_x + y, center_y + x)
+		 || !SDL_RenderPoint(renderer, center_x - y, center_y + x)
+		 || !SDL_RenderPoint(renderer, center_x + y, center_y - x)
+		 || !SDL_RenderPoint(renderer, center_x - y, center_y - x));
 }
 
 bool	draw_circle(SDL_Renderer *renderer, float radius, float center_x, float center_y)

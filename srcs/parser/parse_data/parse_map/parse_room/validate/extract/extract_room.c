@@ -13,14 +13,14 @@ static	uint32_t	extract_coordinate(char *line, size_t start, size_t end)
 	return (result);
 }
 
-bool	extract_room_data(t_data *data, char *line, char **name,
-						uint32_t *x, uint32_t *y,
-						size_t name_start, size_t name_end,
-						size_t x_start, size_t x_end,
-						size_t y_start, size_t y_end)
+bool	extract_room_data(t_err *err, char *line, char **name,
+						  uint32_t *x, uint32_t *y,
+						  size_t name_start, size_t name_end, 
+						  size_t x_start, size_t x_end,
+						  size_t y_start, size_t y_end)
 {
-	*name = extract_name(data, line, name_start, name_end);
-	if (!(*name))
+	*name = extract_name(err, line, name_start, name_end);
+	if (!*name)
 		return (1);
 	*x = extract_coordinate(line, x_start, x_end);
 	*y = extract_coordinate(line, y_start, y_end);

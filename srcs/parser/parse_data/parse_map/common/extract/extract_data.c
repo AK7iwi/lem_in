@@ -1,6 +1,6 @@
 #include "lem_in.h"
 
-char	*extract_name(t_data *data, char *line, size_t name_start, size_t name_end)
+char	*extract_name(t_err *err, char *line, size_t name_start, size_t name_end)
 {
 	size_t	name_len;
 	char	*name;
@@ -9,7 +9,7 @@ char	*extract_name(t_data *data, char *line, size_t name_start, size_t name_end)
 	name = malloc(sizeof(char) * (name_len + 1));
 	if (!name)
 	{
-		data->err.gen_errors |= E_MEMORY;
+		err->gen_errors |= E_MEMORY;
 		return (NULL);
 	}
 	

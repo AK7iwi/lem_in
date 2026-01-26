@@ -1,4 +1,4 @@
-#Rayanair
+#Ryanair
 3
 ##start
 0 1 0

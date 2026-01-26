@@ -1,12 +1,12 @@
 #include "lem_in.h"
 
-bool	set_colors(t_data *data, SDL_Renderer *renderer, t_room *room)
+bool	set_colors(t_map *map, SDL_Renderer *renderer, t_room *room)
 {
 	uint8_t r = 0, g = 0, b = 0;
 
-	if (room == data->map->start_room)
+	if (room == map->start_room)
 		g = 255;
-	else if (room == data->map->end_room)
+	else if (room == map->end_room)
 		r = 255;
 	else
 	{

@@ -51,7 +51,7 @@ IV) Norme
 
 Uniformisation of norme
 
-Naming: find and follow conventions, follow a logic 
+Naming (fct, file, folder): find and follow conventions, follow a logic 
 No paren for (*) when not needed
 Tree logic
 Place of message errors
@@ -79,9 +79,8 @@ Global Review/Refacto/Restruct/Clean code, check name of fcts, files, folders. R
 
 Check what(struct) is send to fcts. Dont send the all struct if only need one param
 Return instead of void if case (like map_area in set_render_params)
-One thing in the return, no comma
+One thing in the return, no comma ~~
 
-Review early return for parse_files
 
 -------------------------------------
 

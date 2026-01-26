@@ -1,11 +1,11 @@
 #include "lem_in.h"
 
-void	ft_putchar(char	c, int	fd)
+void	ft_putchar(char	c, int fd)
 {
 	write(fd, &c, 1);
 }
 
-void	ft_putnbr(int	n, int	fd)
+void	ft_putnbr(int n, int fd)
 {
 	long long	b;
 
@@ -24,7 +24,7 @@ void	ft_putnbr(int	n, int	fd)
 	}
 }
 
-void	ft_putstr(char *str, int	fd)
+void	ft_putstr(char *str, int fd)
 {
 	while (*str)
 	{

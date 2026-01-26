@@ -131,7 +131,7 @@ bool		draw_name(SDL_Renderer *renderer, char *name, float x, float y);
 /* render/draw/draw_room/draw_circle/draw_circle.c */
 bool		draw_circle(SDL_Renderer *renderer, float radius, float center_x, float center_y);
 /* render/draw/draw_room/set_room/set_room.c */
-bool		set_colors(t_data *data, SDL_Renderer *renderer, t_room *room);
+bool		set_colors(t_map *map, SDL_Renderer *renderer, t_room *room);
 /* render/draw/draw_room/draw_room.c */
 bool		draw_room(t_data *data, SDL_Renderer *renderer, t_room *room, float screen_x, float screen_y);
 
@@ -216,12 +216,12 @@ bool		is_empty_line(char *line);
 
 
 /* parse_data/parse_map/common/extract/extract_data.c */
-char		*extract_name(t_data *data, char *line, size_t name_start, size_t name_end);
+char		*extract_name(t_err *err, char *line, size_t name_start, size_t name_end);
 /* parse_data/parse_map/common/tools/validate/check_char_type.c */
 bool		is_alnum(int c);
 bool		is_digit(int c);
 /* parse_data/parse_map/common/validate/validate_data.c */
-t_room		*is_existing_room(t_data *data, char *name);
+t_room		*is_existing_room(t_map *map, char *name);
 bool		validate_name(char *line, size_t *name_start, size_t *name_end, size_t *i);
 bool		is_valid_number(char *line, size_t *i);
 
@@ -233,7 +233,7 @@ bool		create_link(t_data *data, t_room *room1, t_room *room2);
 /* parse_data/parse_map/parse_link/validate/value/validate_link_values.c */
 bool		validate_link_values(t_data *data, t_room **room1, char *room1_name, t_room **room2, char *room2_name);
 /* parse_data/parse_map/parse_link/validate/extract/extract_link.c */
-bool		extract_room_names(t_data *data, char *line, char **room1_name, size_t room1_start, size_t room1_end, char **room2_name, size_t room2_start, size_t room2_end);
+bool		extract_room_names(t_err *err, char *line, char **room1_name, size_t room1_start, size_t room1_end, char **room2_name, size_t room2_start, size_t room2_end);
 /* parse_data/parse_map/parse_link/validate/format/validate_link_format.c */
 bool		validate_link_format(char *line, size_t *room1_start, size_t *room1_end, size_t *room2_start, size_t *room2_end);
 /* parse_data/parse_map/parse_link/validate/validate_link.c */
@@ -247,11 +247,11 @@ bool		create_room(t_data	*data, char	*name, uint32_t	x, uint32_t	y, bool	is_star
 /* parse_data/parse_map/parse_room/validate/value/validate_room_values.c */
 bool    	validate_room_values(t_data *data, char *name, uint32_t x, uint32_t y);
 /* parse_data/parse_map/parse_room/validate/extract/extract_room.c */
-bool		extract_room_data(t_data *data, char *line, char **name, uint32_t *x, uint32_t *y, size_t name_start, size_t name_end, size_t x_start, size_t x_end, size_t y_start, size_t y_end);
+bool		extract_room_data(t_err *err, char *line, char **name, uint32_t *x, uint32_t *y, size_t name_start, size_t name_end, size_t x_start, size_t x_end, size_t y_start, size_t y_end);
 /* parse_data/parse_map/parse_room/validate/format/validate_room_format.c */
 bool		validate_room_format(char *line, size_t *name_start, size_t *name_end, size_t *x_start, size_t *x_end, size_t *y_start, size_t *y_end);
 /* parse_data/parse_map/parse_room/validate/validate_room.c */
-bool		validate_nb_rooms(t_data *data);
+bool		validate_nb_rooms(t_map *map);
 bool		validate_room(t_data *data, char *line, char **name, uint32_t *x, uint32_t *y);
 /* parse_data/parse_map/parse_room/parse_room.c */
 bool		parse_room(t_data *data, char *line, bool is_start, bool is_end);

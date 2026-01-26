@@ -12,8 +12,7 @@ void	display_links(t_map *map)
 {
 	size_t	i = 0;
 	t_link	*current_link;
-	t_room	*room1;
-	t_room	*room2;
+	t_room	*room1, *room2;
 
 	while (i < map->nb_rooms)
 	{

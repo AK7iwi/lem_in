@@ -14,14 +14,14 @@ static	bool	compare_room_name(char *name, char *room_name)
 	return (name[i] == room_name[i]);
 }
 
-t_room	*is_existing_room(t_data *data, char *name)
+t_room	*is_existing_room(t_map *map, char *name)
 {
 	size_t i = 0;
 
-	while (i < data->map->nb_rooms)
+	while (i < map->nb_rooms)
 	{
-		if (compare_room_name(name, data->map->rooms[i].name))
-			return (&data->map->rooms[i]);
+		if (compare_room_name(name, map->rooms[i].name))
+			return (&map->rooms[i]);
 		i++;
 	}
 
