@@ -143,16 +143,16 @@ bool		draw_render(t_data *data, SDL_Renderer *renderer);
 
 
 /* render/event/drag/drag.c */
-void		handle_drag(t_data *data, SDL_Event *event);
+void		handle_drag(t_normalize *norm, SDL_Event *event);
 /* render/event/zoom/zoom.c */
-void		handle_zoom(t_data *data, SDL_Event *event);
+void		handle_zoom(t_normalize *norm, SDL_Event *event);
 /* render/event/key/key.c */
-bool		handle_key(t_data *data, SDL_Event *event);
+bool		handle_key(t_normalize *norm, SDL_Event *event);
 /* render/event/quit/quit.c */
 bool		handle_quit(SDL_Event *event);
 
 /* render/event/event_handler.c */
-bool		event_handler(t_data *data);
+bool		event_handler(t_normalize *norm);
 
 
 /* render/close_render.c */

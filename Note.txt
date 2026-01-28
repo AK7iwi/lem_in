@@ -78,8 +78,6 @@ VI) Review
 Global Review/Refacto/Restruct/Clean code, check name of fcts, files, folders. Review the header(spac, improve with subtitles)/Makefile, tree logic
 
 Check what(struct) is send to fcts. Dont send the all struct if only need one param
-Return instead of void if case (like map_area in set_render_params)
-One thing in the return, no comma ~~
 
 
 -------------------------------------

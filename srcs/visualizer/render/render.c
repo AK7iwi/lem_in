@@ -52,7 +52,7 @@ bool	render(t_data *data, SDL_Renderer *renderer, SDL_Texture *map_cache)
 
 	while (running)
 	{
-		if (event_handler(data))
+		if (event_handler(&data->norm))
 			running = false;
 		if (needs_cache_update(&data->norm))
 			if (render_to_cache(data, renderer, map_cache))

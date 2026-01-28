@@ -60,6 +60,6 @@ bool	draw_corridor(SDL_Renderer *renderer,
 	offset = (corridor_width / 2.0f) + (border_width / 2.0f);
 	
 	return (draw_thick_line(renderer, x1, y1, x2, y2, corridor_width, perp_x, perp_y, 100, 100, 100)
-			|| draw_thick_line(renderer, x1 - perp_x * offset, y1 - perp_y * offset, x2 - perp_x * offset, y2 - perp_y * offset, border_width, perp_x, perp_y, 30, 144, 255)
-			|| draw_thick_line(renderer, x1 + perp_x * offset, y1 + perp_y * offset, x2 + perp_x * offset, y2 + perp_y * offset, border_width, perp_x, perp_y, 30, 144, 255));
+		 || draw_thick_line(renderer, x1 - perp_x * offset, y1 - perp_y * offset, x2 - perp_x * offset, y2 - perp_y * offset, border_width, perp_x, perp_y, 30, 144, 255)
+		 || draw_thick_line(renderer, x1 + perp_x * offset, y1 + perp_y * offset, x2 + perp_x * offset, y2 + perp_y * offset, border_width, perp_x, perp_y, 30, 144, 255));
 }

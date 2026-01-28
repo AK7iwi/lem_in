@@ -1,19 +1,19 @@
 #include "lem_in.h"
 
-static	void	update_pan_for_zoom(t_data *data, float mouse_x, float mouse_y,
+static	void	update_pan_for_zoom(t_normalize *norm, float mouse_x, float mouse_y,
 									float old_zoom, float new_zoom)
 {
 	float	map_x, map_y;
 
-	map_x = (mouse_x - data->norm.pan_x) / old_zoom;
-	map_y = (mouse_y - data->norm.pan_y) / old_zoom;
-	data->norm.pan_x = mouse_x - map_x * new_zoom;
-	data->norm.pan_y = mouse_y - map_y * new_zoom;
+	map_x = (mouse_x - norm->pan_x) / old_zoom;
+	map_y = (mouse_y - norm->pan_y) / old_zoom;
+	norm->pan_x = mouse_x - map_x * new_zoom;
+	norm->pan_y = mouse_y - map_y * new_zoom;
 }
 
-static	void	update_zoom(t_data *data, SDL_Event *event, float *old_zoom, float *new_zoom)
+static	void	update_zoom(t_normalize *norm, SDL_Event *event, float *old_zoom, float *new_zoom)
 {
-	*old_zoom = data->norm.zoom;
+	*old_zoom = norm->zoom;
 	if (event->wheel.y > 0)
 	{
 		*new_zoom = *old_zoom * 1.1f;
@@ -26,10 +26,10 @@ static	void	update_zoom(t_data *data, SDL_Event *event, float *old_zoom, float *
 		if (*new_zoom < 0.2f)
 			*new_zoom = 0.2f;
 	}
-	data->norm.zoom = *new_zoom;
+	norm->zoom = *new_zoom;
 }
 
-void	handle_zoom(t_data *data, SDL_Event *event)
+void	handle_zoom(t_normalize *norm, SDL_Event *event)
 {
 	float	mouse_x, mouse_y;
 	float	old_zoom, new_zoom;
@@ -37,7 +37,7 @@ void	handle_zoom(t_data *data, SDL_Event *event)
 	if (event->type == SDL_EVENT_MOUSE_WHEEL)
 	{
 		SDL_GetMouseState(&mouse_x, &mouse_y);
-		update_zoom(data, event, &old_zoom, &new_zoom);
-		update_pan_for_zoom(data, mouse_x, mouse_y, old_zoom, new_zoom);
+		update_zoom(norm, event, &old_zoom, &new_zoom);
+		update_pan_for_zoom(norm, mouse_x, mouse_y, old_zoom, new_zoom);
 	}
 }
