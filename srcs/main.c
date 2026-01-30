@@ -11,6 +11,8 @@ int	main(int argc, char **argv)
 		return (EXIT_FAILURE);
 	}
 	display_infos(&data);
+	//algo
+	//display_result
 	if (visualizer(&data))
 	{
 		display_errors(data.err);

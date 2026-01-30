@@ -1,9 +1,7 @@
 TO-DO:
 
-- Review
-- Vizualizer
-
 - Exec
+- Visualizer
 - Norme
 
 TO COMMIT:
@@ -25,6 +23,8 @@ Case where rooms are to close: Circle touch each others (test.txt)
 Map with high density 
 Map bigger than windows
 
+- Draw circle with triangles
+
 - Idea for futur
 Rooms/links in blue when a ant in
 Ants moving in the start room
@@ -38,14 +38,16 @@ III) Exec
 Line counter
 Timer 
 
-- Main algo (ACO):
+- Trouver les chemins
+Laisser un premier type de pheromones permanant pour dire quels chambres ont ete visite
+Fourmils explorent, trouvent la sorti, comeback en laissant deuxieme type de pheromones
+Le taux de pheromones laissees pour etre calculer inversement au nombre de room visites  
 
-Trouver un papier de recherche sur l'algo
-2 criters:
-a) Pheromone Level 
-Deposer pheromones sur le chemin retour si chemin le plus court
-b) Heuristic Information (Path Length)
-Algo to reinforcement and evaporation pheomones in times
+- Optimiser les chemins utilises
+Laisser deuxieme type de pheromones qui s'evaporent
+
+
+- Adaptation en fonction du nombre de fourmils
 
 IV) Norme 
 
@@ -78,7 +80,6 @@ VI) Review
 Global Review/Refacto/Restruct/Clean code, check name of fcts, files, folders. Review the header(spac, improve with subtitles)/Makefile, tree logic
 
 Check what(struct) is send to fcts. Dont send the all struct if only need one param
-
 
 -------------------------------------
 
