@@ -12,7 +12,7 @@ static	bool	add_link_to_room(t_err *err, t_room *room, t_room *target_room)
 	}
 	
 	new_link->room = target_room;
-	new_link->pheromones_rate = 0;
+	new_link->pheros_path = 0;
 	new_link->next = room->link;
 	room->link = new_link;
 

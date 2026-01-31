@@ -45,16 +45,11 @@ SRCS			:=	main.c \
 					parser/parse_data/parse_map/tools/get_next_line/srcs/get_next_line.c parser/parse_data/parse_map/tools/get_next_line/srcs/utils/utils.c \
 					parser/parse_data/parse_map/tools/empty_line.c parser/parse_data/parse_map/tools/skip_space_char.c parser/parse_data/parse_map/tools/last_char.c \
 					parser/parse_data/validate_map/validate_map.c \
-					parser/parse_data/validate_map/bfs_algo/bfs.c \
-					parser/parse_data/validate_map/bfs_algo/tools/free_array.c \
-					displayer/infos/display_infos.c \
-					displayer/infos/display_room/display_room.c \
-					displayer/infos/display_link/display_link.c \
-					displayer/errors/display_errors.c \
-					displayer/errors/gen/gen_error.c \
-					displayer/errors/parsing/parsing_error.c \
-					displayer/errors/visu/visu_error.c \
-					displayer/tools/print.c \
+					parser/parse_data/validate_map/bfs/bfs.c \
+					parser/parse_data/validate_map/bfs/tools/free_array.c \
+					ant_colony/ant_colony.c \
+					ant_colony/explore/explore.c \
+					ant_colony/routing/routing.c \
 					visualizer/visualizer.c \
 					visualizer/params/map_metrics.c visualizer/params/set_params.c \
 					visualizer/render/init_render.c visualizer/render/render.c visualizer/render/close_render.c \
@@ -73,6 +68,14 @@ SRCS			:=	main.c \
 					visualizer/render/draw/draw_link/set_corridor/set_corridor.c \
 					visualizer/render/draw/draw_link/draw_corridor/draw_corridor.c \
 					visualizer/tools/ft_sqrt.c \
+					displayer/infos/display_infos.c \
+					displayer/infos/display_room/display_room.c \
+					displayer/infos/display_link/display_link.c \
+					displayer/errors/display_errors.c \
+					displayer/errors/gen/gen_error.c \
+					displayer/errors/parsing/parsing_error.c \
+					displayer/errors/visu/visu_error.c \
+					displayer/tools/print.c \
 					free/free_data.c
 SRCS        	:= $(SRCS:%=$(SRC_DIR)/%)
 OBJS        	:= $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)

@@ -81,4 +81,8 @@ https://github.com/libsdl-org/SDL
 
 Explain how to add SDL:
 
-	// ft_putstr(SDL_GetError(), STDERR_FILENO); // Use for debug
+
+Two types pf pheromones:
+
+One for the rooms when ants explore: is_visited
+One for the links for ants to know wich path use: pheromones_rate

@@ -53,7 +53,7 @@ typedef struct s_room	t_room;
 typedef struct s_link
 {
 	t_room			*room;
-	uint8_t			pheromones_rate;
+	uint8_t			pheros_path;
 
 	struct s_link	*next;
 }	t_link;
@@ -63,6 +63,7 @@ typedef struct s_room
 	char		*name;
 	uint32_t	x;
 	uint32_t	y;
+	bool		pheros_visited;
 	bool		is_empty;
 
 	t_link		*link;
@@ -108,6 +109,26 @@ typedef struct s_data
 
 /* free_data.c */
 void		free_data(t_data *data);
+
+//**********************************************//
+//												//
+//					  DISPLAYER		  			//
+//												//
+//**********************************************//
+
+/* tools/print.c */
+void		ft_putnbr(int n, int fd);
+void		ft_putstr(char *str, int fd);
+void		ft_putchar(char	c, int fd);
+
+/* infos/display_link/display_link.c */
+void		display_links(t_map *map);
+/* infos/display_room/display_room.c */
+void		display_room(t_room *room);
+void		display_rooms(t_map *map);
+
+/* infos/display_infos.c */
+void		display_infos(t_data *data);
 
 //**********************************************//
 //												//
@@ -175,23 +196,18 @@ bool		visualizer(t_data *data);
 
 //**********************************************//
 //												//
-//					  DISPLAYER		  			//
+//					  ANT_COLONY		  		//
 //												//
 //**********************************************//
 
-/* tools/print.c */
-void		ft_putnbr(int n, int fd);
-void		ft_putstr(char *str, int fd);
-void		ft_putchar(char	c, int fd);
 
-/* infos/display_link/display_link.c */
-void		display_links(t_map *map);
-/* infos/display_room/display_room.c */
-void		display_room(t_room *room);
-void		display_rooms(t_map *map);
+/* routing/routing.c */
 
-/* infos/display_infos.c */
-void		display_infos(t_data *data);
+/* explore/explore.c */
+
+
+/* ant_colony.c */
+bool    	ant_colony(t_data *data);
 
 //**********************************************//
 //												//
@@ -199,9 +215,9 @@ void		display_infos(t_data *data);
 //												//
 //**********************************************//
 
-/* parse_data/validate_map/bfs_algo/tools/free_array.c */
+/* parse_data/validate_map/bfs/tools/free_array.c */
 void		free_bfs_arrays(bool *visited, t_room **queue);
-/* parse_data/validate_map/bfs_algo/bfs.c */
+/* parse_data/validate_map/bfs/bfs.c */
 bool		has_path(t_data *data);
 /* parse_data/validate_map/validate_map.c */
 bool		is_valid_map(t_data *data);

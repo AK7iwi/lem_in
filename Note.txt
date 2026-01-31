@@ -18,12 +18,12 @@ Check if others fct to draw text
 - Docker?
 Avantages/Inconvenients Docker ou faire compiler 
 
+- Draw circle with triangles
+
 - Test (Use generator_linux to create map)
 Case where rooms are to close: Circle touch each others (test.txt)
 Map with high density 
 Map bigger than windows
-
-- Draw circle with triangles
 
 - Idea for futur
 Rooms/links in blue when a ant in
@@ -33,21 +33,19 @@ Links must not overlaps the rooms
 
 III) Exec
 
+- Trouver les chemins
+Dinic algo
+
+- Optimiser les chemins utilises
+Opti
+
+- Adaptation en fonction du nombre de fourmils
+
+
 - Time start when clicking on start button
 
 Line counter
 Timer 
-
-- Trouver les chemins
-Laisser un premier type de pheromones permanant pour dire quels chambres ont ete visite
-Fourmils explorent, trouvent la sorti, comeback en laissant deuxieme type de pheromones
-Le taux de pheromones laissees pour etre calculer inversement au nombre de room visites  
-
-- Optimiser les chemins utilises
-Laisser deuxieme type de pheromones qui s'evaporent
-
-
-- Adaptation en fonction du nombre de fourmils
 
 IV) Norme 
 
@@ -60,6 +58,7 @@ Place of message errors
 t_data first parameter in proto
 Number of parameters by line in proto
 tab for proto
+Separer les .h
 
 V) Test cmd
 
