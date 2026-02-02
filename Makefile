@@ -48,7 +48,7 @@ SRCS			:=	main.c \
 					parser/parse_data/validate_map/bfs/bfs.c \
 					parser/parse_data/validate_map/bfs/tools/free_array.c \
 					ant_colony/ant_colony.c \
-					ant_colony/explore/explore.c \
+					ant_colony/pathfinding/dinic.c \
 					ant_colony/routing/routing.c \
 					visualizer/visualizer.c \
 					visualizer/params/map_metrics.c visualizer/params/set_params.c \

@@ -10,6 +10,8 @@ TO COMMIT:
 
 I) Parsing OK
 
+Test the path in the exec to not doing it twice
+
 II) Visualizer
 
 - Check SDL fct to print text:
@@ -33,8 +35,12 @@ Links must not overlaps the rooms
 
 III) Exec
 
-- Trouver les chemins
-Dinic algo
+- Trouver les chemins : Dinic algo
+init_bfs
+while (bfs)
+
+Delete bfs from parsing:
+
 
 - Optimiser les chemins utilises
 Opti
@@ -87,15 +93,13 @@ Links:
 BFS algo:
 https://www.geeksforgeeks.org/dsa/breadth-first-search-or-bfs-for-a-graph/
 
-ACO algo:
-https://dilipkumar.medium.com/ant-colony-optimization-aco-algorithm-6a954b0b083e
-https://members.loria.fr/VThomas/enseignement/M2rar/slides/04_algorithme%20fourmis_v2.pdf
-https://github.com/jraleman
+Dinic algo:
+https://www.geeksforgeeks.org/dsa/dinics-algorithm-maximum-flow/
 
 
 Algo:
 
 BFS
+Dinic
 Newton-Raphson (Babylonian) method (sqrt)
 Midpoint Circle Algorithm (Bresenham's circle algorithm)
-ACO

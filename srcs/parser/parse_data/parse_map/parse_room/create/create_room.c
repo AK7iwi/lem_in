@@ -57,7 +57,6 @@ bool	create_room(t_data *data, char *name,
 	new_room.name = name;
 	new_room.x = x;
 	new_room.y = y;
-	new_room.pheros_visited = false;
 	new_room.is_empty = true;
 	new_room.link = NULL;
 	

@@ -53,7 +53,6 @@ typedef struct s_room	t_room;
 typedef struct s_link
 {
 	t_room			*room;
-	uint8_t			pheros_path;
 
 	struct s_link	*next;
 }	t_link;
@@ -63,7 +62,6 @@ typedef struct s_room
 	char		*name;
 	uint32_t	x;
 	uint32_t	y;
-	bool		pheros_visited;
 	bool		is_empty;
 
 	t_link		*link;
@@ -203,7 +201,7 @@ bool		visualizer(t_data *data);
 
 /* routing/routing.c */
 
-/* explore/explore.c */
+/* pathfinding/dinic_algo.c */
 
 
 /* ant_colony.c */

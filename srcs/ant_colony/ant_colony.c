@@ -2,5 +2,5 @@
 
 bool    ant_colony(t_data *data)
 {
-    return (explore() || routing());
+    return (dinic(data)); // || routing()
 }

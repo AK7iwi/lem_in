@@ -1,5 +1,5 @@
 
-C DOC:
+- C DOC:
 
 Init
 
@@ -65,7 +65,10 @@ If start_room points to rooms[2]:
 
 start_room - rooms = 2  (2 elements difference)
 
-Lem_in:
+
+
+
+- Lem_in:
 
 
 Parsing:
@@ -75,14 +78,7 @@ No empty lines
 BFS algo:
 
 Vizualizer:
-
 https://www.libsdl.org/
 https://github.com/libsdl-org/SDL
 
-Explain how to add SDL:
-
-
-Two types pf pheromones:
-
-One for the rooms when ants explore: is_visited
-One for the links for ants to know wich path use: pheromones_rate
+Dinic algo: 
