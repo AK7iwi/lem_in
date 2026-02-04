@@ -4,7 +4,7 @@ int	main(int argc, char **argv)
 {
 	t_data	data;
 
-	if (init(&data, argv)
+	if (init(&data, argv) //init error 
 	 || parser(&data, STDIN_FILENO, argc)
 	 || ant_colony(&data)
 	 || visualizer(&data))

@@ -17,11 +17,6 @@ bool	is_valid_map(t_data *data)
 		data->err.parsing_errors |= E_NB_LINKS;
 		return (false);
 	}
-	if (!has_path(data)) /* BFS algo */
-	{
-		data->err.parsing_errors |= E_NO_PATH;
-		return (false);
-	}
 
 	return (true);
 }

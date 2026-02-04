@@ -10,7 +10,8 @@ TO COMMIT:
 
 I) Parsing OK
 
-Test the path in the exec to not doing it twice
+Test the path in the exec to not doing it twice, Delete bfs from parsing
+is_valid_map in parse_map
 
 II) Visualizer
 
@@ -36,37 +37,21 @@ Links must not overlaps the rooms
 III) Exec
 
 - Trouver les chemins : Dinic algo
-init_bfs
-while (bfs)
 
-Delete bfs from parsing:
-
+Store paths
+Free room not in the path and queue
 
 - Optimiser les chemins utilises
 Opti
 
 - Adaptation en fonction du nombre de fourmils
 
-
 - Time start when clicking on start button
 
 Line counter
-Timer 
+Timer
 
-IV) Norme 
-
-Uniformisation of norme
-
-Naming (fct, file, folder): find and follow conventions, follow a logic 
-No paren for (*) when not needed
-Tree logic
-Place of message errors
-t_data first parameter in proto
-Number of parameters by line in proto
-tab for proto
-Separer les .h
-
-V) Test cmd
+IV) Test cmd
 
 - General:
 
@@ -80,11 +65,28 @@ SDL_VIDEODRIVER=nonexistent ./lem-in < ressources/maps/valid_maps/400_rooms.txt
 
 SDL_VIDEODRIVER=nonexistent valgrind --leak-check=full --track-fds=yes --track-origins=yes --show-leak-kinds=all --suppressions=ressources/SDL_leak_by_pass.txt ./lem-in < ressources/maps/valid_maps/400_rooms.txt
 
-VI) Review
+V) General/Review/ Norme
 
-Global Review/Refacto/Restruct/Clean code, check name of fcts, files, folders. Review the header(spac, improve with subtitles)/Makefile, tree logic
+- General
+is_valid_map in parse_map
+t_norm not linked to t_data, t_norm --> t_visu
+t_error not linked to t_data
+init struct in there folder, not in main
+Delete bfs from parsing
+Separer les .h
 
+- Review
+Global Review/Refacto/Restruct/Clean code, check name of fcts, files, folders. Review the header(space, improve with subtitles)/Makefile, tree logic
 Check what(struct) is send to fcts. Dont send the all struct if only need one param
+
+- Norme
+Naming (fct, file, folder): find and follow conventions, follow a logic 
+No paren for (*) when not needed
+Tree logic
+Place of message errors
+t_data first parameter in proto
+Number of parameters by line in proto
+tab for proto
 
 -------------------------------------
 

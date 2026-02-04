@@ -2,5 +2,9 @@
 
 bool    ant_colony(t_data *data)
 {
-    return (dinic(data)); // || routing()
+    t_pathset pathset;
+
+    init_pathset(&pathset);
+
+    return (!dinic(data, &pathset)); // || routing() //returrn no path error 
 }

@@ -71,7 +71,7 @@
 									" - Ants: positive integer (1-2000)\n" \
 									" - Room: name x y (coordinates 0-1000000)\n" \
 									" - Link: room1-room2\n" \
-									" - Command: ##start or ##end (one each required)\n" \
+									" - Command: ##start or ##end (exactly one of each required, each must be followed by a distinct room)\n" \
 									" - Comment: #text\n\n" \
 									"Example:\n" \
 									"3\n" \

@@ -19,12 +19,12 @@
 //**********************************************//
 
 /* Visualizer */
-# define PADDING 60
+# define PADDING 		60
 
 /* Parsing */
-# define MAX_ANTS	2000
-# define MIN_ANTS	1
-# define MAX_ROOMS	10000
+# define MAX_ANTS		2000
+# define MIN_ANTS		1
+# define MAX_ROOMS		10000
 # define MAX_COORDINATE MAX_ROOMS * 100
 
 //**********************************************//
@@ -49,6 +49,18 @@ typedef struct s_normalize
 }	t_normalize;
 
 typedef struct s_room	t_room;
+
+typedef struct s_path
+{
+	t_room		**rooms;
+	uint16_t	len;
+}	t_path;
+
+typedef struct s_pathset
+{
+	t_path		*paths;
+	uint16_t	nb_paths;
+}	t_pathset;
 
 typedef struct s_link
 {
@@ -198,11 +210,20 @@ bool		visualizer(t_data *data);
 //												//
 //**********************************************//
 
-
 /* routing/routing.c */
 
-/* pathfinding/dinic_algo.c */
+/* pathfinding/bfs/tools/free_array.c */
+void		free_bfs_arrays(bool *visited, t_room **queue);
+/* pathfinding/bfs/bfs.c */
+bool		bfs(t_map *map, bool *visited, t_room **queue, size_t queue_front, size_t queue_back);
+bool		init_bfs(t_map *map, bool **visited, t_room ***queue, size_t *queue_front, size_t *queue_back);
 
+/* pathfinding/dinic_algo.c */
+uint16_t    dinic(t_data *data, t_pathset *pathset);
+
+
+/* init/init_pathset.c */
+void		init_pathset(t_pathset *pathset);
 
 /* ant_colony.c */
 bool    	ant_colony(t_data *data);
@@ -213,10 +234,6 @@ bool    	ant_colony(t_data *data);
 //												//
 //**********************************************//
 
-/* parse_data/validate_map/bfs/tools/free_array.c */
-void		free_bfs_arrays(bool *visited, t_room **queue);
-/* parse_data/validate_map/bfs/bfs.c */
-bool		has_path(t_data *data);
 /* parse_data/validate_map/validate_map.c */
 bool		is_valid_map(t_data *data);
 

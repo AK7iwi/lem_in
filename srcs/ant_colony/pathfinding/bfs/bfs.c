@@ -5,7 +5,7 @@ static	inline	size_t	get_room_index(t_map *map, t_room *room)
 	return (room - map->rooms);
 }
 
-static	bool	bfs(t_map *map, bool *visited, t_room **queue, size_t queue_front, size_t queue_back)
+bool	bfs(t_map *map, bool *visited, t_room **queue, size_t queue_front, size_t queue_back)
 {
 	t_room	*current;
 	t_link	*link;
@@ -13,6 +13,7 @@ static	bool	bfs(t_map *map, bool *visited, t_room **queue, size_t queue_front, s
 
 	while (queue_front < queue_back)
 	{
+		//not at good place, should be in the loop, the start room can't equal the end
 		current = queue[queue_front++];
 		if (current == map->end_room)
 			return (0);
@@ -23,8 +24,11 @@ static	bool	bfs(t_map *map, bool *visited, t_room **queue, size_t queue_front, s
 			neighbor_idx = get_room_index(map, link->room);
 			if (!visited[neighbor_idx])
 			{
-				visited[neighbor_idx] = true;
+				//if (link->room == map->end_room)
+				//return (0)
+				//else 
 				queue[queue_back++] = link->room;
+				visited[neighbor_idx] = true;
 			}
 			link = link->next;
 		}
@@ -33,7 +37,8 @@ static	bool	bfs(t_map *map, bool *visited, t_room **queue, size_t queue_front, s
 	return (1);
 }
 
-static	bool	init_bfs(t_map *map, bool **visited, t_room ***queue, size_t *queue_front, size_t *queue_back)
+//init_bfs_array
+bool	init_bfs(t_map *map, bool **visited, t_room ***queue, size_t *queue_front, size_t *queue_back)
 {
 	*visited = malloc(sizeof(bool) * map->nb_rooms);
 	if (!*visited)
@@ -48,6 +53,7 @@ static	bool	init_bfs(t_map *map, bool **visited, t_room ***queue, size_t *queue_
 		return (1);
 	}
 
+	//in bfs 
 	*queue_front = 0;
 	*queue_back = 0;
 	(*queue)[(*queue_back)++] = map->start_room;
@@ -56,23 +62,23 @@ static	bool	init_bfs(t_map *map, bool **visited, t_room ***queue, size_t *queue_
 	return (0);
 }
 
-bool	has_path(t_data *data)
-{
-	bool	*visited;
-	t_room	**queue;
-	size_t	queue_front, queue_back;
+// bool	has_path(t_data *data)
+// {
+// 	bool	*visited;
+// 	t_room	**queue;
+// 	size_t	queue_front, queue_back;
 
-	if (init_bfs(data->map, &visited, &queue, &queue_front, &queue_back))
-	{
-		data->err.gen_errors |= E_MEMORY;
-		return (false);
-	}
-	if (bfs(data->map, visited, queue, queue_front, queue_back))
-	{
-		free_bfs_arrays(visited, queue);
-		return (false);
-	}
-	free_bfs_arrays(visited, queue);
+// 	if (init_bfs(data->map, &visited, &queue, &queue_front, &queue_back))
+// 	{
+// 		data->err.gen_errors |= E_MEMORY;
+// 		return (false);
+// 	}
+// 	if (bfs(data->map, visited, queue, queue_front, queue_back))
+// 	{
+// 		free_bfs_arrays(visited, queue);
+// 		return (false);
+// 	}
+// 	free_bfs_arrays(visited, queue);
 
-	return (true);
-}
+// 	return (true);
+// }

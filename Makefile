@@ -45,11 +45,11 @@ SRCS			:=	main.c \
 					parser/parse_data/parse_map/tools/get_next_line/srcs/get_next_line.c parser/parse_data/parse_map/tools/get_next_line/srcs/utils/utils.c \
 					parser/parse_data/parse_map/tools/empty_line.c parser/parse_data/parse_map/tools/skip_space_char.c parser/parse_data/parse_map/tools/last_char.c \
 					parser/parse_data/validate_map/validate_map.c \
-					parser/parse_data/validate_map/bfs/bfs.c \
-					parser/parse_data/validate_map/bfs/tools/free_array.c \
 					ant_colony/ant_colony.c \
-					ant_colony/pathfinding/dinic.c \
-					ant_colony/routing/routing.c \
+					ant_colony/init/init_pathset.c \
+					ant_colony/pathfinding/dinic_algo.c \
+					ant_colony/pathfinding/bfs/bfs.c \
+					ant_colony/pathfinding/bfs/tools/free_array.c \
 					visualizer/visualizer.c \
 					visualizer/params/map_metrics.c visualizer/params/set_params.c \
 					visualizer/render/init_render.c visualizer/render/render.c visualizer/render/close_render.c \
@@ -125,7 +125,7 @@ fclean: clean
 re:	fclean all
 	@echo "$(RED)lem_in cleaned and rebuilt$(DEF_COLOR)"
 
-test: fclean all
+test: all
 	@./map_tester/test_maps.sh || true
 
 .PHONY: all clean fclean re test
