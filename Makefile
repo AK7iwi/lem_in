@@ -48,8 +48,10 @@ SRCS			:=	main.c \
 					ant_colony/ant_colony.c \
 					ant_colony/init/init_pathset.c \
 					ant_colony/pathfinding/dinic_algo.c \
+					ant_colony/pathfinding/init/init_algo.c \
 					ant_colony/pathfinding/bfs/bfs.c \
-					ant_colony/pathfinding/bfs/tools/free_array.c \
+					ant_colony/pathfinding/store/store_path.c \
+					ant_colony/pathfinding/tools/free_arrays.c ant_colony/pathfinding/tools/room_index.c ant_colony/pathfinding/tools/reset_arrays.c \
 					visualizer/visualizer.c \
 					visualizer/params/map_metrics.c visualizer/params/set_params.c \
 					visualizer/render/init_render.c visualizer/render/render.c visualizer/render/close_render.c \

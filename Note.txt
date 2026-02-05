@@ -37,9 +37,7 @@ Links must not overlaps the rooms
 III) Exec
 
 - Trouver les chemins : Dinic algo
-
-Store paths
-Free room not in the path and queue
+free pathset
 
 - Optimiser les chemins utilises
 Opti
@@ -50,6 +48,8 @@ Opti
 
 Line counter
 Timer
+
+Check size of malloc in the ant_colony folder 
 
 IV) Test cmd
 
@@ -71,9 +71,12 @@ V) General/Review/ Norme
 is_valid_map in parse_map
 t_norm not linked to t_data, t_norm --> t_visu
 t_error not linked to t_data
-init struct in there folder, not in main
+init struct in there own folder, not in main
 Delete bfs from parsing
 Separer les .h
+place of free files/folders
+
+Test malloc
 
 - Review
 Global Review/Refacto/Restruct/Clean code, check name of fcts, files, folders. Review the header(space, improve with subtitles)/Makefile, tree logic

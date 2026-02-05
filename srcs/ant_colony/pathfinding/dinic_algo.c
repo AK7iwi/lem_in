@@ -1,25 +1,29 @@
 #include "lem_in.h"
 
-uint16_t    dinic(t_data *data, t_pathset *pathset)
+bool	dinic(t_data *data, t_pathset *pathset)
 {
-    bool	    *visited;
-	t_room	    **queue;
+	t_room	    **queue, **parent;
+	bool	    *visited, *used_rooms;
 	size_t	    queue_front, queue_back;
-    uint16_t    max_flow = 0;
 
-    (void)pathset;
-	if (init_bfs(data->map, &visited, &queue, &queue_front, &queue_back))
+	if (init_algo(data->map, &queue, &visited, &parent, &used_rooms, &queue_front, &queue_back))
 	{
 		data->err.gen_errors |= E_MEMORY;
-		return (0);
+		return (1);
 	}
-	while (!bfs(data->map, visited, queue, queue_front, queue_back))
-	{
-        max_flow++;
-		free_bfs_arrays(visited, queue);
-	}
-    free_bfs_arrays(visited, queue);
-    printf("max_flow:%u\n", max_flow);
 
-    return (max_flow);
+	while (!bfs(data->map, visited, used_rooms, parent, queue, queue_front, queue_back))
+	{
+		if (!store_path(data, parent, used_rooms, pathset, pathset->nb_paths))
+		{
+			free_arrays(queue, visited, parent, used_rooms);
+			return (1);
+		}
+		pathset->nb_paths++;
+		reset_bfs_arrays(data->map, visited, parent, &queue_front, &queue_back);
+	}
+	//error if no path 
+	free_arrays(queue, visited, parent, used_rooms);
+
+	return (0);
 }

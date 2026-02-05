@@ -212,18 +212,32 @@ bool		visualizer(t_data *data);
 
 /* routing/routing.c */
 
-/* pathfinding/bfs/tools/free_array.c */
-void		free_bfs_arrays(bool *visited, t_room **queue);
+
+
+
+/* pathfinding/tools/reset_arrays.c */
+void		reset_bfs_arrays(t_map *map, bool *visited, t_room **parent, size_t *queue_front, size_t *queue_back);
+/* pathfinding/tools/room_index.c */
+size_t		get_room_index(t_map *map, t_room *room);
+/* pathfinding/tools/free_arrays.c */
+void		free_arrays(t_room **queue, bool *visited, t_room **parent, bool *used_rooms);
+
+/* pathfinding/store/store_path.c */
+bool		store_path(t_data *data, t_room **parent, bool *used_rooms, t_pathset *pathset, uint16_t path_idx);
+
 /* pathfinding/bfs/bfs.c */
-bool		bfs(t_map *map, bool *visited, t_room **queue, size_t queue_front, size_t queue_back);
-bool		init_bfs(t_map *map, bool **visited, t_room ***queue, size_t *queue_front, size_t *queue_back);
+bool		bfs(t_map *map, bool *visited, bool *used_rooms, t_room **parent, t_room **queue, size_t queue_front, size_t queue_back);
+
+/* pathfinding/init/init_algo.c */
+bool		init_algo(t_map *map, t_room ***queue, bool **visited, t_room ***parent, bool **used_rooms, size_t *queue_front, size_t *queue_back);
 
 /* pathfinding/dinic_algo.c */
-uint16_t    dinic(t_data *data, t_pathset *pathset);
+bool		dinic(t_data *data, t_pathset *pathset);
 
 
 /* init/init_pathset.c */
-void		init_pathset(t_pathset *pathset);
+bool		init_pathset(t_data *data, t_pathset *pathset);
+
 
 /* ant_colony.c */
 bool    	ant_colony(t_data *data);
