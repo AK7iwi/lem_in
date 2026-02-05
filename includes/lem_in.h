@@ -210,6 +210,12 @@ bool		visualizer(t_data *data);
 //												//
 //**********************************************//
 
+
+
+/* free/free_pathset.c */
+void		free_pathset(t_pathset *pathset);
+
+
 /* routing/routing.c */
 
 

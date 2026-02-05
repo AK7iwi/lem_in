@@ -37,6 +37,7 @@ Links must not overlaps the rooms
 III) Exec
 
 - Trouver les chemins : Dinic algo
+Refacto store_path
 free pathset
 
 - Optimiser les chemins utilises
