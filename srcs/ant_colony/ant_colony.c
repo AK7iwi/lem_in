@@ -33,16 +33,15 @@ bool    ant_colony(t_data *data)
 {
     t_pathset pathset;
 
-
-    //maybe init after 
+    //maybe init after for having a more precise len for malloc 
     if (init_pathset(data, &pathset))
         return (1);
-
     if (dinic(data, &pathset))
     {
         free_pathset(&pathset);
         return (1);
     }
+
     // routing(data, &pathset)
     display_paths(&pathset);
     free_pathset(&pathset);

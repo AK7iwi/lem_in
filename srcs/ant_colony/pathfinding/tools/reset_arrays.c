@@ -1,6 +1,6 @@
 #include "lem_in.h"
 
-void	reset_bfs_arrays(t_map *map, bool *visited, t_room **parent, size_t *queue_front, size_t *queue_back)
+void	reset_bfs_arrays(t_map *map, bool *visited, t_room **parent, t_room **queue, size_t *queue_front, size_t *queue_back)
 {
 	for (size_t i = 0; i < map->nb_rooms; i++)
 		visited[i] = false;
@@ -9,7 +9,8 @@ void	reset_bfs_arrays(t_map *map, bool *visited, t_room **parent, size_t *queue_
 		parent[i] = NULL;
 
 	*queue_front = 0;
-	*queue_back = 1;
+	*queue_back = 0;
+	queue[(*queue_back)++] = map->start_room;
 	visited[get_room_index(map, map->start_room)] = true;
 	parent[get_room_index(map, map->start_room)] = map->start_room;
 }

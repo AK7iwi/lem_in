@@ -13,17 +13,14 @@ bool	bfs(t_map *map, bool *visited, bool *used_rooms, t_room **parent, t_room **
 		while (link)
 		{
 			neighbor_idx = get_room_index(map, link->room);
-			if (!visited[neighbor_idx] && 
-			    (link->room == map->start_room || 
-			     link->room == map->end_room || 
-			     !used_rooms[neighbor_idx]))
+			if (!visited[neighbor_idx] && !used_rooms[neighbor_idx])
 			{
-				visited[neighbor_idx] = true;
 				parent[neighbor_idx] = current;
 				
 				if (link->room == map->end_room)
 					return (0);
-				
+
+				visited[neighbor_idx] = true;
 				queue[queue_back++] = link->room;
 			}
 			link = link->next;

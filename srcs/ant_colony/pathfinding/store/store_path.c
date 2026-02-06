@@ -27,15 +27,14 @@ bool	store_path(t_data *data, t_room **parent, bool *used_rooms, t_pathset *path
 	if (!pathset->paths[path_idx].rooms)
 	{
 		data->err.gen_errors |= E_MEMORY;
-		return (false);
+		return (1);
 	}
 
 	current = data->map->end_room;
 	i = pathset->paths[path_idx].len;
 	while (current != data->map->start_room)
 	{
-		pathset->paths[path_idx].rooms[--i] = current;
-		
+		pathset->paths[path_idx].rooms[--i] = current; // len - 1
 		if (current != data->map->end_room && current != data->map->start_room)
 			used_rooms[get_room_index(data->map, current)] = true;
 		
@@ -43,5 +42,5 @@ bool	store_path(t_data *data, t_room **parent, bool *used_rooms, t_pathset *path
 	}
 	pathset->paths[path_idx].rooms[0] = data->map->start_room;
 
-	return (true);
+	return (0);
 }

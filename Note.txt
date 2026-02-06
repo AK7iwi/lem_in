@@ -10,7 +10,6 @@ TO COMMIT:
 
 I) Parsing OK
 
-Test the path in the exec to not doing it twice, Delete bfs from parsing
 is_valid_map in parse_map
 
 II) Visualizer
@@ -37,8 +36,10 @@ Links must not overlaps the rooms
 III) Exec
 
 - Trouver les chemins : Dinic algo
-Refacto store_path
-free pathset
+Fix direct issue: path start --> end 
+Refacto ant_colony/store_path
+Check why sending adress for init_algo but not reset_bfs_array
+Test (+add new maps)
 
 - Optimiser les chemins utilises
 Opti
@@ -47,10 +48,10 @@ Opti
 
 - Time start when clicking on start button
 
+Check size of malloc in the ant_colony folder 
+
 Line counter
 Timer
-
-Check size of malloc in the ant_colony folder 
 
 IV) Test cmd
 
@@ -72,11 +73,9 @@ V) General/Review/ Norme
 is_valid_map in parse_map
 t_norm not linked to t_data, t_norm --> t_visu
 t_error not linked to t_data
-init struct in there own folder, not in main
-Delete bfs from parsing
+init struct in there own folder, not in main. Name: init_namestruct_struct
 Separer les .h
-place of free files/folders
-
+place/name of free files/folders
 Test malloc
 
 - Review
@@ -91,6 +90,8 @@ Place of message errors
 t_data first parameter in proto
 Number of parameters by line in proto
 tab for proto
+Order of parameter in the proto
+
 
 -------------------------------------
 

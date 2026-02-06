@@ -222,7 +222,7 @@ void		free_pathset(t_pathset *pathset);
 
 
 /* pathfinding/tools/reset_arrays.c */
-void		reset_bfs_arrays(t_map *map, bool *visited, t_room **parent, size_t *queue_front, size_t *queue_back);
+void		reset_bfs_arrays(t_map *map, bool *visited, t_room **parent, t_room **queue, size_t *queue_front, size_t *queue_back);
 /* pathfinding/tools/room_index.c */
 size_t		get_room_index(t_map *map, t_room *room);
 /* pathfinding/tools/free_arrays.c */
